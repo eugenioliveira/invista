@@ -24,5 +24,25 @@ Route::middleware('auth:sanctum')->group(function() {
         return view('home');
     })->name('home');
 
+    // Página inicial do sistema
+    Route::get('/allotments', function () {
+        return view('home');
+    })->name('allotments.index');
+
+    // Página inicial do sistema
+    Route::get('/brokers', function () {
+        return view('home');
+    })->name('brokers.index');
+
+    // Página inicial do sistema
+    Route::get('/clients', function () {
+        return view('home');
+    })->name('clients.index');
+
+    // Página inicial do sistema
+    Route::get('/sales', function () {
+        return view('home');
+    })->name('sales.index');
+
 
 });

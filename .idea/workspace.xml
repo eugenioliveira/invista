@@ -132,6 +132,7 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/lang" />
     </include_path>
   </component>
   <component name="ProjectId" id="1idnornysOlA67WUnuIpHJ8x9vr" />
@@ -142,15 +143,23 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/lang" />
+      <recent name="$PROJECT_DIR$/resources/lang/pt-BR" />
+      <recent name="$PROJECT_DIR$/public/img" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -166,7 +175,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602246514134</updated>
-      <workItem from="1602246515164" duration="1997000" />
+      <workItem from="1602246515164" duration="23805000" />
     </task>
     <servers />
   </component>
@@ -174,6 +183,14 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2107" y="259" width="585" height="520" key="find.popup" timestamp="1602268446711">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2107" y="259" width="585" height="520" key="find.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602268446711" />
+    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1602271817694">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602271817694" />
     <state x="2125" y="427" width="540" height="176" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602248296482">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
