@@ -20,43 +20,9 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
+
             <!-- Page Navbar -->
-            <div class="bg-primary shadow text-white">
-
-                <div class="container mx-auto flex items-center justify-between py-4">
-                    <!-- Left section of navbar -->
-                    <div class="flex items-center">
-                        <!-- logo -->
-                        <a href="{{ route('home') }}" class="p-2 rounded bg-white flex items-center justify-center">
-                            <x-logo width="40"></x-logo>
-                            <h2 class="font-medium text-black uppercase">Caixeta <span class="text-primary">Vendas</span></h2>
-                        </a>
-
-                        <!-- Nav Links -->
-                        <nav class="ml-8 flex space-x-1">
-                            <x-nav-link route="home">Home</x-nav-link>
-
-                            <x-dropdown :arrow="false">
-                                <x-slot name="trigger">
-                                    <x-nav-link route="allotments.index" :dropdown="true">Loteamentos</x-nav-link>
-                                </x-slot>
-
-
-                                <x-dropdown-link href="/">Gerenciar</x-dropdown-link>
-                                <x-dropdown-link href="/">Novo</x-dropdown-link>
-                            </x-dropdown>
-
-                            <x-nav-link route="brokers.index">Corretores</x-nav-link>
-                            <x-nav-link route="clients.index">Clientes</x-nav-link>
-                            <x-nav-link route="sales.index">Vendas</x-nav-link>
-                        </nav>
-                    </div>
-
-                    <!-- User dropdown -->
-                    <x-user-dropdown />
-                </div>
-
-            </div>
+            @include('partials.navbar')
 
             <!-- Page Heading -->
 
@@ -64,6 +30,9 @@
             <main>
                 {{ $slot }}
             </main>
+
+            <!-- Page footer -->
+            @include('partials.footer')
         </div>
 
         @stack('modals')

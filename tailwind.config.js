@@ -17,7 +17,8 @@ module.exports = {
             },
             colors: {
                 'primary': '#ff4e00',
-                'secondary': '#ec9f05'
+                'secondary': '#ec9f05',
+                'logo': '#F58634'
             },
             fontFamily: {
                 sans: ['Commissioner', ...defaultTheme.fontFamily.sans],
