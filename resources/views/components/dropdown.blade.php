@@ -1,7 +1,4 @@
-@props([
-    'arrow' => true,
-    'alignment' => 'left'
-])
+@props(['alignment' => 'left'])
 
 @php
     $alignmentClasses = [
@@ -11,20 +8,8 @@
 @endphp
 
 <div x-data="{open: false}" @click.away="open = false" class="relative">
-    <div @click.prevent="open = !open" class="flex items-center cursor-pointer">
+    <div @click.prevent="open = !open">
         {{ $trigger }}
-        @if($arrow)
-            <div class="w-4 h-4 ml-1 opacity-75">
-                <svg x-show="!open" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-                <svg x-show="open" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-                </svg>
-            </div>
-        @endif
     </div>
 
     <div

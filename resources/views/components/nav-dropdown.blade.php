@@ -1,7 +1,14 @@
-<x-dropdown>
+@props(['title', 'route'])
+
+@php
+    $classes = Request::is($route . '*') ? 'bg-white bg-opacity-25' : 'hover:bg-white hover:bg-opacity-25'
+@endphp
+
+<x-dropdown :arrow="false">
     <x-slot name="trigger">
-        <button class="flex items-center focus:outline-none">
-            <img src="{{ Auth::user()->profile_photo_url }}" class="w-10 h-10 rounded-lg border-2 border-gray-600" alt="">
+        <button
+            class="flex items-center font-medium text-sm px-6 py-3 rounded transition ease-in duration-150 focus:outline-none focus:bg-white focus:bg-opacity-25 {{ $classes }}">
+            <span>{{ $title }}</span>
             <div class="w-4 h-4 ml-1 opacity-75">
                 <svg x-show="!open" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                      xmlns="http://www.w3.org/2000/svg">
@@ -15,7 +22,5 @@
         </button>
     </x-slot>
 
-
-    <x-dropdown-link href="{{ route('profile.show') }}">Perfil</x-dropdown-link>
-    <x-dropdown-link href="/">Sair</x-dropdown-link>
+    {{ $slot }}
 </x-dropdown>

@@ -11,15 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/components/full-logo.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/card.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/dashboard-card.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/nav-dropdown.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/section.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/home/partials/cards.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/logo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/nav-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/nav-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/update-profile-information-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/update-profile-information-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,6 +183,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/home" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/lang" />
       <recent name="$PROJECT_DIR$/resources/lang/pt-BR" />
@@ -201,7 +210,7 @@
       <workItem from="1602276462014" duration="636000" />
       <workItem from="1602596895625" duration="22000" />
       <workItem from="1602596929969" duration="1079000" />
-      <workItem from="1602598020742" duration="969000" />
+      <workItem from="1602598020742" duration="11508000" />
     </task>
     <servers />
   </component>
@@ -229,10 +238,10 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2107" y="259" width="585" height="520" key="find.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602268446711" />
-    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1602276466685">
+    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1602621111510">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602276466685" />
+    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602621111510" />
     <state x="2125" y="427" width="540" height="176" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602248296482">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
