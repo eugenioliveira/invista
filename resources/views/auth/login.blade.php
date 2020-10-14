@@ -12,7 +12,7 @@
                 <div>
                     <h2 class="text-2xl uppercase">
                         <span class="font-medium">Caixeta</span>
-                        <span class="font-bold">Vendas</span>
+                        <span class="font-bold text-primary">Vendas</span>
                     </h2>
                 </div>
             </div>
@@ -44,7 +44,7 @@
 
                     <div class="flex items-center justify-end mt-4">
                         @if (Route::has('password.request'))
-                            <a class="underline text-sm text-orange-600 hover:text-orange-900" href="{{ route('password.request') }}">
+                            <a class="underline text-sm text-primary hover:text-orange-900" href="{{ route('password.request') }}">
                                 Esqueceu sua senha?
                             </a>
                         @endif

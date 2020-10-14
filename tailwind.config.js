@@ -12,13 +12,8 @@ module.exports = {
             backgroundImage: theme => ({
                 'login-bg': "url('/img/back.jpg')",
             }),
-            borderRadius: {
-                xl: '1.5rem'
-            },
             colors: {
-                'primary': '#ff4e00',
-                'secondary': '#ec9f05',
-                'logo': '#F58634'
+                'primary': '#F58634'
             },
             fontFamily: {
                 sans: ['Commissioner', ...defaultTheme.fontFamily.sans],

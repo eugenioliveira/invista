@@ -1,7 +1,7 @@
 <x-card>
     <div class="flex items-center p-4">
         <!-- Icon -->
-        <div class="bg-logo w-12 h-12 rounded-md text-white flex items-center justify-center">
+        <div class="bg-primary w-12 h-12 rounded-md text-white flex items-center justify-center">
             {{ $icon }}
         </div>
 
