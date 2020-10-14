@@ -7,13 +7,11 @@
     </x-slot>
 
     <x-section>
-        <!-- Stat Cards -->
+        {{-- Dashboard Cards --}}
         @include('home.partials.cards')
 
-        <!-- Sales Graph -->
-        <x-card class="mt-4 p-4">
-            Teste
-        </x-card>
+        {{-- Sales Graph --}}
+        <livewire:sales-graph-component />
 
     </x-section>
 
