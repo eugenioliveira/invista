@@ -11,7 +11,7 @@
         @include('home.partials.cards')
 
         {{-- Sales Graph --}}
-        <livewire:sales-graph-component />
+        <livewire:sales-chart-component />
 
     </x-section>
 
