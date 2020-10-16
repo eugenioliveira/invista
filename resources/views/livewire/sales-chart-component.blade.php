@@ -3,10 +3,10 @@
     wire:init="getChartData"
     x-data="salesChart()"
     x-init="initChart($refs.chartCanvas)"
-    @sales-chart-data-loaded.window="updateChart($event.detail)"
+    x-on:sales-chart-data-loaded.window="updateChart($event.detail)"
 >
     <div class="p-4 border-b flex items-center justify-between">
-        <h2 class="font-bold text-lg">Vendas totais</h2>
+        <h2 class="font-bold text-lg">Vendas totais por competência (em R$)</h2>
         <x-button wire:click="getChartData" @click="toggleLoading">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -27,7 +27,6 @@
     </div>
     <div class="p-4">
         <canvas
-            id="sales-graph"
             class="w-full"
             height="400"
             x-ref="chartCanvas"

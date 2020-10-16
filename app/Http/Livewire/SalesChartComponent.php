@@ -6,12 +6,9 @@ use Livewire\Component;
 
 class SalesChartComponent extends Component
 {
-    public $chartData;
-
     public function getChartData()
     {
-        sleep(3);
-        $this->chartData = [
+        $chartData = [
             rand(1, 10),
             rand(2, 30),
             rand(20, 50),
@@ -26,7 +23,7 @@ class SalesChartComponent extends Component
             rand(1, 108)
         ];
 
-        $this->dispatchBrowserEvent('sales-chart-data-loaded', $this->chartData);
+        $this->dispatchBrowserEvent('sales-chart-data-loaded', $chartData);
     }
 
     public function render()

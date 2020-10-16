@@ -25,3 +25,4 @@
         <x-user-dropdown />
     </div>
 </div>
+<div class="bg-gray-500 h-1"></div>
