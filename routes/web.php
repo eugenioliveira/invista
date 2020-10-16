@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllotmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,10 +21,9 @@ Route::middleware('auth:sanctum')->group(function() {
         return view('home.index');
     })->name('home');
 
-    // Página inicial do sistema
-    Route::get('/allotments', function () {
-        return view('home');
-    })->name('allotments.index');
+    // Loteamentos
+    Route::get('/allotments', [AllotmentController::class, 'index'])
+        ->name('allotments.index');
 
     // Página inicial do sistema
     Route::get('/brokers', function () {

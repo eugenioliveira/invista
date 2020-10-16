@@ -26,4 +26,9 @@ class City extends Model
     {
         return $this->hasMany(Allotment::class);
     }
+
+    public function getFullNameAttribute()
+    {
+        return sprintf('%s - %s', $this->name, $this->state);
+    }
 }

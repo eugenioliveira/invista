@@ -15,7 +15,7 @@ class CreateAllotmentsTable extends Migration
     {
         Schema::create('allotments', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->index();
             $table->string('cover')->nullable();
             $table->foreignId('city_id')->constrained();
             $table->boolean('active')->default(true);

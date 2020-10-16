@@ -63,7 +63,7 @@
         <x-slot name="stat">260</x-slot>
 
         <x-slot name="action">
-            <a href="/" class="text-sm font-medium text-orange-500 hover:underline">Gerenciar loteamentos</a>
+            <a href="{{ route('allotments.index') }}" class="text-sm font-medium text-orange-500 hover:underline">Gerenciar loteamentos</a>
         </x-slot>
     </x-dashboard-card>
 </div>
