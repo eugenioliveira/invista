@@ -2,6 +2,9 @@
     /** @var \App\Models\Allotment $allotment */
 @endphp
 <div x-data="{ showPanel: false, allotmentId: '', allotmentTitle: '' }">
+    @if(session('successMessage'))
+        <x-alert type="success" message="{{ session('successMessage') }}" />
+    @endif
     <!-- Allotment Grid -->
     <div class="p-4 md:p-0 grid grid-cols-1 md:grid-cols-4 gap-4">
         @foreach($allotments as $allotment)
@@ -13,18 +16,27 @@
                     <div class="text-sm mb-2">
                         <p>
                             <span class="font-medium">Lotes: </span>
-                            <span>{{ $allotment->lots->count() }}</span>
+                            <span class="lotCount">{{ $allotment->lots->count() }}</span>
                         </p>
                         <p>
                             <span class="font-medium">Área: </span>
-                            <span>{{ app('decimal')->format($allotment->area) }} m<sup>2</sup></span>
+                            <span>{{ $allotment->area }} m<sup>2</sup></span>
                         </p>
                         <p>
                             <span class="font-medium">Cidade: </span>
                             <span>{{ $allotment->city->full_name }}</span>
                         </p>
                     </div>
-                    <x-button class="w-full justify-center" @click="showPanel = true; allotmentTitle = '{{ $allotment->title }}';">Opções</x-button>
+                    <x-button
+                        class="w-full justify-center"
+                        @click="
+                            showPanel = true;
+                            allotmentTitle = '{{ $allotment->title }}';
+                            allotmentId = {{ $allotment->id }}
+                        "
+                    >
+                        Opções
+                    </x-button>
                 </div>
             </x-card>
         @endforeach
@@ -84,7 +96,7 @@
                             <ul>
                                 <!-- Edit -->
                                 <li>
-                                    <a href="/" class="flex items-center px-4 py-2 rounded-lg hover:bg-orange-500 hover:text-white">
+                                    <a :href="'/allotment/edit/' + allotmentId" class="flex items-center px-4 py-2 rounded-lg hover:bg-orange-500 hover:text-white">
                                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>

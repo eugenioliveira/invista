@@ -1,3 +1,6 @@
+@php
+/** @var \App\Models\User $currentUser */
+@endphp
 <x-dropdown>
     <x-slot name="trigger">
         <button class="flex items-center focus:outline-none">

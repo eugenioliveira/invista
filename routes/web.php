@@ -14,16 +14,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->group(function() {
+Route::middleware('auth:sanctum')->group(function () {
 
     // Página inicial do sistema
     Route::get('/', function () {
-        return view('home.index');
+
+        return view('home.index', [
+            'allotmentCount' => \App\Models\Allotment::count()
+        ]);
+
     })->name('home');
 
-    // Loteamentos
+    //======================================================================
+    // ROTAS REFERENTES À LOTEAMENTOS
+    //======================================================================
+
+    // Página inicial
     Route::get('/allotments', [AllotmentController::class, 'index'])
         ->name('allotments.index');
+
+    // Formulário de criação
+    Route::get('/allotment/create', [AllotmentController::class, 'create'])
+        ->name('allotment.create');
+
+    // Formulário de edição
+    Route::get('/allotment/edit/{allotment}', [AllotmentController::class, 'edit'])
+        ->name('allotment.edit');
+
+    //======================================================================
+
 
     // Página inicial do sistema
     Route::get('/brokers', function () {

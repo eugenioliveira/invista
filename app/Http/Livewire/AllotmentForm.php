@@ -1,0 +1,104 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use App\Models\Allotment;
+use App\Models\City;
+use Livewire\Component;
+
+/**
+ * Formulário do loteamento.
+ *
+ * Class AllotmentForm
+ * @package App\Http\Livewire
+ */
+class AllotmentForm extends Component
+{
+    public Allotment $allotment;
+    public ?string $successMessage = null;
+
+    /**
+     * Regras de validação
+     *
+     * @var array
+     */
+    protected array $rules = [
+        'allotment.title' => ['required', 'min:6'],
+        //'allotment.cover' => ['sometimes', 'file', 'mimetypes:image/png,image/jpeg'],
+        'allotment.city_id' => ['required', 'numeric'],
+        'allotment.active' => ['required'],
+        'allotment.area' => ['required', 'regex:/^[1-9]*(\,\d{1,2})?$/'],
+        'allotment.latitude' => ['nullable', 'numeric'],
+        'allotment.longitude' => ['nullable', 'numeric'],
+        'allotment.max_discount' => ['required', 'regex:/^\d*(\,\d{1,2})?$/'],
+        'allotment.allowable_margin' => ['required', 'regex:/^\d*(\,\d{1,2})?$/'],
+        'allotment.assurance_parcels' => ['required', 'integer'],
+        'allotment.reservation_duration' => ['required', 'numeric', 'gt:0'],
+    ];
+
+    /**
+     * Mensagens de erro
+     *
+     * @var array
+     */
+    protected $messages = [
+        'allotment.title.required' => 'O campo Título é obrigatório.',
+        'allotment.title.min' => 'O campo Título é deve conter pelo menos 6 caracteres.',
+        'allotment.city_id.required' => 'Selecione uma cidade.',
+        'allotment.city_id.numeric' => 'Selecione uma cidade.',
+        'allotment.area.required' => 'O campo área total é obrigatório.',
+        'allotment.area.regex' => 'O campo área total deve ser um número maior que zero.',
+        'allotment.max_discount.required' => 'O campo Desconto permitido é obrigatório.',
+        'allotment.max_discount.regex' => 'O campo Desconto permitido deve ser numérico.',
+        'allotment.allowable_margin.required' => 'O campo Margem máxima de desconto é obrigatório.',
+        'allotment.allowable_margin.regex' => 'O campo Margem máxima de desconto deve ser numérico.',
+        'allotment.assurance_parcels.required' => 'O campo Parcelamento máximo do arras é obrigatório.',
+        'allotment.assurance_parcels.numeric' => 'O campo Parcelamento máximo do arras deve ser numérico.',
+        'allotment.reservation_duration.required' => 'O campo Duração da reserva é obrigatório.',
+        'allotment.reservation_duration.numeric' => 'O campo Duração da reserva deve ser numérico.',
+        'allotment.reservation_duration.gt' => 'O campo Duração da reserva deve ser maior que zero.',
+    ];
+
+    public function mount(Allotment $allotment)
+    {
+        $this->allotment = $allotment;
+        $this->allotment->active = 1;
+    }
+
+    /**
+     * Indica que os campos serão validados em tempo real
+     *
+     * @param $propertyName
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    /**
+     * Salva o loteamento.
+     *
+     * @param bool $redirect
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function submit($redirect = true)
+    {
+        $this->validate();
+
+        $this->allotment->save();
+        $this->successMessage = 'Loteamento salvo.';
+
+        if ($redirect) {
+            request()->session()->flash('successMessage', $this->successMessage);
+            return redirect()->route('allotments.index');
+        }
+    }
+
+    public function render()
+    {
+        return view('livewire.allotment-form', [
+            'cities' => City::orderBy('name')->get()
+        ]);
+    }
+}

@@ -60,7 +60,7 @@
         </x-slot>
 
         <x-slot name="title">Loteamentos</x-slot>
-        <x-slot name="stat">260</x-slot>
+        <x-slot name="stat">{{ $allotmentCount }}</x-slot>
 
         <x-slot name="action">
             <a href="{{ route('allotments.index') }}" class="text-sm font-medium text-orange-500 hover:underline">Gerenciar loteamentos</a>

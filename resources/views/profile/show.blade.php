@@ -1,4 +1,5 @@
 <x-app-layout>
+    <x-slot name="title">Perfil</x-slot>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
@@ -11,7 +12,7 @@
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
                 <x-jet-section-border />
-            
+
                 <div class="mt-10 sm:mt-0">
                     @livewire('profile.update-password-form')
                 </div>
@@ -25,17 +26,17 @@
                 </div>
             @endif
 
-            <x-jet-section-border />
+           {{-- <x-jet-section-border />
 
             <div class="mt-10 sm:mt-0">
                 @livewire('profile.logout-other-browser-sessions-form')
-            </div>
+            </div>--}}
 
-            <x-jet-section-border />
+            {{--<x-jet-section-border />
 
             <div class="mt-10 sm:mt-0">
                 @livewire('profile.delete-user-form')
-            </div>
+            </div>--}}
         </div>
     </div>
 </x-app-layout>

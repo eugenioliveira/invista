@@ -11,9 +11,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/allotments/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/Components/AppLayout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/AppLayout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Casts/DecimalCast.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Casts/TimeDurationCast.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/allotments/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/allotments/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/alert.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/input-row.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/input.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/select.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/debugbar/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/AllotmentsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/HomePageTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AllotmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AllotmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Allotment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Allotment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/AllotmentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AllotmentFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/partials/cards.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/partials/cards.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
@@ -150,6 +175,9 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/laravel-lang/lang" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
     </include_path>
   </component>
   <component name="ProjectId" id="1idnornysOlA67WUnuIpHJ8x9vr" />
@@ -162,9 +190,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components/alerts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -172,20 +202,41 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/components" />
+      <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
       <recent name="$PROJECT_DIR$/resources/views/home" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
+      <recent name="$PROJECT_DIR$/resources/views/allotments" />
+      <recent name="$PROJECT_DIR$/resources/views/components" />
       <recent name="$PROJECT_DIR$/resources/lang" />
       <recent name="$PROJECT_DIR$/resources/lang/pt-BR" />
-      <recent name="$PROJECT_DIR$/public/img" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.phpunit.xml">
+  <component name="RunManager" selected="PHPUnit.AllotmentsTest.allotments_page_shows_allotments_correctly">
+    <configuration name="AllotmentsTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\AllotmentsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/AllotmentsTest.php" scope="Class" />
+      <method v="2" />
+    </configuration>
+    <configuration name="AllotmentsTest.allotments_page_shows_allotments_correctly" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\AllotmentsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/AllotmentsTest.php" method="allotments_page_shows_allotments_correctly" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="HomePageTest.home_page_shows_correct_number_of_allotments" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\HomePageTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/HomePageTest.php" method="home_page_shows_correct_number_of_allotments" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="HomePageTest.home_page_shows_sales_chart" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\HomePageTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/HomePageTest.php" method="home_page_shows_sales_chart" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -202,6 +253,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.AllotmentsTest.allotments_page_shows_allotments_correctly" />
+        <item itemvalue="PHPUnit.AllotmentsTest" />
+        <item itemvalue="PHPUnit.HomePageTest.home_page_shows_sales_chart" />
+        <item itemvalue="PHPUnit.HomePageTest.home_page_shows_correct_number_of_allotments" />
         <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
@@ -223,7 +278,9 @@
       <workItem from="1602683346801" duration="3541000" />
       <workItem from="1602700226158" duration="5503000" />
       <workItem from="1602765440645" duration="12054000" />
-      <workItem from="1602850773223" duration="6582000" />
+      <workItem from="1602850773223" duration="17511000" />
+      <workItem from="1603109918279" duration="22302000" />
+      <workItem from="1603193628685" duration="7733000" />
     </task>
     <servers />
   </component>
@@ -246,22 +303,50 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1878" height="170" key="GridCell.Tab.0.bottom" timestamp="1602682272783">
+    <state x="2115" y="70" width="564" height="882" key="#PHP" timestamp="1603110708527">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="170" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602682272783" />
-    <state width="1878" height="170" key="GridCell.Tab.0.center" timestamp="1602682272783">
+    <state x="2115" y="70" width="564" height="882" key="#PHP/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603110708527" />
+    <state x="2201" y="190" width="387" height="649" key="#com.intellij.ide.util.MemberChooser" timestamp="1603110867236">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="170" key="GridCell.Tab.0.center/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602682272783" />
-    <state width="1878" height="170" key="GridCell.Tab.0.left" timestamp="1602682272783">
+    <state x="2201" y="190" width="387" height="649" key="#com.intellij.ide.util.MemberChooser/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603110867236" />
+    <state width="1878" height="332" key="GridCell.Tab.0.bottom" timestamp="1603138207853">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="170" key="GridCell.Tab.0.left/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602682272783" />
-    <state width="1878" height="170" key="GridCell.Tab.0.right" timestamp="1602682272783">
+    <state width="1878" height="332" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603138207853" />
+    <state width="1878" height="332" key="GridCell.Tab.0.center" timestamp="1603138207853">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state width="1878" height="170" key="GridCell.Tab.0.right/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602682272783" />
+    <state width="1878" height="332" key="GridCell.Tab.0.center/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603138207853" />
+    <state width="1878" height="332" key="GridCell.Tab.0.left" timestamp="1603138207853">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="332" key="GridCell.Tab.0.left/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603138207853" />
+    <state width="1878" height="332" key="GridCell.Tab.0.right" timestamp="1603138207853">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="332" key="GridCell.Tab.0.right/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603138207853" />
+    <state width="1878" height="332" key="GridCell.Tab.1.bottom" timestamp="1603138207853">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="332" key="GridCell.Tab.1.bottom/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603138207853" />
+    <state width="1878" height="332" key="GridCell.Tab.1.center" timestamp="1603138207853">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="332" key="GridCell.Tab.1.center/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603138207853" />
+    <state width="1878" height="332" key="GridCell.Tab.1.left" timestamp="1603138207853">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="332" key="GridCell.Tab.1.left/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603138207853" />
+    <state width="1878" height="332" key="GridCell.Tab.1.right" timestamp="1603138207853">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="332" key="GridCell.Tab.1.right/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603138207853" />
+    <state x="2202" y="141" width="386" height="748" key="RollbackChangesDialog" timestamp="1602867700000">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2202" y="141" width="386" height="748" key="RollbackChangesDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602867700000" />
     <state x="1911" y="154" key="SettingsEditor" timestamp="1602597843369">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
@@ -270,10 +355,14 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2107" y="259" width="585" height="520" key="find.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602680910774" />
-    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1602867122711">
+    <state x="2064" y="238" key="run.anything.popup" timestamp="1602875426272">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602867122711" />
+    <state x="2064" y="238" key="run.anything.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602875426272" />
+    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1603200806169">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603200806169" />
     <state x="2125" y="427" width="540" height="176" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602248296482">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
