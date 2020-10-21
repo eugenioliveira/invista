@@ -9,7 +9,7 @@
     <div class="p-4 md:p-0 grid grid-cols-1 md:grid-cols-4 gap-4">
         @foreach($allotments as $allotment)
             <x-card class="overflow-hidden">
-                <img src="https://via.placeholder.com/500x150">
+                <img src="{{ $allotment->cover_url }}" class="w-full h-32 object-cover">
                 <div class="p-4">
                     <h2 class="font-medium text-lg text-primary">{{ $allotment->title }}</h2>
                     <hr class="my-2">

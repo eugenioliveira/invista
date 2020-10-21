@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Allotment;
 use App\Models\City;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 /**
  * Formulário do loteamento.
@@ -14,8 +15,36 @@ use Livewire\Component;
  */
 class AllotmentForm extends Component
 {
+    use WithFileUploads;
+
+    /**
+     * O loteamento a ser salvo.
+     *
+     * @var Allotment
+     */
     public Allotment $allotment;
+
+    /**
+     * Mensagem de sucesso.
+     *
+     * @var string|null
+     */
     public ?string $successMessage = null;
+
+    /**
+     * O nova foto de capa do Loteamento.
+     *
+     * @var mixed
+     */
+    public $cover;
+
+
+    /**
+     * Url do arquivo temporário.
+     *
+     * @var string|null
+     */
+    public ?string $tempUrl = null;
 
     /**
      * Regras de validação
@@ -24,7 +53,7 @@ class AllotmentForm extends Component
      */
     protected array $rules = [
         'allotment.title' => ['required', 'min:6'],
-        //'allotment.cover' => ['sometimes', 'file', 'mimetypes:image/png,image/jpeg'],
+        'cover' => ['nullable', 'sometimes', 'image', 'max:5000'],
         'allotment.city_id' => ['required', 'numeric'],
         'allotment.active' => ['required'],
         'allotment.area' => ['required', 'regex:/^[1-9]*(\,\d{1,2})?$/'],
@@ -42,6 +71,8 @@ class AllotmentForm extends Component
      * @var array
      */
     protected $messages = [
+        'cover.image' => 'O arquivo deve ser uma imagem.',
+        'cover.max' => 'Arquivo muito grande! Envie um arquivo com menos de 5MB.',
         'allotment.title.required' => 'O campo Título é obrigatório.',
         'allotment.title.min' => 'O campo Título é deve conter pelo menos 6 caracteres.',
         'allotment.city_id.required' => 'Selecione uma cidade.',
@@ -59,6 +90,11 @@ class AllotmentForm extends Component
         'allotment.reservation_duration.gt' => 'O campo Duração da reserva deve ser maior que zero.',
     ];
 
+    /**
+     * Prepara o componente.
+     *
+     * @param Allotment $allotment
+     */
     public function mount(Allotment $allotment)
     {
         $this->allotment = $allotment;
@@ -73,24 +109,33 @@ class AllotmentForm extends Component
      */
     public function updated($propertyName)
     {
+
+        try {
+            $this->tempUrl = $this->cover->temporaryUrl();
+        } catch (\Exception $e) {
+            $this->tempUrl = null; // placeholder image
+        }
+
         $this->validateOnly($propertyName);
     }
 
     /**
-     * Salva o loteamento.
+     * Recebe os dados do formulário e salva o loteamento.
      *
-     * @param bool $redirect
+     * @param bool $redirectAfterSave
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function submit($redirect = true)
+    public function submit(bool $redirectAfterSave = true)
     {
         $this->validate();
+
+        $this->allotment->cover = ($this->cover) ? $this->cover->store('covers', 'public') : $this->allotment->cover;
 
         $this->allotment->save();
         $this->successMessage = 'Loteamento salvo.';
 
-        if ($redirect) {
-            request()->session()->flash('successMessage', $this->successMessage);
+        if ($redirectAfterSave) {
+            session()->flash('successMessage', $this->successMessage);
             return redirect()->route('allotments.index');
         }
     }

@@ -1,4 +1,4 @@
-@props(['type' => 'success', 'message'])
+@props(['type' => 'success', 'message', 'autoclose' => true])
 
 @php
     switch ($type) {
@@ -19,11 +19,13 @@
 
 <div
     x-data="{ show: true }"
+    @if($autoclose)
     x-init="
         setInterval(function() {
             show = false;
         }, 3000);
     "
+    @endif
 >
     <div
         x-show="show"
@@ -60,11 +62,11 @@
                 <span class="font-bold">{{ $title }}</span> {{ $message }}
             </p>
         </div>
-        <!-- Close button -->
+        <!-- Close button
         <div>
             <button @click="show = false" class="bg-transparent text-2xl font-semibold leading-none outline-none focus:outline-none">
                 <span>×</span>
             </button>
-        </div>
+        </div>-->
     </div>
 </div>

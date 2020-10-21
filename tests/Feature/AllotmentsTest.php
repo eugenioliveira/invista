@@ -17,8 +17,8 @@ class AllotmentsTest extends TestCase
     {
         $city = City::factory()->create();
 
-        $allotment1 = Allotment::factory()->hasLots(10)->create(['area' => '52.51']);
-        $allotment2 = Allotment::factory()->hasLots(5)->create(['area' => '150.58']);
+        $allotment1 = Allotment::factory()->hasLots(10)->create(['area' => '52,51']);
+        $allotment2 = Allotment::factory()->hasLots(5)->create(['area' => '150,58']);
 
         $this->actingAs(User::factory()->create())
             ->get('/allotments')

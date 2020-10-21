@@ -1,6 +1,5 @@
-<x-app-layout>
+<x-app-layout title="Editando loteamento {{ $allotment->title }}">
 
-    <x-slot name="title">Editando loteamento</x-slot>
     <x-slot name="header">Atualizando informações de {{ $allotment->title }}</x-slot>
 
     <x-section>

@@ -13,7 +13,7 @@ class AllotmentList extends Component
     public function render()
     {
         return view('livewire.allotment-list', [
-            'allotments' => Allotment::all()
+            'allotments' => Allotment::with(['lots', 'city'])->get()
         ]);
     }
 }

@@ -6,6 +6,7 @@ use App\Casts\DecimalCast;
 use App\Casts\TimeDurationCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Allotment extends Model
 {
@@ -49,5 +50,27 @@ class Allotment extends Model
     public function lots()
     {
         return $this->hasMany(Lot::class);
+    }
+
+    /**
+     * Obtem a URL da foto de capa.
+     *
+     * @return string
+     */
+    public function getCoverUrlAttribute()
+    {
+        return $this->cover
+            ? Storage::disk('public')->url($this->cover)
+            : $this->defaultCoverUrl();
+    }
+
+    /**
+     * Obtem uma foto de capa padrão caso nenhuma tenha sido enviada.
+     *
+     * @return string
+     */
+    protected function defaultCoverUrl()
+    {
+        return 'https://via.placeholder.com/500x150';
     }
 }

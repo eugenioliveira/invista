@@ -1,7 +1,7 @@
 @php
 /** @var \App\Models\User $currentUser */
 @endphp
-<x-dropdown>
+<x-dropdown alignment="right">
     <x-slot name="trigger">
         <button class="flex items-center focus:outline-none">
             <img src="{{ Auth::user()->profile_photo_url }}" class="w-10 h-10 rounded-lg border-2 border-gray-600" alt="">

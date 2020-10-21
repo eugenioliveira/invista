@@ -1,6 +1,4 @@
-<x-app-layout>
-
-    <x-slot name="title">Dashboard</x-slot>
+<x-app-layout title="Dashboard">
 
     <x-slot name="header">Seja bem-vindo, {{ Auth::user()->name }}</x-slot>
 

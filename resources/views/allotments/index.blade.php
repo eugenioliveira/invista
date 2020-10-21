@@ -1,6 +1,4 @@
-<x-app-layout>
-
-    <x-slot name="title">Loteamentos</x-slot>
+<x-app-layout title="Loteamentos">
 
     <x-slot name="header">
         Loteamentos cadastrados
