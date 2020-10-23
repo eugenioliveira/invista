@@ -3,8 +3,32 @@
 @endphp
 <div x-data="{ showPanel: false, allotmentId: '', allotmentTitle: '' }">
     @if(session('successMessage'))
-        <x-alert type="success" message="{{ session('successMessage') }}" />
+        <x-alert type="success" message="{{ session('successMessage') }}"/>
     @endif
+    <x-card class="mb-4 p-4 flex justify-between items-end">
+        <div class="w-2/6">
+            <!--
+              Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
+              Read the documentation to get started: https://tailwindui.com/documentation
+            -->
+            <div>
+                <label for="searchTerm" class="block text-sm font-medium text-gray-700">Digite aqui o termo de busca</label>
+                <div class="mt-1 relative rounded-md shadow-sm">
+                    <input
+                        wire:model.debounce.500ms="searchTerm"
+                        id="searchTerm"
+                        class="block w-full py-1.5 rounded-lg border pl-4 pr-12 focus:border-orange-300 focus:shadow-outline-orange focus:outline-none"
+                        placeholder="Ex.: Loteamento São José"
+                    >
+                    <div class="absolute inset-y-0 right-0 flex items-center">
+                        <x-button wire:click="$set('searchTerm', null)">Limpar</x-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-2/6">{{ $allotments->links() }}</div>
+    </x-card>
     <!-- Allotment Grid -->
     <div class="p-4 md:p-0 grid grid-cols-1 md:grid-cols-4 gap-4">
         @foreach($allotments as $allotment)
@@ -29,11 +53,11 @@
                     </div>
                     <x-button
                         class="w-full justify-center"
-                        @click="
+                        x-on:click="
                             showPanel = true;
                             allotmentTitle = '{{ $allotment->title }}';
                             allotmentId = {{ $allotment->id }}
-                        "
+                            "
                     >
                         Opções
                     </x-button>
@@ -96,7 +120,8 @@
                             <ul>
                                 <!-- Edit -->
                                 <li>
-                                    <a :href="'/allotment/edit/' + allotmentId" class="flex items-center px-4 py-2 rounded-lg hover:bg-orange-500 hover:text-white">
+                                    <a :href="'/allotment/edit/' + allotmentId"
+                                       class="flex items-center px-4 py-2 rounded-lg hover:bg-orange-500 hover:text-white">
                                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                   d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>

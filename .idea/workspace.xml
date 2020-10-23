@@ -11,26 +11,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/components/button-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Casts/DecimalCast.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Casts/DecimalCast.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllotmentList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Allotment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Allotment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/Components/AppLayout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/AppLayout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/SalesChartComponent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/SalesChartComponent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/allotments/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/allotments/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/allotments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/allotments/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/allotments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/allotments/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/api/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/api/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/alert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/alert.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/AllotmentsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/AllotmentsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +165,7 @@
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/asantibanez/livewire-charts" />
     </include_path>
   </component>
   <component name="ProjectId" id="1idnornysOlA67WUnuIpHJ8x9vr" />
@@ -194,7 +191,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -272,7 +269,9 @@
       <workItem from="1602850773223" duration="17511000" />
       <workItem from="1603109918279" duration="22302000" />
       <workItem from="1603193628685" duration="19862000" />
-      <workItem from="1603279948896" duration="9365000" />
+      <workItem from="1603279948896" duration="13022000" />
+      <workItem from="1603374144017" duration="9192000" />
+      <workItem from="1603469553275" duration="4358000" />
     </task>
     <servers />
   </component>
@@ -307,6 +306,10 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2133" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603284673850" />
+    <state x="2343" y="277" width="424" height="476" key="FileChooserDialogImpl" timestamp="1603471314839">
+      <screen x="1600" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2343" y="277" width="424" height="476" key="FileChooserDialogImpl/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603471314839" />
     <state width="1878" height="276" key="GridCell.Tab.0.bottom" timestamp="1603224779354">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
@@ -339,14 +342,19 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="332" key="GridCell.Tab.1.right/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603138207853" />
-    <state x="2202" y="141" width="386" height="748" key="RollbackChangesDialog" timestamp="1602867700000">
+    <state x="2202" y="141" width="386" height="748" key="RollbackChangesDialog" timestamp="1603310083832">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="2202" y="141" width="386" height="748" key="RollbackChangesDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602867700000" />
-    <state x="1911" y="154" key="SettingsEditor" timestamp="1602597843369">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state x="2202" y="141" width="386" height="748" key="RollbackChangesDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603310083832" />
+    <state x="2071" y="154" key="SettingsEditor" timestamp="1603473253400">
+      <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="1911" y="154" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602597843369" />
+    <state x="2071" y="154" key="SettingsEditor/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603473253400" />
+    <state x="2217" y="181" width="676" height="667" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603377818314">
+      <screen x="1600" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2217" y="181" width="676" height="667" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603377818314" />
     <state x="2107" y="259" width="585" height="520" key="find.popup" timestamp="1603204428416">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
@@ -355,10 +363,11 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2064" y="238" key="run.anything.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602875426272" />
-    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1603305172817">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1603472345232">
+      <screen x="1600" y="0" width="1920" height="1080" />
     </state>
-    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603305172817" />
+    <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603307362375" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603472345232" />
     <state x="2125" y="427" width="540" height="176" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602248296482">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>

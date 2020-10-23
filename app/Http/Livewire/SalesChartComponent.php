@@ -9,18 +9,18 @@ class SalesChartComponent extends Component
     public function getChartData()
     {
         $chartData = [
-            rand(1, 10),
-            rand(2, 30),
-            rand(20, 50),
-            rand(1, 60),
-            rand(1, 80),
-            rand(1, 50),
-            rand(1, 30),
-            rand(1, 10),
-            rand(1, 70),
-            rand(1, 10),
-            rand(1, 100),
-            rand(1, 108)
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
+            rand(10000, 90000) / rand(10, 20),
         ];
 
         $this->dispatchBrowserEvent('sales-chart-data-loaded', $chartData);

@@ -9,6 +9,9 @@
     "license": "MIT",
     "require": {
         "php": "^7.4",
+        "ext-intl": "*",
+        "ext-json": "*",
+        "asantibanez/livewire-charts": "^1.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -17,9 +20,7 @@
         "laravel/jetstream": "^1.4",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
-        "livewire/livewire": "^2.0",
-        "ext-json": "*",
-        "ext-intl": "*"
+        "livewire/livewire": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

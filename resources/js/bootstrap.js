@@ -16,9 +16,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import 'alpinejs';
 
 /**
- * Loading Chart JS Library and dependencies
+ * Loading APEX Chart Library
  */
-window.Chart = require('chart.js');
+window.ApexCharts = require('apexcharts');
+window.ptBR = require('apexcharts/dist/locales/pt-br.json');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

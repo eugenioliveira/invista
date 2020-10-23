@@ -56,7 +56,7 @@ class AllotmentForm extends Component
         'cover' => ['nullable', 'sometimes', 'image', 'max:5000'],
         'allotment.city_id' => ['required', 'numeric'],
         'allotment.active' => ['required'],
-        'allotment.area' => ['required', 'regex:/^[1-9]*(\,\d{1,2})?$/'],
+        'allotment.area' => ['required', 'regex:/^[1-9]\d*(\,\d{1,2})?$/'],
         'allotment.latitude' => ['nullable', 'numeric'],
         'allotment.longitude' => ['nullable', 'numeric'],
         'allotment.max_discount' => ['required', 'regex:/^\d*(\,\d{1,2})?$/'],
@@ -109,14 +109,16 @@ class AllotmentForm extends Component
      */
     public function updated($propertyName)
     {
+        $this->validateOnly($propertyName);
+    }
 
+    public function updatedCover()
+    {
         try {
             $this->tempUrl = $this->cover->temporaryUrl();
         } catch (\Exception $e) {
-            $this->tempUrl = null; // placeholder image
+            $this->tempUrl = null;
         }
-
-        $this->validateOnly($propertyName);
     }
 
     /**

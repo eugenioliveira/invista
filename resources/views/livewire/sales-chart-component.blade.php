@@ -16,9 +16,9 @@
     </div>
     <div
         x-show.transition.opacity.duration.500ms="loading"
-        class="p-4 absolute inset-y-0 w-full text-white bg-black bg-opacity-75 flex items-center justify-center"
+        class="p-4 z-20 absolute inset-y-0 w-full text-white bg-black bg-opacity-75 flex items-center justify-center"
     >
-        <svg class="animate-spin -ml-1 mr-3 h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <svg class="animate-spin mr-3 h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor"
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -26,12 +26,7 @@
         <span class="font-medium">Carregando dados do gráfico...</span>
     </div>
     <div class="p-4">
-        <canvas
-            class="w-full"
-            height="400"
-            x-ref="chartCanvas"
-            wire:ignore
-        ></canvas>
+        <div style="height: 28rem" x-ref="chartCanvas" wire:ignore></div>
     </div>
     @push('scripts')
         <script>
@@ -40,32 +35,52 @@
                     loading: true,
                     chart: null,
                     config: {
-                        type: 'line',
-                        data: {
-                            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                            datasets: [
-                                {
-                                    label: 'Faturamento',
-                                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    borderWidth: 3,
-                                    borderColor: 'rgba(245, 134, 52, 1)',
-                                    backgroundColor: 'rgba(245, 134, 52, 0.5)'
-                                }
-                            ],
+                        chart: {
+                            type: 'area',
+                            height: '100%',
+                            locales: [ptBR],
+                            defaultLocale: 'pt-br'
                         },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true
-                                    }
-                                }]
-                            }
+                        colors: ['#F58634'],
+                        dataLabels: {
+                            enabled: false,
+                        },
+                        series: [{
+                            name: 'Faturamento',
+                            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                        }],
+                        stroke: {
+                            curve: 'straight'
+                        },
+                        yaxis: {
+                            labels: {
+                                formatter: (value) => new Intl.NumberFormat('pt-BR', {
+                                    style: 'currency',
+                                    currency: 'BRL'
+                                }).format(value)
+                            },
+                        },
+                        xaxis: {
+                            categories: [
+                                'Janeiro',
+                                'Fevereiro',
+                                'Março',
+                                'Abril',
+                                'Maio',
+                                'Junho',
+                                'Julho',
+                                'Agosto',
+                                'Setembro',
+                                'Outubro',
+                                'Novembro',
+                                'Dezembro'
+                            ]
                         }
                     },
 
                     initChart(chartCanvas) {
-                        this.chart = new Chart(chartCanvas.getContext('2d'), this.config);
+                        this.chart = new ApexCharts(chartCanvas, this.config);
+                        this.chart.render();
                     },
 
                     toggleLoading() {
@@ -73,10 +88,9 @@
                     },
 
                     updateChart(chartData) {
-                        this.chart.data.datasets[0].data = chartData;
-                        this.chart.update();
+                        this.chart.updateSeries([{data: chartData}]);
                         this.toggleLoading();
-                    }
+                    },
                 }
             }
         </script>
