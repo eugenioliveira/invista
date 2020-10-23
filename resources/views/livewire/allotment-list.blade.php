@@ -5,32 +5,10 @@
     @if(session('successMessage'))
         <x-alert type="success" message="{{ session('successMessage') }}"/>
     @endif
-    <x-card class="mb-4 p-4 flex justify-between items-end">
-        <div class="w-2/6">
-            <!--
-              Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-              Read the documentation to get started: https://tailwindui.com/documentation
-            -->
-            <div>
-                <label for="searchTerm" class="block text-sm font-medium text-gray-700">Digite aqui o termo de busca</label>
-                <div class="mt-1 relative rounded-md shadow-sm">
-                    <input
-                        wire:model.debounce.500ms="searchTerm"
-                        id="searchTerm"
-                        class="block w-full py-1.5 rounded-lg border pl-4 pr-12 focus:border-orange-300 focus:shadow-outline-orange focus:outline-none"
-                        placeholder="Ex.: Loteamento São José"
-                    >
-                    <div class="absolute inset-y-0 right-0 flex items-center">
-                        <x-button wire:click="$set('searchTerm', null)">Limpar</x-button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-2/6">{{ $allotments->links() }}</div>
-    </x-card>
+    <!-- Search and Pagination -->
+    <x-search-pagination :collection="$allotments" />
     <!-- Allotment Grid -->
-    <div class="p-4 md:p-0 grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div class="p-4 md:p-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         @foreach($allotments as $allotment)
             <x-card class="overflow-hidden">
                 <img src="{{ $allotment->cover_url }}" class="w-full h-32 object-cover">
@@ -103,7 +81,7 @@
                         x-transition:leave-end="opacity-0"
                         class="absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4"
                     >
-                        <button @click="showPanel = false" aria-label="Close panel" class="text-gray-300 hover:text-white transition ease-in-out duration-150">
+                        <button x-on:click="showPanel = false" aria-label="Close panel" class="text-gray-300 hover:text-white transition ease-in-out duration-150">
                             <!-- Heroicon name: x -->
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
