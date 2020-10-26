@@ -7,16 +7,30 @@ use Illuminate\View\Component;
 
 class SearchPagination extends Component
 {
+    /**
+     * A collection para construir os links de paginação.
+     *
+     * @var LengthAwarePaginator
+     */
     public LengthAwarePaginator $collection;
+
+    /**
+     * O placeholder para exibição no campo de busca.
+     *
+     * @var string
+     */
+    public string $searchPlaceholder;
 
     /**
      * Create a new component instance.
      *
      * @param LengthAwarePaginator $collection
+     * @param string $searchPlaceholder
      */
-    public function __construct(LengthAwarePaginator $collection)
+    public function __construct(LengthAwarePaginator $collection, string $searchPlaceholder)
     {
         $this->collection = $collection;
+        $this->searchPlaceholder = $searchPlaceholder;
     }
 
     /**

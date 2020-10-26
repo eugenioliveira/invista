@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AllotmentController;
+use App\Http\Controllers\LotsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // ROTAS REFERENTES À LOTEAMENTOS
     //======================================================================
 
-    // Página inicial
+    // Lista de loteamentos
     Route::get('/allotments', [AllotmentController::class, 'index'])
         ->name('allotments.index');
 
@@ -43,6 +44,15 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //======================================================================
 
+    //======================================================================
+    // ROTAS REFERENTES À LOTES
+    //======================================================================
+
+    // Lista de lotes
+    Route::get('/allotment/{allotment}/lots', [LotsController::class, 'index'])
+        ->name('lots.index');
+
+    //======================================================================
 
     // Página inicial do sistema
     Route::get('/brokers', function () {

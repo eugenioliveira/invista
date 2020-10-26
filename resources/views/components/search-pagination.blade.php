@@ -11,7 +11,7 @@
                     wire:model.debounce.500ms="searchTerm"
                     id="searchTerm"
                     class="block w-full py-1.5 rounded-lg border pl-4 pr-12 focus:border-orange-300 focus:shadow-outline-orange focus:outline-none"
-                    placeholder="Ex.: Loteamento São José"
+                    placeholder="{{ $searchPlaceholder }}"
                     autocomplete="off"
                 >
                 <div class="absolute inset-y-0 right-0 flex items-center">

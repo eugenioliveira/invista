@@ -11,18 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/View/Components/SearchPagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/search-pagination.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/bootstrap-4.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/default.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/semantic-ui.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-bootstrap-4.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-default.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-tailwind.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/tailwind.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Casts/CurrencyCast.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LotsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/LotList.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/lots/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/View/Components/SearchPagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/SearchPagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/search-pagination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/search-pagination.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +267,8 @@
       <workItem from="1603279948896" duration="13022000" />
       <workItem from="1603374144017" duration="9192000" />
       <workItem from="1603469553275" duration="4516000" />
-      <workItem from="1603474080540" duration="1878000" />
+      <workItem from="1603474080540" duration="7009000" />
+      <workItem from="1603717954179" duration="928000" />
     </task>
     <servers />
   </component>
@@ -299,10 +299,11 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2201" y="190" width="387" height="649" key="#com.intellij.ide.util.MemberChooser/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603110867236" />
-    <state x="2133" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603284673850">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603718788434">
+      <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2133" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603284673850" />
+    <state x="2293" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603718788434" />
     <state x="2343" y="277" width="424" height="476" key="FileChooserDialogImpl" timestamp="1603471314839">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
@@ -360,11 +361,11 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2064" y="238" key="run.anything.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602875426272" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1603478449611">
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1603718779759">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603307362375" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603478449611" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603718779759" />
     <state x="2125" y="427" width="540" height="176" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602248296482">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>

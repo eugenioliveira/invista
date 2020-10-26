@@ -17,6 +17,9 @@ class AllotmentList extends Component
      */
     public ?string $searchTerm = null;
 
+    /**
+     * Redefine a páginação quando é realizada uma busca
+     */
     public function updatingSearchTerm()
     {
         $this->resetPage();
