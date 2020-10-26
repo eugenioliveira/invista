@@ -43,7 +43,22 @@
                     </td>
                     <!-- Area -->
                     <td class="px-6 py-4 whitespace-no-wrap">
-                        {{ $lot->area }} m<sup>2</sup>
+                        <div class="inline cursor-help relative" x-data="{ isOpen: false }">
+                            <span
+                                class="text-primary hover:underline"
+                                x-on:click="isOpen = true"
+                                x-on:click.away="isOpen = false"
+                            >
+                                {{ $lot->area }} m<sup>2</sup>
+                            </span>
+                            <div x-show="isOpen" class="absolute z-30 bg-gray-200 border border-gray-300 shadow rounded-md px-6 py-4">
+                                <ul class="list-disc text-xs">
+                                    @foreach($lot->getSides() as $side)
+                                        <li>{{ $side }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                     </td>
                     <!-- Status -->
                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
@@ -52,8 +67,17 @@
                         </span>
                     </td>
                     <!-- Actions -->
-                    <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-
+                    <td class="px-6 py-4">
+                        <!-- Edit action -->
+                        <x-button-link href="/" format="icon" title="Editar">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                            </svg>
+                        </x-button-link>
+                        <!-- Show reservations action -->
+                        <!-- Show proposals action -->
+                        <!-- Change static status action -->
                     </td>
                 </tr>
             @endforeach

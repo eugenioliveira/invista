@@ -11,7 +11,7 @@
         "php": "^7.4",
         "ext-intl": "*",
         "ext-json": "*",
-        "asantibanez/livewire-charts": "^1.1",
+        "bensampo/laravel-enum": "^3.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

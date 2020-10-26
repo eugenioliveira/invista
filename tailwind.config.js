@@ -18,6 +18,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Commissioner', ...defaultTheme.fontFamily.sans],
             },
+            cursor: {
+                help: 'help'
+            }
         },
     },
 
