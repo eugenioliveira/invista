@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Lot;
 use App\Models\LotStatus;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,10 @@ class LotStatusSeeder extends Seeder
      */
     public function run()
     {
-        LotStatus::factory()->times(10)->create();
+        foreach (Lot::all() as $lot) {
+            LotStatus::factory()->create([
+                'lot_id' => $lot->id
+            ]);
+        }
     }
 }

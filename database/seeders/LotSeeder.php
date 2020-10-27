@@ -13,6 +13,6 @@ class LotSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

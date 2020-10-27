@@ -50,6 +50,8 @@ class LotList extends Component
                     if ($block) $query->where('block', $block);
                     if ($number) $query->where('number', $number);
                 })
+                ->orderBy('block')
+                ->orderBy('number')
                 ->paginate(10)
         ]);
     }

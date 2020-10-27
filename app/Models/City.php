@@ -27,6 +27,11 @@ class City extends Model
         return $this->hasMany(Allotment::class);
     }
 
+    /**
+     * Retorna o nome completo da cidade.
+     *
+     * @return string
+     */
     public function getFullNameAttribute()
     {
         return sprintf('%s - %s', $this->name, $this->state);

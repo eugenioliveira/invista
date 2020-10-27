@@ -11,17 +11,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Casts/CurrencyCast.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LotsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/LotList.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/lots/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Reservation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/ReservationFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_27_133220_create_reservations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/LotList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/LotList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Allotment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Allotment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/City.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/Components/SearchPagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/SearchPagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/search-pagination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/search-pagination.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/LotStatusFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LotStatusFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/LotSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/LotSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/LotStatusSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/LotStatusSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +65,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/vendor/brick/math" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
@@ -118,7 +120,6 @@
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
@@ -160,7 +161,11 @@
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
-      <path value="$PROJECT_DIR$/vendor/asantibanez/livewire-charts" />
+      <path value="$PROJECT_DIR$/vendor/hanneskod/classtools" />
+      <path value="$PROJECT_DIR$/vendor/bensampo/laravel-enum" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
     </include_path>
   </component>
   <component name="ProjectId" id="1idnornysOlA67WUnuIpHJ8x9vr" />
@@ -177,7 +182,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/vendor/laravelEnum" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -190,17 +195,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/components" />
-      <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
-      <recent name="$PROJECT_DIR$/resources/views/home" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/lang/vendor/laravelEnum" />
       <recent name="$PROJECT_DIR$/resources/views/components" />
       <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
       <recent name="$PROJECT_DIR$/resources/views/allotments" />
       <recent name="$PROJECT_DIR$/resources/lang" />
-      <recent name="$PROJECT_DIR$/resources/lang/pt-BR" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/components" />
+      <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
+      <recent name="$PROJECT_DIR$/resources/views/home" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.AllotmentsTest">
@@ -268,7 +273,9 @@
       <workItem from="1603374144017" duration="9192000" />
       <workItem from="1603469553275" duration="4516000" />
       <workItem from="1603474080540" duration="7009000" />
-      <workItem from="1603717954179" duration="928000" />
+      <workItem from="1603717954179" duration="16133000" />
+      <workItem from="1603815079066" duration="20000" />
+      <workItem from="1603816293826" duration="6047000" />
     </task>
     <servers />
   </component>
@@ -299,11 +306,11 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2201" y="190" width="387" height="649" key="#com.intellij.ide.util.MemberChooser/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603110867236" />
-    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603718788434">
+    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603820768426">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2133" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603284673850" />
-    <state x="2293" y="277" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603718788434" />
+    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603820768426" />
     <state x="2343" y="277" width="424" height="476" key="FileChooserDialogImpl" timestamp="1603471314839">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
@@ -361,11 +368,11 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2064" y="238" key="run.anything.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602875426272" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1603718779759">
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1603822392710">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603307362375" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603718779759" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603822392710" />
     <state x="2125" y="427" width="540" height="176" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602248296482">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
