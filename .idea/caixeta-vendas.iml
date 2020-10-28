@@ -82,7 +82,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/ramsey/uuid" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/scrivo/highlight.php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/cli-parser" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />

@@ -11,19 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Reservation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ReservationFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_10_27_133220_create_reservations_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/View/Components/LotStatusBadge.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/lot-status-badge.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/LotList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/LotList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Allotment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Allotment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/City.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/LotStatusFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LotStatusFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/LotSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/LotSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/LotStatusSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/LotStatusSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +90,6 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
-      <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-cors" />
@@ -275,7 +267,9 @@
       <workItem from="1603474080540" duration="7009000" />
       <workItem from="1603717954179" duration="16133000" />
       <workItem from="1603815079066" duration="20000" />
-      <workItem from="1603816293826" duration="6047000" />
+      <workItem from="1603816293826" duration="6180000" />
+      <workItem from="1603827633215" duration="5000" />
+      <workItem from="1603885961902" duration="1123000" />
     </task>
     <servers />
   </component>
