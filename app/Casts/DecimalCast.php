@@ -7,6 +7,15 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 class DecimalCast implements CastsAttributes
 {
     /**
+     * DecimalCast constructor.
+     * @param int $digits
+     */
+    public function __construct(int $digits = 0)
+    {
+        app('decimal')->setAttribute(\NumberFormatter::MIN_FRACTION_DIGITS, $digits);
+    }
+
+    /**
      * Cast the given value.
      *
      * @param \Illuminate\Database\Eloquent\Model $model

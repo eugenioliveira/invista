@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Casts\DecimalCast;
 use App\Casts\TimeDurationCast;
+use App\Enums\LotStatusType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -72,5 +73,28 @@ class Allotment extends Model
     protected function defaultCoverUrl()
     {
         return 'https://via.placeholder.com/500x150';
+    }
+
+    /**
+     * Cria um lote no loteamento.
+     * Ao criar, deve criar um status.
+     *
+     * @param Lot $lot
+     * @param int $statusType
+     * @return void
+     */
+    public function createLot(Lot $lot, int $statusType)
+    {
+        // Persiste o lote
+        $this->lots()->save($lot);
+
+        // Cria o status
+        $lot->createStatus(
+            \Auth::user(),
+            $statusType,
+            sprintf('Lote criado por %s.', \Auth::user()->name),
+            true
+        );
+
     }
 }

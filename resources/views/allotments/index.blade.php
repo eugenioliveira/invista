@@ -1,7 +1,7 @@
 <x-app-layout title="Loteamentos">
 
     <x-slot name="header">
-        Loteamentos cadastrados
+        <x-header-text>Loteamentos cadastrados</x-header-text>
     </x-slot>
 
     <x-section>

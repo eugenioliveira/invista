@@ -16,6 +16,7 @@ use Livewire\WithFileUploads;
 class AllotmentForm extends Component
 {
     use WithFileUploads;
+    use SuccessHandler;
 
     /**
      * O loteamento a ser salvo.
@@ -70,7 +71,7 @@ class AllotmentForm extends Component
      *
      * @var array
      */
-    protected $messages = [
+    protected array $messages = [
         'cover.image' => 'O arquivo deve ser uma imagem.',
         'cover.max' => 'Arquivo muito grande! Envie um arquivo com menos de 5MB.',
         'allotment.title.required' => 'O campo Título é obrigatório.',
@@ -134,12 +135,13 @@ class AllotmentForm extends Component
         $this->allotment->cover = ($this->cover) ? $this->cover->store('covers', 'public') : $this->allotment->cover;
 
         $this->allotment->save();
-        $this->successMessage = 'Loteamento salvo.';
 
-        if ($redirectAfterSave) {
-            session()->flash('successMessage', $this->successMessage);
-            return redirect()->route('allotments.index');
-        }
+        // Redireciona
+        $this->successAction(
+            'Loteamento Salvo.',
+            ['allotments.index'],
+            $redirectAfterSave
+        );
     }
 
     public function render()

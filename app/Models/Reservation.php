@@ -10,6 +10,14 @@ class Reservation extends Model
     use HasFactory;
 
     /**
+     * Desabilita a proteção contra mass assignment
+     * uma vez que os campos serão validados.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * Flag que indica que a entidade não terá
      * as timestamps padrão Laravel.
      *

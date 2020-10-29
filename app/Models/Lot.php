@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Casts\CurrencyCast;
 use App\Casts\DecimalCast;
 use App\Enums\LotStatusType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -26,7 +25,7 @@ class Lot extends Model
      * @var array
      */
     protected $casts = [
-        'price' => CurrencyCast::class,
+        'price' => DecimalCast::class.':2',
         'front' => DecimalCast::class,
         'back' => DecimalCast::class,
         'right' => DecimalCast::class,
@@ -89,6 +88,16 @@ class Lot extends Model
     }
 
     /**
+     * Retorna o preço do lote formatado em pt-BR
+     *
+     * @return mixed
+     */
+    public function getFormattedPriceAttribute()
+    {
+        return app('currency')->format($this->attributes['price']);
+    }
+
+    /**
      * Retorna as confrontações do lote.
      *
      * @return array
@@ -110,55 +119,16 @@ class Lot extends Model
      */
     public function getStatus()
     {
-        /*
-         * Este método deve retornar o status atual do lote.
-         * Existem dois tipos de status no sistema:
-         * - Estáticos, que são os status que não dependem de outras entidades
-         * - Dinámicos, que depende de consultas à outras entidades.
-         *
-         * Os status Estáticos estão armazenados na tabela lot_statuses.
-         *
-         * Este método retornará o último registro da tabela lot_statuses se:
-         * - Não houver nenhuma Reserva ativa para o lote atual;
-         * - Não houver nenhuma Proposta que não foi finalizada para o lote atual;
-         * - Não existir nenhuma Venda para o lote atual.
-         *
-         * Nos outros casos, deve retornar uma instância criada manualmente, porém, para
-         * cada outro caso (Reserva, Proposta e Venda), para manutenção de um histórico,
-         * cada finalização de ação deve ser registrada na tabela lot_statuses.
-         *
-         * O sistema deve de alguma forma se certificar de que o último status de um lote
-         * na tabela lot_statuses não seja do tipo Reserva, Proposta ou Venda.
-         *
-         * Caso de uso: Reserva expirada
-         * - Último registro de LotStatus: Reservado
-         * - Sistema deve ignorar e buscar o pŕoximo.
-         */
-
         // Verifica se o lote possui alguma reserva ativa
         $activeReservation = $this->hasActiveReservation();
         // caso haja, cria um Status do tipo reservado.
         if ($activeReservation) {
-            return new LotStatus([
-                'user_id' => $activeReservation->user_id,
-                'type' => LotStatusType::RESERVED,
-                'reason' => sprintf(
-                    'Lote reservado por %s, em %s. Data de encerramento: %s',
-                    $activeReservation->user->name,
-                    $activeReservation->init->format('d/m/Y H:i:s'),
-                    $activeReservation->due->format('d/m/Y H:i:s'),
-                )
-            ]);
+            return $this->createReservedStatus($activeReservation);
         }
 
-        return $this
-            ->statuses()
-            ->whereNotIn('type', [
-                LotStatusType::RESERVED,
-                LotStatusType::PROPOSED
-            ])
-            ->latest()
-            ->first();
+        // Caso não exista nem reserva nem proposta, retorna o primeiro status
+        // estático encontrado.
+        return $this->staticStatus();
     }
 
     /**
@@ -183,5 +153,71 @@ class Lot extends Model
         } else {
             return $reservations->first();
         }
+    }
+
+    /**
+     * Cria um status para o lote atual.
+     *
+     * @param User $user
+     * @param int $type
+     * @param string $reason
+     * @param bool $save
+     * @return mixed
+     */
+    public function createStatus(User $user, int $type, string $reason, $save = true)
+    {
+        $lotStatus = new LotStatus([
+            'user_id' => $user->id,
+            'type' => $type,
+            'reason' => $reason
+        ]);
+
+        if ($save) $this->statuses()->save($lotStatus);
+
+        return $lotStatus;
+    }
+
+    /**
+     * Cria um status dinâmico para uma reserva.
+     *
+     * @param Reservation $reservation
+     * @return LotStatus
+     */
+    protected function createReservedStatus(Reservation $reservation)
+    {
+        return $this->createStatus(
+            $reservation->user,
+            LotStatusType::RESERVED,
+            sprintf(
+                'Lote reservado por %s, em %s. Data de encerramento: %s',
+                $reservation->user->name,
+                $reservation->init->format('d/m/Y H:i:s'),
+                $reservation->due->format('d/m/Y H:i:s'),
+            ),
+            false
+        );
+    }
+
+    /**
+     * Retorna um status estático, ou seja, que está salvo na
+     * tabela lot_statuses.
+     *
+     * Status do tipo Reservado e Proposta também constam
+     * nessa tabela para efeito de histórico, mas como são
+     * status dinâmicos, não devem ser retornados como status atual
+     * do lote.
+     *
+     * @return LotStatus|object
+     */
+    protected function staticStatus()
+    {
+        return $this
+            ->statuses()
+            ->whereNotIn('type', [
+                LotStatusType::RESERVED,
+                LotStatusType::PROPOSED
+            ])
+            ->latest()
+            ->first();
     }
 }

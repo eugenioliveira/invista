@@ -5,11 +5,17 @@
 <x-app-layout title="Lotes - Loteamento {{ $allotment->title }}">
 
     <x-slot name="header">
-        Gerenciamento de lotes - Loteamento {{ $allotment->title }}
+        <div class="flex items-center justify-between">
+            <x-header-text>Gerenciamento de lotes - Loteamento {{ $allotment->title }}</x-header-text>
+            <div>
+                <x-button-link href="{{ route('lot.create', $allotment->id) }}">Criar novo</x-button-link>
+                <x-button-link href="/" class="ml-3">Importar</x-button-link>
+            </div>
+        </div>
     </x-slot>
 
     <x-section>
-        <livewire:lot-list :allotmentId="$allotment->id" />
+        <livewire:lot-list :allotment="$allotment" />
     </x-section>
 
 </x-app-layout>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Lot;
+use App\Models\Allotment;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,11 +11,11 @@ class LotList extends Component
     use WithPagination;
 
     /**
-     * O ID do loteamento a qual exibir os lotes.
+     * O loteamento a qual exibir os lotes.
      *
-     * @var int
+     * @var Allotment|null
      */
-    public int $allotmentId;
+    public ?Allotment $allotment = null;
 
     /**
      * Termo de busca.
@@ -45,7 +45,7 @@ class LotList extends Component
         preg_match('/\d+/', $this->searchTerm, $number);
 
         return view('livewire.lot-list', [
-            'lots' => Lot::whereAllotmentId($this->allotmentId)
+            'lots' => $this->allotment->lots()
                 ->where(function ($query) use ($block, $number) {
                     if ($block) $query->where('block', $block);
                     if ($number) $query->where('number', $number);

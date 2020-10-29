@@ -35,11 +35,11 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('allotments.index');
 
     // Formulário de criação
-    Route::get('/allotment/create', [AllotmentController::class, 'create'])
+    Route::get('/allotments/create', [AllotmentController::class, 'create'])
         ->name('allotment.create');
 
     // Formulário de edição
-    Route::get('/allotment/edit/{allotment}', [AllotmentController::class, 'edit'])
+    Route::get('/allotments/edit/{allotment}', [AllotmentController::class, 'edit'])
         ->name('allotment.edit');
 
     //======================================================================
@@ -49,8 +49,16 @@ Route::middleware('auth:sanctum')->group(function () {
     //======================================================================
 
     // Lista de lotes
-    Route::get('/allotment/{allotment}/lots', [LotsController::class, 'index'])
+    Route::get('/allotments/{allotment}/lots', [LotsController::class, 'index'])
         ->name('lots.index');
+
+    // Formulário de criação
+    Route::get('/allotments/{allotment}/lot/create', [LotsController::class, 'create'])
+        ->name('lot.create');
+
+    // Formulário de edição
+    Route::get('/allotments/lot/{lot}/edit', [LotsController::class, 'edit'])
+        ->name('lot.edit');
 
     //======================================================================
 
