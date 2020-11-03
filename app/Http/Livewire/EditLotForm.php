@@ -54,6 +54,22 @@ class EditLotForm extends Component
     }
 
     /**
+     * Realiza a validação da Quadra em tempo real.
+     */
+    public function updatedLotBlock()
+    {
+        $this->validateLotUniqueness($this->lot->allotment_id);
+    }
+
+    /**
+     * Realiza a validação da número do lote em tempo real.
+     */
+    public function updatedLotNumber()
+    {
+        $this->validateLotUniqueness($this->lot->allotment_id);
+    }
+
+    /**
      * Regras de validação
      *
      * @return array
