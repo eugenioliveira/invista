@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AllotmentController;
 use App\Http\Controllers\LotsController;
+use App\Http\Controllers\LotsImportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +60,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // Formulário de edição
     Route::get('/allotments/lot/{lot}/edit', [LotsController::class, 'edit'])
         ->name('lot.edit');
+
+    // Importação de lotes
+    Route::get('/allotments/{allotment}/lots/import', [LotsImportController::class, 'create'])
+    ->name('lots.import');
 
     //======================================================================
 

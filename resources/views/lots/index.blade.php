@@ -9,7 +9,7 @@
             <x-header-text>Gerenciamento de lotes - Loteamento {{ $allotment->title }}</x-header-text>
             <div>
                 <x-button-link href="{{ route('lot.create', $allotment->id) }}">Criar novo</x-button-link>
-                <x-button-link href="/" class="ml-3">Importar</x-button-link>
+                <x-button-link href="{{ route('lots.import', $allotment->id) }}" class="ml-3">Importar</x-button-link>
             </div>
         </div>
     </x-slot>

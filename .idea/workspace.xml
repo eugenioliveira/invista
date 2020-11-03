@@ -11,9 +11,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/LotsImportController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/LotsImport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Imports/LotImport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/lots-import.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/lots-import/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-3ertnPj2gzCr0x6zuYz303E7A5uFKiry.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-605JCu03px2Nf5j1JDtbpx93hk48tBPU.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-61Fa8AmJ37jSGSHi7GCxxwT1BZCwDRPB.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-65cb11H298TiNE9W8McX7bQqx3yB0TMA.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-6YEuiADPA8iyLT5aL5bUc1uCdvcqoGaw.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8JSW0l2AoATBq6czjNtRX9PBlX8dzIX1.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8eBw3kWOz3Pu7OaLYx7R1h4CJHH205bI.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8sYzj83Nj5EGwlyeYIyEUA8B3Doi1I81.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8uDCknuvA9k3rRRSfdv7iu3rNyNwa50o.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-9ZHtFDoOID7kVzX7Y6pV9ewlDy57GMyx.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-AsVIWvhn02cViYDswpj0Wk7SdJdIxgcu.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BFl4c7tXkTS5blQtjpZoXCBFJ6Tw1J39.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BTanzCJdrusMv4O7PMfQvDeC1tJjZikI.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BkMojU0R0Il2muroDmIskzOSFfvlwwbb.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-CJWogg5kleaBY2rx7fv4NknwXRf5ZMK1.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Co5Ejn3yMNXb7Zg80shTdg8dM35jU9L9.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-DONvMGE6fPh6xzx2FIIrUBZRNwl4rWGp.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-DZHtGGYf4M6rzN9Axz4vPF1NcFiSvtDh.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ELdviJqfT4gnx07ha7mMqmdPt0U7b9hW.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-FQZnGBeWLOzNs0by7kwjj1voOTer7yzf.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-GFMKXDDWXiLn2SRDSO2fq0oxRBe4YH85.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-HNnH8xubUbXZmajqiGN3y0B6EwRue627.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-HsYCKm49l5NyXwWAWJQyR4HQLbKmQmtD.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Issm7QdxwSqmL4FlP5VRuyTMUKA97rGe.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ItnjvqbWZgwM1EhJXYRSzyQZGbuc9zC5.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-JIoYjfHmOVn7mr77xw0JCZfZmzlxN2lx.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-K4YEI4LGCF0fyptZ9XUeh7ChSpvp9kds.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-KQSOrAzOLvSP6qSdU0LEAT2EV53Fh2Dh.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-KWEkbHc989vaJCmV52hly4m4pAM0FfOp.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-NTaB6JRrP7B8OkdriIHkj2JUrlk9qOMg.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-OXdXbcUgqKhaCs4pMhA0idg5Gu0FK8Et.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-RZwTscsniWpdKqZ1EWD8Vv53vY8b3foC.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SUFji1p7ctyve1rOnucuhb3TGaWWz488.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SaVitmzIm2jwpKJaMxuwf8maXUki9hbf.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-c0CQnuMFDRcoIV9LyED50qUCBe3tuLUc.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-c7bvbdYLqQtA2Fz39ucqq2Oou3SSRvsB.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-cqyNa77CxLAv5k0Jqeyw9zZJzGfkTboP.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-dSXBTB04z5cFAveGvHz32oI0AMDHxUOe.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-dpH0FtPLfxYdRYkZTDr73fuw8DvqAGcM.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-eMkuc0t2ogUR00y5g6POUNOKjePevYRc.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-eZfIjWphh3uF1EiXoSUnLM329PC6PYsx.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gPgfRLtTWSvn30MpzOSiAJW7Xo46MHre.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gTjyCkfFG6Oj1qv9nJvQ9U5pPjsj741c.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gzLApVGvMZIHlYExe7Fe6gJ1NuntlyJ6.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-hpIQ5NS9w1Cxu55U41C6Pp3eWo5Zd0WF.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ijgKePN6kudu0bkD0iDPvFb32kL9sRfF.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-jhsXxilwAAqEWxJqvEA5Qvyt6AqMs5jn.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-nmsBqRdYimkFSVGZz3AFoyyhNodry5eB.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ntXpxML23Xg2HJdBzdmzvwkp863l808Y.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ps1llct9WdYGZHpac6ZUBQmFfuxzGusp.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-rBTfHpsgXCIt5BL79ri3QRBLf3PaW0H0.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-rPzYoRBAZ15fUDxn3taxShBejy7YB7bo.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vEzmzolDC0G8bjXagyatcsJiAqS5Mxni.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vYsalr76Snp5usW9ELDHpIHJL4oQEDs1.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vkxTWGI1doV5dXSCXqCb2M2LjNge0X1T.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-wZLwET5yYKU0mKJR10VBGFHV3YWFeCTz.ods" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-yIip7KHq2wBF77qwF5nd7it8DIT58AIF.ods" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CitiesModal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CitiesModal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lots/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lots/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +221,13 @@
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
     </include_path>
   </component>
   <component name="ProjectId" id="1idnornysOlA67WUnuIpHJ8x9vr" />
@@ -183,17 +257,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/components" />
+      <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
+      <recent name="$PROJECT_DIR$/resources/views/home" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/lots" />
       <recent name="$PROJECT_DIR$/resources/lang/vendor/laravelEnum" />
       <recent name="$PROJECT_DIR$/resources/views/components" />
       <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
       <recent name="$PROJECT_DIR$/resources/views/allotments" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/components" />
-      <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
-      <recent name="$PROJECT_DIR$/resources/views/home" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.AllotmentsTest">
@@ -276,7 +350,7 @@
       <workItem from="1603972851766" duration="14159000" />
       <workItem from="1603991566366" duration="3000" />
       <workItem from="1603991579880" duration="709000" />
-      <workItem from="1604404290686" duration="6856000" />
+      <workItem from="1604404290686" duration="23868000" />
     </task>
     <servers />
   </component>
@@ -311,15 +385,15 @@
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2452" y="333" width="525" height="406" key="#com.intellij.ide.util.TreeClassChooserDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603975979831" />
-    <state x="2295" y="198" width="510" height="626" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603975867268">
+    <state x="2295" y="198" width="510" height="626" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1604420602502">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
-    <state x="2295" y="198" width="510" height="626" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603975867268" />
-    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603982905023">
+    <state x="2295" y="198" width="510" height="626" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604420602502" />
+    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604434040079">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2133" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603284673850" />
-    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603982905023" />
+    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604434040078" />
     <state x="2343" y="277" width="424" height="476" key="FileChooserDialogImpl" timestamp="1603471314839">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
@@ -369,10 +443,10 @@
     </state>
     <state x="1911" y="154" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602597843369" />
     <state x="2071" y="154" key="SettingsEditor/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603972863647" />
-    <state x="2217" y="181" width="676" height="667" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603377818314">
+    <state x="2217" y="181" width="676" height="667" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604433968523">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
-    <state x="2217" y="181" width="676" height="667" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603377818314" />
+    <state x="2217" y="181" width="676" height="667" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604433968523" />
     <state x="2107" y="259" width="585" height="520" key="find.popup" timestamp="1603204428416">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
@@ -382,14 +456,15 @@
     </state>
     <state x="2064" y="238" key="run.anything.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602875426272" />
     <state x="2224" y="238" key="run.anything.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603977729414" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1604411136224">
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1604433940335">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603307362375" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604411136224" />
-    <state x="2125" y="427" width="540" height="176" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602248296482">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604433940335" />
+    <state x="2285" y="427" width="540" height="180" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604425037088">
+      <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2125" y="427" width="540" height="176" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602248296482" />
+    <state x="2285" y="427" width="540" height="180" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604425037088" />
   </component>
 </project>
