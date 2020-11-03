@@ -46,7 +46,7 @@
                     </td>
                     <!-- Price -->
                     <td class="px-6 py-4 whitespace-no-wrap">
-                        {{ $lot->price }}
+                        {{ $lot->formatted_price }}
                     </td>
                     <!-- Area -->
                     <td class="px-6 py-4 whitespace-no-wrap">

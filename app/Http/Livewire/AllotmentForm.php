@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Allotment;
 use App\Models\City;
+use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -46,6 +47,20 @@ class AllotmentForm extends Component
      * @var string|null
      */
     public ?string $tempUrl = null;
+
+    /**
+     * A lista de cidades cadastradas.
+     *
+     * @var mixed
+     */
+    public $cities;
+
+    /**
+     * Event listeners
+     *
+     * @var string[]
+     */
+    protected $listeners = ['cityAdded' => 'getCities'];
 
     /**
      * Regras de validação
@@ -98,6 +113,7 @@ class AllotmentForm extends Component
      */
     public function mount(Allotment $allotment)
     {
+        $this->getCities();
         $this->allotment = $allotment;
         $this->allotment->active = 1;
     }
@@ -144,10 +160,24 @@ class AllotmentForm extends Component
         );
     }
 
+    /**
+     * Obtem a lista de cidades.
+     * Caso ela tenha sido recém criada, seleciona-a.
+     *
+     * @param null $selectedCity
+     * @return void
+     */
+    public function getCities($selectedCity = null)
+    {
+        $this->cities = City::orderBy('name')->get();
+
+        if ($selectedCity) {
+            $this->allotment->city_id = $selectedCity;
+        }
+    }
+
     public function render()
     {
-        return view('livewire.allotment-form', [
-            'cities' => City::orderBy('name')->get()
-        ]);
+        return view('livewire.allotment-form');
     }
 }

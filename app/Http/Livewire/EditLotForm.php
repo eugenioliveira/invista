@@ -131,9 +131,10 @@ class EditLotForm extends Component
      */
     public function updateLot(bool $redirectAfterSave = true)
     {
-        // Realiza a validação dos dados
-        $this->validate();
         if ($this->validateLotUniqueness($this->lot->allotment_id, true)) {
+
+            // Realiza a validação dos demais campos
+            $this->validate();
 
             // Salva o lote
             $this->lot->save();

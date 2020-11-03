@@ -12,7 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/EditLotForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/EditLotForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CitiesModal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CitiesModal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,6 +276,7 @@
       <workItem from="1603972851766" duration="14159000" />
       <workItem from="1603991566366" duration="3000" />
       <workItem from="1603991579880" duration="709000" />
+      <workItem from="1604404290686" duration="6856000" />
     </task>
     <servers />
   </component>
@@ -380,11 +382,11 @@
     </state>
     <state x="2064" y="238" key="run.anything.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602875426272" />
     <state x="2224" y="238" key="run.anything.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603977729414" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1603983311821">
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1604411136224">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603307362375" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603983311821" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604411136224" />
     <state x="2125" y="427" width="540" height="176" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602248296482">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>

@@ -17,6 +17,10 @@ class CreateCitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('state');
+            /**
+             * Evitar duplicidade de cidades
+             */
+            $table->unique(['name', 'state']);
             $table->timestamps();
         });
     }

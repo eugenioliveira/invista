@@ -21,7 +21,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "alpinejs": "^2.7.2",
-        "apexcharts": "^3.22.0"
+        "alpinejs": "^2.7.3",
+        "apexcharts": "^3.22.1"
     }
 }

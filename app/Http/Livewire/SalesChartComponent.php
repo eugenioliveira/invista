@@ -8,6 +8,8 @@ class SalesChartComponent extends Component
 {
     public function getChartData()
     {
+        sleep(1);
+
         $chartData = [
             rand(10000, 90000) / rand(10, 20),
             rand(10000, 90000) / rand(10, 20),

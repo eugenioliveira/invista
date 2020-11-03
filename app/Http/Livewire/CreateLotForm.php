@@ -156,9 +156,10 @@ class CreateLotForm extends Component
      */
     public function createNewLot(bool $redirectAfterSave = true)
     {
-        // Realiza a validação dos dados
-        $this->validate();
         if ($this->validateLotUniqueness($this->allotment->id)) {
+            // Realiza a validação do restante dos campos
+            $this->validate();
+
             // Cria o lote
             $this->allotment->createLot($this->lot, $this->statusType);
 

@@ -5,7 +5,7 @@
     $inputClasses = $error ? 'focus:shadow-outline-red border-red-500' : 'focus:shadow-outline-orange focus:border-orange-300';
 @endphp
 
-<div>
+<div class="w-full">
     <label for="{{ $name }}" class="block font-medium text-sm text-gray-700 {{ $labelClasses }}">{{ $label }}</label>
     <select
         id="{{ $name }}"
