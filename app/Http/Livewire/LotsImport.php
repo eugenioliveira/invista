@@ -5,10 +5,11 @@ namespace App\Http\Livewire;
 use App\Imports\LotImport;
 use App\Models\Allotment;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\HeadingRowImport;
+use Storage;
+use Validator;
 
 class LotsImport extends Component
 {
@@ -83,7 +84,7 @@ class LotsImport extends Component
     }
 
     /**
-     * Realiza a importação dos lotes.
+     * Realiza a validação e carregamento dos lotes no estado...
      */
     public function importLots()
     {
@@ -92,12 +93,41 @@ class LotsImport extends Component
         $this->validate();
 
         // Salvar o arquivo importado
-        $file = $this->importFile->store('imports');
+        $filePath = Storage::path($this->importFile->store('imports'));
 
-        // Realizar a importação
-        $import = new LotImport();
-        $import->import(Storage::path($file));
-        $this->lots = $import->getRows();
+        // Valida os cabeçalhos
+        if ($this->validateFileHeadings($filePath)) {
+            // Realizar a importação
+            $import = new LotImport;
+            $import->import($filePath);
+            $this->lots = $import->getRows();
+        }
+
+    }
+
+    /**
+     * Realiza a validação do cabeçalho do arquivo
+     *
+     * @param string $path
+     * @return bool
+     */
+    protected function validateFileHeadings(string $path)
+    {
+        $headings = (new HeadingRowImport)->toCollection($path)->flatten();
+        $validHeadings = collect([
+            'quadra', 'lote', 'preco', 'frente',
+            'fundos', 'direita', 'esquerda', 'conf_frente',
+            'conf_fundos', 'conf_direita', 'conf_esquerda', 'status'
+        ]);
+
+        $diff = $validHeadings->diff($headings);
+
+        if ($diff->isNotEmpty()) {
+           $this->addError('headings', 'O cabeçalho do arquivo Excel não é válido. Verifique');
+           return false;
+        }
+
+        return true;
     }
 
     /**
