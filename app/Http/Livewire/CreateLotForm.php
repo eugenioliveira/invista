@@ -20,7 +20,7 @@ use Livewire\Component;
  */
 class CreateLotForm extends Component
 {
-    use SuccessHandler;
+    use RedirectHandler;
     use ValidatesLotUniqueness;
 
     /**

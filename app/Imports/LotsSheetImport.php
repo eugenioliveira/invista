@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Validator;
 
-class LotImport implements ToCollection, WithHeadingRow
+class LotsSheetImport implements ToCollection, WithHeadingRow
 {
     use Importable;
 

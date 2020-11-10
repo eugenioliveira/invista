@@ -6,7 +6,8 @@
         <x-alert type="success" message="{{ session('successMessage') }}"/>
     @endif
     <!-- Search and Pagination -->
-    <x-search-pagination search-placeholder="Ex.: Loteamento São Bento" :collection="$allotments" />
+    <x-search-pagination search-placeholder="Ex.: Loteamento São Bento" :links="$allotments->links('vendor.pagination.tailwind')" />
+
     <!-- Allotment Grid -->
     <div class="p-4 md:p-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         @foreach($allotments as $allotment)

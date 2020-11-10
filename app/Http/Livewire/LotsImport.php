@@ -2,18 +2,19 @@
 
 namespace App\Http\Livewire;
 
-use App\Imports\LotImport;
+use App\Imports\LotsSheetImport;
 use App\Models\Allotment;
+use App\Models\Lot;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Maatwebsite\Excel\HeadingRowImport;
 use Storage;
-use Validator;
 
 class LotsImport extends Component
 {
     use WithFileUploads;
+    use RedirectHandler;
 
     /**
      * O loteamento que irá receber os lotes importados
@@ -43,6 +44,13 @@ class LotsImport extends Component
      * @var Collection
      */
     public Collection $lots;
+
+    /**
+     * Exibição da tela de loading
+     *
+     * @var bool
+     */
+    public bool $showLoading = false;
 
     /**
      * Regras de validação
@@ -98,10 +106,66 @@ class LotsImport extends Component
         // Valida os cabeçalhos
         if ($this->validateFileHeadings($filePath)) {
             // Realizar a importação
-            $import = new LotImport;
+            $import = new LotsSheetImport;
             $import->import($filePath);
             $this->lots = $import->getRows();
         }
+
+    }
+
+    public function saveLots()
+    {
+        // Exibe a tela de loading
+        $this->showLoading = true;
+
+        // Inicia uma transaction
+        \DB::beginTransaction();
+
+        // Salva os lotes
+        try {
+            foreach ($this->lots as $lotRow) {
+
+                // Verifica se o lote já existe
+                $lot = $this->allotment
+                    ->lots()
+                    ->where('block', $lotRow['block'])
+                    ->where('number', $lotRow['number'])
+                    ->first();
+
+                /**
+                 * Se o lote ja existir, testa se a opção de sobrescrever
+                 * está ativa.
+                 * Caso a opção estiver ativa: Atualiza o lote com os dados do arquivo
+                 * Caso a opção estiver inativa: apenas ignora e passa para o próximo lote
+                 *
+                 * Se o lote não existir, cria-o com o status definido no arquivo.
+                 */
+                if ($lot) {
+                    if ($this->shouldOverwrite) {
+                        $lot->update($this->getFillableLotAttributes($lotRow));
+                    } else {
+                        continue;
+                    }
+                } else {
+                    $this->allotment->createLot(
+                        new Lot($this->getFillableLotAttributes($lotRow)),
+                        $lotRow['status']
+                    );
+                }
+            }
+        } catch (\Exception $exception) {
+            \DB::rollBack();
+            throw $exception;
+        }
+
+        // Termina a transaction
+        \DB::commit();
+
+        // Redireciona
+        $this->successAction(
+            'Lotes importados.',
+            ['lots.index', $this->allotment->id],
+        );
 
     }
 
@@ -123,11 +187,34 @@ class LotsImport extends Component
         $diff = $validHeadings->diff($headings);
 
         if ($diff->isNotEmpty()) {
-           $this->addError('headings', 'O cabeçalho do arquivo Excel não é válido. Verifique');
-           return false;
+            $this->addError('headings', 'O cabeçalho do arquivo Excel não é válido. Verifique');
+            return false;
         }
 
         return true;
+    }
+
+    /**
+     * Extrai os campos preenchíveis do array para o model.
+     *
+     * @param array $lotRow
+     * @return array
+     */
+    protected function getFillableLotAttributes(array $lotRow)
+    {
+        return [
+            'block' => $lotRow['block'],
+            'number' => $lotRow['number'],
+            'price' => $lotRow['price'],
+            'front' => $lotRow['front'],
+            'back' => $lotRow['back'],
+            'right' => $lotRow['right'],
+            'left' => $lotRow['left'],
+            'front_side' => $lotRow['front_side'],
+            'back_side' => $lotRow['back_side'],
+            'right_side' => $lotRow['right_side'],
+            'left_side' => $lotRow['left_side']
+        ];
     }
 
     /**

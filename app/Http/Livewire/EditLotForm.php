@@ -15,7 +15,7 @@ use Livewire\Component;
  */
 class EditLotForm extends Component
 {
-    use SuccessHandler;
+    use RedirectHandler;
     use ValidatesLotUniqueness;
 
     /**

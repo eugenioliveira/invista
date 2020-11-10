@@ -17,7 +17,7 @@ use Livewire\WithFileUploads;
 class AllotmentForm extends Component
 {
     use WithFileUploads;
-    use SuccessHandler;
+    use RedirectHandler;
 
     /**
      * O loteamento a ser salvo.

@@ -4,7 +4,7 @@
 namespace App\Http\Livewire;
 
 
-trait SuccessHandler
+trait RedirectHandler
 {
     public function successAction(string $message, array $route, bool $redirect = true)
     {

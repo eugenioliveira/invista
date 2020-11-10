@@ -1116,24 +1116,23 @@
         },
         {
             "name": "jaybizzle/crawler-detect",
-            "version": "v1.2.101",
+            "version": "v1.2.102",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JayBizzle/Crawler-Detect.git",
-                "reference": "bffc10d3090bc99231c17f9960506ab51e9d25f5"
+                "reference": "346cfd72d11bb41f15e82654e532dc55360612ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/bffc10d3090bc99231c17f9960506ab51e9d25f5",
-                "reference": "bffc10d3090bc99231c17f9960506ab51e9d25f5",
+                "url": "https://api.github.com/repos/JayBizzle/Crawler-Detect/zipball/346cfd72d11bb41f15e82654e532dc55360612ac",
+                "reference": "346cfd72d11bb41f15e82654e532dc55360612ac",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8|^5.5|^6.5",
-                "satooshi/php-coveralls": "1.*"
+                "phpunit/phpunit": "^4.8|^5.5|^6.5"
             },
             "type": "library",
             "autoload": {
@@ -1163,9 +1162,9 @@
             ],
             "support": {
                 "issues": "https://github.com/JayBizzle/Crawler-Detect/issues",
-                "source": "https://github.com/JayBizzle/Crawler-Detect/tree/v1.2.101"
+                "source": "https://github.com/JayBizzle/Crawler-Detect/tree/v1.2.102"
             },
-            "time": "2020-10-24T09:23:11+00:00"
+            "time": "2020-11-04T19:23:01+00:00"
         },
         {
             "name": "jenssegers/agent",
@@ -1498,23 +1497,23 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.6.2",
+            "version": "v1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "55e4b0fc750d3d2abed4c314105db269043e6cb7"
+                "reference": "1a8d5a7017c455491091b87eddb8e8523313af51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/55e4b0fc750d3d2abed4c314105db269043e6cb7",
-                "reference": "55e4b0fc750d3d2abed4c314105db269043e6cb7",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/1a8d5a7017c455491091b87eddb8e8523313af51",
+                "reference": "1a8d5a7017c455491091b87eddb8e8523313af51",
                 "shasum": ""
             },
             "require": {
                 "bacon/bacon-qr-code": "^2.0",
                 "ext-json": "*",
                 "illuminate/support": "^8.0",
-                "php": "^7.3",
+                "php": "^7.3|^8.0",
                 "pragmarx/google2fa": "^7.0|^8.0"
             },
             "require-dev": {
@@ -1557,20 +1556,20 @@
                 "issues": "https://github.com/laravel/fortify/issues",
                 "source": "https://github.com/laravel/fortify"
             },
-            "time": "2020-10-20T15:44:56+00:00"
+            "time": "2020-11-03T16:20:04+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v8.12.3",
+            "version": "v8.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "6707480c5f0db7aa07537f9ad93255b64b65b85e"
+                "reference": "37a0abd4f3dbc51e2256296b45f8be72c8fe2196"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/6707480c5f0db7aa07537f9ad93255b64b65b85e",
-                "reference": "6707480c5f0db7aa07537f9ad93255b64b65b85e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/37a0abd4f3dbc51e2256296b45f8be72c8fe2196",
+                "reference": "37a0abd4f3dbc51e2256296b45f8be72c8fe2196",
                 "shasum": ""
             },
             "require": {
@@ -1724,20 +1723,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2020-10-29T22:01:29+00:00"
+            "time": "2020-11-03T14:13:19+00:00"
         },
         {
             "name": "laravel/jetstream",
-            "version": "v1.5.3",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "872ba5d811f8451fd6b5f61a0422ac303e6f4048"
+                "reference": "0cf69f7a5fba96f161e8abeaa4bfcc3e95c490a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/872ba5d811f8451fd6b5f61a0422ac303e6f4048",
-                "reference": "872ba5d811f8451fd6b5f61a0422ac303e6f4048",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/0cf69f7a5fba96f161e8abeaa4bfcc3e95c490a6",
+                "reference": "0cf69f7a5fba96f161e8abeaa4bfcc3e95c490a6",
                 "shasum": ""
             },
             "require": {
@@ -1745,7 +1744,7 @@
                 "illuminate/support": "^8.0",
                 "jenssegers/agent": "^2.6",
                 "laravel/fortify": "^1.0",
-                "php": "^7.3"
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
                 "inertiajs/inertia-laravel": "^0.2.4",
@@ -1790,20 +1789,20 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2020-10-27T21:28:35+00:00"
+            "time": "2020-11-03T18:52:00+00:00"
         },
         {
             "name": "laravel/sanctum",
-            "version": "v2.7.0",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sanctum.git",
-                "reference": "43f05df591e5099563520ab018cca4ac383681cd"
+                "reference": "b6420b0d4beace16f6e8248b221fd0b0deee47a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sanctum/zipball/43f05df591e5099563520ab018cca4ac383681cd",
-                "reference": "43f05df591e5099563520ab018cca4ac383681cd",
+                "url": "https://api.github.com/repos/laravel/sanctum/zipball/b6420b0d4beace16f6e8248b221fd0b0deee47a1",
+                "reference": "b6420b0d4beace16f6e8248b221fd0b0deee47a1",
                 "shasum": ""
             },
             "require": {
@@ -1811,12 +1810,12 @@
                 "illuminate/contracts": "^6.9|^7.0|^8.0",
                 "illuminate/database": "^6.9|^7.0|^8.0",
                 "illuminate/support": "^6.9|^7.0|^8.0",
-                "php": "^7.2"
+                "php": "^7.2|^8.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
                 "orchestra/testbench": "^4.0|^5.0|^6.0",
-                "phpunit/phpunit": "^8.0"
+                "phpunit/phpunit": "^8.0|^9.3"
             },
             "type": "library",
             "extra": {
@@ -1854,7 +1853,7 @@
                 "issues": "https://github.com/laravel/sanctum/issues",
                 "source": "https://github.com/laravel/sanctum"
             },
-            "time": "2020-10-20T18:37:43+00:00"
+            "time": "2020-11-03T19:11:54+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2921,16 +2920,16 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.6.0",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "c547f8262a5fa9ff507bd06cc394067b83a75085"
+                "reference": "943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/c547f8262a5fa9ff507bd06cc394067b83a75085",
-                "reference": "c547f8262a5fa9ff507bd06cc394067b83a75085",
+                "url": "https://api.github.com/repos/opis/closure/zipball/943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5",
+                "reference": "943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5",
                 "shasum": ""
             },
             "require": {
@@ -2980,9 +2979,9 @@
             ],
             "support": {
                 "issues": "https://github.com/opis/closure/issues",
-                "source": "https://github.com/opis/closure/tree/3.6.0"
+                "source": "https://github.com/opis/closure/tree/3.6.1"
             },
-            "time": "2020-10-11T21:42:15+00:00"
+            "time": "2020-11-07T02:01:34+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -6277,23 +6276,23 @@
         },
         {
             "name": "voku/portable-ascii",
-            "version": "1.5.3",
+            "version": "1.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/voku/portable-ascii.git",
-                "reference": "25bcbf01678930251fd572891447d9e318a6e2b8"
+                "reference": "87dc337d4200b32717dd3849fea846319e897658"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/25bcbf01678930251fd572891447d9e318a6e2b8",
-                "reference": "25bcbf01678930251fd572891447d9e318a6e2b8",
+                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/87dc337d4200b32717dd3849fea846319e897658",
+                "reference": "87dc337d4200b32717dd3849fea846319e897658",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.0.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~6.0 || ~7.0"
+                "phpunit/phpunit": "~6.0 || ~7.0 || ~9.0"
             },
             "suggest": {
                 "ext-intl": "Use Intl for transliterator_transliterate() support"
@@ -6323,7 +6322,7 @@
             ],
             "support": {
                 "issues": "https://github.com/voku/portable-ascii/issues",
-                "source": "https://github.com/voku/portable-ascii/tree/master"
+                "source": "https://github.com/voku/portable-ascii/tree/1.5.4"
             },
             "funding": [
                 {
@@ -6347,7 +6346,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-22T23:32:04+00:00"
+            "time": "2020-11-08T21:15:15+00:00"
         }
     ],
     "packages-dev": [
@@ -7810,16 +7809,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.4.2",
+            "version": "9.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3866b2eeeed21b1b099c4bc0b7a1690ac6fd5baa"
+                "reference": "9fa359ff5ddaa5eb2be2bedb08a6a5787a5807ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3866b2eeeed21b1b099c4bc0b7a1690ac6fd5baa",
-                "reference": "3866b2eeeed21b1b099c4bc0b7a1690ac6fd5baa",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9fa359ff5ddaa5eb2be2bedb08a6a5787a5807ab",
+                "reference": "9fa359ff5ddaa5eb2be2bedb08a6a5787a5807ab",
                 "shasum": ""
             },
             "require": {
@@ -7897,7 +7896,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.4.2"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.4.3"
             },
             "funding": [
                 {
@@ -7909,7 +7908,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-19T09:23:29+00:00"
+            "time": "2020-11-10T12:53:30+00:00"
         },
         {
             "name": "sebastian/cli-parser",

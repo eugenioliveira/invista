@@ -15,11 +15,11 @@
                     autocomplete="off"
                 >
                 <div class="absolute inset-y-0 right-0 flex items-center">
-                    <x-button wire:click="$set('searchTerm', null)">Limpar</x-button>
+                    <x-button type="button" wire:click="$set('searchTerm', null)">Limpar</x-button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="md:w-4/6">{{ $collection->links('vendor.pagination.tailwind') }}</div>
+    <div class="md:w-4/6">{!! $links !!}</div>
 </x-card>

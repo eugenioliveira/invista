@@ -15,54 +15,59 @@
         <x-validation-errors class="my-3"/>
 
         @if($lots->isNotEmpty())
-            <table class="min-w-full divide-y divide-gray-200 mt-3">
-                <thead>
-                <tr>
-                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                        Identificação
-                    </th>
-                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                        Preço
-                    </th>
-                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                        Frente (m<sup>2</sup>)
-                    </th>
-                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                        Fundos (m<sup>2</sup>)
-                    </th>
-                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                        Direita (m<sup>2</sup>)
-                    </th>
-                    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                        Esquerda (m<sup>2</sup>)
-                    </th>
-                </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                @foreach($lots as $lot)
-                    <tr>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            {{ $lot['identification'] }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            {{ $lot['formatted_price'] }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            {{ $lot['front'] }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            {{ $lot['back'] }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            {{ $lot['right'] }}
-                        </td>
-                        <td class="px-6 py-4 whitespace-no-wrap">
-                            {{ $lot['left'] }}
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+            <div class="relative" x-data="{ loading: @entangle('showLoading') }">
+                <div x-show="loading" class="bg-black bg-opacity-75 absolute inset-y-0 w-full"></div>
+                <div class="overflow-auto h-96 mt-6">
+                    <table class="min-w-full divide-y divide-gray-200 mt-3">
+                        <thead>
+                        <tr>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                Identificação
+                            </th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                Preço
+                            </th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                Frente (m<sup>2</sup>)
+                            </th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                Fundos (m<sup>2</sup>)
+                            </th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                Direita (m<sup>2</sup>)
+                            </th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                Esquerda (m<sup>2</sup>)
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                        @foreach($lots as $lot)
+                            <tr>
+                                <td class="px-6 py-4 whitespace-no-wrap">
+                                    {{ $lot['identification'] }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap">
+                                    {{ $lot['formatted_price'] }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap">
+                                    {{ $lot['front'] }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap">
+                                    {{ $lot['back'] }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap">
+                                    {{ $lot['right'] }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap">
+                                    {{ $lot['left'] }}
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <x-input-row class="mt-2 items-end">
                 <div class="w-2/4">
                     <x-select
@@ -93,7 +98,7 @@
             </div>
             <hr class="my-3">
             <div class="bg-gray-100">
-                <x-button>Salvar lotes</x-button>
+                <x-button type="button" wire:click="saveLots">Salvar lotes</x-button>
                 <x-button-link type="danger" href="{{ route('lots.index', $allotment->id) }}">Cancelar</x-button-link>
             </div>
         @endif
