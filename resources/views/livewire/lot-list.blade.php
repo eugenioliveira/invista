@@ -10,8 +10,8 @@
 
     @if ($lots->isNotEmpty())
 
-        <!-- Search and Pagination -->
-        <x-search-pagination search-placeholder="Ex.: A25" :collection="$lots"/>
+    <!-- Search and Pagination -->
+        <x-search-pagination search-placeholder="Ex.: A25" :links="$lots->links('vendor.pagination.tailwind')"/>
 
         <!-- Lots table -->
         <x-card class="my-4 p-4">
@@ -38,7 +38,7 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                 @foreach($lots as $lot)
-                    <tr>
+                    <tr wire:key="{{ $lot->id }}">
                         <!-- ID -->
                         <td class="px-6 py-4 whitespace-no-wrap text-gray-300">
                             {{ $lot->id }}
@@ -75,7 +75,7 @@
                             <x-lot-status-badge :status="$lot->getStatus()"></x-lot-status-badge>
                         </td>
                         <!-- Actions -->
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 flex space-x-1">
                             <!-- Edit action -->
                             <x-button-link href="{{ route('lot.edit', $lot->id) }}" format="icon" title="Editar">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -86,6 +86,7 @@
                             <!-- Show reservations action -->
                             <!-- Show proposals action -->
                             <!-- Change static status action -->
+                            <livewire:change-lot-status-modal :lot="$lot" :key="$lot->id"/>
                         </td>
                     </tr>
                 @endforeach

@@ -11,7 +11,7 @@
                 <x-nav-link route="home">Home</x-nav-link>
 
                 <x-nav-dropdown title="Loteamentos" route="allotments">
-                    <x-dropdown-link href="{{ route('allotments.index') }}">Gerenciar</x-dropdown-link>
+                    <x-dropdown-link href="{{ route('allotments.index') }}">Listar</x-dropdown-link>
                     <x-dropdown-link href="{{ route('allotment.create') }}">Novo</x-dropdown-link>
                 </x-nav-dropdown>
 

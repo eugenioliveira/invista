@@ -11,7 +11,7 @@
     <!-- Allotment Grid -->
     <div class="p-4 md:p-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         @foreach($allotments as $allotment)
-            <x-card class="overflow-hidden">
+            <x-card class="overflow-hidden" wire:key="{{ $allotment->id }}">
                 <img src="{{ $allotment->cover_url }}" class="w-full h-32 object-cover">
                 <div class="p-4">
                     <h2 class="font-medium text-lg text-primary">{{ $allotment->title }}</h2>

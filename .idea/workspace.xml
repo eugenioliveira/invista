@@ -11,30 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/excel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/export.model.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/export.plain.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/export.query-model.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/export.query.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/import.collection.stub" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stubs/import.model.stub" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ChangeLotStatusModal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/modal-container.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/textarea.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/change-lot-status-modal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CreateLotForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CreateLotForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/EditLotForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/EditLotForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/LotsImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/LotsImport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/SuccessHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/RedirectHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Imports/LotImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/LotsSheetImport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/Components/SearchPagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/SearchPagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/search-pagination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/search-pagination.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Enums/LotStatusType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/LotStatusType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/LotList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/LotList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/LotsSheetImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/LotsSheetImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/lots-import.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/lots-import.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/pagination/tailwind.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/tailwind.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +189,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/lots" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -211,17 +202,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/lots" />
-      <recent name="$PROJECT_DIR$/resources/lang/vendor/laravelEnum" />
-      <recent name="$PROJECT_DIR$/resources/views/components" />
-      <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
-      <recent name="$PROJECT_DIR$/resources/views/allotments" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/components" />
       <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
       <recent name="$PROJECT_DIR$/resources/views/home" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/components" />
+      <recent name="$PROJECT_DIR$/resources/views/lots" />
+      <recent name="$PROJECT_DIR$/resources/lang/vendor/laravelEnum" />
+      <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
+      <recent name="$PROJECT_DIR$/resources/views/allotments" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.AllotmentsTest">
@@ -309,7 +300,8 @@
       <workItem from="1604582719228" duration="9150000" />
       <workItem from="1604921959488" duration="7000" />
       <workItem from="1605012474259" duration="3145000" />
-      <workItem from="1605015630663" duration="4223000" />
+      <workItem from="1605015630663" duration="5667000" />
+      <workItem from="1605096596056" duration="8022000" />
     </task>
     <servers />
   </component>
@@ -410,16 +402,20 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="2107" y="259" width="585" height="520" key="find.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603204428416" />
+    <state x="2281" y="288" width="548" height="453" key="refactoring.ChangeSignatureDialog" timestamp="1605099671062">
+      <screen x="1600" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2281" y="288" width="548" height="453" key="refactoring.ChangeSignatureDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605099671062" />
     <state x="2224" y="238" key="run.anything.popup" timestamp="1604587897869">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2064" y="238" key="run.anything.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602875426272" />
     <state x="2224" y="238" key="run.anything.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604587897869" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1605019448475">
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1605104389399">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603307362375" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605019448475" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605104389399" />
     <state x="2285" y="427" width="540" height="180" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604425037088">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>

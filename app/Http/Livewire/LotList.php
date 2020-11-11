@@ -33,6 +33,13 @@ class LotList extends Component
     }
 
     /**
+     * Event listeners
+     *
+     * @var string[]
+     */
+    protected $listeners = ['lotStatusChanged' => '$refresh'];
+
+    /**
      * Renderiza o componente.
      *
      * @return \Illuminate\Contracts\View\View

@@ -128,7 +128,7 @@ class Lot extends Model
 
         // Caso não exista nem reserva nem proposta, retorna o primeiro status
         // estático encontrado.
-        return $this->staticStatus();
+        return $this->currentStaticStatus();
     }
 
     /**
@@ -209,7 +209,7 @@ class Lot extends Model
      *
      * @return LotStatus|object
      */
-    protected function staticStatus()
+    protected function currentStaticStatus()
     {
         return $this
             ->statuses()

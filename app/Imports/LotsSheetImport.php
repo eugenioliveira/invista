@@ -82,7 +82,11 @@ class LotsSheetImport implements ToCollection, WithHeadingRow
                 '*.conf_fundos' => ['required', 'min:3'],
                 '*.conf_direita' => ['required', 'min:3'],
                 '*.conf_esquerda' => ['required', 'min:3'],
-                '*.status' => ['required', Rule::in(['Disponível', 'Vendido', 'Bloqueado', 'Sócio'])]
+                '*.status' => ['required',
+                    Rule::in(LotStatusType::staticStatuses()->map(function ($status) {
+                        return $status->description;
+                    }))
+                ]
             ],
             [
                 '*.quadra.required' => 'Erro na linha :attribute: Campo quadra vazio.',

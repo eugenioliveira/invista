@@ -22,4 +22,18 @@ final class LotStatusType extends Enum implements LocalizedEnum
     const SOLD = 5;
     const PARTNER = 6;
 
+    /**
+     * Retorna todos os status estáticos.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public static function staticStatuses()
+    {
+        return collect([
+            static::AVAILABLE(),
+            static::BLOCKED(),
+            static::SOLD(),
+            static::PARTNER()
+        ]);
+    }
 }

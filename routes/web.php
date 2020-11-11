@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AllotmentController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LotsController;
 use App\Http\Controllers\LotsImportController;
 use Illuminate\Support\Facades\Route;
@@ -18,14 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
 
-    // Página inicial do sistema
-    Route::get('/', function () {
-
-        return view('home.index', [
-            'allotmentCount' => \App\Models\Allotment::count()
-        ]);
-
-    })->name('home');
+    //======================================================================
+    // PÁGINA INICIAL
+    //======================================================================
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
     //======================================================================
     // ROTAS REFERENTES À LOTEAMENTOS
