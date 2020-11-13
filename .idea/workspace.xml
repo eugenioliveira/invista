@@ -11,25 +11,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Permission.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_13_145345_create_acl_tables.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/AclSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/RoleSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllotmentList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Imports/LotsSheetImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/LotsSheetImport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Allotment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Allotment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/input.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/select.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/textarea.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/textarea.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/AllotmentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AllotmentFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/LotFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LotFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/change-lot-status-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/change-lot-status-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/create-lot-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/create-lot-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,6 +218,16 @@
       <recent name="$PROJECT_DIR$/resources/views/allotments" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="php artisan make:model Role" />
+      <command value="php artisan make:model Permission" />
+      <command value="php artisan make:seeder RoleSeeder" />
+      <command value="php artisan migrate:fresh --seed" />
+      <command value="php artisan make:seeder PermissionSeeder" />
+      <command value="php artisan make:seeder AclSeeder" />
+    </option>
+  </component>
   <component name="RunManager" selected="PHPUnit.AllotmentsTest">
     <configuration name="AllotmentsTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\AllotmentsTest" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Feature/AllotmentsTest.php" scope="Class" />
@@ -308,7 +317,7 @@
       <workItem from="1605096596056" duration="10899000" />
       <workItem from="1605124979791" duration="203000" />
       <workItem from="1605188085525" duration="4050000" />
-      <workItem from="1605273503545" duration="6104000" />
+      <workItem from="1605273503545" duration="14794000" />
     </task>
     <servers />
   </component>
@@ -356,22 +365,26 @@
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2343" y="277" width="424" height="476" key="FileChooserDialogImpl/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603471314839" />
-    <state width="1878" height="276" key="GridCell.Tab.0.bottom" timestamp="1603224779354">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state width="1878" height="276" key="GridCell.Tab.0.bottom" timestamp="1605294904446">
+      <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="276" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603224779354" />
-    <state width="1878" height="276" key="GridCell.Tab.0.center" timestamp="1603224779354">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state width="1878" height="276" key="GridCell.Tab.0.bottom/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605294904446" />
+    <state width="1878" height="276" key="GridCell.Tab.0.center" timestamp="1605294904446">
+      <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="276" key="GridCell.Tab.0.center/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603224779354" />
-    <state width="1878" height="276" key="GridCell.Tab.0.left" timestamp="1603224779353">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state width="1878" height="276" key="GridCell.Tab.0.center/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605294904445" />
+    <state width="1878" height="276" key="GridCell.Tab.0.left" timestamp="1605294904445">
+      <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="276" key="GridCell.Tab.0.left/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603224779353" />
-    <state width="1878" height="276" key="GridCell.Tab.0.right" timestamp="1603224779354">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state width="1878" height="276" key="GridCell.Tab.0.left/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605294904445" />
+    <state width="1878" height="276" key="GridCell.Tab.0.right" timestamp="1605294904446">
+      <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="276" key="GridCell.Tab.0.right/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603224779354" />
+    <state width="1878" height="276" key="GridCell.Tab.0.right/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605294904446" />
     <state width="1878" height="332" key="GridCell.Tab.1.bottom" timestamp="1603138207853">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
@@ -415,16 +428,16 @@
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2281" y="288" width="548" height="453" key="refactoring.ChangeSignatureDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605279492668" />
-    <state x="2224" y="238" key="run.anything.popup" timestamp="1604587897869">
+    <state x="2224" y="238" width="672" height="677" key="run.anything.popup" timestamp="1605294588191">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2064" y="238" key="run.anything.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602875426272" />
-    <state x="2224" y="238" key="run.anything.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604587897869" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1605286991685">
+    <state x="2224" y="238" width="672" height="677" key="run.anything.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605294588191" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1605296707671">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603307362375" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605286991685" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605296707671" />
     <state x="2285" y="427" width="540" height="180" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604425037088">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>

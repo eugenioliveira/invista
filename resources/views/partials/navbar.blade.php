@@ -12,7 +12,9 @@
 
                 <x-nav-dropdown title="Loteamentos" route="allotments">
                     <x-dropdown-link href="{{ route('allotments.index') }}">Listar</x-dropdown-link>
-                    <x-dropdown-link href="{{ route('allotment.create') }}">Novo</x-dropdown-link>
+                    @can('create_allotment')
+                        <x-dropdown-link href="{{ route('allotment.create') }}">Novo</x-dropdown-link>
+                    @endcan
                 </x-nav-dropdown>
 
                 <x-nav-link route="brokers.index">Corretores</x-nav-link>

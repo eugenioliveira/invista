@@ -30,14 +30,17 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Lista de loteamentos
     Route::get('/allotments', [AllotmentController::class, 'index'])
+        ->middleware('can:view_allotments')
         ->name('allotments.index');
 
     // Formulário de criação
     Route::get('/allotments/create', [AllotmentController::class, 'create'])
+        ->middleware('can:create_allotment')
         ->name('allotment.create');
 
     // Formulário de edição
     Route::get('/allotments/edit/{allotment}', [AllotmentController::class, 'edit'])
+        ->middleware('can:edit_allotment')
         ->name('allotment.edit');
 
     //======================================================================
@@ -48,19 +51,23 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Lista de lotes
     Route::get('/allotments/{allotment}/lots', [LotsController::class, 'index'])
+        ->middleware('can:view_lots')
         ->name('lots.index');
 
     // Formulário de criação
     Route::get('/allotments/{allotment}/lot/create', [LotsController::class, 'create'])
+        ->middleware('can:create_lot')
         ->name('lot.create');
 
     // Formulário de edição
     Route::get('/allotments/lot/{lot}/edit', [LotsController::class, 'edit'])
+        ->middleware('can:edit_lot')
         ->name('lot.edit');
 
     // Importação de lotes
     Route::get('/allotments/{allotment}/lots/import', [LotsImportController::class, 'create'])
-    ->name('lots.import');
+        ->middleware('can:import_lots')
+        ->name('lots.import');
 
     //======================================================================
 

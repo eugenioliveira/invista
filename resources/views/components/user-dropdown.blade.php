@@ -1,5 +1,5 @@
 @php
-/** @var \App\Models\User $currentUser */
+    /** @var \App\Models\User $currentUser */
 @endphp
 <x-dropdown alignment="right">
     <x-slot name="trigger">
@@ -20,5 +20,8 @@
 
 
     <x-dropdown-link href="{{ route('profile.show') }}">Perfil</x-dropdown-link>
-    <x-dropdown-link href="/">Sair</x-dropdown-link>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button class="text-black w-full text-left px-4 py-1 hover:bg-orange-200 text-sm transition ease-in duration-150" type="submit">Sair</button>
+    </form>
 </x-dropdown>

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Collection;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
@@ -66,6 +67,57 @@ class User extends Authenticatable
      */
     protected function defaultProfilePhotoUrl()
     {
-        return 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&color=FFFFFF&background=253C78';
+        return 'https://ui-avatars.com/api/?name=' . urlencode($this->name) . '&color=FFFFFF&background=253C78';
+    }
+
+    /**
+     * Os papéis que o usuário possui.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * Atribui um novo papel para o usuário.
+     *
+     * @param mixed $role
+     */
+    public function assignRole($role)
+    {
+        if (is_string($role)) {
+            $role = Role::whereName($role)->firstOrFail();
+        }
+
+        $this->roles()->sync($role, false);
+    }
+
+    /**
+     * Busca as permissões do usuário.
+     *
+     * @return Collection
+     */
+    public function permissions()
+    {
+        return $this->roles
+            ->map->permissions
+            ->flatten()->pluck('name')->unique();
+    }
+
+    /**
+     * Certifica se o usuário possui determinado papel.
+     *
+     * @param $role
+     * @return mixed
+     */
+    public function hasRole($role)
+    {
+        return $this
+            ->roles()
+            ->where('name', $role)
+            ->get()
+            ->isNotEmpty();
     }
 }

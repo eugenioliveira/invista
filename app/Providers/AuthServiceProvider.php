@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,6 +26,23 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        /*
+         * Regra de autorização do admin
+         */
+        Gate::before(function (User $user) {
+            if ($user->is_admin) {
+                return true;
+            }
+        });
+
+        /*
+         * Caso o usuário não for admin,
+         * prossegue com a verificação de papéis e permissões
+         */
+        Gate::before(function (User $user, $permission) {
+            if ($user->permissions()->contains($permission)) {
+                return true;
+            }
+        });
     }
 }

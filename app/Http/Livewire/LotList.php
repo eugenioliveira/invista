@@ -51,15 +51,23 @@ class LotList extends Component
         // Retorna o número do campo de pesquisa
         preg_match('/\d+/', $this->searchTerm, $number);
 
-        return view('livewire.lot-list', [
-            'lots' => $this->allotment->lots()
-                ->where(function ($query) use ($block, $number) {
-                    if ($block) $query->where('block', $block);
-                    if ($number) $query->where('number', $number);
-                })
-                ->orderBy('block')
-                ->orderBy('number')
-                ->paginate(10)
-        ]);
+        // Busca os lotes
+        $lots = $this->allotment->lots()
+            ->where(function ($query) use ($block, $number) {
+                if ($block) $query->where('block', $block);
+                if ($number) $query->where('number', $number);
+            })
+            ->orderBy('block')
+            ->orderBy('number')
+            ->paginate(10);
+
+        // Exibe view diferentes baseadas no papel atual do usuário.
+        if (\Auth::user()->is_admin) {
+            return view('livewire.lot-list', [
+                'lots' => $lots
+            ]);
+        } else {
+            // Retornar outra view com menos opções.
+        }
     }
 }

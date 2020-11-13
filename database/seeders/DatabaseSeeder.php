@@ -17,7 +17,10 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CitySeeder::class,
             AllotmentSeeder::class,
-            LotStatusSeeder::class
+            LotStatusSeeder::class,
+            RoleSeeder::class,
+            PermissionSeeder::class,
+            AclSeeder::class
         ]);
     }
 }
