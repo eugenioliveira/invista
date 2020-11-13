@@ -30,7 +30,8 @@ class AllotmentList extends Component
         $search = '%' . $this->searchTerm . '%';
         return view('livewire.allotment-list', [
             'allotments' => Allotment::where('title', 'like', $search)
-                ->with(['lots', 'city'])
+                ->withCount('lots')
+                ->with('city')
                 ->paginate(8)
         ]);
     }

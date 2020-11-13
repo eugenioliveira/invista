@@ -86,7 +86,7 @@
                             <!-- Show reservations action -->
                             <!-- Show proposals action -->
                             <!-- Change static status action -->
-                            <livewire:change-lot-status-modal :lot="$lot" :key="$lot->id"/>
+                            <livewire:change-lot-status-modal :lot="$lot" :key="'change-lot-status-modal-'.$lot->id"/>
                         </td>
                     </tr>
                 @endforeach

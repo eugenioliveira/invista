@@ -120,7 +120,7 @@ class Lot extends Model
     public function getStatus()
     {
         // Verifica se o lote possui alguma reserva ativa
-        $activeReservation = $this->hasActiveReservation();
+        $activeReservation = $this->getActiveReservation();
         // caso haja, cria um Status do tipo reservado.
         if ($activeReservation) {
             return $this->createReservedStatus($activeReservation);
@@ -136,7 +136,7 @@ class Lot extends Model
      *
      * @return Reservation
      */
-    public function hasActiveReservation()
+    public function getActiveReservation()
     {
         /*
          * Uma reserva está ativa quando a data atual
@@ -144,15 +144,14 @@ class Lot extends Model
          */
         $reservations = $this
             ->reservations()
-            ->where('init', '<=', now())
-            ->where('due', '>=', now())
+            ->active()
             ->get();
 
         if ($reservations->count() > 1) {
             throw new \UnexpectedValueException("Há mais de uma reserva ativa para o lote {$this->identification}. Verificar.");
-        } else {
-            return $reservations->first();
         }
+
+        return $reservations->first();
     }
 
     /**

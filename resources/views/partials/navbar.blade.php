@@ -17,6 +17,8 @@
 
                 <x-nav-link route="brokers.index">Corretores</x-nav-link>
                 <x-nav-link route="clients.index">Clientes</x-nav-link>
+                <x-nav-link route="clients.index">Reservas</x-nav-link>
+                <x-nav-link route="clients.index">Propostas</x-nav-link>
                 <x-nav-link route="sales.index">Vendas</x-nav-link>
             </nav>
         </div>

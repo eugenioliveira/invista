@@ -83,9 +83,7 @@ class LotsSheetImport implements ToCollection, WithHeadingRow
                 '*.conf_direita' => ['required', 'min:3'],
                 '*.conf_esquerda' => ['required', 'min:3'],
                 '*.status' => ['required',
-                    Rule::in(LotStatusType::staticStatuses()->map(function ($status) {
-                        return $status->description;
-                    }))
+                    Rule::in(LotStatusType::staticStatuses()->map->description)
                 ]
             ],
             [

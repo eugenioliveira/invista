@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -40,5 +41,18 @@ class Reservation extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Escopo de consulta para incluir apenas reservas ativas.
+     *
+     * @param  Builder  $query
+     * @return Builder
+     */
+    public function scopeActive(Builder $query)
+    {
+        return $query
+            ->where('init', '<=', now())
+            ->where('due', '>=', now());
     }
 }

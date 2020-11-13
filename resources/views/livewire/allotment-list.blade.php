@@ -19,7 +19,7 @@
                     <div class="text-sm mb-2">
                         <p>
                             <span class="font-medium">Lotes: </span>
-                            <span class="lotCount">{{ $allotment->lots->count() }}</span>
+                            <span class="lotCount">{{ $allotment->lots_count }}</span>
                         </p>
                         <p>
                             <span class="font-medium">Área: </span>
@@ -35,7 +35,7 @@
                         x-on:click="
                             showPanel = true;
                             allotmentTitle = '{{ $allotment->title }}';
-                            allotmentId = {{ $allotment->id }}
+                            allotmentId = '{{ $allotment->id }}'
                             "
                     >
                         Opções

@@ -12,9 +12,11 @@
     >
         {{ $slot }}
     </textarea>
-    @if($error)
-        <div class="mt-1 flex items-center">
-            <span class="font-medium text-red-500 text-xs">{{ $error }}</span>
-        </div>
-    @endif
+    <div>
+        @if($error)
+            <div class="mt-1 flex items-center">
+                <span class="font-medium text-red-500 text-xs">{{ $error }}</span>
+            </div>
+        @endif
+    </div>
 </div>

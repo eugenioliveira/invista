@@ -7,7 +7,7 @@
     ];
 @endphp
 
-<div x-data="{open: false}" @click.away="open = false" class="relative">
+<div x-data="{ open: false }" @click.away="open = false" class="relative">
     <div @click.prevent="open = !open">
         {{ $trigger }}
     </div>

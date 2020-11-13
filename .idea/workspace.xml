@@ -11,21 +11,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ChangeLotStatusModal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/modal-container.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/textarea.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/change-lot-status-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/LotStatusType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/LotStatusType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/LotList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/LotList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllotmentList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentList.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Imports/LotsSheetImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/LotsSheetImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Allotment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Allotment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Reservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/input.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/select.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/textarea.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/textarea.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/change-lot-status-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/change-lot-status-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/create-lot-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/create-lot-form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +202,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -301,7 +305,10 @@
       <workItem from="1604921959488" duration="7000" />
       <workItem from="1605012474259" duration="3145000" />
       <workItem from="1605015630663" duration="5667000" />
-      <workItem from="1605096596056" duration="8022000" />
+      <workItem from="1605096596056" duration="10899000" />
+      <workItem from="1605124979791" duration="203000" />
+      <workItem from="1605188085525" duration="4050000" />
+      <workItem from="1605273503545" duration="6104000" />
     </task>
     <servers />
   </component>
@@ -385,37 +392,39 @@
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2647" y="207" width="565" height="564" key="NewPhpClassDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603982155709" />
-    <state x="2202" y="141" width="386" height="748" key="RollbackChangesDialog" timestamp="1603310083832">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state x="2362" y="141" width="393" height="712" key="RollbackChangesDialog" timestamp="1605280373375">
+      <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2202" y="141" width="386" height="748" key="RollbackChangesDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603310083832" />
-    <state x="2071" y="154" key="SettingsEditor" timestamp="1605015745096">
+    <state x="2362" y="141" width="393" height="712" key="RollbackChangesDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605280373375" />
+    <state x="2071" y="154" key="SettingsEditor" timestamp="1605188725566">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="1911" y="154" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602597843369" />
-    <state x="2071" y="154" key="SettingsEditor/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605015745096" />
+    <state x="2071" y="154" key="SettingsEditor/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605188725566" />
     <state x="2217" y="181" width="676" height="667" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604433968523">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2217" y="181" width="676" height="667" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604433968523" />
-    <state x="2107" y="259" width="585" height="520" key="find.popup" timestamp="1603204428416">
-      <screen x="1440" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2107" y="259" width="585" height="520" key="find.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603204428416" />
-    <state x="2281" y="288" width="548" height="453" key="refactoring.ChangeSignatureDialog" timestamp="1605099671062">
+    <state x="2267" y="259" width="585" height="520" key="find.popup" timestamp="1605273649829">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
-    <state x="2281" y="288" width="548" height="453" key="refactoring.ChangeSignatureDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605099671062" />
+    <state x="2107" y="259" width="585" height="520" key="find.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603204428416" />
+    <state x="2267" y="259" width="585" height="520" key="find.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605273649829" />
+    <state x="2281" y="288" width="548" height="453" key="refactoring.ChangeSignatureDialog" timestamp="1605279492668">
+      <screen x="1600" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2281" y="288" width="548" height="453" key="refactoring.ChangeSignatureDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605279492668" />
     <state x="2224" y="238" key="run.anything.popup" timestamp="1604587897869">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2064" y="238" key="run.anything.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602875426272" />
     <state x="2224" y="238" key="run.anything.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604587897869" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1605104389399">
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1605286991685">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603307362375" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605104389399" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605286991685" />
     <state x="2285" y="427" width="540" height="180" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604425037088">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>

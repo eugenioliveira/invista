@@ -92,7 +92,7 @@ class Allotment extends Model
         $lot->createStatus(
             \Auth::user(),
             $statusType,
-            sprintf('Lote criado por %s.', \Auth::user()->name),
+            sprintf('Lote criado manualmente por %s.', \Auth::user()->name),
             true
         );
 

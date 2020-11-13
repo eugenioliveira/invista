@@ -30,7 +30,7 @@
     </div>
     @push('scripts')
         <script>
-            window.salesChart = () => {
+            function salesChart() {
                 return {
                     loading: true,
                     chart: null,

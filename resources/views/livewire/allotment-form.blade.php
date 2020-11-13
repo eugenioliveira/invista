@@ -154,9 +154,11 @@
                 <div class="mt-4">
 
                     <!-- Mensagens de erro - Validação -->
-                    @error('cover')
-                    <x-alert type="danger" message="{{ $message }}" :autoclose="false"/>
-                    @enderror
+                    <div>
+                        @error('cover')
+                        <x-alert type="danger" message="{{ $message }}" :autoclose="false"/>
+                        @enderror
+                    </div>
                 <!-- /End mensagens -->
 
                     <!-- Progress Bar -->

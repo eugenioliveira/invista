@@ -51,11 +51,13 @@
                 >
                 <span>{{ \App\Enums\LotStatusType::PARTNER()->description }}</span>
             </label>
-            @error('statusType')
-            <div class="mt-1 flex items-center">
-                <span class="font-medium text-red-500 text-xs">{{ $message }}</span>
+            <div>
+                @error('statusType')
+                <div class="mt-1 flex items-center">
+                    <span class="font-medium text-red-500 text-xs">{{ $message }}</span>
+                </div>
+                @enderror
             </div>
-            @enderror
         </x-input-row>
         <x-input-row>
             <x-button>Salvar e Voltar</x-button>
