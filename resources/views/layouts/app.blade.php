@@ -37,11 +37,11 @@
             @include('partials.footer')
         </div>
 
-        @stack('modals')
-
+        <!-- Livewire -->
         @livewireScripts
         <!-- Page scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
+        <!-- Stacked scripts -->
         @stack('scripts')
     </body>
 </html>

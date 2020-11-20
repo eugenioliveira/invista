@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Allotment;
 use Illuminate\Http\Request;
 
-class AllotmentController extends Controller
+class AllotmentsController extends Controller
 {
     /**
      * Lista os loteamentos.

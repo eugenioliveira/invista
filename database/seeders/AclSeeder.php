@@ -20,7 +20,9 @@ class AclSeeder extends Seeder
          */
         Role::whereName('supervisor')->firstOrFail()
             ->allowTo('view_allotments')
-            ->allowTo('view_lots');
+            ->allowTo('view_lots')
+            ->allowTo('view_users');
+            //->allowTo('edit_user'); Rule handled by UserPolicy
 
         /**
          * Atribui as permissões para o papel de corretor.

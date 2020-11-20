@@ -11,22 +11,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Permission.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_13_145345_create_acl_tables.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/AclSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/RoleSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/UserList.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/UserDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/UserDetails.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Policies/UserPolicy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/UserDetailFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_17_102015_create_user_details_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/UserDetailSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/user-list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-idea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AllotmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AllotmentsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AllotmentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AllotmentFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/LotFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LotFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/AclSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/AclSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -192,7 +195,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/users" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -205,17 +208,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/components" />
-      <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
-      <recent name="$PROJECT_DIR$/resources/views/home" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/users" />
       <recent name="$PROJECT_DIR$/resources/views/components" />
       <recent name="$PROJECT_DIR$/resources/views/lots" />
       <recent name="$PROJECT_DIR$/resources/lang/vendor/laravelEnum" />
       <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
-      <recent name="$PROJECT_DIR$/resources/views/allotments" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/components" />
+      <recent name="$PROJECT_DIR$/resources/views/components/alerts" />
+      <recent name="$PROJECT_DIR$/resources/views/home" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -317,7 +320,12 @@
       <workItem from="1605096596056" duration="10899000" />
       <workItem from="1605124979791" duration="203000" />
       <workItem from="1605188085525" duration="4050000" />
-      <workItem from="1605273503545" duration="14794000" />
+      <workItem from="1605273503545" duration="15445000" />
+      <workItem from="1605536158609" duration="642000" />
+      <workItem from="1605614851542" duration="9508000" />
+      <workItem from="1605723793727" duration="441000" />
+      <workItem from="1605724247147" duration="1422000" />
+      <workItem from="1605890501404" duration="2251000" />
     </task>
     <servers />
   </component>
@@ -352,19 +360,19 @@
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2452" y="333" width="525" height="406" key="#com.intellij.ide.util.TreeClassChooserDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603975979831" />
-    <state x="2295" y="198" width="510" height="626" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605014094059">
+    <state x="2295" y="198" width="510" height="626" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605616384022">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
-    <state x="2295" y="198" width="510" height="626" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605014094059" />
-    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604434040079">
+    <state x="2295" y="198" width="510" height="626" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605616384022" />
+    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605619969748">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2133" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603284673850" />
-    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1604434040078" />
-    <state x="2343" y="277" width="424" height="476" key="FileChooserDialogImpl" timestamp="1603471314839">
+    <state x="2293" y="277" width="524" height="476" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605619969748" />
+    <state x="2343" y="277" width="424" height="476" key="FileChooserDialogImpl" timestamp="1605620336720">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
-    <state x="2343" y="277" width="424" height="476" key="FileChooserDialogImpl/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1603471314839" />
+    <state x="2343" y="277" width="424" height="476" key="FileChooserDialogImpl/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605620336720" />
     <state width="1878" height="276" key="GridCell.Tab.0.bottom" timestamp="1605294904446">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
@@ -433,11 +441,11 @@
     </state>
     <state x="2064" y="238" key="run.anything.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1602875426272" />
     <state x="2224" y="238" width="672" height="677" key="run.anything.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605294588191" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1605296707671">
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1605892521254">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2063" y="228" width="672" height="678" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1603307362375" />
-    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605296707671" />
+    <state x="2223" y="228" width="672" height="678" key="search.everywhere.popup/1600.0.1920.1080/0.0.1600.900@1600.0.1920.1080" timestamp="1605892521254" />
     <state x="2285" y="427" width="540" height="180" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1604425037088">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>

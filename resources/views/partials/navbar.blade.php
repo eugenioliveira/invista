@@ -4,20 +4,23 @@
         <!-- Left section of navbar -->
         <div class="flex items-center">
             <!-- logo -->
-            <x-full-logo />
+            <x-full-logo/>
 
             <!-- Nav Links -->
             <nav class="ml-8 flex space-x-1">
                 <x-nav-link route="home">Home</x-nav-link>
 
-                <x-nav-dropdown title="Loteamentos" route="allotments">
-                    <x-dropdown-link href="{{ route('allotments.index') }}">Listar</x-dropdown-link>
-                    @can('create_allotment')
-                        <x-dropdown-link href="{{ route('allotment.create') }}">Novo</x-dropdown-link>
-                    @endcan
-                </x-nav-dropdown>
-
-                <x-nav-link route="brokers.index">Corretores</x-nav-link>
+                @can('view_allotments')
+                    <x-nav-dropdown title="Loteamentos" route="allotments">
+                        <x-dropdown-link href="{{ route('allotments.index') }}">Listar</x-dropdown-link>
+                        @can('create_allotment')
+                            <x-dropdown-link href="{{ route('allotment.create') }}">Novo</x-dropdown-link>
+                        @endcan
+                    </x-nav-dropdown>
+                @endcan
+                @can('view_users')
+                    <x-nav-link route="users.index">Usuários</x-nav-link>
+                @endcan
                 <x-nav-link route="clients.index">Clientes</x-nav-link>
                 <x-nav-link route="clients.index">Reservas</x-nav-link>
                 <x-nav-link route="clients.index">Propostas</x-nav-link>
@@ -26,7 +29,7 @@
         </div>
 
         <!-- User dropdown -->
-        <x-user-dropdown />
+        <x-user-dropdown/>
     </div>
 </div>
 <div class="bg-gray-500 h-1"></div>

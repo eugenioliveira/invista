@@ -81,6 +81,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Informações complementares do usuário.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function detail()
+    {
+        return $this->hasOne(UserDetail::class);
+    }
+
+    /**
      * Atribui um novo papel para o usuário.
      *
      * @param mixed $role
@@ -91,7 +101,7 @@ class User extends Authenticatable
             $role = Role::whereName($role)->firstOrFail();
         }
 
-        $this->roles()->sync($role, false);
+        $this->roles()->sync($role);
     }
 
     /**
@@ -106,6 +116,11 @@ class User extends Authenticatable
             ->flatten()->pluck('name')->unique();
     }
 
+    public function isAdmin()
+    {
+        return $this->is_admin;
+    }
+
     /**
      * Certifica se o usuário possui determinado papel.
      *
@@ -114,10 +129,13 @@ class User extends Authenticatable
      */
     public function hasRole($role)
     {
-        return $this
+        $hasRole = $this
             ->roles()
             ->where('name', $role)
             ->get()
             ->isNotEmpty();
+
+        // O usuário possui determinado papel se não for admin e possuir o papel atribuído.
+        return !$this->isAdmin() && $hasRole;
     }
 }

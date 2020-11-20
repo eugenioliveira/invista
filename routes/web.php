@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\AllotmentController;
+use App\Http\Controllers\AllotmentsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LotsController;
 use App\Http\Controllers\LotsImportController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,17 +30,17 @@ Route::middleware('auth:sanctum')->group(function () {
     //======================================================================
 
     // Lista de loteamentos
-    Route::get('/allotments', [AllotmentController::class, 'index'])
+    Route::get('/allotments', [AllotmentsController::class, 'index'])
         ->middleware('can:view_allotments')
         ->name('allotments.index');
 
     // Formulário de criação
-    Route::get('/allotments/create', [AllotmentController::class, 'create'])
+    Route::get('/allotments/create', [AllotmentsController::class, 'create'])
         ->middleware('can:create_allotment')
         ->name('allotment.create');
 
     // Formulário de edição
-    Route::get('/allotments/edit/{allotment}', [AllotmentController::class, 'edit'])
+    Route::get('/allotments/edit/{allotment}', [AllotmentsController::class, 'edit'])
         ->middleware('can:edit_allotment')
         ->name('allotment.edit');
 
@@ -71,10 +72,21 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //======================================================================
 
-    // Página inicial do sistema
-    Route::get('/brokers', function () {
-        return view('home');
-    })->name('brokers.index');
+    //======================================================================
+    // ROTAS REFERENTES À USUÁRIOS (CORRETORES, ADMINS, SUPERVISORES)
+    //======================================================================
+
+    // Listagem de usuários
+    Route::get('/users', [UsersController::class, 'index'])
+        ->middleware('can:view_users')
+        ->name('users.index');
+
+    // Atualizar informações de usuários de usuários
+    Route::get('/user/{user}/edit', [UsersController::class, 'edit'])
+        ->middleware('can:edit,user')
+        ->name('user.edit');
+
+    //======================================================================
 
     // Página inicial do sistema
     Route::get('/clients', function () {

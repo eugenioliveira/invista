@@ -19,6 +19,10 @@ class PermissionSeeder extends Seeder
          * IMPORTANTE: este arquivo deve ser atualizado a cada
          * nova funcionalidade criada.
          */
+        \DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        \DB::table('permission_role')->truncate();
+        Permission::truncate();
+        \DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Permission::create(['name' => 'view_allotments', 'description' => 'Permissão para listar todos os loteamentos.']);
         Permission::create(['name' => 'create_allotment', 'description' => 'Permissão para criar um novo loteamento no sistema.']);
         Permission::create(['name' => 'edit_allotment', 'description' => 'Permissão para alterar as informações de um loteamento.']);
@@ -26,5 +30,7 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'create_lots', 'description' => 'Permissão para criar um novo lote.']);
         Permission::create(['name' => 'edit_lot', 'description' => 'Permissão para alterar as informações de um lote.']);
         Permission::create(['name' => 'import_lots', 'description' => 'Permissão para importar lotes via excel.']);
+        Permission::create(['name' => 'view_users', 'description' => 'Permissão para listar usuários do sistema.']);
+        Permission::create(['name' => 'edit_user', 'description' => 'Permissão para editar um usuário do sistema.']);
     }
 }
