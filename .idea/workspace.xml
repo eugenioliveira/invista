@@ -12,34 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="852f8639-e048-4f72-adc5-f9e5873aaaa6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/UserPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/UserPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/button-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/button-link.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/button.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/dashboard-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dashboard-card.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/dropdown-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dropdown-link.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/input.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/search-pagination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/search-pagination.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/select.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/select.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/textarea.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/textarea.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/user-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/partials/cards.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/partials/cards.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/change-lot-status-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/change-lot-status-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/button.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/danger-button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/danger-button.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/secondary-button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/secondary-button.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-tailwind.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/simple-tailwind.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/pagination/tailwind.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/tailwind.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,7 +309,8 @@
       <workItem from="1605724247147" duration="1422000" />
       <workItem from="1605890501404" duration="3218000" />
       <workItem from="1607360574278" duration="31000" />
-      <workItem from="1607360631864" duration="3069000" />
+      <workItem from="1607360631864" duration="3377000" />
+      <workItem from="1607364344708" duration="1368000" />
     </task>
     <servers />
   </component>
