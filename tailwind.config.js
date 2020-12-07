@@ -6,7 +6,7 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-
+    darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
             backgroundImage: theme => ({
@@ -23,11 +23,9 @@ module.exports = {
             }
         },
     },
-
     variants: {
         opacity: ['responsive', 'hover', 'focus', 'disabled'],
         backgroundColor: ['responsive', 'hover', 'focus', 'checked'],
     },
-
-    plugins: [require('@tailwindcss/ui')],
-};
+    plugins: [],
+}

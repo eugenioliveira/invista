@@ -22,6 +22,6 @@
     <x-dropdown-link href="{{ route('profile.show') }}">Perfil</x-dropdown-link>
     <form method="POST" action="{{ route('logout') }}">
         @csrf
-        <button class="text-black w-full text-left px-4 py-1 hover:bg-orange-200 text-sm transition ease-in duration-150" type="submit">Sair</button>
+        <button class="text-black w-full text-left px-4 py-1 hover:bg-yellow-200 text-sm transition ease-in duration-150" type="submit">Sair</button>
     </form>
 </x-dropdown>

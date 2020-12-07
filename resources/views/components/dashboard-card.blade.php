@@ -13,7 +13,7 @@
     </div>
 
     <!-- Action -->
-    <div class="bg-orange-100 px-4 py-1">
+    <div class="bg-yellow-100 px-4 py-1">
         {{ $action }}
     </div>
 </x-card>

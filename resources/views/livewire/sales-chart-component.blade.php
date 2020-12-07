@@ -1,5 +1,5 @@
 <x-card
-    class="mt-4 relative"
+    class="mt-4 relative pb-6"
     wire:init="getChartData"
     x-data="salesChart()"
     x-init="initChart($refs.chartCanvas)"

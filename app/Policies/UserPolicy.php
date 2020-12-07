@@ -23,11 +23,11 @@ class UserPolicy
      * Determina se o usuário logado pode editar
      * as informações do usuário atual.
      *
-     * @param User $currentUser
+     * @param User $loggedUser
      * @param User $userToUpdate
      * @return bool
      */
-    public function edit(User $currentUser, User $userToUpdate)
+    public function edit(User $loggedUser, User $userToUpdate)
     {
         /*
          * Esta política só será atingida se o usuário
@@ -36,6 +36,6 @@ class UserPolicy
          * Somente usuários supervisores podem editar. E podem editar apenas usuários
          * corretores.
          */
-        return $currentUser->hasRole('supervisor') && $userToUpdate->hasRole('broker');
+        return $loggedUser->hasRole('supervisor') && $userToUpdate->hasRole('broker');
     }
 }

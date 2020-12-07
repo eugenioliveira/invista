@@ -10,7 +10,7 @@
                 <input
                     wire:model.debounce.500ms="searchTerm"
                     id="searchTerm"
-                    class="block w-full py-1.5 rounded-lg border pl-4 pr-12 focus:border-orange-300 focus:shadow-outline-orange focus:outline-none"
+                    class="block w-full py-1.5 rounded-lg border pl-4 pr-12 focus:border-orange-300 focus:ring focus:ring-yellow-600  focus:outline-none"
                     placeholder="{{ $searchPlaceholder }}"
                     autocomplete="off"
                 >

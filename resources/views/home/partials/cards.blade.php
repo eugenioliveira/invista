@@ -12,7 +12,7 @@
         <x-slot name="stat">R$ 12.345,60</x-slot>
 
         <x-slot name="action">
-            <a href="/" class="text-sm font-medium text-orange-500 hover:underline">Ver todas as vendas</a>
+            <a href="/" class="text-sm font-medium text-yellow-600 hover:underline">Ver todas as vendas</a>
         </x-slot>
     </x-dashboard-card>
 
@@ -29,7 +29,7 @@
         <x-slot name="stat">260</x-slot>
 
         <x-slot name="action">
-            <a href="/" class="text-sm font-medium text-orange-500 hover:underline">Gerenciar usuários</a>
+            <a href="/" class="text-sm font-medium text-yellow-600 hover:underline">Gerenciar usuários</a>
         </x-slot>
     </x-dashboard-card>
 
@@ -46,7 +46,7 @@
         <x-slot name="stat">260</x-slot>
 
         <x-slot name="action">
-            <a href="/" class="text-sm font-medium text-orange-500 hover:underline">Gerenciar corretores</a>
+            <a href="/" class="text-sm font-medium text-yellow-600 hover:underline">Gerenciar corretores</a>
         </x-slot>
     </x-dashboard-card>
 
@@ -63,7 +63,7 @@
         <x-slot name="stat">{{ $allotmentCount }}</x-slot>
 
         <x-slot name="action">
-            <a href="{{ route('allotments.index') }}" class="text-sm font-medium text-orange-500 hover:underline">Gerenciar loteamentos</a>
+            <a href="{{ route('allotments.index') }}" class="text-sm font-medium text-yellow-600 hover:underline">Gerenciar loteamentos</a>
         </x-slot>
     </x-dashboard-card>
 </div>

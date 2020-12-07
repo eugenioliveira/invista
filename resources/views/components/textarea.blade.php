@@ -1,6 +1,6 @@
 @php
     $labelClasses = $error ? 'text-red-500' : 'text-gray-700';
-    $inputClasses = $error ? 'focus:shadow-outline-red border-red-500' : 'focus:shadow-outline-orange focus:border-orange-300';
+    $inputClasses = $error ? 'focus:ring foxus:ring-red  border-red-500' : 'focus:ring focus:ring-yellow-600  focus:border-orange-300';
 @endphp
 
 <div>
