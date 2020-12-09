@@ -31,6 +31,10 @@ class AclSeeder extends Seeder
             ->allowTo('view_allotments')
             ->allowTo('view_lots');
 
+        // Atribui o papel de administrador para Eugenio
+        User::whereName('Eugênio Oliveira')->firstOrFail()
+            ->assignRole('admin');
+
         // Atribui o papel de supervisor para Keith
         User::whereName('Keith Richards')->firstOrFail()
             ->assignRole('supervisor');

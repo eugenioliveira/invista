@@ -1,6 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 progress {
     border-radius: 7px;
@@ -15,4 +15,8 @@ progress::-webkit-progress-value {
 }
 progress::-moz-progress-bar {
     /* style rules */
+}
+
+.form-input {
+    @apply border rounded-lg px-3 py-2 appearance-none focus:outline-none
 }

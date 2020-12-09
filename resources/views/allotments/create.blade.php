@@ -1,4 +1,4 @@
-<x-app-layout title="Novo loteamento">
+]<x-app-layout title="Novo loteamento">
 
     <x-slot name="header">
         <x-header-text>Criando um novo loteamento</x-header-text>

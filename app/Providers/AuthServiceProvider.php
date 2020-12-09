@@ -30,7 +30,7 @@ class AuthServiceProvider extends ServiceProvider
          * Regra de autorização do admin
          */
         Gate::before(function (User $user) {
-            if ($user->is_admin) {
+            if ($user->isAdmin()) {
                 return true;
             }
         });

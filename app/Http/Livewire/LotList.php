@@ -62,7 +62,7 @@ class LotList extends Component
             ->paginate(10);
 
         // Exibe view diferentes baseadas no papel atual do usuário.
-        if (\Auth::user()->is_admin) {
+        if (\Auth::user()->isAdmin()) {
             return view('livewire.lot-list', [
                 'lots' => $lots
             ]);

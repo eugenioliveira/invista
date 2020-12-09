@@ -109,16 +109,21 @@ class User extends Authenticatable
      *
      * @return Collection
      */
-    public function permissions()
+    public function permissions(): Collection
     {
         return $this->roles
             ->map->permissions
             ->flatten()->pluck('name')->unique();
     }
 
-    public function isAdmin()
+    /**
+     * Checa se o usuário atual é um administrador.
+     *
+     * @return bool
+     */
+    public function isAdmin(): bool
     {
-        return $this->is_admin;
+        return $this->hasRole('admin');
     }
 
     /**
@@ -127,15 +132,12 @@ class User extends Authenticatable
      * @param $role
      * @return mixed
      */
-    public function hasRole($role)
+    public function hasRole($role): bool
     {
-        $hasRole = $this
+        return $this
             ->roles()
             ->where('name', $role)
             ->get()
             ->isNotEmpty();
-
-        // O usuário possui determinado papel se não for admin e possuir o papel atribuído.
-        return !$this->isAdmin() && $hasRole;
     }
 }

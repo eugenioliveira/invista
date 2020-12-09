@@ -7,7 +7,7 @@
     </x-slot>
 
     <x-section>
-        {{ $user->name }}
+        <livewire:user-form :user="$user"/>
     </x-section>
 
 </x-app-layout>

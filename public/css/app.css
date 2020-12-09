@@ -30887,8 +30887,24 @@ progress::-moz-progress-bar {
   /* style rules */
 }
 
-.test {
-  padding-bottom: 1rem
+.form-input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0.5rem;
+  border-width: 1px
+}
+
+.form-input:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.form-input {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 @media (min-width: 640px) {

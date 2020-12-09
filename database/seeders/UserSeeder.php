@@ -19,7 +19,6 @@ class UserSeeder extends Seeder
             'name' => 'Eugênio Oliveira',
             'email' => 'geninoliveira@gmail.com',
             'password' => \Hash::make('e4.vrdrq'),
-            'is_admin' => true
         ]);
 
         // Supervisor

@@ -15,6 +15,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
         // Cria os papéis iniciais da aplicação.
+        Role::create(['name' => 'admin', 'label' => 'Administrador']);
         Role::create(['name' => 'supervisor', 'label' => 'Supervisor']);
         Role::create(['name' => 'broker', 'label' => 'Corretor']);
     }

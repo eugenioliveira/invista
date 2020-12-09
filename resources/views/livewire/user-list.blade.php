@@ -54,7 +54,7 @@
                                     <div class="text-sm leading-5 text-gray-900">{{ $user->email }}</div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap">
-                                    @if($user->is_admin)
+                                    @if($user->hasRole('admin'))
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                             Sim
                                         </span>
@@ -65,11 +65,7 @@
                                     @endif
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
-                                    @if($user->is_admin)
-                                        Admin
-                                    @else
-                                        {{ $user->roles->implode('label', ', ') }}
-                                    @endif
+                                    {{ $user->roles->implode('label', ', ') }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
                                     <!-- Edit action -->
