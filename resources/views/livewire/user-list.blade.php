@@ -3,6 +3,9 @@
 @endphp
 
 <div>
+    @if(session('successMessage'))
+        <x-alert type="success" message="{{ session('successMessage') }}"/>
+    @endif
     <!-- Search and Pagination -->
     <x-search-pagination search-placeholder="Ex.: Nome, e-mail" :links="$users->links()"/>
 

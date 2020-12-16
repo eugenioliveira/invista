@@ -7,7 +7,7 @@
     </x-slot>
 
     <x-section>
-        <livewire:user-form :user="$user"/>
+        <livewire:edit-user-form :user="$user"/>
     </x-section>
 
 </x-app-layout>

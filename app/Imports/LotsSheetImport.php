@@ -5,6 +5,7 @@ namespace App\Imports;
 use App\Enums\LotStatusType;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -25,6 +26,7 @@ class LotsSheetImport implements ToCollection, WithHeadingRow
      * Realiza a importação
      *
      * @param Collection $rows
+     * @throws ValidationException
      */
     public function collection(Collection $rows): void
     {
@@ -65,9 +67,10 @@ class LotsSheetImport implements ToCollection, WithHeadingRow
      * Valida o arquivo em excel.
      *
      * @param Collection $rows
-     * @return Collection
+     * @return array
+     * @throws ValidationException
      */
-    protected function validate(Collection $rows)
+    protected function validate(Collection $rows): array
     {
         return Validator::make($rows->toArray(),
             [

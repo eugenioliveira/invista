@@ -21,7 +21,8 @@ class AclSeeder extends Seeder
         Role::whereName('supervisor')->firstOrFail()
             ->allowTo('view_allotments')
             ->allowTo('view_lots')
-            ->allowTo('view_users');
+            ->allowTo('view_users')
+            ->allowTo('create_user');
             //->allowTo('edit_user'); Rule handled by UserPolicy
 
         /**

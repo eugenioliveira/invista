@@ -30,8 +30,8 @@ trait ValidatesLotUniqueness
         });
 
         if ($ignore) {
-            $blockUnique = $blockUnique->ignore($this->lot);
-            $numberUnique = $numberUnique->ignore($this->lot);
+            $blockUnique->ignore($this->lot);
+            $numberUnique->ignore($this->lot);
         }
 
         $validator = \Validator::make($fields,

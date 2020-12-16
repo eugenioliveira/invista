@@ -81,6 +81,11 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('can:view_users')
         ->name('users.index');
 
+    // Criar usuários
+    Route::get('/users/create', [UsersController::class, 'create'])
+        ->middleware('can:create_user')
+        ->name('users.create');
+
     // Atualizar informações de usuários de usuários
     Route::get('/user/{user}/edit', [UsersController::class, 'edit'])
         ->middleware('can:edit,user')
