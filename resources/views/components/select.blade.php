@@ -2,7 +2,7 @@
 
 @php
     $labelClasses = $error ? 'text-red-500' : 'text-gray-700';
-    $inputClasses = $error ? 'focus:ring focus:ring-red-500 border-red-500' : 'focus:ring focus:ring-yellow-600  focus:border-orange-300';
+    $inputClasses = $error ? 'focus:ring focus:ring-red-500 border-red-500' : 'focus:ring focus:ring-orange-500 focus:border-orange-300';
 @endphp
 
 <div class="w-full">

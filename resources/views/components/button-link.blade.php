@@ -2,7 +2,7 @@
 
 @php
     $colors = ($type == 'primary')
-        ? 'bg-primary hover:bg-yellow-500 active:bg-yellow-600 focus:border-orange-600 focus:ring focus:ring-yellow-600'
+        ? 'bg-primary hover:bg-orange-500 active:bg-orange-600 focus:border-orange-600 focus:ring focus:ring-orange-600'
         : 'bg-red-600 hover:bg-red-500 active:bg-red-600 focus:border-red-700 focus:ring ring-red';
     $padding = ($format == 'normal')
         ? 'px-4 py-2'

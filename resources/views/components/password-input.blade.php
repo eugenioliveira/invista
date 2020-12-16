@@ -2,7 +2,7 @@
 
 @php
     $labelClasses = $error ? 'text-red-500' : 'text-gray-700';
-    $inputClasses = $error ? 'focus:ring foxus:ring-red  border-red-500' : '';
+    $inputClasses = $error ? 'focus:ring focus:ring-red border-red-500' : 'focus:ring focus:ring-orange-500 focus:border-orange-300';
 @endphp
 
 <div x-data="{ show: false }">
