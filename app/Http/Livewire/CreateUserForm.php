@@ -5,12 +5,13 @@ namespace App\Http\Livewire;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\UserDetail;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class CreateUserForm extends Component
 {
-    use RedirectHandler;
+    use RedirectHandler, AuthorizesRequests;
 
     /**
      * O usuário a ser salvo
@@ -110,9 +111,13 @@ class CreateUserForm extends Component
      * Salva as informações do usuário.
      *
      * @param bool $redirectAfterSave
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function saveUser($redirectAfterSave = true)
     {
+        // Faz a autorização
+        $this->authorize('create', [User::class, $this->roleId]);
+
         // Valida
         $this->validate();
 
