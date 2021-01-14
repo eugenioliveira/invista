@@ -13,18 +13,28 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- Nome -->
-            <div class="w-1/2">
+            <!-- Primeiro Nome -->
+            <div class="w-1/3">
                 <x-input
-                        label="Nome completo"
-                        name="name"
+                        label="Primeiro nome"
+                        name="firstname"
                         class="mt-1 w-full"
-                        wire:model.lazy="user.name"
-                        error="{{ $errors->first('user.name') }}"
+                        wire:model.lazy="person.firstname"
+                        error="{{ $errors->first('person.firstname') }}"
+                />
+            </div>
+            <!-- Sobrenome -->
+            <div class="w-1/3">
+                <x-input
+                        label="Sobrenome"
+                        name="lastname"
+                        class="mt-1 w-full"
+                        wire:model.lazy="person.lastname"
+                        error="{{ $errors->first('person.lastname') }}"
                 />
             </div>
             <!-- E-mail -->
-            <div class="w-1/2">
+            <div class="w-1/3">
                 <x-input
                         label="E-mail"
                         name="email"
@@ -97,8 +107,8 @@
                         label="Número de CPF"
                         name="cpf"
                         class="mt-1 w-full"
-                        wire:model.lazy="detail.cpf"
-                        error="{{ $errors->first('detail.cpf') }}"
+                        wire:model.lazy="person.cpf"
+                        error="{{ $errors->first('person.cpf') }}"
                 />
             </div>
             <!-- Telefone -->
@@ -107,23 +117,22 @@
                         label="Número de Telefone"
                         name="phone"
                         class="mt-1 w-full"
-                        wire:model.lazy="detail.phone"
-                        error="{{ $errors->first('detail.phone') }}"
+                        wire:model.lazy="person.phone"
+                        error="{{ $errors->first('person.phone') }}"
                 />
             </div>
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- Endereço -->
-            <div class="w-full">
-                <x-textarea
-                        label="Endereço completo"
-                        name="address"
-                        class="mt-1 w-full h-32"
-                        wire:model.lazy="detail.address"
-                        error="{{ $errors->first('detail.address') }}"
-                >
-                </x-textarea>
+            <!-- CEP -->
+            <div class="w-1/2">
+                <x-input
+                        label="CEP"
+                        name="postal_code"
+                        class="mt-1 w-full"
+                        wire:model.lazy="address.postal_code"
+                        error="{{ $errors->first('address.postal_code') }}"
+                />
             </div>
         </x-input-row>
 

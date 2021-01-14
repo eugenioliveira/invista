@@ -81,13 +81,13 @@ class User extends Authenticatable
     }
 
     /**
-     * Informações complementares do usuário.
+     * A pessoa a qual o usuário pertence.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function detail()
+    public function person()
     {
-        return $this->hasOne(UserDetail::class);
+        return $this->belongsTo(Person::class);
     }
 
     /**
@@ -108,6 +108,7 @@ class User extends Authenticatable
      * Busca as permissões do usuário.
      *
      * @return Collection
+     * @throws \Exception
      */
     public function permissions(): Collection
     {

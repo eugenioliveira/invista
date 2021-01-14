@@ -15,11 +15,8 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-                ->references('id')
-                ->on('users')
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
+            $table->unsignedInteger('addressable_id');
+            $table->string('addressable_type');
             $table->string('street');
             $table->string('number');
             $table->string('apt_room')->nullable();

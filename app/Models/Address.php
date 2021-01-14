@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     use HasFactory;
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function addressable()
+    {
+        return $this->morphTo();
+    }
 }
