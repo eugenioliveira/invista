@@ -35,7 +35,7 @@ class Person extends Model
      *
      * @param $email
      * @param null $password
-     * @return false|Model
+     * @return false|User
      */
     public function saveUser($email, $password = null)
     {
@@ -45,5 +45,16 @@ class Person extends Model
         $user->password = $password ? Hash::make($password) : $user->password;
 
         return $this->user()->save($user);
+    }
+
+    /**
+     * Salva uo endereço da pessoa.
+     *
+     * @param Address $address
+     * @return false|Model
+     */
+    public function saveAddress(Address $address)
+    {
+        return $this->address()->save($address);
     }
 }

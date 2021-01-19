@@ -14,7 +14,7 @@ class AddPersonIdFieldOnUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('person_id')->after('id')->constrained();
+            $table->foreignId('person_id')->after('id')->unique()->constrained();
         });
     }
 

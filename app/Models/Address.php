@@ -10,6 +10,14 @@ class Address extends Model
     use HasFactory;
 
     /**
+     * Desabilita a proteção contra mass assignment
+     * uma vez que os campos serão validados.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function addressable()

@@ -2,27 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55f11043-8ef8-4f8a-942d-e069f09c4d40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Models/Person.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/PersonFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_14_153938_add_person_id_field_on_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ExternalAddressApi.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CreateUserForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CreateUserForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/EditUserForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/EditUserForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserDetail.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Person.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_17_102015_create_user_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_14_145812_create_people_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_18_115046_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_14_150528_create_addresses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/create-user-form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/edit-user-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_14_145812_create_people_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_14_145812_create_people_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_14_153938_add_person_id_field_on_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_14_153938_add_person_id_field_on_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-form.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +229,9 @@
       <workItem from="1608302904512" duration="2066000" />
       <workItem from="1610646406888" duration="120000" />
       <workItem from="1610646552631" duration="228000" />
-      <workItem from="1610646814212" duration="6497000" />
+      <workItem from="1610646814212" duration="7208000" />
+      <workItem from="1610708572969" duration="9685000" />
+      <workItem from="1611057547080" duration="5540000" />
     </task>
     <servers />
   </component>

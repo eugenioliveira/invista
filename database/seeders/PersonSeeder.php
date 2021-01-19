@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Person;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class PersonSeeder extends Seeder
 {
@@ -32,7 +31,7 @@ class PersonSeeder extends Seeder
         Person::create([
             'firstname' => 'Darth',
             'lastname' => 'Vader',
-            'cpf' => '77852102093',
+            'cpf' => '15133773021',
             'phone' => '35992533223'
         ])->saveUser('darth@gmail.com', 'e4.vrdrq');;
     }

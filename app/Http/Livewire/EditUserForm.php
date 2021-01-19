@@ -12,7 +12,7 @@ use Validator;
 
 class EditUserForm extends Component
 {
-    use RedirectHandler;
+    use RedirectHandler, ExternalAddressApi;
 
     /**
      * O usuário a ser salvo
@@ -70,7 +70,7 @@ class EditUserForm extends Component
             'person.firstname' => ['required', 'min:5'],
             'person.lastname' => ['required', 'min:5'],
             'person.cpf' => ['required', 'numeric', 'cpf'],
-            'person.phone' => ['required', 'regex:/^\(?\d{2}\)?\s?\d{5}[\-\s]?\d{4}$/'],
+            'person.phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
             'user.email' => ['required', 'email:strict,dns,spoof'],
             'passwordState.password' => ['nullable', 'min:8', 'confirmed'],
             'address.street' => ['required', 'min:8'],
@@ -139,6 +139,18 @@ class EditUserForm extends Component
         $this->roleId = $user->roles->isNotEmpty() ? $user->roles()->first()->id : 3;
     }
 
+    public function getAddressByPostalCode()
+    {
+        $extAddress = $this->getAddressFromExternalApi(
+            $this->address->postal_code,
+            'address.postal_code'
+        );
+
+        if ($extAddress) {
+            $this->address->fill($extAddress);
+        }
+    }
+
     /**
      * Salva as informações do usuário.
      *
@@ -149,11 +161,14 @@ class EditUserForm extends Component
         // Valida
         $this->validate();
         $this->validateEmailUniqueness();
+        $this->validateCpfUniqueness();
 
         // Salva a pessoa e o usuário
         if ($this->person->save()) {
-            $this->person->saveUser($this->user->email, $this->passwordState['password']);
-            $this->user->assignRole(Role::findOrFail($this->roleId));
+            $this->person
+                ->saveUser($this->user->email, $this->passwordState['password'])
+                ->assignRole(Role::find($this->roleId));
+            $this->person->saveAddress($this->address);
         }
 
         // Redireciona
@@ -182,5 +197,19 @@ class EditUserForm extends Component
         );
 
         if ($emailValidator->fails()) $this->addError('user.email', $emailValidator->errors()->first('email'));
+    }
+
+    /**
+     * Validação do campo de CPF
+     */
+    public function validateCpfUniqueness()
+    {
+        $cpfValidator = Validator::make(
+            ['cpf' => $this->person->cpf],
+            ['cpf' => Rule::unique('people', 'cpf')->ignore($this->person->id)],
+            ['cpf.unique' => 'O CPF acima já existe na base de dados.']
+        );
+
+        if ($cpfValidator->fails()) $this->addError('person.cpf', $cpfValidator->errors()->first('cpf'));
     }
 }

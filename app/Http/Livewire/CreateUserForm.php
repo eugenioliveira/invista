@@ -6,14 +6,12 @@ use App\Models\Address;
 use App\Models\Person;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\UserDetail;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class CreateUserForm extends Component
 {
-    use RedirectHandler, AuthorizesRequests;
+    use RedirectHandler, AuthorizesRequests, ExternalAddressApi;
 
     /**
      * O usuário a ser salvo
@@ -70,8 +68,8 @@ class CreateUserForm extends Component
         return [
             'person.firstname' => ['required', 'min:5'],
             'person.lastname' => ['required', 'min:5'],
-            'person.cpf' => ['required', 'numeric', 'cpf'],
-            'person.phone' => ['required', 'regex:/^\(?\d{2}\)?\s?\d{5}[\-\s]?\d{4}$/'],
+            'person.cpf' => ['required', 'numeric', 'cpf', 'unique:people,cpf'],
+            'person.phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
             'user.email' => ['required', 'email:strict,dns,spoof', 'unique:users,email'],
             'passwordState.password' => ['required', 'min:8', 'confirmed'],
             'address.street' => ['required', 'min:8'],
@@ -80,7 +78,7 @@ class CreateUserForm extends Component
             'address.neighbourhood' => ['required', 'min:5'],
             'address.city' => ['required', 'min:5'],
             'address.state' => ['required', 'min:2'],
-            'address.postal_code' => ['required', 'numeric', 'min:11']
+            'address.postal_code' => ['required', 'numeric', 'digits:8']
         ];
     }
 
@@ -100,6 +98,7 @@ class CreateUserForm extends Component
             'person.cpf.required' => 'O campo CPF é obrigatório.',
             'person.cpf.numeric' => 'O campo CPF deve conter apenas números.',
             'person.cpf.cpf' => 'Digite um CPF válido.',
+            'person.cpf.unique' => 'O CPF acima já existe na base de dados.',
             'person.phone.required' => 'O campo telefone é obrigatório.',
             'person.phone.regex' => 'Digite um número de telefone válido, incluindo o DDD.',
             'user.email.required' => 'Digite um endereço de e-mail.',
@@ -121,7 +120,7 @@ class CreateUserForm extends Component
             'address.state.min' => 'O campo UF deve conter 2 caracteres.',
             'address.postal_code.required' => 'O campo CEP é obrigatório.',
             'address.postal_code.numeric' => 'O campo CEP deve conter apenas números.',
-            'address.postal_code.min' => 'O campo CEP deve conter 11 números.'
+            'address.postal_code.digits' => 'O campo CEP deve conter 8 números.'
         ];
     }
 
@@ -142,6 +141,18 @@ class CreateUserForm extends Component
         $this->roleId = 3;
     }
 
+    public function getAddressByPostalCode()
+    {
+        $extAddress = $this->getAddressFromExternalApi(
+            $this->address->postal_code,
+            'address.postal_code'
+        );
+
+        if ($extAddress) {
+            $this->address->fill($extAddress);
+        }
+    }
+
     /**
      * Salva as informações do usuário.
      *
@@ -158,8 +169,10 @@ class CreateUserForm extends Component
 
         // Salva a pessoa e o usuário
         if ($this->person->save()) {
-            $this->person->saveUser($this->user->email, $this->passwordState['password']);
-            $this->user->assignRole(Role::findOrFail($this->roleId));
+            $this->person
+                ->saveUser($this->user->email, $this->passwordState['password'])
+                ->assignRole(Role::find($this->roleId));
+            $this->person->saveAddress($this->address);
         }
 
         // Redireciona

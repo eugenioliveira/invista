@@ -127,11 +127,90 @@
             <!-- CEP -->
             <div class="w-1/2">
                 <x-input
-                        label="CEP"
+                        label="CEP de residência"
                         name="postal_code"
                         class="mt-1 w-full"
-                        wire:model.lazy="address.postal_code"
+                        wire:model="address.postal_code"
+                        wire:blur="getAddressByPostalCode"
                         error="{{ $errors->first('address.postal_code') }}"
+                />
+            </div>
+            <!-- Logradouro -->
+            <div class="w-1/2">
+                <x-input
+                        label="Logradouro"
+                        name="street"
+                        class="mt-1 w-full"
+                        wire:model.lazy="address.street"
+                        wire:loading.delay.attr="disabled"
+                        wire:target="getAddressByPostalCode"
+                        error="{{ $errors->first('address.street') }}"
+                />
+            </div>
+        </x-input-row>
+
+        <x-input-row class="mb-4">
+            <!-- Número -->
+            <div class="w-1/5">
+                <x-input
+                        label="Número"
+                        name="number"
+                        class="mt-1 w-full"
+                        wire:model.lazy="address.number"
+                        wire:loading.delay.attr="disabled"
+                        wire:target="getAddressByPostalCode"
+                        error="{{ $errors->first('address.number') }}"
+                />
+            </div>
+            <!-- Complemento -->
+            <div class="w-2/5">
+                <x-input
+                        label="Complemento"
+                        name="apt_room"
+                        class="mt-1 w-full"
+                        wire:model.lazy="address.apt_room"
+                        wire:loading.delay.attr="disabled"
+                        wire:target="getAddressByPostalCode"
+                        error="{{ $errors->first('address.apt_room') }}"
+                />
+            </div>
+            <!-- Bairro -->
+            <div class="w-2/5">
+                <x-input
+                        label="Bairro"
+                        name="neighbourhood"
+                        class="mt-1 w-full"
+                        wire:model.lazy="address.neighbourhood"
+                        wire:loading.delay.attr="disabled"
+                        wire:target="getAddressByPostalCode"
+                        error="{{ $errors->first('address.neighbourhood') }}"
+                />
+            </div>
+        </x-input-row>
+
+        <x-input-row class="mb-4">
+            <!-- Cidade -->
+            <div class="w-1/2">
+                <x-input
+                        label="Cidade"
+                        name="city"
+                        class="mt-1 w-full"
+                        wire:model.lazy="address.city"
+                        wire:loading.delay.attr="disabled"
+                        wire:target="getAddressByPostalCode"
+                        error="{{ $errors->first('address.city') }}"
+                />
+            </div>
+            <!-- Estado -->
+            <div class="w-1/2">
+                <x-input
+                        label="Estado"
+                        name="state"
+                        class="mt-1 w-full"
+                        wire:model.lazy="address.state"
+                        wire:loading.delay.attr="disabled"
+                        wire:target="getAddressByPostalCode"
+                        error="{{ $errors->first('address.state') }}"
                 />
             </div>
         </x-input-row>

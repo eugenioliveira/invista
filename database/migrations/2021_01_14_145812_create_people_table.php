@@ -17,7 +17,7 @@ class CreatePeopleTable extends Migration
             $table->id();
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('cpf');
+            $table->string('cpf')->unique();
             $table->string('phone');
             $table->timestamps();
         });
