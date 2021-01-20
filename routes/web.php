@@ -4,6 +4,7 @@ use App\Http\Controllers\AllotmentsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LotsController;
 use App\Http\Controllers\LotsImportController;
+use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -86,10 +87,26 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('can:create_user')
         ->name('users.create');
 
-    // Atualizar informações de usuários de usuários
+    // Atualizar informações de usuários
     Route::get('/user/{user}/edit', [UsersController::class, 'edit'])
         ->middleware('can:edit,user')
         ->name('user.edit');
+
+    //======================================================================
+
+    //======================================================================
+    // ROTAS REFERENTES À PESSOAS FÍSICAS
+    //======================================================================
+
+    // Listagem de pessoas físicas
+    Route::get('/people', [PeopleController::class, 'index'])
+        ->middleware('can:view_people')
+        ->name('people.index');
+
+    // Formulário de cadastro de pessoa física
+    Route::get('/person/create', [PeopleController::class, 'create'])
+        ->middleware('can:create_person')
+        ->name('person.create');
 
     //======================================================================
 

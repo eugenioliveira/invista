@@ -33,5 +33,7 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'view_users', 'description' => 'Permissão para listar usuários do sistema.']);
         Permission::create(['name' => 'edit_user', 'description' => 'Permissão para editar um usuário do sistema.']);
         Permission::create(['name' => 'create_user', 'description' => 'Permissão para criar um usuário do sistema.']);
+        Permission::create(['name' => 'view_people', 'description' => 'Permissão para listar as pessoas físicas cadastradas no sistema.']);
+        Permission::create(['name' => 'create_person', 'description' => 'Permissão para criar uma pessoa física no sistema.']);
     }
 }

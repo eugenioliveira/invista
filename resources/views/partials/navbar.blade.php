@@ -21,7 +21,14 @@
                 @can('view_users')
                     <x-nav-link route="users.index">Usuários</x-nav-link>
                 @endcan
-                <x-nav-link route="clients.index">Clientes</x-nav-link>
+                @can('view_people')
+                    <x-nav-dropdown title="Pessoas físicas" route="person">
+                        <x-dropdown-link href="#">Listar</x-dropdown-link>
+                        @can('create_people')
+                            <x-dropdown-link href="{{ route('person.create') }}">Novo</x-dropdown-link>
+                        @endcan
+                    </x-nav-dropdown>
+                @endcan
                 <x-nav-link route="clients.index">Reservas</x-nav-link>
                 <x-nav-link route="clients.index">Propostas</x-nav-link>
                 <x-nav-link route="sales.index">Vendas</x-nav-link>

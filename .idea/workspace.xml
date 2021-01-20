@@ -2,17 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55f11043-8ef8-4f8a-942d-e069f09c4d40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ExternalAddressApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Enums/CivilStatus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/PersonDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/PersonDetailFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_20_090028_create_person_details_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/PersonDetailSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CreateUserForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CreateUserForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/EditUserForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/EditUserForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Address.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Person.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_14_145812_create_people_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_14_145812_create_people_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_14_153938_add_person_id_field_on_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_14_153938_add_person_id_field_on_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/AclSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/AclSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt_BR/enums.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pt_BR/enums.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/lot-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +235,11 @@
       <workItem from="1610646552631" duration="228000" />
       <workItem from="1610646814212" duration="7208000" />
       <workItem from="1610708572969" duration="9685000" />
-      <workItem from="1611057547080" duration="5540000" />
+      <workItem from="1611057547080" duration="6166000" />
+      <workItem from="1611143459327" duration="512000" />
+      <workItem from="1611143992954" duration="3039000" />
+      <workItem from="1611158621172" duration="2244000" />
+      <workItem from="1611160876725" duration="2919000" />
     </task>
     <servers />
   </component>

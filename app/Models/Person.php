@@ -31,6 +31,16 @@ class Person extends Model
     }
 
     /**
+     * Retorna os detalhes da pessoa.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function detail()
+    {
+        return $this->hasOne(PersonDetail::class);
+    }
+
+    /**
      * Salva um usuário para a pessoa.
      *
      * @param $email
@@ -48,7 +58,7 @@ class Person extends Model
     }
 
     /**
-     * Salva uo endereço da pessoa.
+     * Salva o endereço da pessoa.
      *
      * @param Address $address
      * @return false|Model
@@ -56,5 +66,16 @@ class Person extends Model
     public function saveAddress(Address $address)
     {
         return $this->address()->save($address);
+    }
+
+    /**
+     * Salva os detalhes da pessoa.
+     *
+     * @param PersonDetail $detail
+     * @return false|Model
+     */
+    public function saveDetail(PersonDetail $detail)
+    {
+        return $this->detail()->save($detail);
     }
 }

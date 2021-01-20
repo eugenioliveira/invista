@@ -22,15 +22,17 @@ class AclSeeder extends Seeder
             ->allowTo('view_allotments')
             ->allowTo('view_lots')
             ->allowTo('view_users')
-            ->allowTo('create_user');
-            //->allowTo('edit_user'); Rule handled by UserPolicy
+            ->allowTo('create_user')
+            ->allowTo('create_person');
+        //->allowTo('edit_user'); Rule handled by UserPolicy
 
         /**
          * Atribui as permissões para o papel de corretor.
          */
         Role::whereName('broker')->firstOrFail()
             ->allowTo('view_allotments')
-            ->allowTo('view_lots');
+            ->allowTo('view_lots')
+            ->allowTo('create_person');
 
         // Atribui o papel de administrador para Eugenio
         User::whereName('Eugênio Oliveira')->firstOrFail()

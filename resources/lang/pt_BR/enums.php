@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\CivilStatus;
 use App\Enums\LotStatusType;
 
 return [
@@ -10,5 +11,12 @@ return [
         LotStatusType::BLOCKED => 'Bloqueado',
         LotStatusType::SOLD => 'Vendido',
         LotStatusType::PARTNER => 'Sócio'
+    ],
+
+    CivilStatus::class => [
+        CivilStatus::SINGLE => 'Solteiro',
+        CivilStatus::MARRIED => 'Casado',
+        CivilStatus::DIVORCED => 'Divorciado',
+        CivilStatus::WIDOW => 'Viúvo(a)'
     ]
 ];
