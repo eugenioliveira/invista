@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Person;
 use Illuminate\Http\Request;
 
 class PeopleController extends Controller
@@ -11,7 +12,7 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        echo 'Listar pessoas.';
+        return view('people.index');
     }
 
     /**
@@ -19,6 +20,15 @@ class PeopleController extends Controller
      */
     public function create()
     {
-        echo 'Criar pessoa.';
+        return view('people.create');
+    }
+
+    /**
+     * Exibe um formulário de edição de pessoa física.
+     * @param Person $person
+     */
+    public function edit(Person $person)
+    {
+        return view('people.edit', ['person' => $person]);
     }
 }

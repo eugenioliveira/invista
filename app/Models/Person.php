@@ -78,4 +78,14 @@ class Person extends Model
     {
         return $this->detail()->save($detail);
     }
+
+    /**
+     * Retorna o nome completo da pessoa.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute(): string
+    {
+        return sprintf('%s %s', $this->firstname, $this->lastname);
+    }
 }

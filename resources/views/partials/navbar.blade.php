@@ -23,7 +23,7 @@
                 @endcan
                 @can('view_people')
                     <x-nav-dropdown title="Pessoas físicas" route="person">
-                        <x-dropdown-link href="#">Listar</x-dropdown-link>
+                        <x-dropdown-link href="{{ route('people.index') }}">Listar</x-dropdown-link>
                         @can('create_people')
                             <x-dropdown-link href="{{ route('person.create') }}">Novo</x-dropdown-link>
                         @endcan

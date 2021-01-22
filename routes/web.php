@@ -108,6 +108,10 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('can:create_person')
         ->name('person.create');
 
+    // Formulário de edição de pessoa física
+    Route::get('/person/{person}/edit', [PeopleController::class, 'edit'])
+        ->name('person.edit');
+
     //======================================================================
 
     // Página inicial do sistema
