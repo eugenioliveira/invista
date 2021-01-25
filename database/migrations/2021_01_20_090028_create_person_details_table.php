@@ -25,7 +25,7 @@ class CreatePersonDetailsTable extends Migration
             $table->string('rg_issuer');
             $table->string('occupation');
             $table->string('email');
-            $table->unsignedInteger('monthly_income');
+            $table->unsignedDecimal('monthly_income', 8, 2);
             $table->string('father_name');
             $table->string('mother_name');
             $table->foreignId('partner_id')->nullable()->references('id')->on('people');

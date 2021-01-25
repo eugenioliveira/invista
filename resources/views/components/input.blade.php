@@ -1,4 +1,4 @@
-@props(['type' => 'text', 'label', 'name', 'error' => null])
+@props(['type' => 'text', 'label', 'name', 'error' => null, 'placeholder' => ''])
 
 @php
     $labelClasses = $error ? 'text-red-500' : 'text-gray-700';
@@ -8,11 +8,12 @@
 <div>
     <label for="{{ $name }}" class="block font-medium text-sm text-gray-700 {{ $labelClasses }}">{{ $label }}</label>
     <input
-        id="{{ $name }}"
-        name="{{ $name }}"
-        type="{{ $type }}"
-        {{ $attributes->merge(['class' => 'border rounded-lg px-3 py-2 appearance-none focus:outline-none ' . $inputClasses]) }}
-        autocomplete="off"
+            id="{{ $name }}"
+            name="{{ $name }}"
+            type="{{ $type }}"
+            {{ $attributes->merge(['class' => 'border rounded-lg px-3 py-2 appearance-none focus:outline-none ' . $inputClasses]) }}
+            autocomplete="off"
+            placeholder="{{ $placeholder }}"
     />
     <div>
         @if($error)

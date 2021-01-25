@@ -1,5 +1,6 @@
 @php
     /** @var \App\Models\Person $person */
+    /** @var \App\Models\PersonDetail $detail */
 @endphp
 
 <x-card class="p-4 max-w-3xl mx-auto">
@@ -9,12 +10,12 @@
     @endif
 
     <form>
-        <x-input-row class="mb-6 items-center">
+        <x-input-row class="mt-6 mb-6 md:mt-0 items-center">
             <h2 class="text-lg uppercase tracking-widest">Informações básicas</h2>
             <div class="flex-1 h-0.5 bg-gray-200"></div>
         </x-input-row>
 
-        <x-input-row class="mb-4">
+        <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
             <!-- Primeiro Nome -->
             <div class="md:w-1/2">
                 <x-input
@@ -37,7 +38,7 @@
             </div>
         </x-input-row>
 
-        <x-input-row class="mb-4">
+        <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
             <!-- CPF -->
             <div class="md:w-1/2">
                 <x-input
@@ -60,12 +61,12 @@
             </div>
         </x-input-row>
 
-        <x-input-row class="mb-6 items-center">
+        <x-input-row class="mt-6 mb-6 md:mt-0 items-center">
             <h2 class="text-lg uppercase tracking-widest">Endereço</h2>
             <div class="flex-1 h-0.5 bg-gray-200"></div>
         </x-input-row>
 
-        <x-input-row class="mb-4">
+        <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
             <!-- CEP -->
             <div class="md:w-1/2">
                 <x-input
@@ -91,7 +92,7 @@
             </div>
         </x-input-row>
 
-        <x-input-row class="mb-4">
+        <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
             <!-- Número -->
             <div class="md:w-1/5">
                 <x-input
@@ -130,7 +131,7 @@
             </div>
         </x-input-row>
 
-        <x-input-row class="mb-4">
+        <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
             <!-- Cidade -->
             <div class="md:w-1/2">
                 <x-input
@@ -157,12 +158,154 @@
             </div>
         </x-input-row>
 
-        <x-input-row class="mb-6 items-center">
+        <x-input-row class="mt-6 mb-6 md:mt-0 items-center">
             <h2 class="text-lg uppercase tracking-widest">Informações complementares</h2>
             <div class="flex-1 h-0.5 bg-gray-200"></div>
         </x-input-row>
 
+        <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
+            <!-- Cidade -->
+            <div class="md:w-1/4">
+                <x-select
+                        label="Estado civil"
+                        name="civil_status"
+                        class="mt-1 w-full"
+                        wire:model.lazy="detail.civil_status"
+                        error="{{ $errors->first('detail.civil_status') }}"
+                >
+                    <option>Selecione...</option>
+                    @foreach(\App\Enums\CivilStatus::getInstances() as $status)
+                        <option value="{{ $status->value }}">{{ $status->description }}</option>
+                    @endforeach
+                </x-select>
+            </div>
+            <!-- Data de nascimento -->
+            <div class="md:w-1/4">
+                <x-input
+                        label="Data de nascimento"
+                        name="birth_date"
+                        class="mt-1 w-full"
+                        wire:model.lazy="state.birth"
+                        error="{{ $errors->first('state.birth') }}"
+                />
+            </div>
+            <!-- Naturalidade -->
+            <div class="md:w-2/4">
+                <x-input
+                        label="Naturalidade"
+                        name="birth_location"
+                        class="mt-1 w-full"
+                        wire:model.lazy="detail.birth_location"
+                        error="{{ $errors->first('detail.birth_location') }}"
+                />
+            </div>
+        </x-input-row>
 
+        <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
+            <!-- Nacionalidade -->
+            <div class="md:w-2/4">
+                <x-input
+                        label="Nacionalidade"
+                        name="nationality"
+                        class="mt-1 w-full"
+                        wire:model.lazy="detail.nationality"
+                        error="{{ $errors->first('detail.nationality') }}"
+                />
+            </div>
+            <!-- RG -->
+            <div class="md:w-1/4">
+                <x-input
+                        label="RG"
+                        name="rg"
+                        class="mt-1 w-full"
+                        wire:model.lazy="detail.rg"
+                        error="{{ $errors->first('detail.rg') }}"
+                />
+            </div>
+            <!-- RG -->
+            <div class="md:w-1/4">
+                <x-input
+                        label="Órgão emissor"
+                        name="rg_issuer"
+                        class="mt-1 w-full"
+                        wire:model.lazy="detail.rg_issuer"
+                        error="{{ $errors->first('detail.rg_issuer') }}"
+                />
+            </div>
+        </x-input-row>
+
+        <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
+            <!-- Profissão -->
+            <div class="md:w-1/3">
+                <x-input
+                        label="Profissão"
+                        name="occupation"
+                        class="mt-1 w-full"
+                        wire:model.lazy="detail.occupation"
+                        error="{{ $errors->first('detail.occupation') }}"
+                />
+            </div>
+            <!-- Profissão -->
+            <div class="md:w-1/3">
+                <x-input
+                        label="E-mail"
+                        name="email"
+                        class="mt-1 w-full"
+                        wire:model.lazy="detail.email"
+                        error="{{ $errors->first('detail.email') }}"
+                />
+            </div>
+            <!-- Profissão -->
+            <div class="md:w-1/3">
+                <x-input
+                        label="Renda mensal"
+                        name="monthly_income"
+                        class="mt-1 w-full"
+                        wire:model.lazy="detail.monthly_income"
+                        error="{{ $errors->first('detail.monthly_income') }}"
+                />
+            </div>
+        </x-input-row>
+
+        <x-input-row class="mt-6 mb-6 md:mt-0 items-center">
+            <h2 class="text-lg uppercase tracking-widest">Cônjuge</h2>
+            <div class="flex-1 h-0.5 bg-gray-200"></div>
+        </x-input-row>
+
+        <div class="md:mb-4">
+            @if($detail->partner)
+                <p>{{ $detail->partner->full_name }} - CPF Nº {{ $detail->partner->cpf }}</p>
+                @if($detail->partner->$detail)
+                    <p class="text-green-500 font-medium">Todos os dados do cônjuge cadastrados.</p>
+                @else
+                    <p class="text-red-500 font-medium">Os dados do cônjuge estão incompletos!</p>
+                @endif
+            @else
+                <p class="my-2">{{ $state['no_partner_message'] }}</p>
+                <div class="w-1/3 my-2">
+                    <x-input
+                            label="Digite o CPF do Cônjuge"
+                            name="partner_cpf"
+                            class="mt-1 w-full"
+                            wire:model="state.partner_cpf"
+                            error="{{ $errors->first('state.partner_cpf') }}"
+                    />
+                </div>
+                <div class="flex space-x-2">
+                    <x-button class="h-full" type="button" wire:click="addPartner">Buscar</x-button>
+                    @if($state['show_partner_button'])
+                        <x-button type="button">Cadastrar Cônjuge</x-button>
+                    @endif
+                </div>
+
+            @endif
+        </div>
+
+        <x-input-row class="mt-6 flex flex-col space-y-2 md:space-y-0 md:flex-row">
+            <x-button type="button" wire:click="savePerson">Salvar e Voltar</x-button>
+            <x-button type="button" wire:click="savePerson(false)">Salvar e Continuar</x-button>
+            <x-button-link type="danger" href="{{ route('people.index') }}">Cancelar</x-button-link>
+        </x-input-row>
     </form>
 
 </x-card>

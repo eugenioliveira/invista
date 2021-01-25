@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Enums\CivilStatus;
 use App\Models\Address;
 use App\Models\Person;
 use App\Models\PersonDetail;
+use BenSampo\Enum\Rules\EnumValue;
 use Livewire\Component;
 
 class CreatePersonForm extends Component
@@ -26,6 +28,18 @@ class CreatePersonForm extends Component
     public PersonDetail $detail;
 
     /**
+     * O estado do formulário
+     *
+     * @var array
+     */
+    public array $state = [
+        'birth' => '',
+        'partner_cpf' => '',
+        'show_partner_button' => false,
+        'no_partner_message' => 'Nenhum cônjuge cadastrado.'
+    ];
+
+    /**
      * O endereço da pessoa a ser criada
      *
      * @var Address
@@ -43,15 +57,16 @@ class CreatePersonForm extends Component
      * Monta o componente.
      *
      * @param Person $person
+     * @param Address $address
      */
-    public function mount(Person $person)
+    public function mount(Person $person, Address $address)
     {
         // Atribui a pessoa atual
         $this->person = $person;
         // Atribui os detalhes da pessoa atual
         $this->detail = new PersonDetail();
         // Atribui o endereço da pessoa atual
-        $this->address = new Address();
+        $this->address = $address;
     }
 
     /**
@@ -72,7 +87,17 @@ class CreatePersonForm extends Component
             'address.neighbourhood' => ['required', 'min:5'],
             'address.city' => ['required', 'min:5'],
             'address.state' => ['required', 'min:2'],
-            'address.postal_code' => ['required', 'numeric', 'digits:8']
+            'address.postal_code' => ['required', 'numeric', 'digits:8'],
+            'detail.civil_status' => ['required', new EnumValue(CivilStatus::class)],
+            'state.birth' => ['required', 'date_format:d/m/Y'],
+            'detail.birth_location' => ['required', 'min:5'],
+            'detail.nationality' => ['required', 'min:5'],
+            'detail.rg' => ['required', 'min:3'],
+            'detail.rg_issuer' => ['required', 'min:3'],
+            'detail.occupation' => ['required', 'min:5'],
+            'detail.email' => ['required', 'email:strict,dns,spoof'],
+            'detail.monthly_income' => ['required', 'regex:/^[1-9]\d*(\.\d{3})?(\,\d{1,2})?$/'],
+            'state.partner_cpf' => ['numeric', 'cpf'],
         ];
     }
 
@@ -107,10 +132,32 @@ class CreatePersonForm extends Component
             'address.state.min' => 'O campo UF deve conter 2 caracteres.',
             'address.postal_code.required' => 'O campo CEP é obrigatório.',
             'address.postal_code.numeric' => 'O campo CEP deve conter apenas números.',
-            'address.postal_code.digits' => 'O campo CEP deve conter 8 números.'
+            'address.postal_code.digits' => 'O campo CEP deve conter 8 números.',
+            'detail.civil_status.required' => 'O campo estado civil é obrigatório.',
+            'state.birth.required' => 'O campo data de nascimento é obrigatório.',
+            'state.birth.date_format' => 'Digite uma data válida.',
+            'detail.birth_location.required' => 'O campo naturalidade é obrigatório.',
+            'detail.birth_location.min' => 'O campo naturalidade deve conter no mínimo 5 caracteres.',
+            'detail.nationality.required' => 'O campo nacionalidade é obrigatório.',
+            'detail.nationality.min' => 'O campo nacionalidade deve conter no mínimo 5 caracteres.',
+            'detail.rg.required' => 'O campo rg é obrigatório.',
+            'detail.rg.min' => 'O campo rg deve conter no mínimo 3 caracteres.',
+            'detail.rg_issuer.required' => 'O campo Órgão emissor é obrigatório.',
+            'detail.rg_issuer.min' => 'O campo Órgão emissor deve conter no mínimo 3 caracteres.',
+            'detail.occupation.required' => 'O campo profissão é obrigatório.',
+            'detail.occupation.min' => 'O campo profissão deve conter no mínimo 5 caracteres.',
+            'detail.email.required' => 'Digite um endereço de e-mail.',
+            'detail.email.email' => 'Digite um endereço de e-mail válido.',
+            'detail.monthly_income.required' => 'O campo Renda mensal é obrigatório.',
+            'detail.monthly_income.regex' => 'O campo Renda mensal deve ser um valor numérico superior a zero.',
+            'state.partner_cpf.numeric' => 'O campo CPF deve conter apenas números.',
+            'state.partner_cpf.cpf' => 'Digite um CPF válido.',
         ];
     }
 
+    /**
+     * Busca o endereço da pessoa em uma fonte externa.
+     */
     public function getAddressByPostalCode()
     {
         $extAddress = $this->getAddressFromExternalApi(
@@ -120,6 +167,27 @@ class CreatePersonForm extends Component
 
         if ($extAddress) {
             $this->address->fill($extAddress);
+        }
+    }
+
+    public function savePerson()
+    {
+        $this->validate();
+        $this->detail->birth_date = $this->state['birth'];
+    }
+
+    public function addPartner()
+    {
+        $this->validateOnly('state.partner_cpf');
+
+        if ($this->state['partner_cpf']) {
+            $partner = Person::firstWhere('cpf', $this->state['partner_cpf']);
+            if ($partner) {
+                $this->detail->partner = $partner;
+            } else {
+                $this->state['no_partner_message'] = 'Nenhuma pessoa encontrada com o CPF informado.';
+                $this->state['show_partner_button'] = true;
+            }
         }
     }
 

@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Enums\CivilStatus;
 use App\Models\Address;
 use App\Models\Person;
 use App\Models\PersonDetail;
+use BenSampo\Enum\Rules\EnumValue;
 use Livewire\Component;
 
 class EditPersonForm extends Component
@@ -24,6 +26,13 @@ class EditPersonForm extends Component
      * @var PersonDetail
      */
     public PersonDetail $detail;
+
+    /**
+     * O estado do formulário
+     *
+     * @var array
+     */
+    public array $state = ['birth'];
 
     /**
      * O endereço da pessoa a ser criada
@@ -49,7 +58,12 @@ class EditPersonForm extends Component
         // Atribui a pessoa atual
         $this->person = $person;
         // Atribui os detalhes da pessoa atual
-        $this->detail = $this->person->detail ?? new PersonDetail();
+        if ($this->person->detail) {
+            $this->detail = $this->person->detail;
+            $this->state['birth'] = $this->detail->birth_date->format('d/m/Y');
+        } else {
+            $this->detail = new PersonDetail();
+        }
         // Atribui o endereço da pessoa atual
         $this->address = $this->person->address = new Address();
     }
@@ -72,7 +86,9 @@ class EditPersonForm extends Component
             'address.neighbourhood' => ['required', 'min:5'],
             'address.city' => ['required', 'min:5'],
             'address.state' => ['required', 'min:2'],
-            'address.postal_code' => ['required', 'numeric', 'digits:8']
+            'address.postal_code' => ['required', 'numeric', 'digits:8'],
+            'detail.civil_status' => ['required', new EnumValue(CivilStatus::class)],
+            'state.birth' => ['required', 'date_format:d/m/Y'],
         ];
     }
 
@@ -107,10 +123,16 @@ class EditPersonForm extends Component
             'address.state.min' => 'O campo UF deve conter 2 caracteres.',
             'address.postal_code.required' => 'O campo CEP é obrigatório.',
             'address.postal_code.numeric' => 'O campo CEP deve conter apenas números.',
-            'address.postal_code.digits' => 'O campo CEP deve conter 8 números.'
+            'address.postal_code.digits' => 'O campo CEP deve conter 8 números.',
+            'detail.civil_status.required' => 'O campo estado civil é obrigatório.',
+            'state.birth.required' => 'O campo data de nascimento é obrigatório.',
+            'state.birth.date_format' => 'Digite uma data válida.'
         ];
     }
 
+    /**
+     * Busca o endereço da pessoa em uma fonte externa.
+     */
     public function getAddressByPostalCode()
     {
         $extAddress = $this->getAddressFromExternalApi(
@@ -121,6 +143,12 @@ class EditPersonForm extends Component
         if ($extAddress) {
             $this->address->fill($extAddress);
         }
+    }
+
+    public function savePerson()
+    {
+        $this->validate();
+        $this->detail->birth_date = $this->state['birth'];
     }
 
     public function render()

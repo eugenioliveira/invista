@@ -1,4 +1,4 @@
-<div class="bg-primary text-white">
+<div class="bg-primary text-white hidden md:block">
 
     <div class="container mx-auto flex items-center justify-between py-4">
         <!-- Left section of navbar -->
