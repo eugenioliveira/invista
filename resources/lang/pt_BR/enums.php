@@ -14,9 +14,9 @@ return [
     ],
 
     CivilStatus::class => [
-        CivilStatus::SINGLE => 'Solteiro',
-        CivilStatus::MARRIED => 'Casado',
-        CivilStatus::DIVORCED => 'Divorciado',
+        CivilStatus::SINGLE => 'Solteiro(a)',
+        CivilStatus::MARRIED => 'Casado(a)',
+        CivilStatus::DIVORCED => 'Divorciado(a)',
         CivilStatus::WIDOW => 'Viúvo(a)'
     ]
 ];

@@ -273,32 +273,76 @@
         </x-input-row>
 
         <div class="md:mb-4">
-            @if($detail->partner)
-                <p>{{ $detail->partner->full_name }} - CPF Nº {{ $detail->partner->cpf }}</p>
-                @if($detail->partner->$detail)
-                    <p class="text-green-500 font-medium">Todos os dados do cônjuge cadastrados.</p>
+            <div class="md:flex bg-orange-100 border shadow-lg rounded-md border-orange-400">
+                <div class="bg-orange-400 text-white md:flex md:justify-center md:items-center md:w-16">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                </div>
+                @if($detail->partner)
+                    <div class="md:w-1/3 px-4 py-2 md:flex md:items-center md:border-r md:border-dashed md:border-orange-400">
+                        <div>
+                            <h2 class="text-lg text-orange-600">{{ $detail->partner->full_name }}</h2>
+                            <p class="text-sm">CPF: {{ $detail->partner->cpf }}</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3 p-2 md:flex md:items-center md:border-r md:border-dashed md:border-orange-400">
+                        <p class="text-sm">
+                            @if($detail->partner->detail)
+                                <span class="text-green-500 font-medium">As informações do cônjuge estão completas.</span>
+                            @else
+                                <span class="text-red-500 font-medium">As informações do cônjuge estão incompletas!</span>
+                                <br>
+                                <span class="text-xs">Faltam informações como naturalidade, nacionalidade, renda mensal...</span>
+                            @endif
+                        </p>
+                    </div>
+                    <div class="p-2 flex flex-col space-y-2">
+                        <x-button type="button">Remover cônjuge</x-button>
+                        <x-button type="button">Editar cônjuge</x-button>
+                    </div>
                 @else
-                    <p class="text-red-500 font-medium">Os dados do cônjuge estão incompletos!</p>
+                    <div class="px-4 py-2 flex items-center border-r border-dashed border-orange-400">
+                        <div>
+                            <h2 class="text-lg text-orange-600">Nenhum cônjuge cadastrado.</h2>
+                            <p class="text-sm">O cadastro de cônjuge é obrigatório se o estado civil é casado(a).</p>
+                        </div>
+                    </div>
+                    <div class="px-4 py-2 border-r border-dashed border-orange-400 flex flex-col">
+                        <div>
+                            <label for="partner_cpf" class="text-orange-600 text-sm font-medium">Digite o CPF do cônjuge</label>
+                            <div class="flex items-center space-x-2">
+                                <input
+                                        id="partner_cpf"
+                                        name="partner_cpf"
+                                        type="text"
+                                        wire:model.lazy="state.partner_cpf"
+                                        class="mt-1 px-2 py-1 border border-orange-400 rounded-md appearance-none focus:outline-none focus:ring focus:ring-orange-400"
+                                >
+                                <button
+                                        type="button"
+                                        class="bg-orange-400 text-white hover:bg-orange-600 transition duration-150 px-4 py-2 rounded-md"
+                                        wire:click="addPartner"
+                                >
+                                    OK
+                                </button>
+                            </div>
+                            @error('state.partner_cpf')
+                            <p class="mt-1 text-sm font-bold text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="flex items-center space-x-2 my-2">
+                            <div class="border-b border-orange-400 flex-1"></div>
+                            <div>ou</div>
+                            <div class="border-b border-orange-400 flex-1"></div>
+                        </div>
+                        <x-button type="button">
+                            Cadastrar cônjuge
+                        </x-button>
+                    </div>
                 @endif
-            @else
-                <p class="my-2">{{ $state['no_partner_message'] }}</p>
-                <div class="w-1/3 my-2">
-                    <x-input
-                            label="Digite o CPF do Cônjuge"
-                            name="partner_cpf"
-                            class="mt-1 w-full"
-                            wire:model="state.partner_cpf"
-                            error="{{ $errors->first('state.partner_cpf') }}"
-                    />
-                </div>
-                <div class="flex space-x-2">
-                    <x-button class="h-full" type="button" wire:click="addPartner">Buscar</x-button>
-                    @if($state['show_partner_button'])
-                        <x-button type="button">Cadastrar Cônjuge</x-button>
-                    @endif
-                </div>
-
-            @endif
+            </div>
         </div>
 
         <x-input-row class="mt-6 flex flex-col space-y-2 md:space-y-0 md:flex-row">

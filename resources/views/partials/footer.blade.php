@@ -1,4 +1,4 @@
-<footer class="mt-6">
+<footer class="mt-6 hidden md:block">
     <div class="bg-gray-500 h-1"></div>
     <div class="bg-primary text-white">
         <div class="container mx-auto flex items-center py-4">

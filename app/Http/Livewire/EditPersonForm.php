@@ -151,6 +151,24 @@ class EditPersonForm extends Component
         $this->detail->birth_date = $this->state['birth'];
     }
 
+    public function addPartner()
+    {
+        $this->validateOnly('state.partner_cpf');
+
+        if ($this->state['partner_cpf']) {
+            $partner = Person::firstWhere('cpf', $this->state['partner_cpf']);
+            if ($partner) {
+                if ($partner->id === $this->person->id) {
+                    $this->addError('state.partner_cpf', 'A pessoa não pode ser cônjuge de si mesma.');
+                } else {
+                    $this->detail->partner = $partner;
+                }
+            } else {
+                $this->addError('state.partner_cpf', 'Nenhuma pessoa encontrada com o CPF informado.');
+            }
+        }
+    }
+
     public function render()
     {
         return view('livewire.person-form');

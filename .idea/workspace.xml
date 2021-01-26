@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55f11043-8ef8-4f8a-942d-e069f09c4d40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/components/dialog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/CivilStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/CivilStatus.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CreatePersonForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CreatePersonForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/EditPersonForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/EditPersonForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PersonDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PersonDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_20_090028_create_person_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_20_090028_create_person_details_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/input.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt_BR/enums.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pt_BR/enums.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/person-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/person-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -238,7 +233,8 @@
       <workItem from="1611160876725" duration="3022000" />
       <workItem from="1611260245591" duration="619000" />
       <workItem from="1611314818743" duration="9202000" />
-      <workItem from="1611574638907" duration="19879000" />
+      <workItem from="1611574638907" duration="20641000" />
+      <workItem from="1611667734472" duration="5538000" />
     </task>
     <servers />
   </component>

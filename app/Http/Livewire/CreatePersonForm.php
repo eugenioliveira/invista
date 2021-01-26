@@ -183,10 +183,13 @@ class CreatePersonForm extends Component
         if ($this->state['partner_cpf']) {
             $partner = Person::firstWhere('cpf', $this->state['partner_cpf']);
             if ($partner) {
-                $this->detail->partner = $partner;
+                if ($partner->id === $this->person->id) {
+                    $this->addError('state.partner_cpf', 'A pessoa não pode ser cônjuge de si mesma.');
+                } else {
+                    $this->detail->partner = $partner;
+                }
             } else {
-                $this->state['no_partner_message'] = 'Nenhuma pessoa encontrada com o CPF informado.';
-                $this->state['show_partner_button'] = true;
+               $this->addError('state.partner_cpf', 'Nenhuma pessoa encontrada com o CPF informado.');
             }
         }
     }
