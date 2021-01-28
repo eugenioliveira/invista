@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Casts\DecimalCast;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,5 +39,23 @@ class PersonDetail extends Model
     public function partner()
     {
         return $this->hasOne(Person::class, 'id', 'partner_id');
+    }
+
+    public function becomeSingle(): bool
+    {
+        $this->partner_id = null;
+        return $this->save();
+    }
+
+    /**
+     * Converte a data antes de salvar no banco
+     *
+     * @param $value
+     */
+    public function setBirthDateAttribute($value)
+    {
+        if ($value) {
+            $this->attributes['birth_date'] = Carbon::createFromFormat('d/m/Y', $value);
+        }
     }
 }

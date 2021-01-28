@@ -38,7 +38,7 @@
                     x-transition:leave-end="opacity-0"
                     class="fixed inset-0 transition-opacity"
                     aria-hidden="true">
-                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                <div class="absolute inset-0 bg-black opacity-75"></div>
             </div>
 
             <!-- This element is to trick the browser into centering the modal contents. -->
@@ -104,13 +104,12 @@
                 @endswitch
                 <!-- Title -->
                     <h2 class="text-xl font-medium mt-4">
-                        Título de exemplo
+                        {{ $title }}
                     </h2>
                     <!-- Text -->
-                    <p class="text-gray-600 mt-6">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda cum dignissimos doloremque earum esse, exercitationem facere ipsum
-                        laboriosam minima molestiae nulla omnis pariatur provident quaerat quod rerum sunt unde voluptatibus.
-                    </p>
+                    <div class="text-gray-600 mt-6">
+                        {{ $content }}
+                    </div>
 
                     <button type="button" x-on:click="on = false"
                             class="w-full rounded-md border border-transparent shadow-sm px-4 py-2 mt-4 bg-orange-600 text-base font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
