@@ -28,7 +28,11 @@ class UpdatePersonAddress
             'postal_code' => ['required', 'numeric', 'digits:8'],
         ])->validate();
 
-        $person->address->forceFill($validated);
-        $person->address->save();
+        if ($person->address) {
+            $person->address->forceFill($validated);
+            $person->address->save();
+        } else {
+            $person->address()->create($validated);
+        }
     }
 }

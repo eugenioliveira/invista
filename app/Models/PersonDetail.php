@@ -11,6 +11,8 @@ class PersonDetail extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     /**
      * Os atributos que devem ser convertidos.
      *
@@ -39,12 +41,6 @@ class PersonDetail extends Model
     public function partner()
     {
         return $this->hasOne(Person::class, 'id', 'partner_id');
-    }
-
-    public function becomeSingle(): bool
-    {
-        $this->partner_id = null;
-        return $this->save();
     }
 
     /**

@@ -26,13 +26,6 @@ class PersonAddressForm extends Component
     public array $state = [];
 
     /**
-     * Mensagem de sucesso.
-     *
-     * @var string
-     */
-    public string $successMessage = '';
-
-    /**
      * Preenche o estado do componente.
      *
      * @param Person $person
