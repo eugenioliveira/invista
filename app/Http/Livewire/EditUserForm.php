@@ -53,13 +53,6 @@ class EditUserForm extends Component
     public int $roleId;
 
     /**
-     * Mensagem de sucesso.
-     *
-     * @var string|null
-     */
-    public ?string $successMessage = null;
-
-    /**
      * Regras de validação
      *
      * @return array

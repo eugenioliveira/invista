@@ -2,58 +2,38 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Address;
-use App\Models\Person;
-use App\Models\PersonDetail;
+use App\Actions\Person\CreateNewPerson;
 use Livewire\Component;
 
 class CreatePersonForm extends Component
 {
-    use RedirectHandler, ExternalAddressApi, PersonFormDefinition;
+    use RedirectHandler;
 
     /**
-     * Event listeners
+     * Controle de estado do componente.
      *
-     * @var string[]
+     * @var array
      */
-    protected $listeners = ['partnerRegistered' => 'associateRegisteredPartner'];
+    public array $state = [];
 
     /**
-     * Monta o componente.
+     * Cria uma nova pessoa.
      *
-     * @param Person $person
-     * @param Address $address
+     * @param CreateNewPerson $creator
+     * @param bool $redirectAfterCreate
      */
-    public function mount(Person $person)
+    public function createPerson(CreateNewPerson $creator, bool $redirectAfterCreate = true)
     {
-        // Atribui a pessoa atual
-        $this->person = $person;
-        // Atribui o cônjuge da pessoa atual
-        $this->partner = new Person();
-        // Atribui os detalhes da pessoa atual
-        $this->detail = new PersonDetail();
-        // Atribui o endereço da pessoa atual
-        $this->address = new Address();
+        $this->resetErrorBag();
+
+        $creator->create($this->state);
+
+        // Redireciona
+        $this->successAction('Pessoa física salva.', ['people.index'], $redirectAfterCreate);
     }
 
-    /**
-     * Relaciona o cônjuge quando o cadastro for realizado no mesmo
-     * formulário.
-     *
-     * @param Person $partner
-     */
-    public function associateRegisteredPartner(Person $partner)
-    {
-        $this->partner = $partner;
-    }
-
-    /**
-     * Renderiza o componente.
-     *
-     * @return \Illuminate\Contracts\View\View
-     */
     public function render()
     {
-        return view('livewire.person-form');
+        return view('livewire.create-person-form');
     }
 }

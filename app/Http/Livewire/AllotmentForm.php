@@ -27,13 +27,6 @@ class AllotmentForm extends Component
     public Allotment $allotment;
 
     /**
-     * Mensagem de sucesso.
-     *
-     * @var string|null
-     */
-    public ?string $successMessage = null;
-
-    /**
      * O nova foto de capa do Loteamento.
      *
      * @var mixed

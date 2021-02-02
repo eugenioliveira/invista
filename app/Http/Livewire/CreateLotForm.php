@@ -46,13 +46,6 @@ class CreateLotForm extends Component
     public int $statusType;
 
     /**
-     * Mensagem de sucesso.
-     *
-     * @var string
-     */
-    public string $successMessage;
-
-    /**
      * Inicialização do formulário.
      *
      * @param Allotment $allotment

@@ -30,8 +30,8 @@ class PeopleList extends Component
     {
         $peopleQuery = Person::where(function ($query) {
             $query
-                ->where('firstname', 'like', '%' . $this->searchTerm . '%')
-                ->orWhere('lastname', 'like', '%' . $this->searchTerm . '%')
+                ->where('first_name', 'like', '%' . $this->searchTerm . '%')
+                ->orWhere('last_name', 'like', '%' . $this->searchTerm . '%')
                 ->orWhere('cpf', 'like', '%' . $this->searchTerm . '%');
         });
 

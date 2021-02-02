@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LotsController;
 use App\Http\Controllers\LotsImportController;
 use App\Http\Controllers\PeopleController;
+use App\Http\Controllers\PersonAddressController;
+use App\Http\Controllers\PersonDetailController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -111,6 +113,14 @@ Route::middleware('auth:sanctum')->group(function () {
     // Formulário de edição de pessoa física
     Route::get('/person/{person}/edit', [PeopleController::class, 'edit'])
         ->name('person.edit');
+
+    // Formulário de edição de endereço de pessoa física
+    Route::get('/person/{person}/address', PersonAddressController::class)
+        ->name('person.address');
+
+    // Formulário de edição de detalhes de pessoa física
+    Route::get('/person/{person}/detail', PersonDetailController::class)
+        ->name('person.detail');
 
     //======================================================================
 

@@ -2,18 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55f11043-8ef8-4f8a-942d-e069f09c4d40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/PartnerModal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/PersonFormDefinition.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/PersonFormWithAddress.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/person-inputs.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/partner-modal.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Actions/Address/GetAddressFromApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Actions/Address/UpdatePersonAddress.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Actions/Person/CreateNewPerson.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Actions/Person/UpdatePerson.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Contracts/AddressApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PersonAddressController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PersonDetailController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/PersonAddressForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/ViaCepApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/create-person-form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/edit-person-form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/partials/person-inputs.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/person-address-form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/person/address.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/person/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CreatePersonForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CreatePersonForm.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/EditPersonForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/EditPersonForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PersonDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PersonDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/dialog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dialog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/person-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/person-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PeopleList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/PeopleList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/RedirectHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/RedirectHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_14_145812_create_people_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_14_145812_create_people_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_20_090028_create_person_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_20_090028_create_person_details_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/people-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/people-list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/people/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/people/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,6 +220,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/users" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Services" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -242,7 +264,8 @@
       <workItem from="1611574638907" duration="20641000" />
       <workItem from="1611667734472" duration="7305000" />
       <workItem from="1611749396057" duration="5960000" />
-      <workItem from="1611834021944" duration="15302000" />
+      <workItem from="1611834021944" duration="16000000" />
+      <workItem from="1612264995406" duration="16420000" />
     </task>
     <servers />
   </component>

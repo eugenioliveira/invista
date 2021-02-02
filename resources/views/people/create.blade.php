@@ -7,7 +7,7 @@
     </x-slot>
 
     <x-section>
-        <livewire:create-person-form key="person-component" />
+        <livewire:create-person-form />
     </x-section>
 
 </x-app-layout>

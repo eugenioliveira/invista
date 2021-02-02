@@ -6,6 +6,14 @@ namespace App\Http\Livewire;
 
 trait RedirectHandler
 {
+    /**
+     * Mensagem de sucesso.
+     *
+     * @var string
+     */
+    public string $successMessage = '';
+
+
     public function successAction(string $message, array $route, bool $redirect = true)
     {
         $this->successMessage = $message;

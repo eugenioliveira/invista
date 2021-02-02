@@ -16,7 +16,7 @@ class CreatePersonDetailsTable extends Migration
     {
         Schema::create('person_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('person_id')->unique()->constrained();
+            $table->foreignId('person_id')->unique()->constrained()->cascadeOnDelete();
             $table->string('civil_status')->default(CivilStatus::SINGLE);
             $table->date('birth_date');
             $table->string('birth_location');

@@ -26,13 +26,6 @@ class EditLotForm extends Component
     public Lot $lot;
 
     /**
-     * Mensagem de sucesso.
-     *
-     * @var string
-     */
-    public string $successMessage;
-
-    /**
      * Inicialização do formulário.
      *
      * @param Lot $lot

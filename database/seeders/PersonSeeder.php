@@ -15,22 +15,22 @@ class PersonSeeder extends Seeder
     public function run()
     {
         Person::create([
-            'firstname' => 'Eugênio',
-            'lastname' => 'Oliveira',
+            'first_name' => 'Eugênio',
+            'last_name' => 'Oliveira',
             'cpf' => '09864257617',
             'phone' => '35992533223'
         ])->saveUser('geninoliveira@gmail.com', 'e4.vrdrq');
 
         Person::create([
-            'firstname' => 'Keith',
-            'lastname' => 'Richards',
+            'first_name' => 'Keith',
+            'last_name' => 'Richards',
             'cpf' => '77852102093',
             'phone' => '35992533223'
         ])->saveUser('keith@gmail.com', 'e4.vrdrq');
 
         Person::create([
-            'firstname' => 'Darth',
-            'lastname' => 'Vader',
+            'first_name' => 'Darth',
+            'last_name' => 'Vader',
             'cpf' => '15133773021',
             'phone' => '35992533223'
         ])->saveUser('darth@gmail.com', 'e4.vrdrq');;

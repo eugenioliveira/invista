@@ -2,61 +2,58 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Address;
+use App\Actions\Person\UpdatePerson;
 use App\Models\Person;
-use App\Models\PersonDetail;
 use Livewire\Component;
 
 class EditPersonForm extends Component
 {
-    use RedirectHandler, ExternalAddressApi, PersonFormDefinition;
+    use RedirectHandler;
 
     /**
-     * Event listeners
+     * A pessoa que será atualizada
      *
-     * @var string[]
+     * @var Person
      */
-    protected $listeners = ['partnerRegistered' => 'associateRegisteredPartner'];
+    public Person $person;
 
     /**
-     * Monta o componente.
+     * Controle de estado do componente.
+     *
+     * @var array
+     */
+    public array $state = [];
+
+    /**
+     * Preenche o estado do componente com as informações
+     * atuais da pessoa
      *
      * @param Person $person
      */
     public function mount(Person $person)
     {
-        // Atribui a pessoa atual
         $this->person = $person;
-        // Atribui os detalhes da pessoa atual
-        if ($this->person->detail) {
-            $this->detail = $this->person->detail;
-            $this->state['birth'] = $this->detail->birth_date->format('d/m/Y');
-            $this->partner = $this->person->detail->partner ?? new Person();
-        } else {
-            $this->detail = new PersonDetail();
-        }
-        // Atribui o endereço da pessoa atual
-        $this->address = $this->person->address ?? new Address();
+        $this->state = $person->toArray();
     }
 
     /**
-     * Relaciona o cônjuge quando o cadastro for realizado no mesmo
-     * formulário.
+     * Atualiza as informações da pessoa.
      *
-     * @param Person $partner
+     * @param UpdatePerson $updater
+     * @param bool $redirectAfterUpdate
      */
-    public function associateRegisteredPartner(Person $partner)
+    public function updatePerson(UpdatePerson $updater, $redirectAfterUpdate = true)
     {
-        $this->partner = $partner;
+        $this->resetErrorBag();
+
+        $updater->update($this->person, $this->state);
+
+        // Redireciona
+        $this->successAction('Pessoa salva.', ['people.index'], $redirectAfterUpdate);
     }
 
-    /**
-     * Renderiza o componente.
-     *
-     * @return \Illuminate\Contracts\View\View
-     */
     public function render()
     {
-        return view('livewire.person-form');
+        return view('livewire.edit-person-form');
     }
 }

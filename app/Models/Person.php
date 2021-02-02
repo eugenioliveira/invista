@@ -10,6 +10,8 @@ class Person extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     /**
      * Retorna o usuário pertencente a pessoa.
      *
@@ -50,22 +52,11 @@ class Person extends Model
     public function saveUser($email, $password = null)
     {
         $user = $this->user ?? new User();
-        $user->name = $this->firstname . ' ' . $this->lastname;
+        $user->name = $this->full_name;
         $user->email = $email;
         $user->password = $password ? Hash::make($password) : $user->password;
 
         return $this->user()->save($user);
-    }
-
-    /**
-     * Salva o endereço da pessoa.
-     *
-     * @param Address $address
-     * @return false|Model
-     */
-    public function saveAddress(Address $address)
-    {
-        return $this->address()->save($address);
     }
 
     /**
@@ -86,6 +77,6 @@ class Person extends Model
      */
     public function getFullNameAttribute(): string
     {
-        return sprintf('%s %s', $this->firstname, $this->lastname);
+        return sprintf('%s %s', $this->first_name, $this->last_name);
     }
 }
