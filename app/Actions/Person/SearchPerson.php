@@ -12,23 +12,28 @@ class SearchPerson
      * Busca pessoas pelo CPF ou nome.
      *
      * @param string $searchTerm
+     * @param int|null $pagination
+     * @param array $excludeIds
+     * @param array $onlyIds
      * @return Person[]|\LaravelIdea\Helper\App\Models\_PersonCollection
      */
-    public function search(string $searchTerm, $excludeId = null)
+    public function search(string $searchTerm, $pagination = false, array $excludeIds = [], array $onlyIds = [])
     {
-        if (strlen($searchTerm) >= 3) {
-            $personQuery = Person::where(function ($query) use ($searchTerm) {
-                $query
-                    ->where('first_name', 'like', '%' . $searchTerm . '%')
-                    ->orWhere('last_name', 'like', '%' . $searchTerm . '%')
-                    ->orWhere('cpf', 'like', '%' . $searchTerm . '%');
-            });
+        $personQuery = Person::where(function ($query) use ($searchTerm) {
+            $query
+                ->where('first_name', 'like', '%' . $searchTerm . '%')
+                ->orWhere('last_name', 'like', '%' . $searchTerm . '%')
+                ->orWhere('cpf', 'like', '%' . $searchTerm . '%');
+        })->orderBy('first_name')->orderBy('last_name');
 
-            if ($excludeId) {
-                $personQuery->where('id', '<>', $excludeId);
-            }
-
-            return $personQuery->get();
+        if (count($excludeIds) > 0) {
+            $personQuery->whereNotIn('id', $excludeIds);
         }
+
+        if (count($onlyIds) > 0) {
+            $personQuery->whereIn('id', $onlyIds);
+        }
+
+        return $pagination ? $personQuery->paginate($pagination) : $personQuery->get();
     }
 }

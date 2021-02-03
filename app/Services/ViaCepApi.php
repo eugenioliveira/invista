@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Http;
 
 class ViaCepApi implements AddressApi
 {
+    /**
+     * O formato da URL para consulta
+     *
+     * @var string
+     */
     private string $urlFormat = 'https://viacep.com.br/ws/%s/json/';
 
     /**

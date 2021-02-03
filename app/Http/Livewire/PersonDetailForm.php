@@ -70,7 +70,7 @@ class PersonDetailForm extends Component
      */
     public function updatedPartnerSearch($searchTerm)
     {
-        $this->partnerSearchResult = (new SearchPerson())->search($searchTerm, $this->person->id);
+        $this->partnerSearchResult = (new SearchPerson())->search($searchTerm, false, [$this->person->id]);
     }
 
     /**
@@ -83,8 +83,7 @@ class PersonDetailForm extends Component
         $selectedPartner = $this->partnerSearchResult->get($partner);
         $this->partner = $selectedPartner;
         $this->state['partner_id'] = $selectedPartner->id;
-        $this->partnerSearch = '';
-        $this->partnerSearchResult = null;
+        $this->resetPartnerSearch();
     }
 
     /**
@@ -94,6 +93,14 @@ class PersonDetailForm extends Component
     {
         $this->partner = null;
         $this->state['partner_id'] = null;
+        $this->resetPartnerSearch();
+    }
+
+    /**
+     * Limpa os campos de busca de cônjuge.
+     */
+    private function resetPartnerSearch()
+    {
         $this->partnerSearch = '';
         $this->partnerSearchResult = null;
     }
