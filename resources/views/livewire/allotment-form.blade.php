@@ -202,7 +202,7 @@
         <x-input-row class="mt-6">
             <x-button type="button" wire:click="submit">Salvar e Voltar</x-button>
             <x-button type="button" wire:click="submit(false)">Salvar e Continuar</x-button>
-            <x-button-link type="danger" href="{{ route('allotments.index') }}">Cancelar</x-button-link>
+            <x-button-link type="danger" href="{{ url()->previous() }}">Cancelar</x-button-link>
         </x-input-row>
     </form>
 </x-card>

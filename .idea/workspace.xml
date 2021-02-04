@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55f11043-8ef8-4f8a-942d-e069f09c4d40" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Actions/User/CreateNewUser.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/create-user-form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Person/CreateNewPerson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/CreateNewPerson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Person/UpdatePerson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/UpdatePerson.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CreateUserForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CreateUserForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/EditUserForm.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ExternalAddressApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PartnerModal.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PersonFormDefinition.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PersonFormWithAddress.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Person.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/pt_BR/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pt_BR/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partner-modal.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-list.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

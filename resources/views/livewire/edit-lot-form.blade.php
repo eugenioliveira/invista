@@ -9,7 +9,7 @@
         <x-input-row>
             <x-button>Salvar e Voltar</x-button>
             <x-button type="button" wire:click="updateLot(false)">Salvar e Continuar</x-button>
-            <x-button-link type="danger" href="{{ route('lots.index', $lot->allotment_id) }}">Cancelar</x-button-link>
+            <x-button-link type="danger" href="{{ url()->previous() }}">Cancelar</x-button-link>
         </x-input-row>
     </form>
 

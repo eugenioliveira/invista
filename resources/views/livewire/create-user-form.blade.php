@@ -126,7 +126,7 @@
         <x-input-row class="mt-6">
             <x-button type="button" wire:click="createUser">Salvar e Voltar</x-button>
             <x-button type="button" wire:click="createUser(false)">Salvar e Continuar</x-button>
-            <x-button-link type="danger" href="{{ route('users.index') }}">Cancelar</x-button-link>
+            <x-button-link type="danger" href="{{ url()->previous() }}">Cancelar</x-button-link>
         </x-input-row>
 
     </form>

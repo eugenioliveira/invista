@@ -102,7 +102,7 @@
                 <hr class="my-3">
                 <div class="bg-gray-100">
                     <x-button type="button" wire:click="saveLots">Salvar lotes</x-button>
-                    <x-button-link type="danger" href="{{ route('lots.index', $allotment->id) }}">Cancelar</x-button-link>
+                    <x-button-link type="danger" href="{{ url()->previous() }}">Cancelar</x-button-link>
                 </div>
             @endif
         </form>
