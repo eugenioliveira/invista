@@ -28,5 +28,9 @@ class UpdatePerson
         ])->validate();
 
         $person->forceFill($validated)->save();
+        if ($person->user) {
+            $person->user->name = $person->full_name;
+            $person->user->save();
+        }
     }
 }

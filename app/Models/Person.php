@@ -60,17 +60,6 @@ class Person extends Model
     }
 
     /**
-     * Salva os detalhes da pessoa.
-     *
-     * @param PersonDetail $detail
-     * @return false|Model
-     */
-    public function saveDetail(PersonDetail $detail)
-    {
-        return $this->detail()->save($detail);
-    }
-
-    /**
      * Retorna o nome completo da pessoa.
      *
      * @return string

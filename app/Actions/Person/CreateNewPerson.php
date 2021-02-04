@@ -14,10 +14,11 @@ class CreateNewPerson
      * Valida e cria uma nova pessoa.
      *
      * @param array $input
+     * @param bool $persist
      * @return Person
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function create(array $input): Person
+    public function create(array $input, bool $persist = true): Person
     {
         $validated = Validator::make($input, [
             'first_name' => ['required', 'min:3'],
@@ -26,6 +27,6 @@ class CreateNewPerson
             'phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
         ])->validate();
 
-        return Person::create($validated);
+        return $persist ? Person::create($validated) : new Person($validated);
     }
 }

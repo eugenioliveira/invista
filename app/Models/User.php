@@ -97,7 +97,7 @@ class User extends Authenticatable
      */
     public function assignRole($role)
     {
-        if (is_string($role)) {
+        if (is_string($role) && !is_numeric($role)) {
             $role = Role::whereName($role)->firstOrFail();
         }
 

@@ -14,6 +14,7 @@ class PersonSeeder extends Seeder
      */
     public function run()
     {
+
         Person::create([
             'first_name' => 'Eugênio',
             'last_name' => 'Oliveira',
