@@ -28,6 +28,8 @@ class CreateUserForm extends Component
      */
     public function createUser(CreateNewUser $userCreator, $redirectAfterCreate = true)
     {
+        // Reset de validação
+        $this->resetErrorBag();
         // Faz a autorização
         $this->authorize('create', [User::class, $this->state['role']]);
         // Cria um novo usuário

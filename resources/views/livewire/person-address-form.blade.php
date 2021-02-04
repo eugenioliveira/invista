@@ -13,9 +13,7 @@
                         name="postal_code"
                         class="mt-1 w-full"
                         wire:model.lazy="state.postal_code"
-                        wire:blur="fillAddressFromPostalCode()"
-                        wire:loading.attr="disabled"
-                        wire:target="fillAddressFromPostalCode"
+                        wire:blur="fillAddressFromPostalCode"
                         error="{{ $errors->first('postal_code') }}"
                 />
             </div>
@@ -26,9 +24,8 @@
                         name="street"
                         class="mt-1 w-full"
                         wire:model.lazy="state.street"
-                        wire:loading.attr="disabled"
-                        wire:target="fillAddressFromPostalCode"
                         error="{{ $errors->first('street') }}"
+                        :block="$blockFields"
                 />
             </div>
         </x-input-row>
@@ -41,9 +38,8 @@
                         name="number"
                         class="mt-1 w-full"
                         wire:model.lazy="state.number"
-                        wire:loading.attr="disabled"
-                        wire:target="fillAddressFromPostalCode"
                         error="{{ $errors->first('number') }}"
+                        :block="$blockFields"
                 />
             </div>
             <!-- Complemento -->
@@ -53,9 +49,8 @@
                         name="apt_room"
                         class="mt-1 w-full"
                         wire:model.lazy="state.apt_room"
-                        wire:loading.attr="disabled"
-                        wire:target="fillAddressFromPostalCode"
                         error="{{ $errors->first('apt_room') }}"
+                        :block="$blockFields"
                 />
             </div>
             <!-- Bairro -->
@@ -65,9 +60,8 @@
                         name="neighbourhood"
                         class="mt-1 w-full"
                         wire:model.lazy="state.neighbourhood"
-                        wire:loading.attr="disabled"
-                        wire:target="fillAddressFromPostalCode"
                         error="{{ $errors->first('neighbourhood') }}"
+                        :block="$blockFields"
                 />
             </div>
         </x-input-row>
@@ -80,9 +74,8 @@
                         name="city"
                         class="mt-1 w-full"
                         wire:model.lazy="state.city"
-                        wire:loading.attr="disabled"
-                        wire:target="fillAddressFromPostalCode"
                         error="{{ $errors->first('city') }}"
+                        :block="$blockFields"
                 />
             </div>
             <!-- Estado -->
@@ -92,9 +85,8 @@
                         name="state"
                         class="mt-1 w-full"
                         wire:model.lazy="state.state"
-                        wire:loading.attr="disabled"
-                        wire:target="fillAddressFromPostalCode"
                         error="{{ $errors->first('state') }}"
+                        :block="$blockFields"
                 />
             </div>
         </x-input-row>

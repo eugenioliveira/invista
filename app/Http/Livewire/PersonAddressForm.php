@@ -26,6 +26,14 @@ class PersonAddressForm extends Component
     public array $state = [];
 
     /**
+     * Flag que determina se os campos devem ser
+     * desabilitados ou não
+     *
+     * @var bool
+     */
+    public bool $blockFields = true;
+
+    /**
      * Preenche o estado do componente.
      *
      * @param Person $person
@@ -40,6 +48,7 @@ class PersonAddressForm extends Component
      * Busca um endereço pelo CEP digitado.
      *
      * @param GetAddressFromApi $getter
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function fillAddressFromPostalCode(GetAddressFromApi $getter)
     {
@@ -52,6 +61,8 @@ class PersonAddressForm extends Component
         } else {
             $this->addError('postal_code', 'O CEP informado não existe.');
         }
+
+        $this->blockFields = false;
     }
 
     /**

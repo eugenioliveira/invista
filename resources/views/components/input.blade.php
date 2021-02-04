@@ -1,4 +1,4 @@
-@props(['type' => 'text', 'label', 'name', 'error' => null, 'placeholder' => ''])
+@props(['type' => 'text', 'label', 'name', 'error' => null, 'placeholder' => '', 'block' => false])
 
 @php
     $labelClasses = $error ? 'text-red-500' : 'text-gray-700';
@@ -14,6 +14,7 @@
             {{ $attributes->merge(['class' => 'border rounded-lg px-3 py-2 appearance-none focus:outline-none ' . $inputClasses]) }}
             autocomplete="off"
             placeholder="{{ $placeholder }}"
+            @if($block) disabled="disabled" @endif
     />
     <div>
         @if($error)

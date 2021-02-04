@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55f11043-8ef8-4f8a-942d-e069f09c4d40" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Actions/User/UpdateUser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/EditUserForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/edit-user-form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/partials/role-radio-input.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CreateUserForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CreateUserForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PersonAddressForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/PersonAddressForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/input.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/person-inputs.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/create-user-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/create-user-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/person-address-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/person-address-form.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
