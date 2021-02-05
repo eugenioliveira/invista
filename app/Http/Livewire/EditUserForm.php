@@ -39,6 +39,12 @@ class EditUserForm extends Component
         $this->state['role'] = $user->roles()->first()->id;
     }
 
+    /**
+     * Atualiza as informaçẽos do usuário.
+     *
+     * @param UpdateUser $updater
+     * @param bool $redirectAfterUpdate
+     */
     public function updateUser(UpdateUser $updater, $redirectAfterUpdate = true)
     {
         $this->resetErrorBag();
@@ -48,6 +54,11 @@ class EditUserForm extends Component
         $this->successAction('Usuário salvo.', ['users.index'], $redirectAfterUpdate);
     }
 
+    /**
+     * Renderiza o componente.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
     public function render()
     {
         return view('livewire.edit-user-form');

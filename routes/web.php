@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AllotmentsController;
+use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LotsController;
 use App\Http\Controllers\LotsImportController;
@@ -112,15 +113,29 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Formulário de edição de pessoa física
     Route::get('/person/{person}/edit', [PeopleController::class, 'edit'])
+        ->middleware('can:edit,person')
         ->name('person.edit');
 
     // Formulário de edição de endereço de pessoa física
     Route::get('/person/{person}/address', PersonAddressController::class)
+        ->middleware('can:edit,person')
         ->name('person.address');
 
     // Formulário de edição de detalhes de pessoa física
     Route::get('/person/{person}/detail', PersonDetailController::class)
+        ->middleware('can:edit,person')
         ->name('person.detail');
+
+    //======================================================================
+
+    //======================================================================
+    // ROTAS REFERENTES À PESSOAS JURÍDICAS
+    //======================================================================
+
+    // Listagem de pessoas jurídicas
+    Route::get('/companies', [CompaniesController::class, 'index'])
+        ->middleware('can:view_companies')
+        ->name('companies.index');
 
     //======================================================================
 

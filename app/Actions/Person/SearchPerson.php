@@ -14,10 +14,10 @@ class SearchPerson
      * @param string $searchTerm
      * @param int|null $pagination
      * @param array $excludeIds
-     * @param array $onlyIds
+     * @param array $creatorIds
      * @return Person[]|\LaravelIdea\Helper\App\Models\_PersonCollection
      */
-    public function search(string $searchTerm, $pagination = false, array $excludeIds = [], array $onlyIds = [])
+    public function search(string $searchTerm, $pagination = false, array $excludeIds = [], array $creatorIds = [])
     {
         $personQuery = Person::where(function ($query) use ($searchTerm) {
             $query
@@ -30,8 +30,8 @@ class SearchPerson
             $personQuery->whereNotIn('id', $excludeIds);
         }
 
-        if (count($onlyIds) > 0) {
-            $personQuery->whereIn('id', $onlyIds);
+        if (count($creatorIds) > 0) {
+            $personQuery->whereIn('creator_id', $creatorIds);
         }
 
         return $pagination ? $personQuery->paginate($pagination) : $personQuery->get();

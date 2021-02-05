@@ -23,8 +23,9 @@ class AclSeeder extends Seeder
             ->allowTo('view_lots')
             ->allowTo('view_users')
             ->allowTo('create_user')
+            //->allowTo('edit_user'); Rule handled by UserPolicy
+            ->allowTo('view_people')
             ->allowTo('create_person');
-        //->allowTo('edit_user'); Rule handled by UserPolicy
 
         /**
          * Atribui as permissões para o papel de corretor.

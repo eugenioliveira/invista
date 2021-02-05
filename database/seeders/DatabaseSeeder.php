@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             LotStatusSeeder::class,
             RoleSeeder::class,
             PermissionSeeder::class,
-            AclSeeder::class
+            AclSeeder::class,
+            CompanySeeder::class
         ]);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Actions\Person;
 
 
 use App\Models\Person;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -20,13 +21,15 @@ class CreateNewPerson
      */
     public function create(array $input, bool $persist = true): Person
     {
-        $validated = Validator::make($input, [
+        $personData = Validator::make($input, [
             'first_name' => ['required', 'min:3'],
             'last_name' => ['required', 'min:2'],
             'cpf' => ['required', 'numeric', 'cpf', Rule::unique('people', 'cpf')],
             'phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
         ])->validate();
 
-        return $persist ? Person::create($validated) : new Person($validated);
+        $personData['creator_id'] = Auth::user()->id;
+
+        return $persist ? Person::create($personData) : new Person($personData);
     }
 }

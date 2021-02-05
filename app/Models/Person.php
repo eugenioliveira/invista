@@ -43,6 +43,26 @@ class Person extends Model
     }
 
     /**
+     * O usuário que criou a pessoa.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'creator_id', 'id');
+    }
+
+    /**
+     * Uma pessoa pode ser sócia de várias empresas.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function companies()
+    {
+        return $this->belongsToMany(Company::class);
+    }
+
+    /**
      * Salva um usuário para a pessoa.
      *
      * @param $email

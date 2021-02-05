@@ -25,6 +25,16 @@ class Role extends Model
     }
 
     /**
+     * Os usuários que possuem esse papel.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    /**
      * Concede uma permissão a um papel.
      *
      * @param mixed $permission
