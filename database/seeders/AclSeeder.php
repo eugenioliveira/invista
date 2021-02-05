@@ -33,6 +33,7 @@ class AclSeeder extends Seeder
         Role::whereName('broker')->firstOrFail()
             ->allowTo('view_allotments')
             ->allowTo('view_lots')
+            ->allowTo('view_people')
             ->allowTo('create_person');
 
         // Atribui o papel de administrador para Eugenio
