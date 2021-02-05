@@ -19,6 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('cnpj')->index();
             $table->string('state_reg_id');
             $table->string('phone');
+            $table->foreignId('creator_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -137,6 +137,15 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('can:view_companies')
         ->name('companies.index');
 
+    // Formulário de criação de pessoa jurídica
+    Route::get('/company/create', [CompaniesController::class, 'create'])
+        ->middleware('can:create_companies')
+        ->name('companies.create');
+
+    // Formulário de edição de pessoa jurídica
+    Route::get('/company/{company}/edit', [CompaniesController::class, 'edit'])
+        ->name('company.edit');
+
     //======================================================================
 
     // Página inicial do sistema

@@ -25,7 +25,8 @@ class CompanyFactory extends Factory
             'name' => $this->faker->company,
             'cnpj' => $this->faker->cnpj(false),
             'state_reg_id' => $this->faker->numerify('############'),
-            'phone' => $this->faker->phoneNumberCleared
+            'phone' => $this->faker->phoneNumberCleared,
+            'creator_id' => 1
         ];
     }
 }

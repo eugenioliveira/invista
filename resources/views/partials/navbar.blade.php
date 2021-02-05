@@ -30,6 +30,14 @@
                             @endcan
                         </x-nav-dropdown>
                     @endcan
+                    @can('view_companies')
+                        <x-nav-dropdown title="Pessoas jurídicas" route="company">
+                            <x-dropdown-link href="{{ route('companies.index') }}">Listar</x-dropdown-link>
+                            @can('create_company')
+                                <x-dropdown-link href="{{ route('companies.create') }}">Novo</x-dropdown-link>
+                            @endcan
+                        </x-nav-dropdown>
+                    @endcan
                     <x-nav-link route="clients.index">Reservas</x-nav-link>
                     <x-nav-link route="clients.index">Propostas</x-nav-link>
                     <x-nav-link route="sales.index">Vendas</x-nav-link>
