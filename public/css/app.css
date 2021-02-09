@@ -1,3 +1,5 @@
+/*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
+
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
@@ -440,15 +442,18 @@ textarea {
 }
 
 input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
   color: #9ca3af;
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  opacity: 1;
   color: #9ca3af;
 }
 
 input::placeholder,
 textarea::placeholder {
+  opacity: 1;
   color: #9ca3af;
 }
 
@@ -11347,12 +11352,12 @@ video {
   cursor: move;
 }
 
-.cursor-not-allowed {
-  cursor: not-allowed;
-}
-
 .cursor-help {
   cursor: help;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
 }
 
 .block {
@@ -28153,7 +28158,6 @@ video {
 .select-all {
   -webkit-user-select: all;
      -moz-user-select: all;
-      -ms-user-select: all;
           user-select: all;
 }
 
@@ -43419,12 +43423,12 @@ progress::-moz-progress-bar {
     cursor: move;
   }
 
-  .sm\:cursor-not-allowed {
-    cursor: not-allowed;
-  }
-
   .sm\:cursor-help {
     cursor: help;
+  }
+
+  .sm\:cursor-not-allowed {
+    cursor: not-allowed;
   }
 
   .sm\:block {
@@ -60212,7 +60216,6 @@ progress::-moz-progress-bar {
   .sm\:select-all {
     -webkit-user-select: all;
        -moz-user-select: all;
-        -ms-user-select: all;
             user-select: all;
   }
 
@@ -75375,12 +75378,12 @@ progress::-moz-progress-bar {
     cursor: move;
   }
 
-  .md\:cursor-not-allowed {
-    cursor: not-allowed;
-  }
-
   .md\:cursor-help {
     cursor: help;
+  }
+
+  .md\:cursor-not-allowed {
+    cursor: not-allowed;
   }
 
   .md\:block {
@@ -92168,7 +92171,6 @@ progress::-moz-progress-bar {
   .md\:select-all {
     -webkit-user-select: all;
        -moz-user-select: all;
-        -ms-user-select: all;
             user-select: all;
   }
 
@@ -107331,12 +107333,12 @@ progress::-moz-progress-bar {
     cursor: move;
   }
 
-  .lg\:cursor-not-allowed {
-    cursor: not-allowed;
-  }
-
   .lg\:cursor-help {
     cursor: help;
+  }
+
+  .lg\:cursor-not-allowed {
+    cursor: not-allowed;
   }
 
   .lg\:block {
@@ -124124,7 +124126,6 @@ progress::-moz-progress-bar {
   .lg\:select-all {
     -webkit-user-select: all;
        -moz-user-select: all;
-        -ms-user-select: all;
             user-select: all;
   }
 
@@ -139287,12 +139288,12 @@ progress::-moz-progress-bar {
     cursor: move;
   }
 
-  .xl\:cursor-not-allowed {
-    cursor: not-allowed;
-  }
-
   .xl\:cursor-help {
     cursor: help;
+  }
+
+  .xl\:cursor-not-allowed {
+    cursor: not-allowed;
   }
 
   .xl\:block {
@@ -156080,7 +156081,6 @@ progress::-moz-progress-bar {
   .xl\:select-all {
     -webkit-user-select: all;
        -moz-user-select: all;
-        -ms-user-select: all;
             user-select: all;
   }
 
@@ -171243,12 +171243,12 @@ progress::-moz-progress-bar {
     cursor: move;
   }
 
-  .\32xl\:cursor-not-allowed {
-    cursor: not-allowed;
-  }
-
   .\32xl\:cursor-help {
     cursor: help;
+  }
+
+  .\32xl\:cursor-not-allowed {
+    cursor: not-allowed;
   }
 
   .\32xl\:block {
@@ -188036,7 +188036,6 @@ progress::-moz-progress-bar {
   .\32xl\:select-all {
     -webkit-user-select: all;
        -moz-user-select: all;
-        -ms-user-select: all;
             user-select: all;
   }
 
@@ -192396,3 +192395,4 @@ progress::-moz-progress-bar {
             animation: bounce 1s infinite;
   }
 }
+
