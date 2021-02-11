@@ -205,7 +205,7 @@
                                                 </svg>
                                             </x-button-link>
                                             <!-- Remove partner -->
-                                            <x-button-link href="#" wire:click="unselectPartner" type="danger" format="icon" title="Remover cônjuge">
+                                            <x-button-link href="#" wire:click="removePartner" type="danger" format="icon" title="Remover cônjuge">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                                 </svg>
@@ -222,45 +222,16 @@
                 <div class="my-4 text-red-500">
                     Nehum cônjuge cadastrado. Se o estado civil escolhido for casado(a), o cadastro de um cônjuge é obrigatório.
                 </div>
-                <label for="partner_search" class="text-sm font-medium">Busca de cônjuge</label>
-                <div class="relative">
-                    <input
-                            type="text"
-                            name="partner_search"
-                            id="partner_search"
-                            placeholder="Digite o nome ou CPF do cônjuge para buscar"
-                            autocomplete="off"
-                            wire:model.debounce.300ms="partnerSearch"
-                            class="w-full border border-orange-500 pl-12 pr-4 py-2 rounded-lg"
-                    />
-                    <div class="absolute inset-y-0 left-0 ml-4 flex items-center text-orange-500">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </div>
-                    @if($partnerSearchResult)
-                        <div class="absolute z-10 w-full px-4 py-2 mt-2 shadow rounded-lg bg-orange-50 border border-orange-500 divide-y divide-orange-500">
-                            @forelse($partnerSearchResult as $key => $possiblePartner)
-                                <div class="flex items-center">
-                                    <div class="py-2">
-                                        <a href="#" class="text-sm font-medium text-gray-900 hover:underline">
-                                            {{ $possiblePartner->full_name }}
-                                        </a>
-                                        <div class="text-sm">
-                                            CPF: {{ $possiblePartner->cpf }}
-                                        </div>
-                                    </div>
-                                    <x-button type="button" wire:click.prevent="selectPartner({{ $key }})" class="ml-4">Selecionar</x-button>
-                                </div>
-                            @empty
-                                <div>Nenhuma pessoa encontrada.</div>
-                            @endforelse
-                        </div>
-                    @endif
-                </div>
+                <livewire:search-person-dropdown :exclude="collect($person->id)" />
             @endif
 
         @endif
+
+        @error('partner_id')
+        <div class="px-4 py-3 leading-normal text-red-100 bg-red-700 rounded-lg" role="alert">
+            <p>Se o estado civil for casado(a), você deve selecionar um cônjuge.</p>
+        </div>
+        @enderror
 
         <x-input-row class="mt-6 flex flex-col space-y-2 md:space-y-0 md:flex-row">
             <x-button type="button" wire:click="saveDetail">Salvar e Voltar</x-button>

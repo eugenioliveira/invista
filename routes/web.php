@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AllotmentsController;
 use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\CompanyShareholdersController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LotsController;
 use App\Http\Controllers\LotsImportController;
@@ -146,6 +147,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/company/{company}/edit', [CompaniesController::class, 'edit'])
         ->name('company.edit');
 
+    // Formulário de edição de sócios da pessoa jurídica
+    Route::get('/company/{company}/shareholders', CompanyShareholdersController::class)
+        ->name('company.shareholders');
     //======================================================================
 
     // Página inicial do sistema

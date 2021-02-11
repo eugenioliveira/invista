@@ -183,6 +183,7 @@ return [
         'rg_issuer' => 'órgão emissor',
         'role' => 'papel',
         'second'    => 'segundo',
+        'state_reg_id' => 'inscrição estadual',
         'sex'       => 'sexo',
         'state'     => 'estado',
         'street'    => 'logradouro',

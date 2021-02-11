@@ -16,7 +16,7 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('cnpj')->index();
+            $table->string('cnpj')->unique();
             $table->string('state_reg_id');
             $table->string('phone');
             $table->foreignId('creator_id')->references('id')->on('users');

@@ -8,6 +8,7 @@ use App\Enums\CivilStatus;
 use App\Models\Person;
 use BenSampo\Enum\Rules\EnumValue;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class UpdatePersonDetail
 {
@@ -32,7 +33,13 @@ class UpdatePersonDetail
             'monthly_income' => ['required', 'regex:/^[1-9]\d*(\.\d{3})?(\,\d{1,2})?$/'],
             'father_name' => ['required', 'min:5'],
             'mother_name' => ['required', 'min:5'],
-            'partner_id' => ['sometimes', 'numeric']
+            'partner_id' => [
+                Rule::requiredIf(function () use ($input) {
+                    return $input['civil_status'] == CivilStatus::MARRIED;
+                }),
+                'nullable',
+                'numeric'
+            ]
         ])->validate();
 
         if ($person->detail) {

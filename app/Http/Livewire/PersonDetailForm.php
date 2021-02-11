@@ -27,25 +27,18 @@ class PersonDetailForm extends Component
     public array $state = [];
 
     /**
-     * Termo de busca por cõnjuges.
-     *
-     * @var string
-     */
-    public string $partnerSearch = '';
-
-    /**
-     * O resultado da busca de cõnjuges.
-     *
-     * @var mixed
-     */
-    public $partnerSearchResult;
-
-    /**
      * O cônjuge selecionado.
      *
      * @var Person|null
      */
     public ?Person $partner;
+
+    /**
+     * Event listeners
+     *
+     * @var string[]
+     */
+    protected $listeners = ['personSelected' => 'addPartner'];
 
     /**
      * Preenche o estado do componente.
@@ -64,45 +57,24 @@ class PersonDetailForm extends Component
     }
 
     /**
-     * Realiza uma nova busca quando digitado no campo.
+     * Adiciona um cônjuge
      *
-     * @param $searchTerm
+     * @param $partnerId
      */
-    public function updatedPartnerSearch($searchTerm)
+    public function addPartner($partnerId)
     {
-        $this->partnerSearchResult = (new SearchPerson())->search($searchTerm, false, [$this->person->id]);
+        $this->partner = Person::findOrFail($partnerId);
+        $this->state['partner_id'] = $this->partner->id;
     }
 
     /**
-     * Seleciona o cônjuge.
-     *
-     * @param $partner
+     * Remove um cônjuge
      */
-    public function selectPartner($partner)
+    public function removePartner()
     {
-        $selectedPartner = $this->partnerSearchResult->get($partner);
-        $this->partner = $selectedPartner;
-        $this->state['partner_id'] = $selectedPartner->id;
-        $this->resetPartnerSearch();
-    }
-
-    /**
-     * Remove o cônjuge.
-     */
-    public function unselectPartner()
-    {
+        $this->emit('personRemoved', $this->partner->id);
         $this->partner = null;
         $this->state['partner_id'] = null;
-        $this->resetPartnerSearch();
-    }
-
-    /**
-     * Limpa os campos de busca de cônjuge.
-     */
-    private function resetPartnerSearch()
-    {
-        $this->partnerSearch = '';
-        $this->partnerSearchResult = null;
     }
 
     /**

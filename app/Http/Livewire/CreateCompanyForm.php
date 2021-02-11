@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use App\Actions\Person\CreateNewPerson;
+use App\Actions\Company\CreateNewCompany;
 use Livewire\Component;
 
-class CreatePersonForm extends Component
+class CreateCompanyForm extends Component
 {
     use RedirectHandler;
 
@@ -17,24 +17,24 @@ class CreatePersonForm extends Component
     public array $state = [];
 
     /**
-     * Cria uma nova pessoa.
+     * Cria a pessoa jurídica com os dados enviados.
      *
-     * @param CreateNewPerson $creator
+     * @param CreateNewCompany $creator
      * @param bool $redirectAfterCreate
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function createPerson(CreateNewPerson $creator, bool $redirectAfterCreate = true)
+    public function createCompany(CreateNewCompany $creator, $redirectAfterCreate = true)
     {
         $this->resetErrorBag();
 
         $creator->create($this->state);
 
         // Redireciona
-        $this->successAction('Pessoa física salva.', ['people.index'], $redirectAfterCreate);
+        $this->successAction('Pessoa jurídica salva.', ['companies.index'], $redirectAfterCreate);
     }
 
     public function render()
     {
-        return view('livewire.create-person-form');
+        return view('livewire.create-company-form');
     }
 }
