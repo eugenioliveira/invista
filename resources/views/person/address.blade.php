@@ -7,7 +7,7 @@
     </x-slot>
 
     <x-section>
-        <livewire:person-address-form :person="$person" />
+        <livewire:address-form :adressable="$person" />
     </x-section>
 
 </x-app-layout>

@@ -25,7 +25,9 @@ class AclSeeder extends Seeder
             ->allowTo('create_user')
             //->allowTo('edit_user'); Rule handled by UserPolicy
             ->allowTo('view_people')
-            ->allowTo('create_person');
+            ->allowTo('create_person')
+            ->allowTo('view_companies')
+            ->allowTo('create_company');
 
         /**
          * Atribui as permissões para o papel de corretor.
@@ -34,7 +36,9 @@ class AclSeeder extends Seeder
             ->allowTo('view_allotments')
             ->allowTo('view_lots')
             ->allowTo('view_people')
-            ->allowTo('create_person');
+            ->allowTo('create_person')
+            ->allowTo('view_companies')
+            ->allowTo('create_company');
 
         // Atribui o papel de administrador para Eugenio
         User::whereName('Eugênio Oliveira')->firstOrFail()

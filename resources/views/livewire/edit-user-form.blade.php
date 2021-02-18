@@ -49,7 +49,7 @@
         <x-input-row class="mt-6 flex flex-col space-y-2 md:space-y-0 md:flex-row">
             <x-button type="button" wire:click="updateUser">Salvar e Voltar</x-button>
             <x-button type="button" wire:click="updateUser(false)">Salvar e Continuar</x-button>
-            <x-button-link type="danger" href="{{ url()->previous() }}">Cancelar</x-button-link>
+            <x-button-link type="danger" href="{{ route('users.index') }}">Cancelar</x-button-link>
         </x-input-row>
     </form>
 

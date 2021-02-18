@@ -5,7 +5,7 @@
                 type="text"
                 name="search"
                 id="search"
-                placeholder="Digite o nome ou CPF do sócio para buscar"
+                placeholder="Digite o nome ou CPF da pessoa para buscar"
                 autocomplete="off"
                 class="w-full border border-orange-500 pl-12 pr-4 py-2 rounded-lg"
                 wire:model.debounce.300ms="search"
@@ -42,7 +42,7 @@
                         <x-button type="button" wire:click="selectPerson({{ $key }})" class="ml-4">Selecionar</x-button>
                     </div>
                 @empty
-                    <div>Nenhum resultado para "{{ $search }}" ou a pessoa correspondente já está adicionada.</div>
+                    <div>Nenhum resultado para "{{ $search }}".</div>
                 @endforelse
             </div>
         @endif

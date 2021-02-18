@@ -30,10 +30,10 @@
     <div
         x-show="show"
         class="px-6 py-4 mb-6 rounded-lg {{ $colorClass }} text-white flex items-center justify-between"
-        x-transition:enter="ease-in transform duration-300"
+        x-transition:enter="ease-in transform duration-300 origin-top"
         x-transition:enter-start="scale-y-0 opacity-0"
         x-transition:enter-end="scale-y-100 opacity-100"
-        x-transition:leave="ease-out transform duration-300"
+        x-transition:leave="ease-out transform duration-300 origin-top"
         x-transition:leave-start="scale-y-100 opacity-100"
         x-transition:leave-end="scale-y-0 opacity-0"
     >

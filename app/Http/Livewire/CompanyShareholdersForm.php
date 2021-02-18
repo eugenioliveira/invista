@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use App\Actions\Company\UpdateCompanyShareholders;
 use App\Models\Company;
 use App\Models\Person;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 
 class CompanyShareholdersForm extends Component
 {
+    use RedirectHandler;
+
     /**
      * A pessoa jurídica que terá seus sócios gerenciados
      *
@@ -19,9 +22,9 @@ class CompanyShareholdersForm extends Component
     /**
      * Os sócios selecionados e/ou existentes
      *
-     * @var Collection|null
+     * @var Collection
      */
-    public ?Collection $shareholders;
+    public Collection $shareholders;
 
     /**
      * Event listeners
@@ -60,6 +63,20 @@ class CompanyShareholdersForm extends Component
     public function addShareholder($shareholderId)
     {
         $this->shareholders->push(Person::findOrFail($shareholderId));
+    }
+
+    /**
+     * Atualiza os sócios da empresa.
+     *
+     * @param UpdateCompanyShareholders $updater
+     * @param bool $redirectAfterUpdate
+     */
+    public function updateShareholders(UpdateCompanyShareholders $updater, $redirectAfterUpdate = true)
+    {
+        $updater->update($this->company, $this->shareholders);
+
+        // Redireciona
+        $this->successAction('Sócios salvos.', ['companies.index'], $redirectAfterUpdate);
     }
 
     public function render()

@@ -4,19 +4,20 @@
 namespace App\Actions\Address;
 
 
+use App\Models\Company;
 use App\Models\Person;
 use Illuminate\Support\Facades\Validator;
 
-class UpdatePersonAddress
+class UpdateAddress
 {
     /**
      * Valida e atualiza o endereço da pessoa.
      *
-     * @param Person $person
+     * @param Person|Company $addressable
      * @param array $address
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function update(Person $person, array $address)
+    public function update($addressable, array $address)
     {
         $validated = Validator::make($address, [
             'street' => ['required', 'min:8'],
@@ -28,11 +29,11 @@ class UpdatePersonAddress
             'postal_code' => ['required', 'numeric', 'digits:8'],
         ])->validate();
 
-        if ($person->address) {
-            $person->address->forceFill($validated);
-            $person->address->save();
+        if ($addressable->address) {
+            $addressable->address->forceFill($validated);
+            $addressable->address->save();
         } else {
-            $person->address()->create($validated);
+            $addressable->address()->create($validated);
         }
     }
 }

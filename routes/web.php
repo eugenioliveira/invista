@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AllotmentsController;
 use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\CompanyAddressController;
 use App\Http\Controllers\CompanyShareholdersController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LotsController;
@@ -140,16 +141,23 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Formulário de criação de pessoa jurídica
     Route::get('/company/create', [CompaniesController::class, 'create'])
-        ->middleware('can:create_companies')
+        ->middleware('can:create_company')
         ->name('companies.create');
 
     // Formulário de edição de pessoa jurídica
     Route::get('/company/{company}/edit', [CompaniesController::class, 'edit'])
+        ->middleware('can:edit,company')
         ->name('company.edit');
 
     // Formulário de edição de sócios da pessoa jurídica
     Route::get('/company/{company}/shareholders', CompanyShareholdersController::class)
+        ->middleware('can:edit,company')
         ->name('company.shareholders');
+
+    // Formulário de edição de endereço de pessoa jurídica
+    Route::get('/company/{company}/address', CompanyAddressController::class)
+        ->middleware('can:edit,company')
+        ->name('company.address');
     //======================================================================
 
     // Página inicial do sistema

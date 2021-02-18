@@ -3,20 +3,21 @@
 namespace App\Http\Livewire;
 
 use App\Actions\Address\GetAddressFromApi;
-use App\Actions\Address\UpdatePersonAddress;
+use App\Actions\Address\UpdateAddress;
+use App\Models\Company;
 use App\Models\Person;
 use Livewire\Component;
 
-class PersonAddressForm extends Component
+class AddressForm extends Component
 {
     use RedirectHandler;
 
     /**
-     * A pessoa que terá seu endereço atualizado
+     * A pessoa ou empresa que terá seu endereço atualizado
      *
-     * @var Person
+     * @var Person|Company
      */
-    public Person $person;
+    public $adressable;
 
     /**
      * O estado do componente
@@ -36,12 +37,12 @@ class PersonAddressForm extends Component
     /**
      * Preenche o estado do componente.
      *
-     * @param Person $person
+     * @param Person|Company $adressable
      */
-    public function mount(Person $person)
+    public function mount($adressable)
     {
-        $this->person = $person;
-        $this->state = $person->address ? $person->address->toArray() : [];
+        $this->adressable = $adressable;
+        $this->state = $adressable->address ? $adressable->address->toArray() : [];
     }
 
     /**
@@ -68,18 +69,25 @@ class PersonAddressForm extends Component
     /**
      * Atualiza o endereço da pessoa.
      *
-     * @param UpdatePersonAddress $updater
+     * @param UpdateAddress $updater
      * @param bool $redirectAfterUpdate
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function updateAddress(UpdatePersonAddress $updater, $redirectAfterUpdate = true)
+    public function updateAddress(UpdateAddress $updater, $redirectAfterUpdate = true)
     {
         $this->resetErrorBag();
 
-        $updater->update($this->person, $this->state);
+        $updater->update($this->adressable, $this->state);
 
         // Redireciona
-        $this->successAction('Endereço de ' . $this->person->full_name . ' salvo.', ['people.index'], $redirectAfterUpdate);
+        if ($this->adressable instanceof Person) {
+            $adressableName = $this->adressable->full_name;
+            $adressableRoute = 'people.index';
+        } else {
+            $adressableName = $this->adressable->name;
+            $adressableRoute = 'companies.index';
+        }
+        $this->successAction('Endereço de ' . $adressableName . ' salvo.', [$adressableRoute], $redirectAfterUpdate);
     }
 
     /**
@@ -89,6 +97,6 @@ class PersonAddressForm extends Component
      */
     public function render()
     {
-        return view('livewire.person-address-form');
+        return view('livewire.address-form');
     }
 }

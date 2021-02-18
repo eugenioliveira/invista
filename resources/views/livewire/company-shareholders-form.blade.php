@@ -116,18 +116,18 @@
                 </div>
             </div>
         </div>
-
-        <x-card class="p-4 my-2">
-            <x-input-row class="flex flex-col space-y-2 md:space-y-0 md:flex-row">
-                <x-button type="button" wire:click="createPerson">Salvar e Voltar</x-button>
-                <x-button type="button" wire:click="createPerson(false)">Salvar e Continuar</x-button>
-                <x-button-link type="danger" href="{{ route('companies.index') }}">Cancelar</x-button-link>
-            </x-input-row>
-        </x-card>
     @else
         <div class="px-4 py-3 leading-normal text-orange-100 bg-orange-400 rounded-lg" role="alert">
             <p>Nenhum sócio para esta empresa.</p>
         </div>
     @endif
+
+    <x-card class="p-4 my-2">
+        <x-input-row class="flex flex-col space-y-2 md:space-y-0 md:flex-row">
+            <x-button type="button" wire:click="updateShareholders">Salvar e Voltar</x-button>
+            <x-button type="button" wire:click="updateShareholders(false)">Salvar e Continuar</x-button>
+            <x-button-link type="danger" href="{{ route('companies.index') }}">Cancelar</x-button-link>
+        </x-input-row>
+    </x-card>
 
 </div>

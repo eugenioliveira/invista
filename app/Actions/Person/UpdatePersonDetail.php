@@ -32,15 +32,12 @@ class UpdatePersonDetail
             'email' => ['required', 'email:strict,dns,spoof'],
             'monthly_income' => ['required', 'regex:/^[1-9]\d*(\.\d{3})?(\,\d{1,2})?$/'],
             'father_name' => ['required', 'min:5'],
-            'mother_name' => ['required', 'min:5'],
-            'partner_id' => [
-                Rule::requiredIf(function () use ($input) {
-                    return $input['civil_status'] == CivilStatus::MARRIED;
-                }),
-                'nullable',
-                'numeric'
-            ]
-        ])->validate();
+            'mother_name' => ['required', 'min:5']
+        ])
+            ->sometimes('partner_id', ['required', 'numeric'], function ($input) {
+                return $input->civil_status == CivilStatus::MARRIED;
+            })
+            ->validate();
 
         if ($person->detail) {
             $person->detail->forceFill($validated);

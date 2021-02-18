@@ -43,3 +43,7 @@
         />
     </div>
 </x-input-row>
+
+<x-input-row class="space-y-3 md:space-y-0 md:mb-4">
+    <div id="editor"></div>
+</x-input-row>

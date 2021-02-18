@@ -1,3 +1,5 @@
+@props(['label', 'name', 'error' => null, 'placeholder' => ''])
+
 @php
     $labelClasses = $error ? 'text-red-500' : 'text-gray-700';
     $inputClasses = $error ? 'focus:ring focus:ring-red border-red-500' : 'focus:ring focus:ring-orange-500 focus:border-orange-300';
@@ -8,6 +10,7 @@
     <textarea
         id="{{ $name }}"
         name="{{ $name }}"
+        placeholder="{{ $placeholder }}"
         {{ $attributes->merge(['class' => 'border rounded-lg px-3 py-2 appearance-none focus:outline-none ' . $inputClasses]) }}
     >
         {{ $slot }}
