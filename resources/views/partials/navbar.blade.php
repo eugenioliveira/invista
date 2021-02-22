@@ -9,7 +9,7 @@
                     <x-full-logo/>
 
                     <!-- Nav Links -->
-                    <nav class="ml-8 flex space-x-1">
+                    <nav class="ml-4 flex items-center space-x-1">
                         <x-nav-link route="home">Home</x-nav-link>
 
                         @can('view_allotments')

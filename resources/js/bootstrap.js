@@ -21,6 +21,8 @@ import 'alpinejs';
 window.ApexCharts = require('apexcharts');
 window.ptBR = require('apexcharts/dist/locales/pt-br.json');
 
+window.CaixetaDocumentEditor = require('@eugenio.oliveira/caixeta-editor/build/caixeta-editor');
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting

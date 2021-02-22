@@ -5,7 +5,7 @@
 @endphp
 
 <a
-    class="font-medium inline-flex items-center text-sm px-6 py-3 rounded transition ease-in duration-150 {{ $classes }}"
+    class="font-medium inline-flex items-center text-sm px-4 py-2 rounded transition ease-in duration-150 {{ $classes }}"
     href="{{ route($route) }}"
 >
     {{ $slot }}
