@@ -1,52 +1,41 @@
-<div x-data="{ on: @entangle('showModal') }">
-
-    <x-button-link href="#" x-on:click.prevent="on = true" format="square">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                  clip-rule="evenodd"></path>
+<div>
+    <x-button type="button" wire:click="$set('showModal', true)">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
         </svg>
-    </x-button-link>
+    </x-button>
 
-    <x-modal-container>
-        <form wire:submit.prevent="addCity">
-            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <x-input-row>
-                    <!-- Cidade -->
-                    <div class="w-1/2">
-                        <x-input
-                            label="Cidade"
+    <x-modal wire:model.defer="showModal">
+        <x-slot name="title">Criar nova cidade</x-slot>
+
+        <x-slot name="body">
+            <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
+                <!-- Nome -->
+                <div class="md:w-1/2">
+                    <x-input
+                            label="Nome"
                             name="name"
                             class="mt-1 w-full"
-                            wire:model.defer="name"
+                            wire:model.defer="state.name"
                             error="{{ $errors->first('name') }}"
-                        />
-                    </div>
-                    <!-- Estado -->
-                    <div class="w-1/2">
-                        <x-input
+                    />
+                </div>
+                <!-- Estado -->
+                <div class="md:w-1/2">
+                    <x-input
                             label="Estado"
                             name="state"
                             class="mt-1 w-full"
-                            wire:model.defer="state"
+                            wire:model.defer="state.state"
                             error="{{ $errors->first('state') }}"
-                        />
-                    </div>
-                </x-input-row>
-            </div>
-            <div class="bg-gray-100 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                    <button type="button" wire:click="addCity"
-                            class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:border-red-700 focus:ring foxus:ring-red  transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                        Salvar
-                    </button>
-                </span>
-                <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
-                    <button x-on:click="on = false" wire:click="resetForm" type="button"
-                            class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-600 transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                        Cancelar
-                    </button>
-                </span>
-            </div>
-        </form>
-    </x-modal-container>
+                    />
+                </div>
+            </x-input-row>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-button-link href="#" type="danger" wire:click.prevent="$set('showModal', false)">Cancelar</x-button-link>
+            <x-button type="button" wire:click="createCity" class="ml-2">Criar</x-button>
+        </x-slot>
+    </x-modal>
 </div>

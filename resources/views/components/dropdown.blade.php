@@ -14,6 +14,7 @@
 
     <div
         class="absolute {{ $alignmentClasses[$alignment] }} z-20 bg-white rounded shadow-md mt-1 py-2 w-40"
+        style="display: none"
         x-show="open"
         x-transition:enter="transition transform ease-out duration-200"
         x-transition:enter-start="opacity-0 -translate-y-2"

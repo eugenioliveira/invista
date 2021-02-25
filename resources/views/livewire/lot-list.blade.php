@@ -38,7 +38,7 @@
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                 @foreach($lots as $lot)
-                    <tr wire:key="{{ $lot->id }}">
+                    <tr>
                         <!-- ID -->
                         <td class="px-6 py-4 whitespace-no-wrap text-gray-300">
                             {{ $lot->id }}
@@ -61,7 +61,7 @@
                                 >
                                     {{ $lot->area }} m<sup>2</sup>
                                 </span>
-                                <div x-show="isOpen" class="absolute z-30 bg-gray-200 border border-gray-300 shadow rounded-md px-6 py-4 w-80">
+                                <div x-show="isOpen" style="display: none" class="absolute z-30 bg-gray-200 border border-gray-300 shadow rounded-md px-6 py-4 w-80">
                                     <div class="divide-y divide-gray-400 divide-dashed">
                                         @foreach($lot->getSides() as $side)
                                             <div class="text-xs py-2">{{ $side }}</div>
@@ -86,7 +86,12 @@
                             <!-- Show reservations action -->
                             <!-- Show proposals action -->
                             <!-- Change static status action -->
-                            <livewire:change-lot-status-modal :lot="$lot" :key="'change-lot-status-modal-'.$lot->id"/>
+                            <x-button-link format="icon" title="Mudar status" wire:click="showStatusChangeForm({{ $lot->id }})">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                            d="M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z"></path>
+                                </svg>
+                            </x-button-link>
                         </td>
                     </tr>
                 @endforeach
@@ -98,5 +103,41 @@
     @else
         <x-alert type="warning" message="Nenhum lote cadastrado. Crie um novo ou realize uma importação." :autoclose="false"></x-alert>
     @endif
+
+    <x-modal wire:model.defer="showChangeStatusModal" wire:ignore.self>
+        <x-slot name="title">Mudar status do lote {{ $currentLot->identification }}</x-slot>
+
+        <x-slot name="body">
+            <div class="my-4">
+                <x-select
+                        label="Novo status"
+                        name="type"
+                        class="mt-1 w-full"
+                        wire:model.lazy="state.type"
+                        error="{{ $errors->first('type') }}"
+                >
+                    <option>Selecione...</option>
+                    @foreach(\App\Enums\LotStatusType::staticStatuses() as $statusType)
+                        <option value="{{ $statusType->value }}">{{ $statusType->description }}</option>
+                    @endforeach
+                </x-select>
+            </div>
+            <div class="my-4">
+                <x-textarea
+                        label="Justificativa"
+                        name="reason"
+                        class="mt-1 w-full"
+                        wire:model.defer="state.reason"
+                        error="{{ $errors->first('reason') }}"
+                >
+                </x-textarea>
+            </div>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-button-link href="#" type="danger" wire:click.prevent="$set('showChangeStatusModal', false)">Cancelar</x-button-link>
+            <x-button type="button" wire:click.prevent="changeStatus" class="ml-2">Mudar status</x-button>
+        </x-slot>
+    </x-modal>
 
 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Actions\Person\SearchPerson;
+use App\Models\Person;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
@@ -49,12 +50,12 @@ class SearchPersonDropdown extends Component
     /**
      * Emite um evento com a pessoa selecionada
      *
-     * @param $key
+     * @param Person $person
      */
-    public function selectPerson($key)
+    public function selectPerson(Person $person)
     {
-        $this->exclude->push($this->searchResults->get($key)->id);
-        $this->emit('personSelected', $this->searchResults->get($key)->id);
+        $this->exclude->push($person->id);
+        $this->emit('personSelected', $person->id);
         $this->reset('search', 'searchResults');
     }
 

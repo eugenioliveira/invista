@@ -13,7 +13,11 @@
                 return {
                     initEditor(editableContainer, toolbarContainer) {
                         CaixetaDocumentEditor
-                            .create(editableContainer)
+                            .create(editableContainer, {
+                                placeholderConfig: {
+                                    fields: ['PrimeiroNome', 'Sobrenome', 'DataNascimento', 'Parcelas']
+                                }
+                            })
                             .then(editor => {
                                 window.editor = editor;
                                 toolbarContainer.appendChild(editor.ui.view.toolbar.element);

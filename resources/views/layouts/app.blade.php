@@ -39,6 +39,8 @@
         @include('partials.footer')
     </div>
 
+    <!-- Modals -->
+    @stack('modals')
     <!-- Livewire -->
     @livewireScripts
     <!-- Page scripts -->

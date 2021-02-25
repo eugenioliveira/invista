@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Actions\Lot\CreateNewLotStatus;
 use App\Enums\LotStatusType;
 use App\Models\Lot;
 use Livewire\Component;
@@ -9,69 +10,25 @@ use Livewire\Component;
 class ChangeLotStatusModal extends Component
 {
     /**
-     * O lote que terá seu status alterado.
+     * Controle de estado do componente.
+     *
+     * @var array
+     */
+    public array $state = ['type' => LotStatusType::AVAILABLE, 'reason' => ''];
+
+    /**
+     * O lote que terá seu status alterado
      *
      * @var Lot
      */
     public Lot $lot;
 
     /**
-     * O status a ser salvo.
-     *
-     * @var int
-     */
-    public int $status = LotStatusType::AVAILABLE;
-
-    /**
-     * A justificativa para alteração do status.
-     *
-     * @var string
-     */
-    public string $reason = '';
-
-    /**
-     * O estado do modal.
+     * Controla a visibilidade do modal
      *
      * @var bool
      */
     public bool $showModal = false;
-
-    public function rules()
-    {
-        return [
-            'status' => ['required'],
-            'reason' => ['required', 'min:5']
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'status.required' => 'O campo status é obrigatório.',
-            'reason.required' => 'Digite uma justificativa para a mudança de status.',
-            'reason.min' => 'Justificativa muito curta.'
-        ];
-    }
-
-    public function changeStatus()
-    {
-        $this->validate();
-
-        $this->lot->createStatus(\Auth::user(), $this->status, $this->reason, true);
-
-        $this->emit('lotStatusChanged');
-        $this->showModal = false;
-        $this->resetForm();
-    }
-
-    /**
-     * Reinicia o formulário
-     */
-    public function resetForm()
-    {
-        $this->resetErrorBag();
-        $this->reset(['status', 'reason']);
-    }
 
     /**
      * Inicialização do componente
@@ -81,6 +38,15 @@ class ChangeLotStatusModal extends Component
     public function mount(Lot $lot)
     {
         $this->lot = $lot;
+    }
+
+    public function changeStatus(CreateNewLotStatus $creator)
+    {
+        $this->resetErrorBag();
+
+        $creator->create($this->lot, $this->state);
+
+        $this->emit('lotStatusChanged');
     }
 
     /**

@@ -7,7 +7,7 @@
                 id="search"
                 placeholder="Digite o nome ou CPF da pessoa para buscar"
                 autocomplete="off"
-                class="w-full border border-orange-500 pl-12 pr-4 py-2 rounded-lg"
+                class="w-full border border-orange-500 pl-12 pr-4 py-2 rounded-lg focus:outline-none"
                 wire:model.debounce.300ms="search"
                 x-on:focus="isVisible = true"
                 x-on:keydown.escape.window="isVisible = false"
@@ -29,7 +29,7 @@
                     x-show.transition.opacity.duration.500ms="isVisible"
                     class="absolute z-10 w-full px-4 py-2 mt-2 shadow rounded-lg bg-orange-50 border border-orange-500 divide-y divide-orange-500"
             >
-                @forelse($searchResults as $key => $person)
+                @forelse($searchResults as $person)
                     <div class="flex items-center">
                         <div class="py-2">
                             <a href="#" class="text-sm font-medium text-gray-900 hover:underline">
@@ -39,7 +39,7 @@
                                 CPF: {{ $person->cpf }}
                             </div>
                         </div>
-                        <x-button type="button" wire:click="selectPerson({{ $key }})" class="ml-4">Selecionar</x-button>
+                        <x-button type="button" wire:click="selectPerson({{ $person->id }})" class="ml-4">Selecionar</x-button>
                     </div>
                 @empty
                     <div>Nenhum resultado para "{{ $search }}".</div>
