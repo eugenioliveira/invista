@@ -9,7 +9,7 @@ use App\Models\Lot;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class LotList extends Component
+class ManageLots extends Component
 {
     use WithPagination;
 
@@ -107,7 +107,7 @@ class LotList extends Component
 
         // Exibe view diferentes baseadas no papel atual do usuário.
         if (\Auth::user()->isAdmin()) {
-            return view('livewire.lot-list', [
+            return view('livewire.manage-lots', [
                 'lots' => $lots
             ]);
         } else {

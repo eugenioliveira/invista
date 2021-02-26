@@ -15,7 +15,7 @@
     </x-slot>
 
     <x-section>
-        <livewire:lot-list :allotment="$allotment" />
+        <livewire:manage-lots :allotment="$allotment" />
     </x-section>
 
 </x-app-layout>
