@@ -6,7 +6,7 @@
 
     <form>
         <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
-            <!-- CEP -->
+            {{-- CEP --}}
             <div class="md:w-1/2">
                 <x-input
                         label="CEP de residência"
@@ -17,7 +17,7 @@
                         error="{{ $errors->first('postal_code') }}"
                 />
             </div>
-            <!-- Logradouro -->
+            {{-- Logradouro --}}
             <div class="md:w-1/2">
                 <x-input
                         label="Logradouro"
@@ -31,7 +31,7 @@
         </x-input-row>
 
         <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
-            <!-- Número -->
+            {{-- Número --}}
             <div class="md:w-1/5">
                 <x-input
                         label="Número"
@@ -42,7 +42,7 @@
                         :block="$blockFields"
                 />
             </div>
-            <!-- Complemento -->
+            {{-- Complemento --}}
             <div class="md:w-2/5">
                 <x-input
                         label="Complemento"
@@ -53,7 +53,7 @@
                         :block="$blockFields"
                 />
             </div>
-            <!-- Bairro -->
+            {{-- Bairro --}}
             <div class="md:w-2/5">
                 <x-input
                         label="Bairro"
@@ -67,7 +67,7 @@
         </x-input-row>
 
         <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
-            <!-- Cidade -->
+            {{-- Cidade --}}
             <div class="md:w-1/2">
                 <x-input
                         label="Cidade"
@@ -78,7 +78,7 @@
                         :block="$blockFields"
                 />
             </div>
-            <!-- Estado -->
+            {{-- Estado --}}
             <div class="md:w-1/2">
                 <x-input
                         label="Estado"

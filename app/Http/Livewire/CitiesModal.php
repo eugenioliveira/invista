@@ -22,6 +22,16 @@ class CitiesModal extends Component
     public bool $showModal = false;
 
     /**
+     * Controla a exibição do modal.
+     */
+    public function toggleModal()
+    {
+        $this->resetErrorBag();
+        $this->reset('state');
+        $this->showModal = !$this->showModal;
+    }
+
+    /**
      * Cria uma nova cidade.
      *
      * @param CreateNewCity $creator

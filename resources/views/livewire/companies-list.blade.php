@@ -4,14 +4,14 @@
 @endphp
 
 <div>
-    <!-- Success message -->
+    {{-- Success message --}}
     @if(session('successMessage'))
         <x-alert type="success" message="{{ session('successMessage') }}"/>
     @endif
 
     @if($companies->isNotEmpty())
 
-        <!-- Search and Pagination -->
+        {{-- Search and Pagination --}}
         <x-search-pagination search-placeholder="Ex.: Nome, CNPJ" :links="$companies->links()"/>
 
         <div class="flex flex-col">
@@ -74,21 +74,21 @@
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                                        <!-- Edit action -->
+                                        {{-- Edit action --}}
                                         <x-button-link href="{{ route('company.edit', $company->id) }}" format="icon" title="Editar">
                                             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                         d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                                             </svg>
                                         </x-button-link>
-                                        <!-- Edit shareholders action -->
+                                        {{-- Edit shareholders action --}}
                                         <x-button-link href="{{ route('company.shareholders', $company->id) }}" format="icon" title="Editar sócios">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                       d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                                             </svg>
                                         </x-button-link>
-                                        <!-- Edit address action -->
+                                        {{-- Edit address action --}}
                                         <x-button-link href="{{ route('company.address', $company->id) }}" format="icon" title="Editar endereço">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -100,7 +100,7 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            <!-- More rows... -->
+                            {{-- More rows... --}}
                             </tbody>
                         </table>
                     </div>

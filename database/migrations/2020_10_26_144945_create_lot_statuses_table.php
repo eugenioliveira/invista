@@ -29,7 +29,7 @@ class CreateLotStatusesTable extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->unsignedTinyInteger('type')->default(LotStatusType::AVAILABLE);
+            $table->unsignedTinyInteger('type')->default(LotStatusType::AVAILABLE)->index();
             $table->text('reason');
             $table->timestamps();
         });

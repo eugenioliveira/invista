@@ -3,12 +3,12 @@
         <div class="bg-primary text-white">
 
             <div class="container mx-auto flex items-center justify-between py-4">
-                <!-- Left section of navbar -->
+                {{-- Left section of navbar --}}
                 <div class="flex items-center">
-                    <!-- logo -->
+                    {{-- logo --}}
                     <x-full-logo/>
 
-                    <!-- Nav Links -->
+                    {{-- Nav Links --}}
                     <nav class="ml-4 flex items-center space-x-1">
                         <x-nav-link route="home">Home</x-nav-link>
 
@@ -45,7 +45,7 @@
                     </nav>
                 </div>
 
-                <!-- User dropdown -->
+                {{-- User dropdown --}}
                 <x-user-dropdown/>
             </div>
         </div>

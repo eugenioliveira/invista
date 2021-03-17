@@ -1,16 +1,16 @@
 <div>
-    <x-button type="button" wire:click="$set('showModal', true)">
+    <x-button type="button" wire:click="toggleModal">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
         </svg>
     </x-button>
 
-    <x-modal wire:model.defer="showModal">
+    <x-modal wire:model.defer="showModal" wire:ignore.self>
         <x-slot name="title">Criar nova cidade</x-slot>
 
         <x-slot name="body">
             <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
-                <!-- Nome -->
+                {{-- Nome --}}
                 <div class="md:w-1/2">
                     <x-input
                             label="Nome"
@@ -20,7 +20,7 @@
                             error="{{ $errors->first('name') }}"
                     />
                 </div>
-                <!-- Estado -->
+                {{-- Estado --}}
                 <div class="md:w-1/2">
                     <x-input
                             label="Estado"
@@ -34,7 +34,7 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button-link href="#" type="danger" wire:click.prevent="$set('showModal', false)">Cancelar</x-button-link>
+            <x-button-link href="#" type="danger" wire:click.prevent="toggleModal">Cancelar</x-button-link>
             <x-button type="button" wire:click="createCity" class="ml-2">Criar</x-button>
         </x-slot>
     </x-modal>

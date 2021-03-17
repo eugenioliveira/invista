@@ -2,13 +2,13 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-login-bg">
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 
-            <!-- Logo and Brand -->
+            {{-- Logo and Brand --}}
             <div class="flex items-center justify-center">
-                <!-- Logo -->
+                {{-- Logo --}}
                 <div>
                     <x-logo width="50" />
                 </div>
-                <!-- Brand -->
+                {{-- Brand --}}
                 <div>
                     <h2 class="text-2xl uppercase">
                         <span class="font-medium">Caixeta</span>
@@ -19,7 +19,7 @@
 
             <hr class="my-2">
 
-            <!-- Login form -->
+            {{-- Login form --}}
             <div class="py-5">
                 <x-validation-errors class="mb-4"/>
 

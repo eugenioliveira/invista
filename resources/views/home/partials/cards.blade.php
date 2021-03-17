@@ -1,5 +1,5 @@
 <div class="grid grid-cols-4 gap-4">
-    <!-- Sales card -->
+    {{-- Sales card --}}
     <x-dashboard-card>
         <x-slot name="icon">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +16,7 @@
         </x-slot>
     </x-dashboard-card>
 
-    <!-- Users card -->
+    {{-- Users card --}}
     <x-dashboard-card>
         <x-slot name="icon">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@
         </x-slot>
     </x-dashboard-card>
 
-    <!-- Brokers card -->
+    {{-- Brokers card --}}
     <x-dashboard-card>
         <x-slot name="icon">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +50,7 @@
         </x-slot>
     </x-dashboard-card>
 
-    <!-- Allotments card -->
+    {{-- Allotments card --}}
     <x-dashboard-card>
         <x-slot name="icon">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

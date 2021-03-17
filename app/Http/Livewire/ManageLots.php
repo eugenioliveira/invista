@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Actions\Lot\CreateNewLotStatus;
+use App\Actions\Lot\SearchLot;
 use App\Enums\LotStatusType;
 use App\Models\Allotment;
 use App\Models\Lot;
@@ -11,7 +12,7 @@ use Livewire\WithPagination;
 
 class ManageLots extends Component
 {
-    use WithPagination;
+    use WithPagination, WithSearch;
 
     /**
      * O loteamento a qual exibir os lotes.
@@ -19,13 +20,6 @@ class ManageLots extends Component
      * @var Allotment
      */
     public Allotment $allotment;
-
-    /**
-     * Termo de busca.
-     *
-     * @var string|null
-     */
-    public ?string $searchTerm = null;
 
     /**
      * Flag que determina se o modal de alteração de status será exibido ou não.
@@ -41,6 +35,11 @@ class ManageLots extends Component
      */
     public Lot $currentLot;
 
+    /**
+     * Controle de estado do componente
+     *
+     * @var array
+     */
     public array $state = ['type' => LotStatusType::AVAILABLE, 'reason' => ''];
 
     /**
@@ -59,7 +58,17 @@ class ManageLots extends Component
     public function showStatusChangeForm(Lot $lot)
     {
         $this->currentLot = $lot;
-        $this->showChangeStatusModal = true;
+        $this->toggleModal();
+    }
+
+    /**
+     * Controla a exibição do modal.
+     */
+    public function toggleModal()
+    {
+        $this->resetErrorBag();
+        $this->reset('state');
+        $this->showChangeStatusModal = !$this->showChangeStatusModal;
     }
 
     /**
@@ -76,34 +85,14 @@ class ManageLots extends Component
     }
 
     /**
-     * Redefine a páginação quando é realizada uma busca
-     */
-    public function updatingSearchTerm()
-    {
-        $this->resetPage();
-    }
-
-    /**
      * Renderiza o componente.
      *
+     * @param SearchLot $searcher
      * @return \Illuminate\Contracts\View\View
      */
-    public function render()
+    public function render(SearchLot $searcher)
     {
-        // Retorna o bloco do campo de pesquisa
-        preg_match('/[A-Za-z]+/', $this->searchTerm, $block);
-        // Retorna o número do campo de pesquisa
-        preg_match('/\d+/', $this->searchTerm, $number);
-
-        // Busca os lotes
-        $lots = $this->allotment->lots()
-            ->where(function ($query) use ($block, $number) {
-                if ($block) $query->where('block', $block);
-                if ($number) $query->where('number', $number);
-            })
-            ->orderBy('block')
-            ->orderBy('number')
-            ->paginate(10);
+        $lots = $searcher->search($this->allotment, $this->searchTerm, 10);
 
         // Exibe view diferentes baseadas no papel atual do usuário.
         if (\Auth::user()->isAdmin()) {

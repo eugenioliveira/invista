@@ -7,10 +7,10 @@
 
     <title>{{ $title }} - Caixeta Vendas</title>
 
-    <!-- Fonts -->
+    {{-- Fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
+    {{-- Styles --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     @livewireStyles
@@ -19,10 +19,10 @@
     <div class="min-h-screen flex flex-col bg-gray-100">
 
         <header>
-            <!-- Page Navbar -->
+            {{-- Page Navbar --}}
             @include('partials.navbar')
 
-            <!-- Page Heading -->
+            {{-- Page Heading --}}
             <div class="bg-white shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 xl:px-0">
                     {{ $header }}
@@ -30,22 +30,22 @@
             </div>
         </header>
 
-        <!-- Page Content -->
+        {{-- Page Content --}}
         <main class="container mx-auto flex-1">
             {{ $slot }}
         </main>
 
-        <!-- Page footer -->
+        {{-- Page footer --}}
         @include('partials.footer')
     </div>
 
-    <!-- Modals -->
+    {{-- Modals --}}
     @stack('modals')
-    <!-- Livewire -->
+    {{-- Livewire --}}
     @livewireScripts
-    <!-- Page scripts -->
+    {{-- Page scripts --}}
     <script src="{{ asset('js/app.js') }}"></script>
-    <!-- Stacked scripts -->
+    {{-- Stacked scripts --}}
     @stack('scripts')
 </body>
 </html>

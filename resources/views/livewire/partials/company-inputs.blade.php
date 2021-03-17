@@ -1,5 +1,5 @@
 <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
-    <!-- Nome da empresa -->
+    {{-- Nome da empresa --}}
     <div class="md:w-1/2">
         <x-input
                 label="Nome da empresa"
@@ -9,7 +9,7 @@
                 error="{{ $errors->first('name') }}"
         />
     </div>
-    <!-- CNPJ -->
+    {{-- CNPJ --}}
     <div class="md:w-1/2">
         <x-input
                 label="CNPJ"
@@ -22,7 +22,7 @@
 </x-input-row>
 
 <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
-    <!-- Inscrição estadual -->
+    {{-- Inscrição estadual --}}
     <div class="md:w-1/2">
         <x-input
                 label="Inscrição estadual"
@@ -32,7 +32,7 @@
                 error="{{ $errors->first('state_reg_id') }}"
         />
     </div>
-    <!-- Telefone -->
+    {{-- Telefone --}}
     <div class="md:w-1/2">
         <x-input
                 label="Telefone"

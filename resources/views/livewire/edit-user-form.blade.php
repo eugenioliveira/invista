@@ -6,7 +6,7 @@
 
     <form>
         <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
-            <!-- E-mail -->
+            {{-- E-mail --}}
             <div class="w-full">
                 <x-input
                         label="E-mail"
@@ -19,7 +19,7 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- Senha -->
+            {{-- Senha --}}
             <div class="w-1/2">
                 <x-password-input
                         label="Senha"
@@ -30,7 +30,7 @@
                 />
             </div>
 
-            <!-- Confirmar senha -->
+            {{-- Confirmar senha --}}
             <div class="w-1/2">
                 <x-password-input
                         label="Confirmar senha"

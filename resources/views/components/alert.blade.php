@@ -37,7 +37,7 @@
         x-transition:leave-start="scale-y-100 opacity-100"
         x-transition:leave-end="scale-y-0 opacity-0"
     >
-        <!-- Icon and text -->
+        {{-- Icon and text --}}
         <div class="flex items-center">
             @switch($type)
                 @case('success')
@@ -62,11 +62,11 @@
                 <span class="font-bold">{{ $title }}</span> {{ $message }}
             </p>
         </div>
-        <!-- Close button
+        {{-- Close button
         <div>
             <button @click="show = false" class="bg-transparent text-2xl font-semibold leading-none outline-none focus:outline-none">
                 <span>×</span>
             </button>
-        </div>-->
+        </div>--}}
     </div>
 </div>

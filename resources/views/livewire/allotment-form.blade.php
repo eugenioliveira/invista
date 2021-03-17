@@ -14,7 +14,7 @@
             <div class="flex-1 h-0.5 bg-gray-200"></div>
         </x-input-row>
         <x-input-row class="mb-4">
-            <!-- Título -->
+            {{-- Título --}}
             <div class="w-full">
                 <x-input
                     label="Título"
@@ -26,7 +26,7 @@
             </div>
         </x-input-row>
         <x-input-row class="mb-4">
-            <!-- Cidade -->
+            {{-- Cidade --}}
             <div class="w-2/4 flex items-end space-x-2">
                 <x-select
                     label="Cidade"
@@ -42,7 +42,7 @@
                 </x-select>
                 <livewire:cities-modal />
             </div>
-            <!-- Ativo -->
+            {{-- Ativo --}}
             <div class="w-2/4">
                 <x-select
                     label="Ativo?"
@@ -57,7 +57,7 @@
             </div>
         </x-input-row>
         <x-input-row class="mb-6">
-            <!-- Área -->
+            {{-- Área --}}
             <div class="w-1/5">
                 <x-input
                     label="Área total (m²)"
@@ -67,7 +67,7 @@
                     error="{{ $errors->first('allotment.area') }}"
                 />
             </div>
-            <!-- Latitude -->
+            {{-- Latitude --}}
             <div class="w-2/5">
                 <x-input
                     label="Latitude"
@@ -77,7 +77,7 @@
                     error="{{ $errors->first('allotment.latitude') }}"
                 />
             </div>
-            <!-- Longitude -->
+            {{-- Longitude --}}
             <div class="w-2/5">
                 <x-input
                     label="Longitude"
@@ -93,7 +93,7 @@
             <div class="flex-1 h-0.5 bg-gray-200"></div>
         </x-input-row>
         <x-input-row class="mb-4">
-            <!-- Desconto -->
+            {{-- Desconto --}}
             <div class="w-2/4">
                 <x-input
                     label="Desconto permitido (%)"
@@ -103,7 +103,7 @@
                     error="{{ $errors->first('allotment.max_discount') }}"
                 />
             </div>
-            <!-- Margem -->
+            {{-- Margem --}}
             <div class="w-2/4">
                 <x-input
                     label="Margem máxima de desconto (%)"
@@ -115,7 +115,7 @@
             </div>
         </x-input-row>
         <x-input-row class="mb-6">
-            <!-- Parcelamento Sinal -->
+            {{-- Parcelamento Sinal --}}
             <div class="w-2/4">
                 <x-input
                     label="Parcelamento máximo do arras (sinal)"
@@ -148,20 +148,20 @@
                 x-on:livewire-upload-error="isUploading = false"
                 x-on:livewire-upload-progress="progress = $event.detail.progress"
             >
-                <!-- File Input -->
+                {{-- File Input --}}
                 <input type="file" wire:model="cover" accept="image/*">
 
                 <div class="mt-4">
 
-                    <!-- Mensagens de erro - Validação -->
+                    {{-- Mensagens de erro - Validação --}}
                     <div>
                         @error('cover')
                         <x-alert type="danger" message="{{ $message }}" :autoclose="false"/>
                         @enderror
                     </div>
-                <!-- /End mensagens -->
+                {{-- /End mensagens --}}
 
-                    <!-- Progress Bar -->
+                    {{-- Progress Bar --}}
                     <div x-show="isUploading">
                         <div class="flex items-center">
                             <svg class="animate-spin mr-2 h-5 w-5 text-gray-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -173,9 +173,9 @@
                         </div>
                         <progress class="w-full" max="100" x-bind:value="progress"></progress>
                     </div>
-                    <!-- /End Progress Bar -->
+                    {{-- /End Progress Bar --}}
 
-                    <!-- Imagem -->
+                    {{-- Imagem --}}
                     @if($cover)
                         @if($tempUrl)
                             <div class="bg-gray-200 p-4 rounded border-2 border-gray-500">
@@ -194,7 +194,7 @@
                             <p>Nenhuma foto de capa cadastrada ainda. Clique no botão acima para fazer upload.</p>
                         </div>
                 @endif
-                <!-- /End imagem -->
+                {{-- /End imagem --}}
 
                 </div>
             </div>

@@ -3,7 +3,7 @@
     <div class="flex-1 h-0.5 bg-gray-200"></div>
 </x-input-row>
 <x-input-row class="mb-4">
-    <!-- Quadra -->
+    {{-- Quadra --}}
     <div class="w-1/4">
         <x-input
             label="Quadra"
@@ -13,7 +13,7 @@
             error="{{ $errors->first('lot.block') }}"
         />
     </div>
-    <!-- Lote -->
+    {{-- Lote --}}
     <div class="w-1/4">
         <x-input
             label="Número do lote"
@@ -23,7 +23,7 @@
             error="{{ $errors->first('lot.number') }}"
         />
     </div>
-    <!-- Preço -->
+    {{-- Preço --}}
     <div class="w-2/4">
         <x-input
             label="Preço (R$)"
@@ -39,7 +39,7 @@
     <div class="flex-1 h-0.5 bg-gray-200"></div>
 </x-input-row>
 <x-input-row class="mb-4">
-    <!-- Frente -->
+    {{-- Frente --}}
     <div class="w-1/4">
         <x-input
             label="Frente (metros)"
@@ -49,7 +49,7 @@
             error="{{ $errors->first('lot.front') }}"
         />
     </div>
-    <!-- Fundos -->
+    {{-- Fundos --}}
     <div class="w-1/4">
         <x-input
             label="Fundos (metros)"
@@ -59,7 +59,7 @@
             error="{{ $errors->first('lot.back') }}"
         />
     </div>
-    <!-- Direita -->
+    {{-- Direita --}}
     <div class="w-1/4">
         <x-input
             label="Direita (metros)"
@@ -69,7 +69,7 @@
             error="{{ $errors->first('lot.right') }}"
         />
     </div>
-    <!-- Esquerda -->
+    {{-- Esquerda --}}
     <div class="w-1/4">
         <x-input
             label="Esquerda (metros)"
@@ -85,7 +85,7 @@
     <div class="flex-1 h-0.5 bg-gray-200"></div>
 </x-input-row>
 <x-input-row class="mb-4">
-    <!-- Frente -->
+    {{-- Frente --}}
     <div class="w-1/2">
         <x-input
             label="Frente"
@@ -95,7 +95,7 @@
             error="{{ $errors->first('lot.front_side') }}"
         />
     </div>
-    <!-- Fundos -->
+    {{-- Fundos --}}
     <div class="w-1/2">
         <x-input
             label="Fundos"
@@ -107,7 +107,7 @@
     </div>
 </x-input-row>
 <x-input-row class="mb-4">
-    <!-- Direita -->
+    {{-- Direita --}}
     <div class="w-1/2">
         <x-input
             label="Direita"
@@ -117,7 +117,7 @@
             error="{{ $errors->first('lot.right_side') }}"
         />
     </div>
-    <!-- Esquerda -->
+    {{-- Esquerda --}}
     <div class="w-1/2">
         <x-input
             label="Esquerda"

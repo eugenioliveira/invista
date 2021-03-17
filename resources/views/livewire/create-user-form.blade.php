@@ -14,7 +14,7 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- Primeiro Nome -->
+            {{-- Primeiro Nome --}}
             <div class="w-1/3">
                 <x-input
                         label="Primeiro nome"
@@ -24,7 +24,7 @@
                         error="{{ $errors->first('first_name') }}"
                 />
             </div>
-            <!-- Sobrenome -->
+            {{-- Sobrenome --}}
             <div class="w-1/3">
                 <x-input
                         label="Sobrenome"
@@ -34,7 +34,7 @@
                         error="{{ $errors->first('last_name') }}"
                 />
             </div>
-            <!-- E-mail -->
+            {{-- E-mail --}}
             <div class="w-1/3">
                 <x-input
                         label="E-mail"
@@ -47,7 +47,7 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- CPF -->
+            {{-- CPF --}}
             <div class="w-1/2">
                 <x-input
                         label="Número de CPF"
@@ -57,7 +57,7 @@
                         error="{{ $errors->first('cpf') }}"
                 />
             </div>
-            <!-- Telefone -->
+            {{-- Telefone --}}
             <div class="w-1/2">
                 <x-input
                         label="Número de Telefone"
@@ -70,7 +70,7 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- Senha -->
+            {{-- Senha --}}
             <div class="w-1/2">
                 <x-password-input
                         label="Senha"
@@ -81,7 +81,7 @@
                 />
             </div>
 
-            <!-- Confirmar senha -->
+            {{-- Confirmar senha --}}
             <div class="w-1/2">
                 <x-password-input
                         label="Confirmar senha"

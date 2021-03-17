@@ -14,7 +14,7 @@
 
         @if (count($this->sessions) > 0)
             <div class="mt-5 space-y-6">
-                <!-- Other Browser Sessions -->
+                {{-- Other Browser Sessions --}}
                 @foreach ($this->sessions as $session)
                     <div class="flex items-center">
                         <div>
@@ -61,7 +61,7 @@
             </x-jet-action-message>
         </div>
 
-        <!-- Logout Other Devices Confirmation Modal -->
+        {{-- Logout Other Devices Confirmation Modal --}}
         <x-jet-dialog-modal wire:model="confirmingLogout">
             <x-slot name="title">
                 {{ __('Logout Other Browser Sessions') }}

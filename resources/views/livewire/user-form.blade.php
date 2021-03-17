@@ -13,7 +13,7 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- Primeiro Nome -->
+            {{-- Primeiro Nome --}}
             <div class="w-1/3">
                 <x-input
                         label="Primeiro nome"
@@ -23,7 +23,7 @@
                         error="{{ $errors->first('person.firstname') }}"
                 />
             </div>
-            <!-- Sobrenome -->
+            {{-- Sobrenome --}}
             <div class="w-1/3">
                 <x-input
                         label="Sobrenome"
@@ -33,7 +33,7 @@
                         error="{{ $errors->first('person.lastname') }}"
                 />
             </div>
-            <!-- E-mail -->
+            {{-- E-mail --}}
             <div class="w-1/3">
                 <x-input
                         label="E-mail"
@@ -46,7 +46,7 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- Senha -->
+            {{-- Senha --}}
             <div class="w-1/2">
                 <x-password-input
                         label="Senha"
@@ -57,7 +57,7 @@
                 />
             </div>
 
-            <!-- Confirmar senha -->
+            {{-- Confirmar senha --}}
             <div class="w-1/2">
                 <x-password-input
                         label="Confirmar senha"
@@ -101,7 +101,7 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- CPF -->
+            {{-- CPF --}}
             <div class="w-1/2">
                 <x-input
                         label="Número de CPF"
@@ -111,7 +111,7 @@
                         error="{{ $errors->first('person.cpf') }}"
                 />
             </div>
-            <!-- Telefone -->
+            {{-- Telefone --}}
             <div class="w-1/2">
                 <x-input
                         label="Número de Telefone"
@@ -124,7 +124,7 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- CEP -->
+            {{-- CEP --}}
             <div class="w-1/2">
                 <x-input
                         label="CEP de residência"
@@ -135,7 +135,7 @@
                         error="{{ $errors->first('address.postal_code') }}"
                 />
             </div>
-            <!-- Logradouro -->
+            {{-- Logradouro --}}
             <div class="w-1/2">
                 <x-input
                         label="Logradouro"
@@ -150,7 +150,7 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- Número -->
+            {{-- Número --}}
             <div class="w-1/5">
                 <x-input
                         label="Número"
@@ -162,7 +162,7 @@
                         error="{{ $errors->first('address.number') }}"
                 />
             </div>
-            <!-- Complemento -->
+            {{-- Complemento --}}
             <div class="w-2/5">
                 <x-input
                         label="Complemento"
@@ -174,7 +174,7 @@
                         error="{{ $errors->first('address.apt_room') }}"
                 />
             </div>
-            <!-- Bairro -->
+            {{-- Bairro --}}
             <div class="w-2/5">
                 <x-input
                         label="Bairro"
@@ -189,7 +189,7 @@
         </x-input-row>
 
         <x-input-row class="mb-4">
-            <!-- Cidade -->
+            {{-- Cidade --}}
             <div class="w-1/2">
                 <x-input
                         label="Cidade"
@@ -201,7 +201,7 @@
                         error="{{ $errors->first('address.city') }}"
                 />
             </div>
-            <!-- Estado -->
+            {{-- Estado --}}
             <div class="w-1/2">
                 <x-input
                         label="Estado"

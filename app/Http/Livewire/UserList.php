@@ -8,22 +8,7 @@ use Livewire\WithPagination;
 
 class UserList extends Component
 {
-    use WithPagination;
-
-    /**
-     * O termo de busca para o loteamento.
-     *
-     * @var string|null
-     */
-    public ?string $searchTerm = null;
-
-    /**
-     * Redefine a páginação quando é realizada uma busca
-     */
-    public function updatingSearchTerm()
-    {
-        $this->resetPage();
-    }
+    use WithPagination, WithSearch;
 
     public function render()
     {

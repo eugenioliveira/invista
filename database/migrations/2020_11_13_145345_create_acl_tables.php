@@ -16,7 +16,7 @@ class CreateAclTables extends Migration
         // Papéis
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->index();
             $table->string('label');
             $table->timestamps();
         });
@@ -24,7 +24,7 @@ class CreateAclTables extends Migration
         // Permissões
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->index();
             $table->string('description');
             $table->timestamps();
         });

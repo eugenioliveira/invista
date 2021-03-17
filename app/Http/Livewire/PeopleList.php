@@ -10,23 +10,7 @@ use Livewire\WithPagination;
 
 class PeopleList extends Component
 {
-    use WithPagination;
-
-    /**
-     * Termo de busca.
-     *
-     * @var string|null
-     */
-    public string $searchTerm = '';
-
-    /**
-     * Redefine a páginação quando é realizada uma busca
-     */
-    public function updatingSearchTerm()
-    {
-        $this->resetPage();
-    }
-
+    use WithPagination, WithSearch;
 
     public function render(SearchPerson $searcher)
     {

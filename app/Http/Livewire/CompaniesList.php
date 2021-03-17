@@ -10,23 +10,14 @@ use Livewire\WithPagination;
 
 class CompaniesList extends Component
 {
-    use WithPagination;
+    use WithPagination, WithSearch;
 
     /**
-     * Termo de busca.
+     * Renderiza a lista de pessoas físicas.
      *
-     * @var string|null
+     * @param SearchCompany $searcher
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public string $searchTerm = '';
-
-    /**
-     * Redefine a páginação quando é realizada uma busca
-     */
-    public function updatingSearchTerm()
-    {
-        $this->resetPage();
-    }
-
     public function render(SearchCompany $searcher)
     {
         if (Auth::user()->isAdmin()) {

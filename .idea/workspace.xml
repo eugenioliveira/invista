@@ -2,9 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55f11043-8ef8-4f8a-942d-e069f09c4d40" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Actions/Lot/SearchLot.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/WithSearch.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ChangeLotStatusModal.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/change-lot-status-modal.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CitiesModal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CitiesModal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CompaniesList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CompaniesList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ManageLots.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ManageLots.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PeopleList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/PeopleList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/UserList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/UserList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_26_144945_create_lot_statuses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_26_144945_create_lot_statuses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_13_145345_create_acl_tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_13_145345_create_acl_tables.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/api/api-token-manager.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/api/api-token-manager.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/alert.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/alert.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/dashboard-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dashboard-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/slide-over.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/slide-over.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/partials/cards.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/partials/cards.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/address-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/address-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/cities-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/companies-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/companies-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/company-shareholders-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/company-shareholders-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/create-user-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/create-user-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/edit-user-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/edit-user-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/manage-lots.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/manage-lots.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/company-inputs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/company-inputs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/lot-inputs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/lot-inputs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/partials/person-inputs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/partials/person-inputs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/people-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/people-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/person-detail-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/person-detail-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/user-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/user-list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/delete-user-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/delete-user-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/logout-other-browser-sessions-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/logout-other-browser-sessions-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/update-profile-information-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/update-profile-information-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/switchable-team.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/switchable-team.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,6 +306,8 @@
       <workItem from="1614254540848" duration="14719000" />
       <workItem from="1614278510444" duration="5168000" />
       <workItem from="1614354628493" duration="23000" />
+      <workItem from="1614354661180" duration="2066000" />
+      <workItem from="1614858233332" duration="5416000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,5 @@
 <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
-    <!-- Primeiro Nome -->
+    {{-- Primeiro Nome --}}
     <div class="md:w-1/2">
         <x-input
                 label="Primeiro nome"
@@ -9,7 +9,7 @@
                 error="{{ $errors->first('first_name') }}"
         />
     </div>
-    <!-- Sobrenome -->
+    {{-- Sobrenome --}}
     <div class="md:w-1/2">
         <x-input
                 label="Sobrenome"
@@ -22,7 +22,7 @@
 </x-input-row>
 
 <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
-    <!-- CPF -->
+    {{-- CPF --}}
     <div class="md:w-1/2">
         <x-input
                 label="Número de CPF"
@@ -32,7 +32,7 @@
                 error="{{ $errors->first('cpf') }}"
         />
     </div>
-    <!-- Telefone -->
+    {{-- Telefone --}}
     <div class="md:w-1/2">
         <x-input
                 label="Número de Telefone (com DDD)"
