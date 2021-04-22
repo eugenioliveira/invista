@@ -61,9 +61,9 @@ class PersonDetailForm extends Component
      *
      * @param $partnerId
      */
-    public function addPartner($partnerId)
+    public function addPartner(Person $partner)
     {
-        $this->partner = Person::findOrFail($partnerId);
+        $this->partner = $partner;
         $this->state['partner_id'] = $this->partner->id;
     }
 

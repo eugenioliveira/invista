@@ -36,9 +36,16 @@
                             <span>{{ $allotment->city->full_name }}</span>
                         </p>
                     </div>
-                    <x-button class="w-full justify-center" wire:click="showOptions({{ $allotment->id }})">
-                        Opções
-                    </x-button>
+                    {{-- Este botão só deve ser exibido se o usuário for admin --}}
+                    @if(Auth::user()->isBroker())
+                        <x-button-link class="w-full justify-center" href="{{ route('lots.index', $allotment->id) }}">
+                            Ver lotes
+                        </x-button-link>
+                    @else
+                        <x-button class="w-full justify-center" wire:click="showOptions({{ $allotment->id }})">
+                            Opções
+                        </x-button>
+                    @endif
                 </div>
             </x-card>
         @endforeach

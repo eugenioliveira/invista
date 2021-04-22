@@ -22,7 +22,7 @@ class UserList extends Component
          * O usuário com papel de Supervisor
          * só poderá gerenciar Corretores.
          */
-        if (\Auth::user()->hasRole('supervisor')) {
+        if (\Auth::user()->isSupervisor()) {
             $usersQuery->whereHas('roles', function ($query) {
                 $query->where('name', 'broker');
             });

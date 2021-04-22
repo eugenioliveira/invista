@@ -26,7 +26,7 @@ class PeopleList extends Component
              * O usuário supervisor pode gerenciar as pessoas físicas que
              * cadastrar e a dos corretores
              */
-            if (Auth::user()->hasRole('supervisor')) {
+            if (Auth::user()->isSupervisor()) {
                 $creators->push(
                     Role::where('name', 'broker')
                         ->sole()

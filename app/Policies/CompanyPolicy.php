@@ -39,11 +39,11 @@ class CompanyPolicy
          * empresas criadas por ele mesmo.
          */
 
-        if($loggedUser->hasRole('supervisor')) {
-            return $companyToUpdate->creator_id == $loggedUser->id || $companyToUpdate->creator->hasRole('broker');
+        if($loggedUser->isSupervisor()) {
+            return $companyToUpdate->creator_id == $loggedUser->id || $companyToUpdate->creator->isBroker();
         }
 
-        if ($loggedUser->hasRole('broker')) {
+        if ($loggedUser->isBroker()) {
             return $companyToUpdate->creator_id == $loggedUser->id;
         }
     }

@@ -8,14 +8,7 @@ use Livewire\WithPagination;
 
 class AllotmentList extends Component
 {
-    use WithPagination;
-
-    /**
-     * O termo de busca para o loteamento.
-     *
-     * @var string|null
-     */
-    public ?string $searchTerm = null;
+    use WithPagination, WithSearch;
 
     /**
      * O loteamento selecionado para exibir as opções
@@ -30,14 +23,6 @@ class AllotmentList extends Component
      * @var bool
      */
     public bool $showOptionsPanel = false;
-
-    /**
-     * Redefine a páginação quando é realizada uma busca
-     */
-    public function updatingSearchTerm()
-    {
-        $this->resetPage();
-    }
 
     /**
      * Inicializa o componente

@@ -37,7 +37,7 @@ class UserPolicy
          * Somente usuários supervisores podem editar. E podem editar apenas usuários
          * corretores.
          */
-        return $loggedUser->hasRole('supervisor') && $userToUpdate->hasRole('broker');
+        return $loggedUser->isSupervisor() && $userToUpdate->isBroker();
     }
 
     /**
@@ -57,6 +57,6 @@ class UserPolicy
          * Somente usuários supervisores podem criar usuários. E podem criar apenas usuários
          * corretores.
          */
-        return $loggedUser->hasRole('supervisor') && Role::findOrFail($newUserSelectedRole)->name == 'broker';
+        return $loggedUser->isSupervisor() && Role::findOrFail($newUserSelectedRole)->name == 'broker';
     }
 }

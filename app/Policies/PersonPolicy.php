@@ -40,11 +40,11 @@ class PersonPolicy
          * pessoas criadas por ele mesmo.
          */
 
-        if($loggedUser->hasRole('supervisor')) {
-            return $personToUpdate->creator_id == $loggedUser->id || $personToUpdate->creator->hasRole('broker');
+        if($loggedUser->isSupervisor()) {
+            return $personToUpdate->creator_id == $loggedUser->id || $personToUpdate->creator->isBroker();
         }
 
-        if ($loggedUser->hasRole('broker')) {
+        if ($loggedUser->isBroker()) {
             return $personToUpdate->creator_id == $loggedUser->id;
         }
     }

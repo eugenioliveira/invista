@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
@@ -61,6 +63,22 @@ class User extends Authenticatable
     ];
 
     /**
+     * Métodos mágicos pertinentes ao Model
+     *
+     * @param string $method
+     * @param array $parameters
+     * @return bool|mixed
+     */
+    public function __call($method, $parameters)
+    {
+        if (Str::startsWith($method, 'is')) {
+            return $this->hasRole(Str::lower(Str::remove('is', $method)));
+        }
+
+        return parent::__call($method, $parameters);
+    }
+
+    /**
      * Get the default profile photo URL if no profile photo has been uploaded.
      *
      * @return string
@@ -112,19 +130,11 @@ class User extends Authenticatable
      */
     public function permissions(): Collection
     {
-        return $this->roles
-            ->map->permissions
-            ->flatten()->pluck('name')->unique();
-    }
-
-    /**
-     * Checa se o usuário atual é um administrador.
-     *
-     * @return bool
-     */
-    public function isAdmin(): bool
-    {
-        return $this->hasRole('admin');
+        return Cache::remember('User' . $this->id . 'Permissions', now()->addDay(), function() {
+            return $this->roles
+                ->map->permissions
+                ->flatten()->pluck('name')->unique();
+        });
     }
 
     /**
@@ -135,10 +145,10 @@ class User extends Authenticatable
      */
     public function hasRole($role): bool
     {
-        return $this
-            ->roles()
-            ->where('name', $role)
-            ->get()
-            ->isNotEmpty();
+        $userRoles = Cache::remember('User' . $this->id . 'Roles', now()->addDay(), function() {
+            return $this->roles()->pluck('name');
+        });
+
+        return $userRoles->contains($role);
     }
 }
