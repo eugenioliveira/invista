@@ -2,6 +2,8 @@
 
 use App\Enums\CivilStatus;
 use App\Enums\LotStatusType;
+use App\Enums\ProposalStatusType;
+use App\Enums\ProposalType;
 
 return [
     LotStatusType::class => [
@@ -10,7 +12,6 @@ return [
         LotStatusType::PROPOSED => 'Proposta',
         LotStatusType::BLOCKED => 'Bloqueado',
         LotStatusType::SOLD => 'Vendido',
-        LotStatusType::PARTNER => 'Sócio'
     ],
 
     CivilStatus::class => [
@@ -18,5 +19,17 @@ return [
         CivilStatus::MARRIED => 'Casado(a)',
         CivilStatus::DIVORCED => 'Divorciado(a)',
         CivilStatus::WIDOW => 'Viúvo(a)'
+    ],
+
+    ProposalType::class => [
+        ProposalType::IN_CASH => 'À vista',
+        ProposalType::INSTALLMENTS => 'Parcelada'
+    ],
+
+    ProposalStatusType::class => [
+        ProposalStatusType::UNDER_REVIEW => 'Em análise',
+        ProposalStatusType::RETURNED => 'Devolvida',
+        ProposalStatusType::ACCEPTED => 'Aceita',
+        ProposalStatusType::DENIED => 'Negada'
     ]
 ];

@@ -17,7 +17,7 @@ class UpdateCompany
             'cnpj' => ['required', 'numeric', 'cnpj', Rule::unique('companies', 'cnpj')->ignore($company->id)],
             'state_reg_id' => ['required', 'numeric'],
             'phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
-        ])->validate();
+        ])->safe()->all();
 
         $company->forceFill($companyData)->save();
     }

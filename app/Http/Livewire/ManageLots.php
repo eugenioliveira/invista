@@ -7,6 +7,8 @@ use App\Actions\Lot\SearchLot;
 use App\Enums\LotStatusType;
 use App\Models\Allotment;
 use App\Models\Lot;
+use App\Models\Reservation;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -92,7 +94,7 @@ class ManageLots extends Component
      */
     public function render(SearchLot $searcher)
     {
-        $lots = $searcher->search($this->allotment, $this->searchTerm, 10);
+        $lots = $searcher->search($this->allotment, $this->searchTerm, 12);
 
         // Exibe view diferentes baseadas no papel atual do usuário.
         if (\Auth::user()->isAdmin()) {
@@ -100,7 +102,9 @@ class ManageLots extends Component
                 'lots' => $lots
             ]);
         } else {
-            // Retornar outra view com menos opções.
+            return view('livewire.list-lots', [
+                'lots' => $lots
+            ]);
         }
     }
 }

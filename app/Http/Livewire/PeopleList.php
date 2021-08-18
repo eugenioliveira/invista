@@ -21,7 +21,7 @@ class PeopleList extends Component
         if (Auth::user()->isAdmin()) {
             $people = $searcher->search($this->searchTerm, 10);
         } else {
-            $creators = collect(Auth::user()->id);
+            $creators = collect([Auth::user()->id]);
             /*
              * O usuário supervisor pode gerenciar as pessoas físicas que
              * cadastrar e a dos corretores

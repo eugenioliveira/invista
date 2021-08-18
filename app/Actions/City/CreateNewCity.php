@@ -15,7 +15,6 @@ class CreateNewCity
      *
      * @param array $input
      * @return City
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function create(array $input)
     {
@@ -23,7 +22,7 @@ class CreateNewCity
             'name' => [
                 'required',
                 'min:5',
-                Rule::unique('cities')->where(function($query) use ($input) {
+                Rule::unique('cities')->where(function ($query) use ($input) {
                     return $query->where('state', $input['state']);
                 })
             ],
@@ -31,11 +30,11 @@ class CreateNewCity
                 'required',
                 'size:2',
                 'alpha',
-                Rule::unique('cities')->where(function($query) use ($input) {
+                Rule::unique('cities')->where(function ($query) use ($input) {
                     return $query->where('name', $input['name']);
                 })
             ]
-        ])->validate();
+        ])->safe()->all();
 
         return City::create($cityData);
     }

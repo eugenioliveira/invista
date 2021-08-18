@@ -23,9 +23,7 @@ class CreateAllotmentsTable extends Migration
             $table->decimal('latitude', 12, 9)->nullable();
             $table->decimal('longitude', 12, 9)->nullable();
             $table->unsignedDecimal('max_discount', 3, 1);
-            $table->unsignedDecimal('allowable_margin', 3, 1);
             $table->unsignedInteger('reservation_duration');
-            $table->unsignedInteger('assurance_parcels');
             $table->timestamps();
         });
     }

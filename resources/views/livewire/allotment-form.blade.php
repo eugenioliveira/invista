@@ -94,7 +94,7 @@
         </x-input-row>
         <x-input-row class="mb-4">
             {{-- Desconto --}}
-            <div class="w-2/4">
+            <div class="w-1/2">
                 <x-input
                     label="Desconto permitido (%)"
                     name="max_discount"
@@ -103,35 +103,15 @@
                     error="{{ $errors->first('allotment.max_discount') }}"
                 />
             </div>
-            {{-- Margem --}}
-            <div class="w-2/4">
+
+            {{-- Duração da reserva --}}
+            <div class="w-1/2">
                 <x-input
-                    label="Margem máxima de desconto (%)"
-                    name="allowable_margin"
-                    class="mt-1 w-full"
-                    wire:model.lazy="allotment.allowable_margin"
-                    error="{{ $errors->first('allotment.allowable_margin') }}"
-                />
-            </div>
-        </x-input-row>
-        <x-input-row class="mb-6">
-            {{-- Parcelamento Sinal --}}
-            <div class="w-2/4">
-                <x-input
-                    label="Parcelamento máximo do arras (sinal)"
-                    name="assurance_parcels"
-                    class="mt-1 w-full"
-                    wire:model.lazy="allotment.assurance_parcels"
-                    error="{{ $errors->first('allotment.assurance_parcels') }}"
-                />
-            </div>
-            <div class="w-2/4">
-                <x-input
-                    label="Duração da reserva (em horas)"
-                    name="reservation_duration"
-                    class="mt-1 w-full"
-                    wire:model.lazy="allotment.reservation_duration"
-                    error="{{ $errors->first('allotment.reservation_duration') }}"
+                        label="Duração da reserva (em horas)"
+                        name="reservation_duration"
+                        class="mt-1 w-full"
+                        wire:model.lazy="allotment.reservation_duration"
+                        error="{{ $errors->first('allotment.reservation_duration') }}"
                 />
             </div>
         </x-input-row>

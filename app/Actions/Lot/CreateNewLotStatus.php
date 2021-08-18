@@ -25,7 +25,7 @@ class CreateNewLotStatus
         $statusData = Validator::make($input, [
             'type' => ['required', new EnumValue(LotStatusType::class, false)],
             'reason' => ['required', 'min:8']
-        ])->validate();
+        ])->safe()->all();
 
         $statusData['user_id'] = Auth::user()->id;
 

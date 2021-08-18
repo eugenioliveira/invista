@@ -27,7 +27,7 @@ class LotStatusFactory extends Factory
         return [
             'lot_id' => Lot::all()->random()->id,
             'user_id' => User::all()->random()->id,
-            'type' => $this->faker->randomElement([1,4,5,6]),
+            'type' => $this->faker->randomElement([1,4,5]),
             'reason' => $this->faker->sentence()
         ];
     }

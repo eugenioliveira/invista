@@ -28,6 +28,9 @@ class CreateReservationsTable extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
+            $table->unsignedInteger('reserveable_id')->index();
+            $table->string('reserveable_type');
+
             $table->timestamp('init')->index();
             $table->timestamp('due')->index();
         });

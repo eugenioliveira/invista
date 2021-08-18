@@ -31,9 +31,7 @@ class AllotmentFactory extends Factory
             'latitude' => $this->faker->latitude,
             'longitude' => $this->faker->longitude,
             'max_discount' => app('decimal')->format($this->faker->randomFloat(1, 10, 20)),
-            'allowable_margin' => app('decimal')->format($this->faker->randomFloat(1, 0, 5)),
             'reservation_duration' => $this->faker->randomNumber(2),
-            'assurance_parcels' => $this->faker->numberBetween(0, 3)
         ];
     }
 }

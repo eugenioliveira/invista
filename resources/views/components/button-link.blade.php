@@ -1,9 +1,21 @@
 @props(['type' => 'primary', 'format' => 'normal'])
 
 @php
-    $colors = ($type == 'primary')
-        ? 'bg-primary hover:bg-orange-500 active:bg-orange-600 focus:border-orange-600 focus:ring focus:ring-orange-600'
-        : 'bg-red-600 hover:bg-red-500 active:bg-red-600 focus:border-red-700 focus:ring ring-red';
+    $colors = '';
+    switch ($type) {
+        case 'primary':
+            $colors = 'bg-primary hover:bg-orange-500 active:bg-orange-600 focus:border-orange-600 focus:ring focus:ring-orange-600';
+            break;
+        case 'danger':
+            $colors = 'bg-red-600 hover:bg-red-500 active:bg-red-600 focus:border-red-700 focus:ring ring-red';
+            break;
+        case 'success':
+            $colors = 'bg-green-600 hover:bg-green-500 active:bg-green-600 focus:border-green-700 focus:ring ring-green';
+            break;
+        default:
+            break;
+
+    }
     $padding = ($format == 'normal')
         ? 'px-4 py-2'
         : 'p-2';

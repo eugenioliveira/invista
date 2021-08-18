@@ -13,6 +13,13 @@ trait RedirectHandler
      */
     public string $successMessage = '';
 
+    /**
+     * Mensagem de erro.
+     *
+     * @var string
+     */
+    public string $errorMessage = '';
+
 
     public function successAction(string $message, array $route, bool $redirect = true)
     {

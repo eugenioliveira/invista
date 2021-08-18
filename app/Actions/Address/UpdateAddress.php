@@ -15,7 +15,6 @@ class UpdateAddress
      *
      * @param Person|Company $addressable
      * @param array $address
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function update($addressable, array $address)
     {
@@ -27,7 +26,7 @@ class UpdateAddress
             'city' => ['required', 'min:5'],
             'state' => ['required', 'min:2'],
             'postal_code' => ['required', 'numeric', 'digits:8'],
-        ])->validate();
+        ])->safe()->all();
 
         if ($addressable->address) {
             $addressable->address->forceFill($validated);

@@ -22,7 +22,9 @@ class SearchCompany
             $query
                 ->where('name', 'like', '%' . $searchTerm . '%')
                 ->orWhere('cnpj', 'like', '%' . $searchTerm . '%');
-        })->orderBy('name');
+        })
+            ->with(['shareholders', 'address'])
+            ->orderBy('name');
 
         if (count($creatorIds) > 0) {
             $companyQuery->whereIn('creator_id', $creatorIds);

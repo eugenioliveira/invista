@@ -11,9 +11,9 @@ class LotStatusBadge extends Component
     /**
      * O Status que será exibido.
      *
-     * @var LotStatus
+     * @var LotStatusType
      */
-    public LotStatus $status;
+    public LotStatusType $status;
 
     /**
      * As classes CSS que serão aplicadas aos componentes
@@ -25,12 +25,12 @@ class LotStatusBadge extends Component
     /**
      * Create a new component instance.
      *
-     * @param LotStatus $status
+     * @param LotStatusType $status
      */
-    public function __construct(LotStatus $status)
+    public function __construct(LotStatusType $status)
     {
         $this->status = $status;
-        $this->classes = $this->selectClasses($status->type);
+        $this->classes = $this->selectClasses($status);
     }
 
     /**
@@ -48,8 +48,6 @@ class LotStatusBadge extends Component
                 return 'bg-yellow-100 text-yellow-800';
             case LotStatusType::BLOCKED:
                 return 'bg-gray-100 text-gray-800';
-            case LotStatusType::PARTNER:
-                return 'bg-purple-100 text-purple-800';
             default: // LotStatusType::SOLD e LotStatusType::PROPOSED
                 return 'bg-red-100 text-red-800';
         }

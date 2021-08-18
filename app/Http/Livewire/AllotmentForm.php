@@ -69,8 +69,6 @@ class AllotmentForm extends Component
         'allotment.latitude' => ['nullable', 'numeric'],
         'allotment.longitude' => ['nullable', 'numeric'],
         'allotment.max_discount' => ['required', 'regex:/^\d*(\,\d{1,2})?$/'],
-        'allotment.allowable_margin' => ['required', 'regex:/^\d*(\,\d{1,2})?$/'],
-        'allotment.assurance_parcels' => ['required', 'integer'],
         'allotment.reservation_duration' => ['required', 'numeric', 'gt:0'],
     ];
 
@@ -90,10 +88,6 @@ class AllotmentForm extends Component
         'allotment.area.regex' => 'O campo área total deve ser um número maior que zero.',
         'allotment.max_discount.required' => 'O campo Desconto permitido é obrigatório.',
         'allotment.max_discount.regex' => 'O campo Desconto permitido deve ser numérico.',
-        'allotment.allowable_margin.required' => 'O campo Margem máxima de desconto é obrigatório.',
-        'allotment.allowable_margin.regex' => 'O campo Margem máxima de desconto deve ser numérico.',
-        'allotment.assurance_parcels.required' => 'O campo Parcelamento máximo do arras é obrigatório.',
-        'allotment.assurance_parcels.numeric' => 'O campo Parcelamento máximo do arras deve ser numérico.',
         'allotment.reservation_duration.required' => 'O campo Duração da reserva é obrigatório.',
         'allotment.reservation_duration.numeric' => 'O campo Duração da reserva deve ser numérico.',
         'allotment.reservation_duration.gt' => 'O campo Duração da reserva deve ser maior que zero.',

@@ -7,11 +7,13 @@ use App\Http\Controllers\CompanyShareholdersController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LotsController;
 use App\Http\Controllers\LotsImportController;
+use App\Http\Controllers\PaymentPlansController;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\PersonAddressController;
 use App\Http\Controllers\PersonDetailController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReservationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -158,6 +160,33 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/company/{company}/address', CompanyAddressController::class)
         ->middleware('can:edit,company')
         ->name('company.address');
+    //======================================================================
+
+    //======================================================================
+    // ROTAS REFERENTES À RESERVAS
+    //======================================================================
+
+    // Formulário de realização de reserva
+    Route::get('/lots/{lot}/reserve', [ReservationsController::class, 'create'])
+        ->middleware('can:make_reservation')
+        ->name('lot.reserve');
+
+    //======================================================================
+
+    //======================================================================
+    // ROTAS REFERENTES À PLANOS DE PAGAMENTO
+    //======================================================================
+
+    // Listagem de planos de pagamento
+    Route::get('/payment-plans', [PaymentPlansController::class, 'index'])
+        ->middleware('can:manage_payment_plans')
+        ->name('payment-plans.index');
+
+    // Alteração de dados de um plano de pagamento
+    Route::get('/payment-plans/{plan}/edit', [PaymentPlansController::class, 'edit'])
+        ->middleware('can:manage_payment_plans')
+        ->name('payment-plans.edit');
+
     //======================================================================
 
     // Página inicial do sistema

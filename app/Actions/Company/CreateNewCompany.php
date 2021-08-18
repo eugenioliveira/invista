@@ -12,12 +12,11 @@ use Illuminate\Validation\Rule;
 class CreateNewCompany
 {
     /**
-     * Cria uma nova pessoa jurídica na base de dados.
+     * Cria uma pessoa jurídica na base de dados.
      *
      * @param array $input
      * @param bool $persist
      * @return Company
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function create(array $input, bool $persist = true)
     {
@@ -26,7 +25,7 @@ class CreateNewCompany
             'cnpj' => ['required', 'numeric', 'cnpj', Rule::unique('companies', 'cnpj')],
             'state_reg_id' => ['required', 'numeric'],
             'phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
-        ])->validate();
+        ])->safe()->all();
 
         $companyData['creator_id'] = Auth::user()->id;
 

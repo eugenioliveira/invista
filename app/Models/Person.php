@@ -63,6 +63,16 @@ class Person extends Model
     }
 
     /**
+     * Retorna as reservas realizadas em nome da pessoa.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function reservations()
+    {
+        return $this->morphMany(Reservation::class, 'reserveable');
+    }
+
+    /**
      * Salva um usuário para a pessoa.
      *
      * @param $email

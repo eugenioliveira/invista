@@ -16,7 +16,6 @@ class UpdatePerson
      * @param Person $person
      * @param array $input
      * @return void
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Person $person, array $input): void
     {
@@ -25,7 +24,7 @@ class UpdatePerson
             'last_name' => ['required', 'min:2'],
             'cpf' => ['required', 'numeric', 'cpf', Rule::unique('people', 'cpf')->ignore($person->id)],
             'phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
-        ])->validate();
+        ])->safe()->all();
 
         $person->forceFill($validated)->save();
         if ($person->user) {

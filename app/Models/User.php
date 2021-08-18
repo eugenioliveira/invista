@@ -130,11 +130,15 @@ class User extends Authenticatable
      */
     public function permissions(): Collection
     {
-        return Cache::remember('User' . $this->id . 'Permissions', now()->addDay(), function() {
+        /*return Cache::remember('User' . $this->id . 'Permissions', now()->addDay(), function() {
             return $this->roles
                 ->map->permissions
                 ->flatten()->pluck('name')->unique();
-        });
+        });*/
+
+        return $this->roles
+            ->map->permissions
+            ->flatten()->pluck('name')->unique();
     }
 
     /**

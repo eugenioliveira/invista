@@ -73,13 +73,25 @@
                         </td>
                         {{-- Status --}}
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                            <x-lot-status-badge :status="$lot->getStatus()"></x-lot-status-badge>
+                            @if($lot->activeReservation)
+                                <div class="flex flex-col items-start">
+                                    <x-lot-status-badge
+                                            :status="\App\Enums\LotStatusType::RESERVED()"></x-lot-status-badge>
+                                    <span class="text-xs">
+                                        por <strong>{{ $lot->activeReservation->user->name }}</strong>
+                                        até <strong>{{ $lot->activeReservation->due->format('d/m/Y H:i') }}</strong>
+                                    </span>
+                                </div>
+                            @else
+                                <x-lot-status-badge :status="$lot->latestStatus->type"></x-lot-status-badge>
+                            @endif
                         </td>
                         {{-- Actions --}}
                         <td class="px-6 py-4 flex space-x-1">
                             {{-- Edit action --}}
                             <x-button-link href="{{ route('lot.edit', $lot->id) }}" format="icon" title="Editar">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
+                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                             d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                                 </svg>
@@ -87,8 +99,10 @@
                             {{-- Show reservations action --}}
                             {{-- Show proposals action --}}
                             {{-- Change static status action --}}
-                            <x-button-link format="icon" title="Mudar status" wire:click="showStatusChangeForm({{ $lot->id }})">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <x-button-link format="icon" title="Mudar status"
+                                           wire:click="showStatusChangeForm({{ $lot->id }})">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
+                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                             d="M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z"></path>
                                 </svg>
@@ -102,7 +116,8 @@
             </table>
         </x-card>
     @else
-        <x-alert type="warning" message="Nenhum lote cadastrado. Crie um novo ou realize uma importação." :autoclose="false"></x-alert>
+        <x-alert type="warning" message="Nenhum lote cadastrado. Crie um novo ou realize uma importação."
+                 :autoclose="false"></x-alert>
     @endif
 
     <x-modal wire:model.defer="showChangeStatusModal" wire:ignore.self>

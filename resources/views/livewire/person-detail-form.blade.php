@@ -132,6 +132,7 @@
             </div>
         </x-input-row>
 
+        {{--
         @if($state['civil_status'] == \App\Enums\CivilStatus::MARRIED)
             <x-input-row class="mt-6 mb-6 md:mt-0 items-center">
                 <h2 class="text-lg uppercase tracking-widest">Cônjuge</h2>
@@ -179,14 +180,14 @@
                                             @endif
                                         </td>
                                         <td class="px-4 py-2 whitespace-nowrap text-right text-sm font-medium">
-                                            {{-- Edit action --}}
+                                            <!-- Edit Action -->
                                             <x-button-link href="{{ route('person.edit', $partner->id) }}" format="icon" title="Editar">
                                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                             d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                                                 </svg>
                                             </x-button-link>
-                                            {{-- Edit detail action --}}
+                                            <!-- Edit Detail Action -->
                                             <x-button-link href="{{ route('person.detail', $partner->id) }}" format="icon"
                                                            title="Editar detalhes">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -194,7 +195,7 @@
                                                           d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z"></path>
                                                 </svg>
                                             </x-button-link>
-                                            {{-- Edit address action --}}
+                                            <!-- Edit Address Action -->
                                             <x-button-link href="{{ route('person.address', $partner->id) }}" format="icon"
                                                            title="Editar endereço">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -204,7 +205,7 @@
                                                           d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                                 </svg>
                                             </x-button-link>
-                                            {{-- Remove partner --}}
+                                            <!-- Remove partner -->
                                             <x-button-link href="#" wire:click="removePartner" type="danger" format="icon" title="Remover cônjuge">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -232,6 +233,7 @@
             <p>Se o estado civil for casado(a), você deve selecionar um cônjuge.</p>
         </div>
         @enderror
+        --}}
 
         <x-input-row class="mt-6 flex flex-col space-y-2 md:space-y-0 md:flex-row">
             <x-button type="button" wire:click="saveDetail">Salvar e Voltar</x-button>

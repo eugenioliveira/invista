@@ -21,7 +21,6 @@ class Allotment extends Model
     protected $casts = [
         'area' => DecimalCast::class,
         'max_discount' => DecimalCast::class,
-        'allowable_margin' => DecimalCast::class,
         'reservation_duration' => TimeDurationCast::class
     ];
 

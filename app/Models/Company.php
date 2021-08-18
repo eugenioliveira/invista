@@ -40,4 +40,14 @@ class Company extends Model
     {
         return $this->belongsToMany(Person::class);
     }
+
+    /**
+     * Retorna as reservas realizadas em nome da empresa.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function reservations()
+    {
+        return $this->morphMany(Reservation::class, 'reserveable');
+    }
 }

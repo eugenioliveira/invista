@@ -6,6 +6,7 @@ use App\Casts\DecimalCast;
 use App\Enums\LotStatusType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Lot extends Model
 {
@@ -25,7 +26,7 @@ class Lot extends Model
      * @var array
      */
     protected $casts = [
-        'price' => DecimalCast::class.':2',
+        'price' => DecimalCast::class . ':2',
         'front' => DecimalCast::class,
         'back' => DecimalCast::class,
         'right' => DecimalCast::class,
@@ -60,6 +61,29 @@ class Lot extends Model
     public function reservations()
     {
         return $this->hasMany(Reservation::class);
+    }
+
+    /**
+     * Retorna o status mais recente do lote.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function latestStatus()
+    {
+        return $this->hasOne(LotStatus::class)->latestOfMany();
+    }
+
+    /**
+     * Retorna a reserva ativa do lote.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function activeReservation()
+    {
+        return $this->hasOne(Reservation::class)->ofMany(
+            ['id' => 'max'],
+            fn($query) => $query->active()
+        );
     }
 
     /**
@@ -120,7 +144,7 @@ class Lot extends Model
     public function getStatus()
     {
         // Verifica se o lote possui alguma reserva ativa
-        $activeReservation = $this->getActiveReservation();
+        $activeReservation = $this->activeReservation;
         // caso haja, cria um Status do tipo reservado.
         if ($activeReservation) {
             return $this->createReservedStatus($activeReservation);
@@ -129,29 +153,6 @@ class Lot extends Model
         // Caso não exista nem reserva nem proposta, retorna o primeiro status
         // estático encontrado.
         return $this->currentStaticStatus();
-    }
-
-    /**
-     * Retorna a reserva ativa do lote caso exista
-     *
-     * @return Reservation
-     */
-    public function getActiveReservation()
-    {
-        /*
-         * Uma reserva está ativa quando a data atual
-         * está entre a data de início e fim da reserva.
-         */
-        $reservations = $this
-            ->reservations()
-            ->active()
-            ->get();
-
-        if ($reservations->count() > 1) {
-            throw new \UnexpectedValueException("Há mais de uma reserva ativa para o lote {$this->identification}. Verificar.");
-        }
-
-        return $reservations->first();
     }
 
     /**
@@ -218,5 +219,15 @@ class Lot extends Model
             ])
             ->latest()
             ->first();
+    }
+
+    /**
+     * Determina se o lote está disponível.
+     *
+     * @return bool
+     */
+    public function isAvailable(): bool
+    {
+        return $this->latestStatus->type->value == LotStatusType::AVAILABLE;
     }
 }

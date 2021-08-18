@@ -37,6 +37,11 @@ class SearchPersonDropdown extends Component
      */
     protected $listeners = ['personRemoved' => 'updateExclude'];
 
+    public function mount()
+    {
+        $this->exclude = $this->exclude ?? collect();
+    }
+
     /**
      * Remove o id passado da lista de exclusões
      *
@@ -55,7 +60,7 @@ class SearchPersonDropdown extends Component
     public function selectPerson(Person $person)
     {
         $this->exclude->push($person->id);
-        $this->emit('personSelected', $person->id);
+        $this->emit('personSelected', $person);
         $this->reset('search', 'searchResults');
     }
 

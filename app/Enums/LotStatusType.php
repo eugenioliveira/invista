@@ -11,7 +11,6 @@ use BenSampo\Enum\Enum;
  * @method static static PROPOSED()
  * @method static static BLOCKED()
  * @method static static SOLD()
- * @method static static PARTNER()
  */
 final class LotStatusType extends Enum implements LocalizedEnum
 {
@@ -20,7 +19,6 @@ final class LotStatusType extends Enum implements LocalizedEnum
     const PROPOSED = 3;
     const BLOCKED = 4;
     const SOLD = 5;
-    const PARTNER = 6;
 
     /**
      * Retorna todos os status estáticos.
@@ -32,8 +30,7 @@ final class LotStatusType extends Enum implements LocalizedEnum
         return collect([
             static::AVAILABLE(),
             static::BLOCKED(),
-            static::SOLD(),
-            static::PARTNER()
+            static::SOLD()
         ]);
     }
 }

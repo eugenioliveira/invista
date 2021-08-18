@@ -17,7 +17,6 @@ class UpdatePersonDetail
      *
      * @param Person $person
      * @param array $input
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Person $person, array $input)
     {
@@ -34,10 +33,10 @@ class UpdatePersonDetail
             'father_name' => ['required', 'min:5'],
             'mother_name' => ['required', 'min:5']
         ])
-            ->sometimes('partner_id', ['required', 'numeric'], function ($input) {
-                return $input->civil_status == CivilStatus::MARRIED;
-            })
-            ->validate();
+            //->sometimes('partner_id', ['required', 'numeric'], function ($input) {
+                //return $input->civil_status == CivilStatus::MARRIED;
+            //})
+            ->safe()->all();
 
         if ($person->detail) {
             $person->detail->forceFill($validated);

@@ -17,7 +17,6 @@ class CreateNewPerson
      * @param array $input
      * @param bool $persist
      * @return Person
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function create(array $input, bool $persist = true): Person
     {
@@ -26,7 +25,7 @@ class CreateNewPerson
             'last_name' => ['required', 'min:2'],
             'cpf' => ['required', 'numeric', 'cpf', Rule::unique('people', 'cpf')],
             'phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
-        ])->validate();
+        ])->safe()->all();
 
         $personData['creator_id'] = Auth::user()->id;
 

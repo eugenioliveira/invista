@@ -24,7 +24,9 @@ class SearchPerson
                 ->where('first_name', 'like', '%' . $searchTerm . '%')
                 ->orWhere('last_name', 'like', '%' . $searchTerm . '%')
                 ->orWhere('cpf', 'like', '%' . $searchTerm . '%');
-        })->orderBy('first_name')->orderBy('last_name');
+        })
+            ->with(['detail', 'address', 'user'])
+            ->orderBy('first_name')->orderBy('last_name');
 
         if (count($excludeIds) > 0) {
             $personQuery->whereNotIn('id', $excludeIds);

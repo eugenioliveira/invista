@@ -1,101 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="55f11043-8ef8-4f8a-942d-e069f09c4d40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" afterDir="false" />
+    <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/eugenio.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/invista.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Actions/Reservation/CreateNewReservation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Enums/ProposalStatusType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Enums/ProposalType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Exceptions/ExistingActiveReservationException.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentPlansController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ReservationsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/EditPaymentPlanForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ReserveLotForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/PaymentPlan.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ProposalStatus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/PaymentPlanFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_16_111115_create_proposals_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_16_115053_create_proposal_statuses_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_17_095013_create_payment_plans_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/PaymentPlanSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/errors/existing-active-reservation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/edit-payment-plan-form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/list-lots.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/reserve-lot-form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/payment-plans/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/payment-plans/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reservations/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/clockwork/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/blade.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllotmentList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/CompaniesList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/CompaniesList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Address/UpdateAddress.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Address/UpdateAddress.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/City/CreateNewCity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/City/CreateNewCity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Company/CreateNewCompany.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Company/CreateNewCompany.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Company/SearchCompany.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Company/SearchCompany.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Company/UpdateCompany.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Company/UpdateCompany.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Lot/CreateNewLotStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Lot/CreateNewLotStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Lot/SearchLot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Lot/SearchLot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Person/CreateNewPerson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/CreateNewPerson.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Person/SearchPerson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/SearchPerson.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Person/UpdatePerson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/UpdatePerson.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Person/UpdatePersonDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/UpdatePersonDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Enums/CivilStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/CivilStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Enums/LotStatusType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/LotStatusType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ManageLots.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ManageLots.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PeopleList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/PeopleList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PersonDetailForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/PersonDetailForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/UserList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/UserList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/RedirectHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/RedirectHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/SearchPersonDropdown.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/SearchPersonDropdown.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Allotment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Allotment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Reservation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/CompanyPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/CompanyPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/PersonPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/PersonPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/UserPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/UserPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/View/Components/LotStatusBadge.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/LotStatusBadge.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/AllotmentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AllotmentFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/LotStatusFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LotStatusFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_16_103015_create_allotments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_16_103015_create_allotments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_27_133220_create_reservations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_27_133220_create_reservations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/AclSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/AclSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/debugbar/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/debugbar/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-0HXvM3epMYTQL3y8YiejhvvnTAyoGP7y.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-0HXvM3epMYTQL3y8YiejhvvnTAyoGP7y.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-2DbDbVSVHqpZ4vN5HoHhMmiQigc8Gv5g.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-2DbDbVSVHqpZ4vN5HoHhMmiQigc8Gv5g.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-3ertnPj2gzCr0x6zuYz303E7A5uFKiry.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-3ertnPj2gzCr0x6zuYz303E7A5uFKiry.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-605JCu03px2Nf5j1JDtbpx93hk48tBPU.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-605JCu03px2Nf5j1JDtbpx93hk48tBPU.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-61Fa8AmJ37jSGSHi7GCxxwT1BZCwDRPB.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-61Fa8AmJ37jSGSHi7GCxxwT1BZCwDRPB.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-65cb11H298TiNE9W8McX7bQqx3yB0TMA.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-65cb11H298TiNE9W8McX7bQqx3yB0TMA.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-6YEuiADPA8iyLT5aL5bUc1uCdvcqoGaw.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-6YEuiADPA8iyLT5aL5bUc1uCdvcqoGaw.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8JSW0l2AoATBq6czjNtRX9PBlX8dzIX1.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8JSW0l2AoATBq6czjNtRX9PBlX8dzIX1.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8eBw3kWOz3Pu7OaLYx7R1h4CJHH205bI.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8eBw3kWOz3Pu7OaLYx7R1h4CJHH205bI.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8jORoMonXFND77XGS4Uo9lvzQhBXOxdQ.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8jORoMonXFND77XGS4Uo9lvzQhBXOxdQ.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8sYzj83Nj5EGwlyeYIyEUA8B3Doi1I81.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8sYzj83Nj5EGwlyeYIyEUA8B3Doi1I81.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8uDCknuvA9k3rRRSfdv7iu3rNyNwa50o.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-8uDCknuvA9k3rRRSfdv7iu3rNyNwa50o.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-9ZHtFDoOID7kVzX7Y6pV9ewlDy57GMyx.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-9ZHtFDoOID7kVzX7Y6pV9ewlDy57GMyx.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-AsVIWvhn02cViYDswpj0Wk7SdJdIxgcu.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-AsVIWvhn02cViYDswpj0Wk7SdJdIxgcu.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BFl4c7tXkTS5blQtjpZoXCBFJ6Tw1J39.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BFl4c7tXkTS5blQtjpZoXCBFJ6Tw1J39.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BTanzCJdrusMv4O7PMfQvDeC1tJjZikI.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BTanzCJdrusMv4O7PMfQvDeC1tJjZikI.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BkMojU0R0Il2muroDmIskzOSFfvlwwbb.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BkMojU0R0Il2muroDmIskzOSFfvlwwbb.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-CJWogg5kleaBY2rx7fv4NknwXRf5ZMK1.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-CJWogg5kleaBY2rx7fv4NknwXRf5ZMK1.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-CcSq3uJ3KF9GpeLng5X71EoGAr0GOEZ8.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-CcSq3uJ3KF9GpeLng5X71EoGAr0GOEZ8.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Co5Ejn3yMNXb7Zg80shTdg8dM35jU9L9.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Co5Ejn3yMNXb7Zg80shTdg8dM35jU9L9.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-DONvMGE6fPh6xzx2FIIrUBZRNwl4rWGp.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-DONvMGE6fPh6xzx2FIIrUBZRNwl4rWGp.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-DZHtGGYf4M6rzN9Axz4vPF1NcFiSvtDh.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-DZHtGGYf4M6rzN9Axz4vPF1NcFiSvtDh.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ELdviJqfT4gnx07ha7mMqmdPt0U7b9hW.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ELdviJqfT4gnx07ha7mMqmdPt0U7b9hW.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-FQZnGBeWLOzNs0by7kwjj1voOTer7yzf.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-FQZnGBeWLOzNs0by7kwjj1voOTer7yzf.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-FnQYMV8FQLLicNPWliE2ZPo9KXM4VZJ6.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-FnQYMV8FQLLicNPWliE2ZPo9KXM4VZJ6.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-GFMKXDDWXiLn2SRDSO2fq0oxRBe4YH85.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-GFMKXDDWXiLn2SRDSO2fq0oxRBe4YH85.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-GXZD93J3PMhWOtyVSrKGxDC9k4GqRxlM.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-GXZD93J3PMhWOtyVSrKGxDC9k4GqRxlM.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-HNnH8xubUbXZmajqiGN3y0B6EwRue627.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-HNnH8xubUbXZmajqiGN3y0B6EwRue627.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-HiBQ2EB8W8vvqvKQT8HLQJZ4cSB2Z5yE.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-HiBQ2EB8W8vvqvKQT8HLQJZ4cSB2Z5yE.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-HsYCKm49l5NyXwWAWJQyR4HQLbKmQmtD.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-HsYCKm49l5NyXwWAWJQyR4HQLbKmQmtD.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-IMX4IZlBgcB6Dmb3hW1E7bS66tGFdYwL.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-IMX4IZlBgcB6Dmb3hW1E7bS66tGFdYwL.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Issm7QdxwSqmL4FlP5VRuyTMUKA97rGe.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Issm7QdxwSqmL4FlP5VRuyTMUKA97rGe.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ItnjvqbWZgwM1EhJXYRSzyQZGbuc9zC5.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ItnjvqbWZgwM1EhJXYRSzyQZGbuc9zC5.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-JIoYjfHmOVn7mr77xw0JCZfZmzlxN2lx.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-JIoYjfHmOVn7mr77xw0JCZfZmzlxN2lx.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-K4YEI4LGCF0fyptZ9XUeh7ChSpvp9kds.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-K4YEI4LGCF0fyptZ9XUeh7ChSpvp9kds.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-KQSOrAzOLvSP6qSdU0LEAT2EV53Fh2Dh.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-KQSOrAzOLvSP6qSdU0LEAT2EV53Fh2Dh.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-KWEkbHc989vaJCmV52hly4m4pAM0FfOp.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-KWEkbHc989vaJCmV52hly4m4pAM0FfOp.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-KhWhkSI5blJfiLQGqxJpEMtkJNsBo7UI.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-KhWhkSI5blJfiLQGqxJpEMtkJNsBo7UI.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-NTaB6JRrP7B8OkdriIHkj2JUrlk9qOMg.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-NTaB6JRrP7B8OkdriIHkj2JUrlk9qOMg.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-OXdXbcUgqKhaCs4pMhA0idg5Gu0FK8Et.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-OXdXbcUgqKhaCs4pMhA0idg5Gu0FK8Et.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-PzNkkNtZyCb30MBo7qlTP3Ubyqc40qcj.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-PzNkkNtZyCb30MBo7qlTP3Ubyqc40qcj.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-RZwTscsniWpdKqZ1EWD8Vv53vY8b3foC.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-RZwTscsniWpdKqZ1EWD8Vv53vY8b3foC.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SUFji1p7ctyve1rOnucuhb3TGaWWz488.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SUFji1p7ctyve1rOnucuhb3TGaWWz488.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SaVitmzIm2jwpKJaMxuwf8maXUki9hbf.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SaVitmzIm2jwpKJaMxuwf8maXUki9hbf.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SdInpPjcq4Kq5IjwBygiQnreqD8RxAEG.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SdInpPjcq4Kq5IjwBygiQnreqD8RxAEG.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SgbCAAN9XGN1yUNXACjtK0r47i7mUw8P.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SgbCAAN9XGN1yUNXACjtK0r47i7mUw8P.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-bV0ORPjcqDhWgY18GqHVgVnplmvSdnVV.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-bV0ORPjcqDhWgY18GqHVgVnplmvSdnVV.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-c0CQnuMFDRcoIV9LyED50qUCBe3tuLUc.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-c0CQnuMFDRcoIV9LyED50qUCBe3tuLUc.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-c7bvbdYLqQtA2Fz39ucqq2Oou3SSRvsB.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-c7bvbdYLqQtA2Fz39ucqq2Oou3SSRvsB.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-cqyNa77CxLAv5k0Jqeyw9zZJzGfkTboP.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-cqyNa77CxLAv5k0Jqeyw9zZJzGfkTboP.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-dSXBTB04z5cFAveGvHz32oI0AMDHxUOe.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-dSXBTB04z5cFAveGvHz32oI0AMDHxUOe.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-dpH0FtPLfxYdRYkZTDr73fuw8DvqAGcM.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-dpH0FtPLfxYdRYkZTDr73fuw8DvqAGcM.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-eMkuc0t2ogUR00y5g6POUNOKjePevYRc.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-eMkuc0t2ogUR00y5g6POUNOKjePevYRc.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-eZfIjWphh3uF1EiXoSUnLM329PC6PYsx.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-eZfIjWphh3uF1EiXoSUnLM329PC6PYsx.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gPgfRLtTWSvn30MpzOSiAJW7Xo46MHre.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gPgfRLtTWSvn30MpzOSiAJW7Xo46MHre.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gTjyCkfFG6Oj1qv9nJvQ9U5pPjsj741c.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gTjyCkfFG6Oj1qv9nJvQ9U5pPjsj741c.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gZlUGNYL10OUnOJBZ3OJRmSebzNSrRR3.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gZlUGNYL10OUnOJBZ3OJRmSebzNSrRR3.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gzLApVGvMZIHlYExe7Fe6gJ1NuntlyJ6.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gzLApVGvMZIHlYExe7Fe6gJ1NuntlyJ6.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-hpIQ5NS9w1Cxu55U41C6Pp3eWo5Zd0WF.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-hpIQ5NS9w1Cxu55U41C6Pp3eWo5Zd0WF.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ijgKePN6kudu0bkD0iDPvFb32kL9sRfF.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ijgKePN6kudu0bkD0iDPvFb32kL9sRfF.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-jhsXxilwAAqEWxJqvEA5Qvyt6AqMs5jn.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-jhsXxilwAAqEWxJqvEA5Qvyt6AqMs5jn.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-nmsBqRdYimkFSVGZz3AFoyyhNodry5eB.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-nmsBqRdYimkFSVGZz3AFoyyhNodry5eB.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ntXpxML23Xg2HJdBzdmzvwkp863l808Y.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ntXpxML23Xg2HJdBzdmzvwkp863l808Y.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ps1llct9WdYGZHpac6ZUBQmFfuxzGusp.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ps1llct9WdYGZHpac6ZUBQmFfuxzGusp.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-rBTfHpsgXCIt5BL79ri3QRBLf3PaW0H0.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-rBTfHpsgXCIt5BL79ri3QRBLf3PaW0H0.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-rPzYoRBAZ15fUDxn3taxShBejy7YB7bo.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-rPzYoRBAZ15fUDxn3taxShBejy7YB7bo.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-sZFqXetCBbq1P6NJfbAk04nMOX17SQc5.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-sZFqXetCBbq1P6NJfbAk04nMOX17SQc5.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-spNmrSmjAVT2rWxY71tMPZjYSmUihAuF.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-spNmrSmjAVT2rWxY71tMPZjYSmUihAuF.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ttd1u6nyxt3dH9rVOAkWlIUYISzbMb1H.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-ttd1u6nyxt3dH9rVOAkWlIUYISzbMb1H.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vEzmzolDC0G8bjXagyatcsJiAqS5Mxni.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vEzmzolDC0G8bjXagyatcsJiAqS5Mxni.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vYsalr76Snp5usW9ELDHpIHJL4oQEDs1.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vYsalr76Snp5usW9ELDHpIHJL4oQEDs1.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vkxTWGI1doV5dXSCXqCb2M2LjNge0X1T.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-vkxTWGI1doV5dXSCXqCb2M2LjNge0X1T.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-wZLwET5yYKU0mKJR10VBGFHV3YWFeCTz.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-wZLwET5yYKU0mKJR10VBGFHV3YWFeCTz.ods" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-yIip7KHq2wBF77qwF5nd7it8DIT58AIF.ods" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-yIip7KHq2wBF77qwF5nd7it8DIT58AIF.ods" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/pt_BR/enums.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pt_BR/enums.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/button-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/button-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/full-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/full-logo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/lot-status-badge.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/lot-status-badge.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/manage-lots.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/manage-lots.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/person-detail-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/person-detail-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lots/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lots/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,14 +100,6 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="composer.json" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -126,156 +113,165 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/app/Http/Livewire/AllotmentList.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/Models/User.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/Providers/JetstreamServiceProvider.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/package.json" />
+    <setting file="file://$PROJECT_DIR$/app/Http/Livewire/ManageLots.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/resources/views/livewire/list-lots.blade.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
-      <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
-      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
-      <path value="$PROJECT_DIR$/vendor/bensampo/laravel-enum" />
-      <path value="$PROJECT_DIR$/vendor/brick/math" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/dasprid/enum" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
-      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/vendor/facade/flare-client-php" />
-      <path value="$PROJECT_DIR$/vendor/facade/ignition" />
-      <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
-      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
-      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-cors" />
-      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
-      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
-      <path value="$PROJECT_DIR$/vendor/hanneskod/classtools" />
-      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
       <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
       <path value="$PROJECT_DIR$/vendor/laravel-lang/lang" />
-      <path value="$PROJECT_DIR$/vendor/laravel/fortify" />
-      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
-      <path value="$PROJECT_DIR$/vendor/laravel/jetstream" />
-      <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
-      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
-      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
-      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
-      <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
       <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
       <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
       <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
-      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
-      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
-      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
-      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
-      <path value="$PROJECT_DIR$/vendor/opis/closure" />
       <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
-      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
-      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/vendor/pragmarx/google2fa" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
-      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
-      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
-      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
-      <path value="$PROJECT_DIR$/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
-      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
-      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/thiagocfn/inscricaoestadual" />
       <path value="$PROJECT_DIR$/vendor/geekcom/validator-docs" />
       <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/vendor/itsgoingd/clockwork" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
+      <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
+      <path value="$PROJECT_DIR$/vendor/facade/flare-client-php" />
+      <path value="$PROJECT_DIR$/vendor/laravel/jetstream" />
+      <path value="$PROJECT_DIR$/vendor/facade/ignition" />
+      <path value="$PROJECT_DIR$/vendor/laravel/fortify" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-cors" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/vendor/bensampo/laravel-enum" />
+      <path value="$PROJECT_DIR$/vendor/dasprid/enum" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/hanneskod/classtools" />
+      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
+      <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/vendor/league/config" />
+      <path value="$PROJECT_DIR$/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1lT9DbLVfYHfaNWd8QYTwQSDQT3" />
+  <component name="ProjectId" id="1wXBo46ut7ebFUcRS1h02T3F04G" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -285,29 +281,26 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/payment-plans" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/components" />
-      <recent name="$PROJECT_DIR$/resources/views/users" />
+      <recent name="$PROJECT_DIR$/resources/views/payment-plans" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/js/editor" />
-      <recent name="$PROJECT_DIR$/app/Services" />
+      <recent name="$PROJECT_DIR$/resources/views/livewire" />
     </key>
   </component>
   <component name="RunManager">
@@ -319,62 +312,19 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="55f11043-8ef8-4f8a-942d-e069f09c4d40" name="Default Changelist" comment="" />
-      <created>1607610097231</created>
+      <changelist id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="" />
+      <created>1628595227392</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1607610097231</updated>
-      <workItem from="1607610099836" duration="147000" />
-      <workItem from="1607610256053" duration="59000" />
-      <workItem from="1607610324621" duration="3788000" />
-      <workItem from="1607628580166" duration="599000" />
-      <workItem from="1607694023566" duration="2153000" />
-      <workItem from="1607954155536" duration="11074000" />
-      <workItem from="1608038835033" duration="4229000" />
-      <workItem from="1608063541213" duration="100000" />
-      <workItem from="1608063656028" duration="66000" />
-      <workItem from="1608063734100" duration="198000" />
-      <workItem from="1608121930451" duration="4205000" />
-      <workItem from="1608302904512" duration="2066000" />
-      <workItem from="1610646406888" duration="120000" />
-      <workItem from="1610646552631" duration="228000" />
-      <workItem from="1610646814212" duration="7208000" />
-      <workItem from="1610708572969" duration="9685000" />
-      <workItem from="1611057547080" duration="6166000" />
-      <workItem from="1611143459327" duration="512000" />
-      <workItem from="1611143992954" duration="3039000" />
-      <workItem from="1611158621172" duration="2244000" />
-      <workItem from="1611160876725" duration="3022000" />
-      <workItem from="1611260245591" duration="619000" />
-      <workItem from="1611314818743" duration="9202000" />
-      <workItem from="1611574638907" duration="20641000" />
-      <workItem from="1611667734472" duration="7305000" />
-      <workItem from="1611749396057" duration="5960000" />
-      <workItem from="1611834021944" duration="16000000" />
-      <workItem from="1612264995406" duration="30664000" />
-      <workItem from="1612376287393" duration="4991000" />
-      <workItem from="1612527594930" duration="14985000" />
-      <workItem from="1612873637416" duration="7150000" />
-      <workItem from="1613047443137" duration="14584000" />
-      <workItem from="1613134448768" duration="22000" />
-      <workItem from="1613134481211" duration="5085000" />
-      <workItem from="1613578819253" duration="586000" />
-      <workItem from="1613579558017" duration="5000" />
-      <workItem from="1613582846115" duration="7228000" />
-      <workItem from="1613648506537" duration="6055000" />
-      <workItem from="1613997899849" duration="3355000" />
-      <workItem from="1614090352551" duration="16000" />
-      <workItem from="1614091284267" duration="1678000" />
-      <workItem from="1614252609007" duration="11000" />
-      <workItem from="1614254540848" duration="14719000" />
-      <workItem from="1614278510444" duration="5168000" />
-      <workItem from="1614354628493" duration="23000" />
-      <workItem from="1614354661180" duration="2066000" />
-      <workItem from="1614858233332" duration="5416000" />
-      <workItem from="1618227847179" duration="26000" />
-      <workItem from="1618227984251" duration="139000" />
-      <workItem from="1618228133603" duration="1490000" />
-      <workItem from="1619090939233" duration="7858000" />
+      <updated>1628595227392</updated>
+      <workItem from="1628595230862" duration="20260000" />
+      <workItem from="1628687681378" duration="10036000" />
+      <workItem from="1628779266616" duration="1606000" />
+      <workItem from="1628781058478" duration="3464000" />
+      <workItem from="1628852888560" duration="2847000" />
+      <workItem from="1629122852021" duration="6515000" />
+      <workItem from="1629204184621" duration="14789000" />
+      <workItem from="1629307380236" duration="659000" />
     </task>
     <servers />
   </component>

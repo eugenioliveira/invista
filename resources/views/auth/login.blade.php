@@ -5,14 +5,13 @@
             {{-- Logo and Brand --}}
             <div class="flex items-center justify-center">
                 {{-- Logo --}}
-                <div>
+                <!--<div>
                     <x-logo width="50" />
-                </div>
+                </div>-->
                 {{-- Brand --}}
                 <div>
                     <h2 class="text-2xl uppercase">
-                        <span class="font-medium">Caixeta</span>
-                        <span class="font-bold text-primary">Vendas</span>
+                        <span class="font-medium">Sistema Invista</span>
                     </h2>
                 </div>
             </div>

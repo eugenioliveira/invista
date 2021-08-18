@@ -12,7 +12,7 @@ class Reservation extends Model
 
     /**
      * Desabilita a proteção contra mass assignment
-     * uma vez que os campos serão validados.
+     * visto que os campos serão validados.
      *
      * @var array
      */
@@ -41,6 +41,16 @@ class Reservation extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Obtém o cliente para o qual foi realizada a reserva (Física ou Jurídica)
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     */
+    public function reserveable()
+    {
+        return $this->morphTo();
     }
 
     /**

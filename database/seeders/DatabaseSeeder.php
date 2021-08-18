@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             PermissionSeeder::class,
             AclSeeder::class,
-            CompanySeeder::class
+            CompanySeeder::class,
+            PaymentPlanSeeder::class
         ]);
     }
 }

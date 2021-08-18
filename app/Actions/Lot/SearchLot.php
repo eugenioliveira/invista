@@ -29,6 +29,10 @@ class SearchLot
                 if ($block) $query->where('block', $block);
                 if ($number) $query->where('number', $number);
             })
+            ->with([
+                'latestStatus',
+                'activeReservation'
+            ])
             ->orderBy('block')
             ->orderBy('number');
 
