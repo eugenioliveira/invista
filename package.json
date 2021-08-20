@@ -12,14 +12,14 @@
     "devDependencies": {
         "autoprefixer": "^10.3.1",
         "axios": "^0.21",
-        "laravel-mix": "^6.0.27",
-        "lodash": "^4.17.19",
+        "laravel-mix": "^6.0.28",
+        "lodash": "^4.17.21",
         "postcss": "^8.3.6",
         "tailwindcss": "^2.2.7"
     },
     "dependencies": {
         "@eugenio.oliveira/caixeta-editor": "^1.2.0",
-        "alpinejs": "^2.8.1",
+        "alpinejs": "^3.2.3",
         "apexcharts": "^3.27.3"
     }
 }

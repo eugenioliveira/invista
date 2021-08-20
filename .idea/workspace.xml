@@ -5,92 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/eugenio.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/invista.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Actions/Reservation/CreateNewReservation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Enums/ProposalStatusType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Enums/ProposalType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exceptions/ExistingActiveReservationException.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PaymentPlansController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ReservationsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/EditPaymentPlanForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ReserveLotForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/PaymentPlan.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/ProposalStatus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/PaymentPlanFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_16_111115_create_proposals_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_16_115053_create_proposal_statuses_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_08_17_095013_create_payment_plans_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/PaymentPlanSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/existing-active-reservation.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/edit-payment-plan-form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/list-lots.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/reserve-lot-form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/payment-plans/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/payment-plans/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/reservations/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/clockwork/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/blade.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caixeta-vendas.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/PaymentPlanForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/error-popup.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/payment-plan-form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Address/UpdateAddress.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Address/UpdateAddress.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/City/CreateNewCity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/City/CreateNewCity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Company/CreateNewCompany.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Company/CreateNewCompany.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Company/SearchCompany.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Company/SearchCompany.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Company/UpdateCompany.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Company/UpdateCompany.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Lot/CreateNewLotStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Lot/CreateNewLotStatus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Lot/SearchLot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Lot/SearchLot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Person/CreateNewPerson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/CreateNewPerson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Person/SearchPerson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/SearchPerson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Person/UpdatePerson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/UpdatePerson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Person/UpdatePersonDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/UpdatePersonDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/CivilStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/CivilStatus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/LotStatusType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/LotStatusType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ManageLots.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ManageLots.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/PeopleList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/PeopleList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/RedirectHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/RedirectHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/SearchPersonDropdown.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/SearchPersonDropdown.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Allotment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Allotment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Company.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Person.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/Components/LotStatusBadge.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/LotStatusBadge.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AllotmentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AllotmentFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/LotStatusFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LotStatusFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_16_103015_create_allotments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_16_103015_create_allotments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_27_133220_create_reservations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_27_133220_create_reservations_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/AclSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/AclSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/EditPaymentPlanForm.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/pt_BR/enums.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/pt_BR/enums.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/button-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/button-link.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/full-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/full-logo.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/lot-status-badge.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/lot-status-badge.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/manage-lots.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/manage-lots.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/person-detail-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/person-detail-form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lots/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lots/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/edit-payment-plan-form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/sales-chart-component.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/payment-plans/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/payment-plans/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,6 +223,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -324,7 +255,10 @@
       <workItem from="1628852888560" duration="2847000" />
       <workItem from="1629122852021" duration="6515000" />
       <workItem from="1629204184621" duration="14789000" />
-      <workItem from="1629307380236" duration="659000" />
+      <workItem from="1629307380236" duration="5353000" />
+      <workItem from="1629371407535" duration="16672000" />
+      <workItem from="1629394623620" duration="4395000" />
+      <workItem from="1629462041622" duration="11209000" />
     </task>
     <servers />
   </component>

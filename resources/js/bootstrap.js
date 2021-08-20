@@ -13,15 +13,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Loading Alpine JS - TALL Stack
  */
-import 'alpinejs';
-
-/**
- * Loading APEX Chart Library
- */
-window.ApexCharts = require('apexcharts');
-window.ptBR = require('apexcharts/dist/locales/pt-br.json');
-
-window.CaixetaDocumentEditor = require('@eugenio.oliveira/caixeta-editor/build/caixeta-editor');
+import Alpine from "alpinejs";
+window.Alpine = Alpine;
+Alpine.start();
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

@@ -12,7 +12,7 @@
     </x-slot>
 
     <x-section>
-        <livewire:edit-payment-plan-form :plan="$plan"/>
+        <livewire:payment-plan-form :plan="$plan"/>
     </x-section>
 
 </x-app-layout>

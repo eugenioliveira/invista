@@ -58,14 +58,14 @@
                     x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                        <div class="mt-3 text-center sm:mt-0 sm:text-left">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-                                {{ $title }}
-                            </h3>
-                            <div class="mt-4">
-                                {{ $body }}
-                            </div>
+                    <div class="mt-3 text-center sm:mt-0 sm:text-left">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                            {{ $title }}
+                        </h3>
+                        <div class="mt-4">
+                            {{ $body }}
                         </div>
+                    </div>
                 </div>
                 <div class="bg-gray-200 px-4 py-3 sm:px-6 sm:flex sm:justify-end">
                     {{ $footer }}
