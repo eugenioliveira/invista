@@ -36,7 +36,7 @@ class UpdatePersonDetail
             //->sometimes('partner_id', ['required', 'numeric'], function ($input) {
                 //return $input->civil_status == CivilStatus::MARRIED;
             //})
-            ->safe()->all();
+            ->validate();
 
         if ($person->detail) {
             $person->detail->forceFill($validated);

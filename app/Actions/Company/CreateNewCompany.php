@@ -25,7 +25,7 @@ class CreateNewCompany
             'cnpj' => ['required', 'numeric', 'cnpj', Rule::unique('companies', 'cnpj')],
             'state_reg_id' => ['required', 'numeric'],
             'phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
-        ])->safe()->all();
+        ])->validate();
 
         $companyData['creator_id'] = Auth::user()->id;
 

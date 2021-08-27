@@ -11,6 +11,8 @@ class PaymentPlan extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     /**
      * Conversão do campo de índices
      *
@@ -20,4 +22,14 @@ class PaymentPlan extends Model
         'min_down_payment' => DecimalCast::class,
         'installment_indexes' => AsCollection::class,
     ];
+
+    /**
+     * Loteamentos
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function allotments()
+    {
+        return $this->belongsToMany(Allotment::class);
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AllotmentsController;
+use App\Http\Controllers\AllotmentsPaymentPlansController;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\CompanyAddressController;
 use App\Http\Controllers\CompanyShareholdersController;
@@ -51,6 +52,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/allotments/edit/{allotment}', [AllotmentsController::class, 'edit'])
         ->middleware('can:edit_allotment')
         ->name('allotment.edit');
+
+    // Planos de pagamento
+    Route::get('/allotments/{allotment}/payment-plans', AllotmentsPaymentPlansController::class)
+        ->middleware('can:edit_allotment')
+        ->name('allotment.payment-plans');
 
     //======================================================================
 
@@ -181,6 +187,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/payment-plans', [PaymentPlansController::class, 'index'])
         ->middleware('can:manage_payment_plans')
         ->name('payment-plans.index');
+
+    // Criação de um plano de pagamento
+    Route::get('/payment-plans/create', [PaymentPlansController::class, 'create'])
+        ->middleware('can:manage_payment_plans')
+        ->name('payment-plans.create');
 
     // Alteração de dados de um plano de pagamento
     Route::get('/payment-plans/{plan}/edit', [PaymentPlansController::class, 'edit'])

@@ -24,7 +24,7 @@ class UpdatePerson
             'last_name' => ['required', 'min:2'],
             'cpf' => ['required', 'numeric', 'cpf', Rule::unique('people', 'cpf')->ignore($person->id)],
             'phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
-        ])->safe()->all();
+        ])->validate();
 
         $person->forceFill($validated)->save();
         if ($person->user) {

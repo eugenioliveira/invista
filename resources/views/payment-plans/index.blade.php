@@ -10,7 +10,7 @@
             <x-header-text>Planos de pagamento parcelados</x-header-text>
             @if(\Auth::user()->isAdmin())
                 <div>
-                    <x-button-link href="#">Criar novo</x-button-link>
+                    <x-button-link href="{{ route('payment-plans.create') }}">Criar novo</x-button-link>
                 </div>
             @endif
         </div>

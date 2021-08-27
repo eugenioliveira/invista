@@ -53,6 +53,16 @@ class Allotment extends Model
     }
 
     /**
+     * Planos de pagamento
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function plans()
+    {
+        return $this->belongsToMany(PaymentPlan::class);
+    }
+
+    /**
      * Obtem a URL da foto de capa.
      *
      * @return string

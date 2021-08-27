@@ -20,3 +20,5 @@ progress::-moz-progress-bar {
 .form-input {
     @apply border rounded-lg px-3 py-2 appearance-none focus:outline-none
 }
+
+[x-cloak] { display: none !important; }

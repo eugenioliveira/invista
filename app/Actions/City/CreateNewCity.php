@@ -34,7 +34,7 @@ class CreateNewCity
                     return $query->where('name', $input['name']);
                 })
             ]
-        ])->safe()->all();
+        ])->validate();
 
         return City::create($cityData);
     }

@@ -67,6 +67,8 @@ namespace App\Models{
  * @property-read string $cover_url
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Lot[] $lots
  * @property-read int|null $lots_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\PaymentPlan[] $plans
+ * @property-read int|null $plans_count
  * @method static \Database\Factories\AllotmentFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Allotment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Allotment newQuery()
@@ -235,6 +237,8 @@ namespace App\Models{
  * @property \Illuminate\Database\Eloquent\Casts\AsCollection $installment_indexes
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Allotment[] $allotments
+ * @property-read int|null $allotments_count
  * @method static \Database\Factories\PaymentPlanFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|PaymentPlan newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|PaymentPlan newQuery()

@@ -26,7 +26,7 @@ class UpdateAddress
             'city' => ['required', 'min:5'],
             'state' => ['required', 'min:2'],
             'postal_code' => ['required', 'numeric', 'digits:8'],
-        ])->safe()->all();
+        ])->validate();
 
         if ($addressable->address) {
             $addressable->address->forceFill($validated);
