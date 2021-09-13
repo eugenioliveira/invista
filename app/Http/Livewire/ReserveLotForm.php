@@ -7,12 +7,14 @@ use App\Actions\Person\UpdatePerson;
 use App\Actions\Reservation\CreateNewReservation;
 use App\Models\Lot;
 use App\Models\Person;
+use App\Models\Reservation;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ReserveLotForm extends Component
 {
-    use RedirectHandler;
+    use RedirectHandler, AuthorizesRequests;
 
     /**
      * O lote que será reservado
@@ -80,6 +82,8 @@ class ReserveLotForm extends Component
         $init = now();
         // Fim da reserva como definido nas configurações do loteamento
         $due = now()->addHours($lot->allotment->reservation_duration);
+
+        $this->authorize('create', [Reservation::class, $lot]);
 
         $creator->create($lot, $user, $reservable, $init, $due);
 

@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Actions/Allotment/UpdateAllotmentPaymentPlans.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Actions/Reservation/AuthorizesReservation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Policies/ReservationPolicy.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllotmentPaymentPlanForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentPaymentPlanForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-payment-plan-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-payment-plan-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Reservation/CreateNewReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Reservation/CreateNewReservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ReserveLotForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ReserveLotForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/CompanyPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/CompanyPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,6 +256,9 @@
       <workItem from="1629808473698" duration="11354000" />
       <workItem from="1629981547593" duration="9108000" />
       <workItem from="1630067010233" duration="12130000" />
+      <workItem from="1631121619593" duration="420000" />
+      <workItem from="1631185788590" duration="2120000" />
+      <workItem from="1631550926103" duration="5318000" />
     </task>
     <servers />
   </component>

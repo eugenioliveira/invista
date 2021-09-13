@@ -26,9 +26,8 @@ class CompanyPolicy
      *
      * @param User $loggedUser
      * @param Company $companyToUpdate
-     * @return bool
      */
-    public function edit(User $loggedUser, Company $companyToUpdate): bool
+    public function edit(User $loggedUser, Company $companyToUpdate)
     {
         /*
          * Esta política só será atingida se o usuário
