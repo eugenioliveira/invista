@@ -439,6 +439,8 @@ namespace App\Models{
  * @property string $reserveable_type
  * @property \Illuminate\Support\Carbon $init
  * @property \Illuminate\Support\Carbon $due
+ * @property \Illuminate\Support\Carbon|null $cancelled_at
+ * @property string|null $reason
  * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $reserveable
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation active()
@@ -446,10 +448,12 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereCancelledAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereDue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereInit($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereLotId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereReason($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereReserveableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereReserveableType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation whereUserId($value)

@@ -33,6 +33,8 @@ class CreateReservationsTable extends Migration
 
             $table->timestamp('init')->index();
             $table->timestamp('due')->index();
+            $table->timestamp('cancelled_at')->nullable();
+            $table->string('reason')->nullable();
         });
     }
 

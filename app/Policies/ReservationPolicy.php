@@ -37,14 +37,15 @@ class ReservationPolicy
 
         /**
          * 2. Um corretor não pode realizar mais do que duas reservas para o mesmo lote, caso:
-         *  - A diferença de tempo entre a primeira reserva e a data atual seja inferior a 3x o tempo de
+         *  — A diferença de tempo entre a primeira reserva e a data atual seja inferior a 3x o tempo de
          * reserva definido nas configurações de loteamento
          */
         $dateLimit = now()->subHours($lotToReserve->allotment->reservation_duration * 3);
         $reservations = $lotToReserve
             ->reservations()
-            ->whereUserId($loggedUser->id)
+            ->where('user_id', $loggedUser->id)
             ->where('init', '>', $dateLimit)
+            ->whereNull('cancelled_at')
             ->orderBy('init')
             ->get();
         if ($reservations->count() >= 2) {

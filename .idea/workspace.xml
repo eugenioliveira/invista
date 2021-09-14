@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Actions/Reservation/AuthorizesReservation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Policies/ReservationPolicy.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Reservation/CreateNewReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Reservation/CreateNewReservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ReserveLotForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ReserveLotForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/CompanyPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/CompanyPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/ExistingActiveReservationException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReservationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReservationsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Reservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/ReservationPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/ReservationPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_27_133220_create_reservations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_27_133220_create_reservations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/list-lots.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/list-lots.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +258,8 @@
       <workItem from="1630067010233" duration="12130000" />
       <workItem from="1631121619593" duration="420000" />
       <workItem from="1631185788590" duration="2120000" />
-      <workItem from="1631550926103" duration="5318000" />
+      <workItem from="1631550926103" duration="7795000" />
+      <workItem from="1631623327853" duration="2227000" />
     </task>
     <servers />
   </component>

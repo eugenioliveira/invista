@@ -177,6 +177,10 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('can:make_reservation')
         ->name('lot.reserve');
 
+    Route::get('/reservation/{reservation}/cancel', [ReservationsController::class, 'cancel'])
+        ->middleware('can:make_reservation')
+        ->name('reservation.cancel');
+
     //======================================================================
 
     //======================================================================

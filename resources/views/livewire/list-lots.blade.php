@@ -23,7 +23,8 @@
                             <h2 class="font-medium text-lg text-primary">{{ $lot->identification }}</h2>
                             @if($lot->activeReservation)
                                 <div>
-                                    <x-lot-status-badge :status="\App\Enums\LotStatusType::RESERVED()"></x-lot-status-badge>
+                                    <x-lot-status-badge
+                                            :status="\App\Enums\LotStatusType::RESERVED()"></x-lot-status-badge>
                                     <span class="text-xs">até {{ $lot->activeReservation->due->format('d/m/Y H:i') }}</span>
                                 </div>
                             @else
@@ -51,13 +52,19 @@
                         {{-- Este botão só deve ser exibido se o lote estiver reservado e a reserva pertencer ao usuário atual --}}
                         @if($lot->activeReservation)
                             @if($lot->activeReservation->user_id == \Auth::user()->id)
-                                <div class="flex space-x-2 items-center">
+                                <div class="flex space-x-2 items-center"
+                                     x-data="{ url: '{{ route('reservation.cancel', $lot->activeReservation->id) }}' }">
                                     <x-button-link type="success" class="w-full text-center" href="">
                                         Fazer proposta
                                     </x-button-link>
-                                    <x-button-link type="danger" class="w-full text-center" href="#">
+                                    <x-button-link
+                                            @click.prevent="confirm('Você tem certeza?') ? location.href=url : false"
+                                            type="danger"
+                                            class="w-full text-center"
+                                            href="#">
                                         Cancelar reserva
                                     </x-button-link>
+
                                 </div>
                             @endif
                         @endif

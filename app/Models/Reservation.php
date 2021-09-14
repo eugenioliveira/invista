@@ -31,7 +31,7 @@ class Reservation extends Model
      *
      * @var string[]
      */
-    protected $dates = ['init', 'due'];
+    protected $dates = ['init', 'due', 'cancelled_at'];
 
     /**
      * Uma reserva é efetuada por um usuário.
@@ -63,6 +63,21 @@ class Reservation extends Model
     {
         return $query
             ->where('init', '<=', now())
-            ->where('due', '>=', now());
+            ->where('due', '>=', now())
+            ->whereNull('cancelled_at');
+    }
+
+    /**
+     * Realiza o cancelamento da reserva.
+     *
+     * @param string $reason
+     * @return bool
+     */
+    public function cancel(string $reason): bool
+    {
+        $this->cancelled_at = now();
+        $this->reason = $reason;
+
+        return $this->save();
     }
 }
