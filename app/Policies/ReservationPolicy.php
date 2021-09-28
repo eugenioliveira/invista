@@ -45,7 +45,6 @@ class ReservationPolicy
             ->reservations()
             ->where('user_id', $loggedUser->id)
             ->where('init', '>', $dateLimit)
-            ->whereNull('cancelled_at')
             ->orderBy('init')
             ->get();
         if ($reservations->count() >= 2) {

@@ -26,8 +26,9 @@ trait RedirectHandler
         $this->successMessage = $message;
 
         if ($redirect) {
-            session()->flash('successMessage', $this->successMessage);
-            return redirect()->route($route[0], $route[1] ?? null);
+            return redirect()
+                ->route($route[0], $route[1] ?? null)
+                ->with('successMessage', $this->successMessage);
         }
     }
 }

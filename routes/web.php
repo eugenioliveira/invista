@@ -12,6 +12,7 @@ use App\Http\Controllers\PaymentPlansController;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\PersonAddressController;
 use App\Http\Controllers\PersonDetailController;
+use App\Http\Controllers\ProposalsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationsController;
@@ -59,8 +60,6 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('allotment.payment-plans');
 
     //======================================================================
-
-    //======================================================================
     // ROTAS REFERENTES À LOTES
     //======================================================================
 
@@ -85,8 +84,6 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('lots.import');
 
     //======================================================================
-
-    //======================================================================
     // ROTAS REFERENTES À USUÁRIOS (CORRETORES, ADMINS, SUPERVISORES)
     //======================================================================
 
@@ -104,8 +101,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user/{user}/edit', [UsersController::class, 'edit'])
         ->middleware('can:edit,user')
         ->name('user.edit');
-
-    //======================================================================
 
     //======================================================================
     // ROTAS REFERENTES À PESSOAS FÍSICAS
@@ -137,8 +132,6 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('person.detail');
 
     //======================================================================
-
-    //======================================================================
     // ROTAS REFERENTES À PESSOAS JURÍDICAS
     //======================================================================
 
@@ -166,7 +159,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/company/{company}/address', CompanyAddressController::class)
         ->middleware('can:edit,company')
         ->name('company.address');
-    //======================================================================
 
     //======================================================================
     // ROTAS REFERENTES À RESERVAS
@@ -174,7 +166,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Formulário de realização de reserva
     Route::get('/lots/{lot}/reserve', [ReservationsController::class, 'create'])
-        ->middleware('can:make_reservation')
+        ->middleware(['can:make_reservation', 'can:create,App\Models\Reservation,lot'])
         ->name('lot.reserve');
 
     Route::get('/reservation/{reservation}/cancel', [ReservationsController::class, 'cancel'])
@@ -182,6 +174,13 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('reservation.cancel');
 
     //======================================================================
+    // ROTAS REFERENTES À PROPOSTAS
+    //======================================================================
+
+    // Formulário de lançamento de proposta
+    Route::get('/lots/{lot}/propose', [ProposalsController::class, 'create'])
+        ->middleware(['can:propose', 'can:create,App\Models\Proposal,lot'])
+        ->name('lot.propose');
 
     //======================================================================
     // ROTAS REFERENTES À PLANOS DE PAGAMENTO

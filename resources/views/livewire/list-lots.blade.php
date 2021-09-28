@@ -54,7 +54,7 @@
                             @if($lot->activeReservation->user_id == \Auth::user()->id)
                                 <div class="flex space-x-2 items-center"
                                      x-data="{ url: '{{ route('reservation.cancel', $lot->activeReservation->id) }}' }">
-                                    <x-button-link type="success" class="w-full text-center" href="">
+                                    <x-button-link type="success" class="w-full text-center" href="{{ route('lot.propose', $lot->id) }}">
                                         Fazer proposta
                                     </x-button-link>
                                     <x-button-link

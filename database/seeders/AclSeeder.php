@@ -28,7 +28,8 @@ class AclSeeder extends Seeder
             ->allowTo('create_person')
             ->allowTo('view_companies')
             ->allowTo('create_company')
-            ->allowTo('make_reservation');
+            ->allowTo('make_reservation')
+            ->allowTo('propose');
 
         /**
          * Atribui as permissões para o papel de corretor.
@@ -40,7 +41,8 @@ class AclSeeder extends Seeder
             ->allowTo('create_person')
             ->allowTo('view_companies')
             ->allowTo('create_company')
-            ->allowTo('make_reservation');
+            ->allowTo('make_reservation')
+            ->allowTo('propose');
 
         // Atribui o papel de administrador para Eugenio
         User::whereName('Eugênio Oliveira')->firstOrFail()
