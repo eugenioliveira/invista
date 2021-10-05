@@ -10,16 +10,18 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "autoprefixer": "^10.3.2",
-        "axios": "^0.21",
-        "laravel-mix": "^6.0.28",
+        "autoprefixer": "^10.3.7",
+        "axios": "^0.22",
+        "laravel-mix": "^6.0.31",
         "lodash": "^4.17.21",
-        "postcss": "^8.3.6",
-        "tailwindcss": "^2.2.7"
+        "postcss": "^8.3.9",
+        "tailwindcss": "^2.2.16"
     },
     "dependencies": {
         "@eugenio.oliveira/caixeta-editor": "^1.2.0",
-        "alpinejs": "^3.2.4",
-        "apexcharts": "^3.27.3"
+        "@prettier/plugin-php": "^0.17.5",
+        "alpinejs": "^3.4.2",
+        "apexcharts": "^3.28.3",
+        "prettier": "^2.4.1"
     }
 }
