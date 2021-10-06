@@ -6,6 +6,7 @@ use BenSampo\Enum\Enum;
 
 /**
  * @method static static UNDER_REVIEW()
+ * @method static static RETURNED()
  * @method static static DENIED()
  * @method static static ACCEPTED()
  */
