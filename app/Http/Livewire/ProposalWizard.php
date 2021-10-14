@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Actions\Person\UpdatePersonDetail;
 use App\Enums\CivilStatus;
+use App\Enums\ProposalType;
 use App\Enums\ProposalWizardSteps;
 use App\Models\Lot;
 use Livewire\Component;
@@ -22,7 +23,7 @@ class ProposalWizard extends Component
      *
      * @var int
      */
-    public int $currentStep = ProposalWizardSteps::CLIENT_STEP;
+    public int $currentStep = ProposalWizardSteps::FINANCIAL_STEP;
 
     /**
      * A configuração de cada passo
@@ -53,11 +54,19 @@ class ProposalWizard extends Component
     public array $clientData = [];
 
     /**
+     * Os dados da proposta
+     *
+     * @var array
+     */
+    public array $proposalData = [];
+
+    /**
      * Realiza a configuração inicial de alguns campos
      */
     public function mount()
     {
         $this->clientData['civil_status'] = CivilStatus::SINGLE();
+        $this->proposalData['type'] = '';
     }
 
     /**

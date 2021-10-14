@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Enums/ProposalWizardSteps.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Person/UpdatePersonDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/UpdatePersonDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/ProposalStatusType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/ProposalStatusType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/proposals/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proposals/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +263,8 @@
       <workItem from="1633441400775" duration="120000" />
       <workItem from="1633441532182" duration="1062000" />
       <workItem from="1633442609132" duration="7378000" />
-      <workItem from="1633522083636" duration="8835000" />
+      <workItem from="1633522083636" duration="8868000" />
+      <workItem from="1634216308999" duration="4163000" />
     </task>
     <servers />
   </component>

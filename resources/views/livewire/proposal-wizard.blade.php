@@ -173,6 +173,49 @@
                     </div>
                 </div>
             @endif
+
+            @if($currentStep === \App\Enums\ProposalWizardSteps::FINANCIAL_STEP)
+                <div class="p-4">
+                    <div class="text-center">
+                        <h1>Selecione a forma de pagamento</h1>
+                        <div class="flex justify-center">
+                            @php
+                                $inCash = $proposalData['type'] === \App\Enums\ProposalType::IN_CASH;
+                                $installments = $proposalData['type'] === \App\Enums\ProposalType::INSTALLMENTS;
+                            @endphp
+                            <button type="button"
+                                    @class(['px-4', 'py-2', 'rounded-l', 'bg-primary', 'text-white',
+                                    'bg-opacity-80' => $inCash])
+                                    @if($inCash) disabled @endif
+                                    wire:click="$set('proposalData.type', 1)"
+                            >
+                                À vista
+                            </button>
+                            <button type="button"
+                                    @class(['px-4', 'py-2', 'rounded-r', 'bg-primary', 'text-white',
+                                    'bg-opacity-80' => $installments])
+                                    @if($installments) disabled @endif
+                                    wire:click="$set('proposalData.type', 2)"
+                            >
+                                Parcelado
+                            </button>
+                        </div>
+                    </div>
+
+                    @if($inCash)
+                        <div>
+                            Regras de negócio de pagamento à vista
+                        </div>
+                    @endif
+
+                    @if($installments)
+                        <div>
+                            Regras de negócio de pagamento parcelado
+                        </div>
+                    @endif
+                </div>
+
+            @endif
         </div>
         <!-- Botões -->
         <div class="p-4 bg-gray-100 border-t-2 border-gray-500 flex justify-around">
