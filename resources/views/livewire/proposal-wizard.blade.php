@@ -176,6 +176,9 @@
 
             @if($currentStep === \App\Enums\ProposalWizardSteps::FINANCIAL_STEP)
                 <div class="p-4">
+                    <p>
+                        <strong>Valor do lote:</strong> {{ $lot->formatted_price }}
+                    </p>
                     <div class="text-center">
                         <h1>Selecione a forma de pagamento</h1>
                         <div class="flex justify-center">
@@ -204,15 +207,98 @@
 
                     @if($inCash)
                         <div>
-                            Regras de negócio de pagamento à vista
+                            <x-input-row class="my-4 items-center">
+                                <h2 class="text-lg uppercase tracking-widest">Proposta de pagamento à vista</h2>
+                                <div class="flex-1 h-0.5 bg-gray-200"></div>
+                            </x-input-row>
+
+                            <x-input-row class="mb-4">
+                                {{-- Valor negociado do lote --}}
+                                <div class="w-full">
+                                    <x-input
+                                            label="Valor negociado (em R$)"
+                                            name="negotiated"
+                                            class="mt-1 w-full text-center"
+                                            wire:model="negotiated"
+                                            error="{{ $errors->first('proposalData.negotiated_value') }}"
+                                    />
+                                </div>
+                            </x-input-row>
                         </div>
                     @endif
 
                     @if($installments)
-                        <div>
-                            Regras de negócio de pagamento parcelado
-                        </div>
+                        @if(count($lot->allotment->plans) > 0)
+                            <div>
+                                <x-input-row class="my-4 items-center">
+                                    <h2 class="text-lg uppercase tracking-widest">Proposta de pagamento parcelado</h2>
+                                    <div class="flex-1 h-0.5 bg-gray-200"></div>
+                                </x-input-row>
+
+                                <x-input-row class="mb-4">
+                                    <x-select
+                                            label="Selecione um plano de pagamento"
+                                            name="plan"
+                                            class="mt-1 w-full"
+                                            wire:model="selectedPaymentPlan"
+                                            error="{{ $errors->first('selectedPaymentPlan') }}"
+                                    >
+                                        <option>Selecione...</option>
+                                        @foreach($lot->allotment->plans as $plan)
+                                            <option value="{{ $plan->id }}">{{ $plan->description }}</option>
+                                        @endforeach
+                                    </x-select>
+                                </x-input-row>
+
+                                @if($paymentPlan)
+                                    <x-input-row class="mb-4">
+                                        <div class="w-full">
+                                            <x-input
+                                                    label="Valor de entrada (em R$)"
+                                                    name="down_payment"
+                                                    class="mt-1 w-full text-center"
+                                                    wire:model="downPayment"
+                                                    error="{{ $errors->first('downPayment') }}"
+                                            />
+                                        </div>
+                                    </x-input-row>
+                                @endif
+
+                                @if($proposalData['down_payment'])
+                                    <x-select
+                                            label="Selecione uma parcela"
+                                            name="installment_value"
+                                            class="mt-1 w-full"
+                                    >
+                                        <option>Selecione...</option>
+                                        @foreach($simulatedInstallments as $key => $installment)
+                                            <option value="{{ $key }}">{{ $installment['installments'] }} parcelas de {{ app('currency')->format($installment['value']) }}</option>
+                                        @endforeach
+                                    </x-select>
+                                @endif
+                            </div>
+                        @else
+                            <div class="my-4">
+                                <x-alert type="danger" :autoclose="false">
+                                    Não é possível fazer uma proposta de pagamento parcelada pois não há plano de
+                                    pagamento
+                                    parcelado associado ao loteamento. Favor, entre em contato com o administrador.
+                                </x-alert>
+                            </div>
+                        @endif
                     @endif
+
+                    <div class="my-4">
+                        <x-textarea
+                                label="Observações a cerca da proposta"
+                                name="comments"
+                                class="mt-1 w-full"
+                                wire:model.defer="proposalData.comments"
+                                error="{{ $errors->first('comments') }}"
+                        >
+                        </x-textarea>
+                    </div>
+
                 </div>
 
             @endif

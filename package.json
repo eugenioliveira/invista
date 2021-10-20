@@ -11,17 +11,17 @@
     },
     "devDependencies": {
         "autoprefixer": "^10.3.7",
-        "axios": "^0.22",
-        "laravel-mix": "^6.0.31",
+        "axios": "^0.23",
+        "laravel-mix": "^6.0.34",
         "lodash": "^4.17.21",
         "postcss": "^8.3.9",
-        "tailwindcss": "^2.2.16"
+        "tailwindcss": "^2.2.17"
     },
     "dependencies": {
-        "@eugenio.oliveira/caixeta-editor": "^1.2.0",
         "@prettier/plugin-php": "^0.17.5",
         "alpinejs": "^3.4.2",
-        "apexcharts": "^3.28.3",
+        "apexcharts": "^3.29.0",
+        "imask": "^6.2.2",
         "prettier": "^2.4.1"
     }
 }

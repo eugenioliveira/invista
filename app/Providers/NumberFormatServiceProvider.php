@@ -14,11 +14,11 @@ class NumberFormatServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('currency', function () {
-            return new \NumberFormatter('pt-BR', \NumberFormatter::CURRENCY);
+            return new \NumberFormatter('pt_BR', \NumberFormatter::CURRENCY);
         });
 
         $this->app->singleton('decimal', function () {
-            return new \NumberFormatter('pt-BR', \NumberFormatter::DECIMAL);
+            return new \NumberFormatter('pt_BR', \NumberFormatter::DECIMAL);
         });
     }
 

@@ -13,7 +13,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Loading Alpine JS - TALL Stack
  */
-import Alpine from "alpinejs";
+import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 Alpine.start();
 

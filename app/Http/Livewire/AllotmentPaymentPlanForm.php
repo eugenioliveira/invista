@@ -35,22 +35,35 @@ class AllotmentPaymentPlanForm extends Component
         $this->allotment = $allotment;
     }
 
-    public function updatePlans(UpdateAllotmentPaymentPlans $updater, $redirectAfterUpdate = true)
-    {
+    public function updatePlans(
+        UpdateAllotmentPaymentPlans $updater,
+        $redirectAfterUpdate = true
+    ) {
         $updater->update($this->allotment, $this->selectedPlans);
+
+        // Redireciona
+        $this->successAction(
+            'Planos de pagamento configurados.',
+            ['allotments.index'],
+            $redirectAfterUpdate
+        );
     }
 
     public function render()
     {
-        $allotmentPlans = $this->allotment->plans()->select(['id', 'name', 'description'])->get();
+        $allotmentPlans = $this->allotment
+            ->plans()
+            ->select(['id', 'name', 'description'])
+            ->get();
         $availablePlans = PaymentPlan::whereNotIn(
-            'id', $allotmentPlans->pluck('id')
+            'id',
+            $allotmentPlans->pluck('id')
         )
             ->select(['id', 'name', 'description'])
             ->get();
-        return view(
-            'livewire.allotment-payment-plan-form',
-            ['allotmentPlans' => $allotmentPlans, 'availablePlans' => $availablePlans]
-        );
+        return view('livewire.allotment-payment-plan-form', [
+            'allotmentPlans' => $allotmentPlans,
+            'availablePlans' => $availablePlans
+        ]);
     }
 }

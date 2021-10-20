@@ -108,7 +108,9 @@ class Lot extends Model
         $right = $this->attributes['right'];
         $left = $this->attributes['left'];
 
-        return app('decimal')->format((($front + $back) / 2) * (($left + $right) / 2));
+        return app('decimal')->format(
+            (($front + $back) / 2) * (($left + $right) / 2)
+        );
     }
 
     /**
@@ -129,10 +131,26 @@ class Lot extends Model
     public function getSides()
     {
         return [
-            sprintf('%s metros de frente com %s', $this->front, $this->front_side),
-            sprintf('%s metros de fundos com %s', $this->back, $this->back_side),
-            sprintf('%s metros de lado direito com %s', $this->right, $this->right_side),
-            sprintf('%s metros de lado esquerdo com %s', $this->left, $this->left_side),
+            sprintf(
+                '%s metros de frente com %s',
+                $this->front,
+                $this->front_side
+            ),
+            sprintf(
+                '%s metros de fundos com %s',
+                $this->back,
+                $this->back_side
+            ),
+            sprintf(
+                '%s metros de lado direito com %s',
+                $this->right,
+                $this->right_side
+            ),
+            sprintf(
+                '%s metros de lado esquerdo com %s',
+                $this->left,
+                $this->left_side
+            )
         ];
     }
 
@@ -164,15 +182,21 @@ class Lot extends Model
      * @param bool $save
      * @return mixed
      */
-    public function createStatus(User $user, int $type, string $reason, $save = true)
-    {
+    public function createStatus(
+        User $user,
+        int $type,
+        string $reason,
+        $save = true
+    ) {
         $lotStatus = new LotStatus([
             'user_id' => $user->id,
             'type' => $type,
             'reason' => $reason
         ]);
 
-        if ($save) $this->statuses()->save($lotStatus);
+        if ($save) {
+            $this->statuses()->save($lotStatus);
+        }
 
         return $lotStatus;
     }
@@ -192,7 +216,7 @@ class Lot extends Model
                 'Lote reservado por %s, em %s. Data de encerramento: %s',
                 $reservation->user->name,
                 $reservation->init->format('d/m/Y H:i:s'),
-                $reservation->due->format('d/m/Y H:i:s'),
+                $reservation->due->format('d/m/Y H:i:s')
             ),
             false
         );
@@ -211,8 +235,7 @@ class Lot extends Model
      */
     protected function currentStaticStatus()
     {
-        return $this
-            ->statuses()
+        return $this->statuses()
             ->whereNotIn('type', [
                 LotStatusType::RESERVED,
                 LotStatusType::PROPOSED

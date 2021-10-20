@@ -1,4 +1,4 @@
-@props(['type' => 'success', 'message', 'autoclose' => true])
+@props(['type' => 'success', 'message' => '', 'autoclose' => true])
 
 @php
     switch ($type) {
@@ -59,7 +59,7 @@
                 @break
             @endswitch
             <p class="ml-4">
-                <span class="font-bold">{{ $title }}</span> {{ $message }}
+                <span class="font-bold">{{ $title }}</span> {{ $message }} {{ $slot }}
             </p>
         </div>
         {{-- Close button
