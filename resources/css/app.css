@@ -1,3 +1,7 @@
+@import "~filepond/dist/filepond.min.css";
+@import "~filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

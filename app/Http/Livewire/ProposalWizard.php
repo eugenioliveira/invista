@@ -6,14 +6,15 @@ use App\Actions\Person\UpdatePersonDetail;
 use App\Enums\CivilStatus;
 use App\Enums\ProposalType;
 use App\Enums\ProposalWizardSteps;
-use App\Exceptions\PaymentPlanNotFoundException;
 use App\Models\Lot;
 use App\Models\PaymentPlan;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ProposalWizard extends Component
 {
+    use WithFileUploads;
     /**
      * O lote para o qual será criada uma proposta
      *
@@ -26,7 +27,7 @@ class ProposalWizard extends Component
      *
      * @var int
      */
-    public int $currentStep = ProposalWizardSteps::FINANCIAL_STEP;
+    public int $currentStep = ProposalWizardSteps::DOCUMENT_STEP;
 
     /**
      * A configuração de cada passo
@@ -46,6 +47,13 @@ class ProposalWizard extends Component
             'subheading' =>
                 'Preencha as informações a respeito da proposta em si.',
             'method' => 'submitFinancialStep'
+        ],
+
+        ProposalWizardSteps::DOCUMENT_STEP => [
+            'heading' => 'Terceiro passo: documentação',
+            'subheading' =>
+                'Envie os documentos necessários para conclusão da proposta',
+            'method' => 'submitDocumentStep'
         ]
     ];
 
@@ -59,9 +67,9 @@ class ProposalWizard extends Component
     /**
      * Os dados da proposta
      *
-     * @var array
+     * @var Collection
      */
-    public array $proposalData = [];
+    public Collection $proposalData;
 
     /**
      * O valor negociado do lote no caso de proposta à vista
@@ -91,7 +99,26 @@ class ProposalWizard extends Component
      */
     public PaymentPlan $paymentPlan;
 
+    /**
+     * A lista de parcelas simuladas
+     *
+     * @var Collection
+     */
     public Collection $simulatedInstallments;
+
+    /**
+     * O índice do plano de pagamento selecionado
+     *
+     * @var string
+     */
+    public string $selectedInstallmentValue = '';
+
+    /**
+     * A lista de documentos para envio da proposta
+     *
+     * @var mixed
+     */
+    public $documents = [];
 
     /**
      * Realiza a configuração inicial de alguns campos
@@ -99,11 +126,12 @@ class ProposalWizard extends Component
     public function mount()
     {
         $this->clientData['civil_status'] = CivilStatus::SINGLE();
-        $this->proposalData = [
+        $this->proposalData = collect([
             'type' => 2,
             'negotiated_value' => '',
-            'down_payment' => ''
-        ];
+            'down_payment' => '',
+            'comments' => ''
+        ]);
         $this->simulatedInstallments = collect([]);
     }
 
@@ -203,9 +231,10 @@ class ProposalWizard extends Component
      */
     public function submitFinancialStep()
     {
+        $price = app('decimal')->parse($this->lot->price);
+
         if ($this->proposalData['type'] === ProposalType::IN_CASH) {
             // Validar e preencher a proposta à vista
-            $price = app('decimal')->parse($this->lot->price);
             $maxDiscount =
                 app('decimal')->parse($this->lot->allotment->max_discount) /
                 100;
@@ -235,22 +264,58 @@ class ProposalWizard extends Component
                     )
                 ]
             );
-            $this->proposalData = [
+            $this->proposalData = $this->proposalData->merge([
                 'down_payment' => 0,
                 'installments' => 1,
                 'installment_value' => $this->proposalData['negotiated_value']
-            ];
+            ]);
         } else {
             if ($this->lot->allotment->plans->isEmpty()) {
                 throw new \Exception(
                     'Não é possível fazer uma proposta de pagamento parcelada pois não há plano de pagamento parcelado associado ao loteamento. Favor, entre em contato com o administrador.'
                 );
             } else {
-                $this->validateOnly('downPayment', [
-                    'downPayment' => 'required'
+                $this->validate(
+                    [
+                        'downPayment' => 'required',
+                        'selectedInstallmentValue' => 'required'
+                    ],
+                    [
+                        'downPayment.required' => 'Digite um valor de entrada.',
+                        'selectedInstallmentValue.required' =>
+                            'Selecione um plano de parcelamento.'
+                    ]
+                );
+                $this->proposalData = $this->proposalData->merge([
+                    'negotiated_value' => $price,
+                    'down_payment' => $this->downPayment,
+                    'installments' =>
+                        $this->simulatedInstallments[
+                            $this->selectedInstallmentValue
+                        ]['installments'],
+                    'installment_value' =>
+                        $this->simulatedInstallments[
+                            $this->selectedInstallmentValue
+                        ]['value']
                 ]);
             }
         }
+    }
+
+    public function submitProposal()
+    {
+        $this->validate(
+            [
+                'documents' => ['required'],
+                'documents.*' => ['mimes:jpg,png']
+            ],
+            [
+                'documents.required' => 'Adicione os arquivos de documentos.',
+                'documents.*.mimes' =>
+                    'Os documentos devem ser dos tipos JPG, PNG ou PDF.'
+            ]
+        );
+        dd($this->documents);
     }
 
     public function render()
