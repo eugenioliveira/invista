@@ -23,8 +23,8 @@ class Proposal extends Model
      */
     protected $casts = [
         'negotiated_value' => DecimalCast::class . ':2',
-        'down_payment' => DecimalCast::class. ':2',
-        'installment_value' => DecimalCast::class. ':2'
+        'down_payment' => DecimalCast::class . ':2',
+        'installment_value' => DecimalCast::class . ':2'
     ];
 
     /**
@@ -55,6 +55,16 @@ class Proposal extends Model
     public function statuses()
     {
         return $this->hasMany(ProposalStatus::class);
+    }
+
+    /**
+     * Uma proposta pode ter vários documentos
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function documents()
+    {
+        return $this->hasMany(ProposalDocument::class);
     }
 
     /**

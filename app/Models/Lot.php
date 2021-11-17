@@ -58,6 +58,16 @@ class Lot extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+    public function proposals()
+    {
+        return $this->hasMany(Proposal::class);
+    }
+
+    /**
+     * Um lote pode possuir várias reservas.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function reservations()
     {
         return $this->hasMany(Reservation::class);

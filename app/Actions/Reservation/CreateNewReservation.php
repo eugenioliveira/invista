@@ -2,7 +2,6 @@
 
 namespace App\Actions\Reservation;
 
-use App\Exceptions\ExistingActiveReservationException;
 use App\Models\Company;
 use App\Models\Lot;
 use App\Models\Person;
@@ -22,8 +21,13 @@ class CreateNewReservation
      * @param Carbon $due
      * @return \App\Models\Reservation|\Illuminate\Database\Eloquent\Model
      */
-    public function create(Lot $lot, User $user, $reservable, Carbon $init, Carbon $due)
-    {
+    public function create(
+        Lot $lot,
+        User $user,
+        $reservable,
+        Carbon $init,
+        Carbon $due
+    ) {
         return $reservable->reservations()->create([
             'lot_id' => $lot->id,
             'user_id' => $user->id,

@@ -73,6 +73,16 @@ class Person extends Model
     }
 
     /**
+     * Retorna as propostas realizadas em nome da pessoa.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
+    public function proposals()
+    {
+        return $this->morphMany(Proposal::class, 'proposeable');
+    }
+
+    /**
      * Salva um usuário para a pessoa.
      *
      * @param $email

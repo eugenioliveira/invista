@@ -17,13 +17,22 @@ class CreateProposalsTable extends Migration
             $table->id();
 
             // Relacionamento com o Lote
-            $table->foreignId('lot_id')
+            $table
+                ->foreignId('lot_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
             // Relacionamento com o corretor
-            $table->foreignId('user_id')
+            $table
+                ->foreignId('user_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            // Relacionamento com a reserva
+            $table
+                ->foreignId('reservation_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Actions/Proposal/CreateNewProposal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/ProposalDocument.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_17_090520_create_proposal_documents_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Reservation/CreateNewReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Reservation/CreateNewReservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Proposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ProposalStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ProposalStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_16_111115_create_proposals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_16_111115_create_proposals_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,6 +290,8 @@
       <workItem from="1635173523293" duration="4821000" />
       <workItem from="1635248476690" duration="10741000" />
       <workItem from="1635339053573" duration="10615000" />
+      <workItem from="1636742600211" duration="1126000" />
+      <workItem from="1637146632067" duration="8565000" />
     </task>
     <servers />
   </component>

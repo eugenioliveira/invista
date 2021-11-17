@@ -3,18 +3,23 @@
 namespace App\Http\Livewire;
 
 use App\Actions\Person\UpdatePersonDetail;
+use App\Actions\Proposal\CreateNewProposal;
 use App\Enums\CivilStatus;
 use App\Enums\ProposalType;
 use App\Enums\ProposalWizardSteps;
 use App\Models\Lot;
 use App\Models\PaymentPlan;
+use App\Models\Person;
+use App\Models\ProposalDocument;
 use Illuminate\Support\Collection;
 use Livewire\Component;
+use Livewire\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 
 class ProposalWizard extends Component
 {
     use WithFileUploads;
+
     /**
      * O lote para o qual será criada uma proposta
      *
@@ -27,7 +32,7 @@ class ProposalWizard extends Component
      *
      * @var int
      */
-    public int $currentStep = ProposalWizardSteps::DOCUMENT_STEP;
+    public int $currentStep = ProposalWizardSteps::CLIENT_STEP;
 
     /**
      * A configuração de cada passo
@@ -302,12 +307,14 @@ class ProposalWizard extends Component
         }
     }
 
-    public function submitProposal()
-    {
+    public function submitProposal(
+        UpdatePersonDetail $clientUpdater,
+        CreateNewProposal $proposalCreator
+    ) {
         $this->validate(
             [
                 'documents' => ['required'],
-                'documents.*' => ['mimes:jpg,png']
+                'documents.*' => ['mimes:jpg,png,pdf']
             ],
             [
                 'documents.required' => 'Adicione os arquivos de documentos.',
@@ -315,7 +322,34 @@ class ProposalWizard extends Component
                     'Os documentos devem ser dos tipos JPG, PNG ou PDF.'
             ]
         );
-        dd($this->documents);
+
+        \DB::beginTransaction();
+
+        try {
+            // Salva as informações do cliente
+            $clientUpdater->update(
+                $this->lot->activeReservation->reserveable,
+                $this->clientData
+            );
+            // Salva as informações da proposta
+            $proposal = $proposalCreator->create(
+                $this->lot,
+                \Auth::user(),
+                $this->lot->activeReservation->reserveable,
+                $this->proposalData
+            );
+            // Salva os documentos da proposta
+            /** @var TemporaryUploadedFile $document */
+            foreach ($this->documents as $document) {
+                $filename = $document->store('/', 'documents');
+                $proposal->documents()->create(['filename' => $filename]);
+            }
+
+            \DB::commit();
+        } catch (\Exception $e) {
+            throw $e;
+            \DB::rollBack();
+        }
     }
 
     public function render()
