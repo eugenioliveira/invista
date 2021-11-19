@@ -11,26 +11,19 @@ window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
- * Loading Alpine JS - TALL Stack
- */
-import Alpine from 'alpinejs';
-window.Alpine = Alpine;
-Alpine.start();
-
-/**
  * Loadind Filepond
  */
 import * as FilePond from 'filepond';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+
 window.FilePond = FilePond;
 FilePond.registerPlugin(FilePondPluginImagePreview);
 FilePond.registerPlugin(FilePondPluginFileValidateType);
 
 const labels_pt_BR = {
   // labelIdle: 'Drag & Drop your files or <span class="filepond--label-action"> Browse </span>'
-  labelIdle:
-    'Arraste e solte os arquivos ou <span class="filepond--label-action"> Clique aqui </span>',
+  labelIdle: 'Arraste e solte os arquivos ou <span class="filepond--label-action"> Clique aqui </span>',
   // labelInvalidField: 'Field contains invalid files',
   labelInvalidField: 'Arquivos inválidos',
   // labelFileWaitingForSize: 'Waiting for size',
@@ -84,8 +77,7 @@ const labels_pt_BR = {
   // labelFileTypeNotAllowed: 'File of invalid type',
   labelFileTypeNotAllowed: 'Tipo de arquivo inválido',
   // fileValidateTypeLabelExpectedTypes: 'Expects {allButLastType} or {lastType}',
-  fileValidateTypeLabelExpectedTypes:
-    'Tipos de arquivo suportados são {allButLastType} ou {lastType}',
+  fileValidateTypeLabelExpectedTypes: 'Tipos de arquivo suportados são {allButLastType} ou {lastType}',
   // imageValidateSizeLabelFormatError: 'Image type not supported',
   imageValidateSizeLabelFormatError: 'Tipo de imagem inválida',
   // imageValidateSizeLabelImageSizeTooSmall: 'Image is too small',
@@ -93,24 +85,50 @@ const labels_pt_BR = {
   // imageValidateSizeLabelImageSizeTooBig: 'Image is too big',
   imageValidateSizeLabelImageSizeTooBig: 'Imagem muito grande',
   // imageValidateSizeLabelExpectedMinSize: 'Minimum size is {minWidth} × {minHeight}',
-  imageValidateSizeLabelExpectedMinSize:
-    'Tamanho mínimo permitida: {minWidth} × {minHeight}',
+  imageValidateSizeLabelExpectedMinSize: 'Tamanho mínimo permitida: {minWidth} × {minHeight}',
   // imageValidateSizeLabelExpectedMaxSize: 'Maximum size is {maxWidth} × {maxHeight}',
-  imageValidateSizeLabelExpectedMaxSize:
-    'Tamanho máximo permitido: {maxWidth} × {maxHeight}',
+  imageValidateSizeLabelExpectedMaxSize: 'Tamanho máximo permitido: {maxWidth} × {maxHeight}',
   // imageValidateSizeLabelImageResolutionTooLow: 'Resolution is too low',
   imageValidateSizeLabelImageResolutionTooLow: 'Resolução muito baixa',
   // imageValidateSizeLabelImageResolutionTooHigh: 'Resolution is too high',
   imageValidateSizeLabelImageResolutionTooHigh: 'Resolução muito alta',
   // imageValidateSizeLabelExpectedMinResolution: 'Minimum resolution is {minResolution}',
-  imageValidateSizeLabelExpectedMinResolution:
-    'Resolução mínima permitida: {minResolution}',
+  imageValidateSizeLabelExpectedMinResolution: 'Resolução mínima permitida: {minResolution}',
   // imageValidateSizeLabelExpectedMaxResolution: 'Maximum resolution is {maxResolution}'
-  imageValidateSizeLabelExpectedMaxResolution:
-    'Resolução máxima permitida: {maxResolution}',
+  imageValidateSizeLabelExpectedMaxResolution: 'Resolução máxima permitida: {maxResolution}',
+};
+FilePond.setOptions(labels_pt_BR);
+
+window.Pikaday = require('pikaday/pikaday');
+
+window.brDate = {
+  previousMonth: 'Mês Anterior',
+  nextMonth: 'Próximo mês',
+  months: [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro',
+  ],
+  weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+  weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
 };
 
-FilePond.setOptions(labels_pt_BR);
+/**
+ * Loading Alpine JS - TALL Stack
+ */
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+Alpine.start();
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

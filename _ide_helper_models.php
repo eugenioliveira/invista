@@ -173,6 +173,8 @@ namespace App\Models{
  * @property-read mixed $formatted_price
  * @property-read string $identification
  * @property-read \App\Models\LotStatus|null $latestStatus
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Proposal[] $proposals
+ * @property-read int|null $proposals_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reservation[] $reservations
  * @property-read int|null $reservations_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\LotStatus[] $statuses
@@ -295,6 +297,8 @@ namespace App\Models{
  * @property-read \App\Models\User|null $creator
  * @property-read \App\Models\PersonDetail|null $detail
  * @property-read string $full_name
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Proposal[] $proposals
+ * @property-read int|null $proposals_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reservation[] $reservations
  * @property-read int|null $reservations_count
  * @property-read \App\Models\User|null $user
@@ -367,6 +371,7 @@ namespace App\Models{
  * @property int $id
  * @property int $lot_id
  * @property int $user_id
+ * @property int $reservation_id
  * @property int $proposeable_id
  * @property string $proposeable_type
  * @property int $type
@@ -377,6 +382,8 @@ namespace App\Models{
  * @property string|null $comments
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProposalDocument[] $documents
+ * @property-read int|null $documents_count
  * @property-read \App\Models\ProposalStatus|null $latestStatus
  * @property-read \App\Models\Lot $lot
  * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $proposeable
@@ -396,11 +403,33 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereNegotiatedValue($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereProposeableId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereProposeableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereReservationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal whereUserId($value)
  */
 	class Proposal extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\ProposalDocument
+ *
+ * @property int $id
+ * @property int $proposal_id
+ * @property string $filename
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ProposalDocument newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProposalDocument newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProposalDocument query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ProposalDocument whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProposalDocument whereFilename($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProposalDocument whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProposalDocument whereProposalId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ProposalDocument whereUpdatedAt($value)
+ */
+	class ProposalDocument extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -441,6 +470,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon $due
  * @property \Illuminate\Support\Carbon|null $cancelled_at
  * @property string|null $reason
+ * @property-read \App\Models\Lot $lot
  * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $reserveable
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Reservation active()

@@ -44,6 +44,16 @@ class Reservation extends Model
     }
 
     /**
+     * Retorna o lote reservado
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function lot()
+    {
+        return $this->belongsTo(Lot::class);
+    }
+
+    /**
      * Obtém o cliente para o qual foi realizada a reserva (Física ou Jurídica)
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
@@ -67,6 +77,11 @@ class Reservation extends Model
             ->whereNull('cancelled_at');
     }
 
+    public function isActive()
+    {
+        return $this->init <= now() && $this->due >= now() && !$this->cancelled_at;
+    }
+
     /**
      * Realiza o cancelamento da reserva.
      *
@@ -75,6 +90,7 @@ class Reservation extends Model
      */
     public function cancel(string $reason): bool
     {
+        $this->due = now();
         $this->cancelled_at = now();
         $this->reason = $reason;
 

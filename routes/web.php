@@ -29,7 +29,6 @@ use App\Http\Controllers\ReservationsController;
 */
 
 Route::middleware('auth:sanctum')->group(function () {
-
     //======================================================================
     // PÁGINA INICIAL
     //======================================================================
@@ -50,12 +49,18 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('allotment.create');
 
     // Formulário de edição
-    Route::get('/allotments/edit/{allotment}', [AllotmentsController::class, 'edit'])
+    Route::get('/allotments/edit/{allotment}', [
+        AllotmentsController::class,
+        'edit'
+    ])
         ->middleware('can:edit_allotment')
         ->name('allotment.edit');
 
     // Planos de pagamento
-    Route::get('/allotments/{allotment}/payment-plans', AllotmentsPaymentPlansController::class)
+    Route::get(
+        '/allotments/{allotment}/payment-plans',
+        AllotmentsPaymentPlansController::class
+    )
         ->middleware('can:edit_allotment')
         ->name('allotment.payment-plans');
 
@@ -69,7 +74,10 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('lots.index');
 
     // Formulário de criação
-    Route::get('/allotments/{allotment}/lot/create', [LotsController::class, 'create'])
+    Route::get('/allotments/{allotment}/lot/create', [
+        LotsController::class,
+        'create'
+    ])
         ->middleware('can:create_lot')
         ->name('lot.create');
 
@@ -79,7 +87,10 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('lot.edit');
 
     // Importação de lotes
-    Route::get('/allotments/{allotment}/lots/import', [LotsImportController::class, 'create'])
+    Route::get('/allotments/{allotment}/lots/import', [
+        LotsImportController::class,
+        'create'
+    ])
         ->middleware('can:import_lots')
         ->name('lots.import');
 
@@ -151,7 +162,10 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('company.edit');
 
     // Formulário de edição de sócios da pessoa jurídica
-    Route::get('/company/{company}/shareholders', CompanyShareholdersController::class)
+    Route::get(
+        '/company/{company}/shareholders',
+        CompanyShareholdersController::class
+    )
         ->middleware('can:edit,company')
         ->name('company.shareholders');
 
@@ -164,12 +178,24 @@ Route::middleware('auth:sanctum')->group(function () {
     // ROTAS REFERENTES À RESERVAS
     //======================================================================
 
+    // Listar todas as reservas
+    Route::get('/reservations', [ReservationsController::class, 'index'])
+        ->middleware('can:view_reservations')
+        ->name('reservations.index');
+
     // Formulário de realização de reserva
     Route::get('/lots/{lot}/reserve', [ReservationsController::class, 'create'])
-        ->middleware(['can:make_reservation', 'can:create,App\Models\Reservation,lot'])
+        ->middleware([
+            'can:make_reservation',
+            'can:create,App\Models\Reservation,lot'
+        ])
         ->name('lot.reserve');
 
-    Route::get('/reservation/{reservation}/cancel', [ReservationsController::class, 'cancel'])
+    // Cancelamento de uma reserva
+    Route::get('/reservation/{reservation}/cancel', [
+        ReservationsController::class,
+        'cancel'
+    ])
         ->middleware('can:make_reservation')
         ->name('reservation.cancel');
 
@@ -192,12 +218,18 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('payment-plans.index');
 
     // Criação de um plano de pagamento
-    Route::get('/payment-plans/create', [PaymentPlansController::class, 'create'])
+    Route::get('/payment-plans/create', [
+        PaymentPlansController::class,
+        'create'
+    ])
         ->middleware('can:manage_payment_plans')
         ->name('payment-plans.create');
 
     // Alteração de dados de um plano de pagamento
-    Route::get('/payment-plans/{plan}/edit', [PaymentPlansController::class, 'edit'])
+    Route::get('/payment-plans/{plan}/edit', [
+        PaymentPlansController::class,
+        'edit'
+    ])
         ->middleware('can:manage_payment_plans')
         ->name('payment-plans.edit');
 
@@ -212,6 +244,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/sales', function () {
         return view('home');
     })->name('sales.index');
-
-
 });

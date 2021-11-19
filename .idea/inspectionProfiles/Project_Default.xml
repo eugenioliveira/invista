@@ -8,7 +8,7 @@
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="16">
+          <list size="23">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -25,6 +25,13 @@
             <item index="13" class="java.lang.String" itemvalue="x-lot-status-badge" />
             <item index="14" class="java.lang.String" itemvalue="x-dropdown-link" />
             <item index="15" class="java.lang.String" itemvalue="x-mobile-nav-dropdown-link" />
+            <item index="16" class="java.lang.String" itemvalue="x-slot" />
+            <item index="17" class="java.lang.String" itemvalue="x-table" />
+            <item index="18" class="java.lang.String" itemvalue="x-table.heading" />
+            <item index="19" class="java.lang.String" itemvalue="x-table.row" />
+            <item index="20" class="java.lang.String" itemvalue="x-table.cell" />
+            <item index="21" class="java.lang.String" itemvalue="x-input.text" />
+            <item index="22" class="java.lang.String" itemvalue="x-button" />
           </list>
         </value>
       </option>

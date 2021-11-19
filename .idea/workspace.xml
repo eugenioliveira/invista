@@ -5,21 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Actions/Proposal/CreateNewProposal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/ProposalDocument.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_11_17_090520_create_proposal_documents_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Actions/Reservation/SearchReservations.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ReservationsList.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/ReservationSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/input/checkbox.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/input/date.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/input/group.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/input/select.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/input/text.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/table/cell.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/table/heading.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/table/row.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/reservations-list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reservations/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Reservation/CreateNewReservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Reservation/CreateNewReservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Person.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Proposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ProposalStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ProposalStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReservationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReservationsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Reservation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_08_16_111115_create_proposals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_08_16_111115_create_proposals_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ReservationFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ReservationFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/AclSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/AclSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PersonSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/input.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +248,8 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="actions.on.save" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -235,6 +258,8 @@
       <recent name="$PROJECT_DIR$/resources/views/payment-plans" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/components" />
+      <recent name="$PROJECT_DIR$/resources/views/components/table" />
       <recent name="$PROJECT_DIR$/resources/views/livewire" />
     </key>
   </component>
@@ -291,7 +316,11 @@
       <workItem from="1635248476690" duration="10741000" />
       <workItem from="1635339053573" duration="10615000" />
       <workItem from="1636742600211" duration="1126000" />
-      <workItem from="1637146632067" duration="8565000" />
+      <workItem from="1637146632067" duration="9211000" />
+      <workItem from="1637237752152" duration="13657000" />
+      <workItem from="1637263375789" duration="336000" />
+      <workItem from="1637320847017" duration="2725000" />
+      <workItem from="1637323587265" duration="19669000" />
     </task>
     <servers />
   </component>

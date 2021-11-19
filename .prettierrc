@@ -1,4 +1,5 @@
 {
   "singleQuote": true,
-  "trailingCommaPHP": false
+  "trailingCommaPHP": false,
+  "printWidth": 120
 }
