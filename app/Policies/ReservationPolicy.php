@@ -42,9 +42,7 @@ class ReservationPolicy
          *  — A diferença de tempo entre a primeira reserva e a data atual seja inferior a 3x o tempo de
          * reserva definido nas configurações de loteamento
          */
-        $dateLimit = now()->subHours(
-            $lotToReserve->allotment->reservation_duration * 3
-        );
+        $dateLimit = now()->subHours($lotToReserve->allotment->reservation_duration * 3);
         $reservations = $lotToReserve
             ->reservations()
             ->where('user_id', $loggedUser->id)
@@ -58,9 +56,7 @@ class ReservationPolicy
                     $lotToReserve->identification,
                     $reservations
                         ->first()
-                        ->init->addHours(
-                            $lotToReserve->allotment->reservation_duration * 3
-                        )
+                        ->init->addHours($lotToReserve->allotment->reservation_duration * 3)
                         ->format('d/m/Y à\s H:i:s')
                 )
             );

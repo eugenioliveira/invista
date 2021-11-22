@@ -14,6 +14,8 @@ use App\Http\Controllers\PersonAddressController;
 use App\Http\Controllers\PersonDetailController;
 use App\Http\Controllers\ProposalsController;
 use App\Http\Controllers\UsersController;
+use App\Models\Proposal;
+use App\Models\Reservation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationsController;
 
@@ -40,28 +42,22 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Lista de loteamentos
     Route::get('/allotments', [AllotmentsController::class, 'index'])
-        ->middleware('can:view_allotments')
+        ->can('view_allotments')
         ->name('allotments.index');
 
     // Formulário de criação
     Route::get('/allotments/create', [AllotmentsController::class, 'create'])
-        ->middleware('can:create_allotment')
+        ->can('create_allotment')
         ->name('allotment.create');
 
     // Formulário de edição
-    Route::get('/allotments/edit/{allotment}', [
-        AllotmentsController::class,
-        'edit'
-    ])
-        ->middleware('can:edit_allotment')
+    Route::get('/allotments/edit/{allotment}', [AllotmentsController::class, 'edit'])
+        ->can('edit_allotment')
         ->name('allotment.edit');
 
     // Planos de pagamento
-    Route::get(
-        '/allotments/{allotment}/payment-plans',
-        AllotmentsPaymentPlansController::class
-    )
-        ->middleware('can:edit_allotment')
+    Route::get('/allotments/{allotment}/payment-plans', AllotmentsPaymentPlansController::class)
+        ->can('edit_allotment')
         ->name('allotment.payment-plans');
 
     //======================================================================
@@ -70,28 +66,22 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Lista de lotes
     Route::get('/allotments/{allotment}/lots', [LotsController::class, 'index'])
-        ->middleware('can:view_lots')
+        ->can('view_lots')
         ->name('lots.index');
 
     // Formulário de criação
-    Route::get('/allotments/{allotment}/lot/create', [
-        LotsController::class,
-        'create'
-    ])
-        ->middleware('can:create_lot')
+    Route::get('/allotments/{allotment}/lot/create', [LotsController::class, 'create'])
+        ->can('create_lot')
         ->name('lot.create');
 
     // Formulário de edição
     Route::get('/allotments/lot/{lot}/edit', [LotsController::class, 'edit'])
-        ->middleware('can:edit_lot')
+        ->can('edit_lot')
         ->name('lot.edit');
 
     // Importação de lotes
-    Route::get('/allotments/{allotment}/lots/import', [
-        LotsImportController::class,
-        'create'
-    ])
-        ->middleware('can:import_lots')
+    Route::get('/allotments/{allotment}/lots/import', [LotsImportController::class, 'create'])
+        ->can('import_lots')
         ->name('lots.import');
 
     //======================================================================
@@ -100,17 +90,17 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Listagem de usuários
     Route::get('/users', [UsersController::class, 'index'])
-        ->middleware('can:view_users')
+        ->can('view_users')
         ->name('users.index');
 
     // Criar usuários
     Route::get('/users/create', [UsersController::class, 'create'])
-        ->middleware('can:create_user')
+        ->can('create_user')
         ->name('users.create');
 
     // Atualizar informações de usuários
     Route::get('/user/{user}/edit', [UsersController::class, 'edit'])
-        ->middleware('can:edit,user')
+        ->can('edit', 'user')
         ->name('user.edit');
 
     //======================================================================
@@ -119,27 +109,27 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Listagem de pessoas físicas
     Route::get('/people', [PeopleController::class, 'index'])
-        ->middleware('can:view_people')
+        ->can('view_people')
         ->name('people.index');
 
     // Formulário de cadastro de pessoa física
     Route::get('/person/create', [PeopleController::class, 'create'])
-        ->middleware('can:create_person')
+        ->can('create_person')
         ->name('person.create');
 
     // Formulário de edição de pessoa física
     Route::get('/person/{person}/edit', [PeopleController::class, 'edit'])
-        ->middleware('can:edit,person')
+        ->can('edit', 'person')
         ->name('person.edit');
 
     // Formulário de edição de endereço de pessoa física
     Route::get('/person/{person}/address', PersonAddressController::class)
-        ->middleware('can:edit,person')
+        ->can('edit', 'person')
         ->name('person.address');
 
     // Formulário de edição de detalhes de pessoa física
     Route::get('/person/{person}/detail', PersonDetailController::class)
-        ->middleware('can:edit,person')
+        ->can('edit', 'person')
         ->name('person.detail');
 
     //======================================================================
@@ -148,30 +138,27 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Listagem de pessoas jurídicas
     Route::get('/companies', [CompaniesController::class, 'index'])
-        ->middleware('can:view_companies')
+        ->can('view_companies')
         ->name('companies.index');
 
     // Formulário de criação de pessoa jurídica
     Route::get('/company/create', [CompaniesController::class, 'create'])
-        ->middleware('can:create_company')
+        ->can('create_company')
         ->name('companies.create');
 
     // Formulário de edição de pessoa jurídica
     Route::get('/company/{company}/edit', [CompaniesController::class, 'edit'])
-        ->middleware('can:edit,company')
+        ->can('edit', 'company')
         ->name('company.edit');
 
     // Formulário de edição de sócios da pessoa jurídica
-    Route::get(
-        '/company/{company}/shareholders',
-        CompanyShareholdersController::class
-    )
-        ->middleware('can:edit,company')
+    Route::get('/company/{company}/shareholders', CompanyShareholdersController::class)
+        ->can('edit', 'company')
         ->name('company.shareholders');
 
     // Formulário de edição de endereço de pessoa jurídica
     Route::get('/company/{company}/address', CompanyAddressController::class)
-        ->middleware('can:edit,company')
+        ->can('edit', 'company')
         ->name('company.address');
 
     //======================================================================
@@ -180,23 +167,18 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Listar todas as reservas
     Route::get('/reservations', [ReservationsController::class, 'index'])
-        ->middleware('can:view_reservations')
+        ->can('view_reservations')
         ->name('reservations.index');
 
     // Formulário de realização de reserva
     Route::get('/lots/{lot}/reserve', [ReservationsController::class, 'create'])
-        ->middleware([
-            'can:make_reservation',
-            'can:create,App\Models\Reservation,lot'
-        ])
+        ->can('make_reservation')
+        ->can('create', [Reservation::class, 'lot'])
         ->name('lot.reserve');
 
     // Cancelamento de uma reserva
-    Route::get('/reservation/{reservation}/cancel', [
-        ReservationsController::class,
-        'cancel'
-    ])
-        ->middleware('can:make_reservation')
+    Route::get('/reservation/{reservation}/cancel', [ReservationsController::class, 'cancel'])
+        ->can('make_reservation')
         ->name('reservation.cancel');
 
     //======================================================================
@@ -205,7 +187,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Formulário de lançamento de proposta
     Route::get('/lots/{lot}/propose', [ProposalsController::class, 'create'])
-        ->middleware(['can:propose', 'can:create,App\Models\Proposal,lot'])
+        ->can('propose')
+        ->can('create', [Proposal::class, 'lot'])
         ->name('lot.propose');
 
     //======================================================================
@@ -214,23 +197,17 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Listagem de planos de pagamento
     Route::get('/payment-plans', [PaymentPlansController::class, 'index'])
-        ->middleware('can:manage_payment_plans')
+        ->can('manage_payment_plans')
         ->name('payment-plans.index');
 
     // Criação de um plano de pagamento
-    Route::get('/payment-plans/create', [
-        PaymentPlansController::class,
-        'create'
-    ])
-        ->middleware('can:manage_payment_plans')
+    Route::get('/payment-plans/create', [PaymentPlansController::class, 'create'])
+        ->can('manage_payment_plans')
         ->name('payment-plans.create');
 
     // Alteração de dados de um plano de pagamento
-    Route::get('/payment-plans/{plan}/edit', [
-        PaymentPlansController::class,
-        'edit'
-    ])
-        ->middleware('can:manage_payment_plans')
+    Route::get('/payment-plans/{plan}/edit', [PaymentPlansController::class, 'edit'])
+        ->can('manage_payment_plans')
         ->name('payment-plans.edit');
 
     //======================================================================
