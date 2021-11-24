@@ -15,9 +15,9 @@
             <hr class="border-blue-500 my-2">
             <ul class="list-disc ml-8">
                 <li><span class="font-medium">Administrador:</span> Pode acessar qualquer área do sistema e realizar qualquer operação.</li>
-                <li><span class="font-medium">Supervisor:</span> Pode gerenciar os usuários <strong>corretores</strong> e também reservar lotes e
+                <!--<li><span class="font-medium">Supervisor:</span> Pode gerenciar os usuários <strong>corretores</strong> e também reservar lotes e
                     fazer propostas.
-                </li>
+                </li>-->
                 <li><span class="font-medium">Corretor:</span> Pode reservar lotes e fazer propostas.</li>
             </ul>
         </div>

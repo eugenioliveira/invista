@@ -2,6 +2,7 @@
 
 namespace App\Enums;
 
+use BenSampo\Enum\Contracts\LocalizedEnum;
 use BenSampo\Enum\Enum;
 
 /**
@@ -10,7 +11,7 @@ use BenSampo\Enum\Enum;
  * @method static static DENIED()
  * @method static static ACCEPTED()
  */
-final class ProposalStatusType extends Enum
+final class ProposalStatusType extends Enum implements LocalizedEnum
 {
     const UNDER_REVIEW = 1; // Proposta em análise; Valor padrão
     const RETURNED = 2; // Proposta devolvida para correção

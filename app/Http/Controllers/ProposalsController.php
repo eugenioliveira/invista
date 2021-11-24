@@ -6,6 +6,11 @@ use App\Models\Lot;
 
 class ProposalsController extends Controller
 {
+    public function index()
+    {
+        return view('proposals.index');
+    }
+
     /**
      * Cria uma proposta para o lote $lot.
      *

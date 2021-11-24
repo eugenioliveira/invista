@@ -10,13 +10,20 @@ class UserList extends Component
 {
     use WithPagination, WithSearch;
 
+    public $brokers;
+
+    protected $queryString = ['brokers'];
+
     public function render()
     {
         $usersQuery = User::where(function ($query) {
             $query
                 ->where('name', 'like', '%' . $this->searchTerm . '%')
                 ->orWhere('email', 'like', '%' . $this->searchTerm . '%');
-        });
+        })->when(
+            $this->brokers,
+            fn($query) => $query->whereHas('roles', fn($query) => $query->where('name', 'broker'))
+        );
 
         /*
          * O usuário com papel de Supervisor

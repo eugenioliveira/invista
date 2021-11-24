@@ -9,8 +9,8 @@ use App\Enums\ProposalType;
 use App\Enums\ProposalWizardSteps;
 use App\Models\Lot;
 use App\Models\PaymentPlan;
-use App\Models\Person;
-use App\Models\ProposalDocument;
+use App\Models\Proposal;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\TemporaryUploadedFile;
@@ -18,7 +18,7 @@ use Livewire\WithFileUploads;
 
 class ProposalWizard extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, RedirectHandler, AuthorizesRequests;
 
     /**
      * O lote para o qual será criada uma proposta
@@ -42,22 +42,19 @@ class ProposalWizard extends Component
     public array $stepsConfig = [
         ProposalWizardSteps::CLIENT_STEP => [
             'heading' => 'Primeiro passo: dados do cliente',
-            'subheading' =>
-                'Insira os dados complementares para a elaboração da proposta',
+            'subheading' => 'Insira os dados complementares para a elaboração da proposta',
             'method' => 'submitClientStep'
         ],
 
         ProposalWizardSteps::FINANCIAL_STEP => [
             'heading' => 'Segundo passo: proposta financeira',
-            'subheading' =>
-                'Preencha as informações a respeito da proposta em si.',
+            'subheading' => 'Preencha as informações a respeito da proposta em si.',
             'method' => 'submitFinancialStep'
         ],
 
         ProposalWizardSteps::DOCUMENT_STEP => [
             'heading' => 'Terceiro passo: documentação',
-            'subheading' =>
-                'Envie os documentos necessários para conclusão da proposta',
+            'subheading' => 'Envie os documentos necessários para conclusão da proposta',
             'method' => 'submitDocumentStep'
         ]
     ];
@@ -142,51 +139,40 @@ class ProposalWizard extends Component
 
     public function updatedNegotiated()
     {
-        $this->proposalData['negotiated_value'] = app('decimal')->parse(
-            $this->negotiated
-        );
+        $this->proposalData['negotiated_value'] = app('decimal')->parse($this->negotiated);
     }
 
     public function updatedDownPayment()
     {
         $price = app('decimal')->parse($this->lot->price);
-        $minDownPayment =
-            app('decimal')->parse($this->paymentPlan->min_down_payment) / 100;
+        $minDownPayment = app('decimal')->parse($this->paymentPlan->min_down_payment) / 100;
         $minValue = $price * $minDownPayment;
-        $this->validateOnly(
-            'downPayment',
-            [
-                'downPayment' => ['required', 'numeric', "min:{$minValue}"]
-            ],
-            [
-                'downPayment.min' => sprintf(
-                    'O valor mínimo de entrada é %s.',
-                    app('currency')->format($minValue)
-                )
-            ]
-        );
+        $this->validateOnly('downPayment', [
+            'downPayment' => ['required', 'regex:/^[1-9]\d*(\.\d{3})?(\,\d{1,2})?$/']
+        ]);
 
-        $this->proposalData['down_payment'] = app('decimal')->parse(
-            $this->downPayment
-        );
+        if (app('decimal')->parse($this->downPayment) < $minValue) {
+            $this->addError(
+                'downPayment',
+                sprintf('O valor mínimo de entrada é %s', app('currency')->format($minValue))
+            );
+        }
+
+        $this->proposalData['down_payment'] = app('decimal')->parse($this->downPayment);
 
         $this->simulatedInstallments = collect([]);
 
         foreach ($this->paymentPlan->installment_indexes as $index) {
             $this->simulatedInstallments->push([
                 'installments' => $index['installments'],
-                'value' =>
-                    $index['index'] *
-                    ($price - $this->proposalData['down_payment'])
+                'value' => $index['index'] * ($price - $this->proposalData['down_payment'])
             ]);
         }
     }
 
     public function updatedSelectedPaymentPlan()
     {
-        $this->paymentPlan = PaymentPlan::findOrFail(
-            $this->selectedPaymentPlan
-        );
+        $this->paymentPlan = PaymentPlan::findOrFail($this->selectedPaymentPlan);
     }
 
     /**
@@ -225,9 +211,7 @@ class ProposalWizard extends Component
      */
     public function submitClientStep()
     {
-        $this->clientData = (new UpdatePersonDetail())->validate(
-            $this->clientData
-        );
+        $this->clientData = (new UpdatePersonDetail())->validate($this->clientData);
     }
 
     /**
@@ -240,25 +224,16 @@ class ProposalWizard extends Component
 
         if ($this->proposalData['type'] === ProposalType::IN_CASH) {
             // Validar e preencher a proposta à vista
-            $maxDiscount =
-                app('decimal')->parse($this->lot->allotment->max_discount) /
-                100;
+            $maxDiscount = app('decimal')->parse($this->lot->allotment->max_discount) / 100;
             $minValue = $price - $price * $maxDiscount;
             $this->validateOnly(
                 'proposalData.negotiated_value',
                 [
-                    'proposalData.negotiated_value' => [
-                        'required',
-                        'numeric',
-                        "min:{$minValue}",
-                        "max:{$price}"
-                    ]
+                    'proposalData.negotiated_value' => ['required', 'numeric', "min:{$minValue}", "max:{$price}"]
                 ],
                 [
-                    'proposalData.negotiated_value.required' =>
-                        'Digite o valor negociado entre as partes.',
-                    'proposalData.negotiated_value.numeric' =>
-                        'Digite um valor válido.',
+                    'proposalData.negotiated_value.required' => 'Digite o valor negociado entre as partes.',
+                    'proposalData.negotiated_value.numeric' => 'Digite um valor válido.',
                     'proposalData.negotiated_value.min' => sprintf(
                         'O valor mínimo é %s.',
                         app('currency')->format($minValue)
@@ -287,30 +262,28 @@ class ProposalWizard extends Component
                     ],
                     [
                         'downPayment.required' => 'Digite um valor de entrada.',
-                        'selectedInstallmentValue.required' =>
-                            'Selecione um plano de parcelamento.'
+                        'selectedInstallmentValue.required' => 'Selecione um plano de parcelamento.'
                     ]
                 );
                 $this->proposalData = $this->proposalData->merge([
                     'negotiated_value' => $price,
                     'down_payment' => $this->downPayment,
-                    'installments' =>
-                        $this->simulatedInstallments[
-                            $this->selectedInstallmentValue
-                        ]['installments'],
-                    'installment_value' =>
-                        $this->simulatedInstallments[
-                            $this->selectedInstallmentValue
-                        ]['value']
+                    'installments' => $this->simulatedInstallments[$this->selectedInstallmentValue]['installments'],
+                    'installment_value' => $this->simulatedInstallments[$this->selectedInstallmentValue]['value']
                 ]);
             }
         }
     }
 
-    public function submitProposal(
-        UpdatePersonDetail $clientUpdater,
-        CreateNewProposal $proposalCreator
-    ) {
+    /**
+     * @throws \Throwable
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function submitProposal(UpdatePersonDetail $clientUpdater, CreateNewProposal $proposalCreator)
+    {
+        $this->authorize('create', [Proposal::class, $this->lot]);
+
         $this->validate(
             [
                 'documents' => ['required'],
@@ -318,8 +291,7 @@ class ProposalWizard extends Component
             ],
             [
                 'documents.required' => 'Adicione os arquivos de documentos.',
-                'documents.*.mimes' =>
-                    'Os documentos devem ser dos tipos JPG, PNG ou PDF.'
+                'documents.*.mimes' => 'Os documentos devem ser dos tipos JPG, PNG ou PDF.'
             ]
         );
 
@@ -327,10 +299,7 @@ class ProposalWizard extends Component
 
         try {
             // Salva as informações do cliente
-            $clientUpdater->update(
-                $this->lot->activeReservation->reserveable,
-                $this->clientData
-            );
+            $clientUpdater->update($this->lot->activeReservation->reserveable, $this->clientData);
             // Salva as informações da proposta
             $proposal = $proposalCreator->create(
                 $this->lot,
@@ -346,6 +315,9 @@ class ProposalWizard extends Component
             }
 
             \DB::commit();
+
+            // Redireciona
+            $this->successAction('Proposta realizada.', ['allotments.index'], true);
         } catch (\Exception $e) {
             throw $e;
             \DB::rollBack();

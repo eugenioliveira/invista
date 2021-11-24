@@ -4,8 +4,8 @@
 </x-input-row>
 
 <x-input-row class="mb-6">
-    <div class="flex justify-between w-2/4">
-        @foreach(\App\Models\Role::all() as $role)
+    <div class="flex space-x-4 w-2/4">
+        @foreach(\App\Models\Role::whereIn('name', ['admin', 'broker'])->get() as $role)
             <label class="flex items-center space-x-3">
                 <input
                         type="radio"

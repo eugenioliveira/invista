@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Casts\DecimalCast;
 use App\Enums\LotStatusType;
+use App\Enums\ProposalStatusType;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -90,9 +92,23 @@ class Lot extends Model
      */
     public function activeReservation()
     {
-        return $this->hasOne(Reservation::class)->ofMany(
+        return $this->hasOne(Reservation::class)->ofMany(['id' => 'max'], fn($query) => $query->active());
+    }
+
+    /**
+     * Retorna uma proposta, caso preencha os seguintes requisitos:
+     * Pertença ao lote atual;
+     * Tenha o último estado registrado como em análise ou devolvida.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function activeProposal()
+    {
+        return $this->hasOne(Proposal::class)->ofMany(
             ['id' => 'max'],
-            fn($query) => $query->active()
+            fn($query) => $query->whereHas('latestStatus', function ($query) {
+                $query->whereIn('type', [ProposalStatusType::UNDER_REVIEW, ProposalStatusType::RETURNED]);
+            })
         );
     }
 
@@ -118,9 +134,7 @@ class Lot extends Model
         $right = $this->attributes['right'];
         $left = $this->attributes['left'];
 
-        return app('decimal')->format(
-            (($front + $back) / 2) * (($left + $right) / 2)
-        );
+        return app('decimal')->format((($front + $back) / 2) * (($left + $right) / 2));
     }
 
     /**
@@ -141,26 +155,10 @@ class Lot extends Model
     public function getSides()
     {
         return [
-            sprintf(
-                '%s metros de frente com %s',
-                $this->front,
-                $this->front_side
-            ),
-            sprintf(
-                '%s metros de fundos com %s',
-                $this->back,
-                $this->back_side
-            ),
-            sprintf(
-                '%s metros de lado direito com %s',
-                $this->right,
-                $this->right_side
-            ),
-            sprintf(
-                '%s metros de lado esquerdo com %s',
-                $this->left,
-                $this->left_side
-            )
+            sprintf('%s metros de frente com %s', $this->front, $this->front_side),
+            sprintf('%s metros de fundos com %s', $this->back, $this->back_side),
+            sprintf('%s metros de lado direito com %s', $this->right, $this->right_side),
+            sprintf('%s metros de lado esquerdo com %s', $this->left, $this->left_side)
         ];
     }
 
@@ -192,12 +190,8 @@ class Lot extends Model
      * @param bool $save
      * @return mixed
      */
-    public function createStatus(
-        User $user,
-        int $type,
-        string $reason,
-        $save = true
-    ) {
+    public function createStatus(User $user, int $type, string $reason, $save = true)
+    {
         $lotStatus = new LotStatus([
             'user_id' => $user->id,
             'type' => $type,
@@ -246,10 +240,7 @@ class Lot extends Model
     protected function currentStaticStatus()
     {
         return $this->statuses()
-            ->whereNotIn('type', [
-                LotStatusType::RESERVED,
-                LotStatusType::PROPOSED
-            ])
+            ->whereNotIn('type', [LotStatusType::RESERVED, LotStatusType::PROPOSED])
             ->latest()
             ->first();
     }

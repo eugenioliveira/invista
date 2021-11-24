@@ -29,18 +29,15 @@ class PermissionSeeder extends Seeder
         ]);
         Permission::create([
             'name' => 'create_allotment',
-            'description' =>
-                'Permissão para criar um novo loteamento no sistema.'
+            'description' => 'Permissão para criar um novo loteamento no sistema.'
         ]);
         Permission::create([
             'name' => 'edit_allotment',
-            'description' =>
-                'Permissão para alterar as informações de um loteamento.'
+            'description' => 'Permissão para alterar as informações de um loteamento.'
         ]);
         Permission::create([
             'name' => 'view_lots',
-            'description' =>
-                'Permissão para listar todos os lotes de um loteamento.'
+            'description' => 'Permissão para listar todos os lotes de um loteamento.'
         ]);
         Permission::create([
             'name' => 'create_lots',
@@ -68,23 +65,19 @@ class PermissionSeeder extends Seeder
         ]);
         Permission::create([
             'name' => 'view_people',
-            'description' =>
-                'Permissão para listar as pessoas físicas cadastradas no sistema.'
+            'description' => 'Permissão para listar as pessoas físicas cadastradas no sistema.'
         ]);
         Permission::create([
             'name' => 'create_person',
-            'description' =>
-                'Permissão para criar uma pessoa física no sistema.'
+            'description' => 'Permissão para criar uma pessoa física no sistema.'
         ]);
         Permission::create([
             'name' => 'view_companies',
-            'description' =>
-                'Permissão para listar as pessoas jurídicas cadastradas no sistema.'
+            'description' => 'Permissão para listar as pessoas jurídicas cadastradas no sistema.'
         ]);
         Permission::create([
             'name' => 'create_company',
-            'description' =>
-                'Permissão para criar uma pessoa jurídica no sistema.'
+            'description' => 'Permissão para criar uma pessoa jurídica no sistema.'
         ]);
         Permission::create([
             'name' => 'view_reservations',
@@ -96,8 +89,15 @@ class PermissionSeeder extends Seeder
         ]);
         Permission::create([
             'name' => 'propose',
-            'description' =>
-                'Permissão para fazer uma proposta para um lote no sistema.'
+            'description' => 'Permissão para fazer uma proposta para um lote no sistema.'
+        ]);
+        Permission::create([
+            'name' => 'view_proposals',
+            'description' => 'Permissão para visualizar as propostas no sistema'
+        ]);
+        Permission::create([
+            'name' => 'manage_proposals',
+            'description' => 'Permissão para gerenciar as propostas no sistema'
         ]);
     }
 }

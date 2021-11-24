@@ -136,11 +136,10 @@
                         </div>
                         {{-- Profissão --}}
                         <div class="md:w-1/3">
-                            <x-input
+                            <x-input.money
                                     label="Renda mensal (em R$)"
                                     name="monthly_income"
-                                    class="mt-1 w-full"
-                                    wire:model.lazy="clientData.monthly_income"
+                                    model="clientData.monthly_income"
                                     error="{{ $errors->first('monthly_income') }}"
                             />
                         </div>
@@ -203,91 +202,101 @@
                     </div>
                 </div>
 
-                @if($inCash)
-                    <div>
-                        <x-input-row class="my-4 items-center">
-                            <h2 class="text-lg uppercase tracking-widest">Proposta de pagamento à vista</h2>
-                            <div class="flex-1 h-0.5 bg-gray-200"></div>
-                        </x-input-row>
-
-                        <x-input-row class="mb-4">
-                            {{-- Valor negociado do lote --}}
-                            <div class="w-full">
-                                <x-input
-                                        label="Valor negociado (em R$)"
-                                        name="negotiated"
-                                        class="mt-1 w-full text-center"
-                                        wire:model="negotiated"
-                                        error="{{ $errors->first('proposalData.negotiated_value') }}"
-                                />
-                            </div>
-                        </x-input-row>
-                    </div>
-                @endif
-
-                @if($installments)
-                    @if(count($lot->allotment->plans) > 0)
+                <div>
+                    @if($inCash)
                         <div>
                             <x-input-row class="my-4 items-center">
-                                <h2 class="text-lg uppercase tracking-widest">Proposta de pagamento parcelado</h2>
+                                <h2 class="text-lg uppercase tracking-widest">Proposta de pagamento à vista</h2>
                                 <div class="flex-1 h-0.5 bg-gray-200"></div>
                             </x-input-row>
 
                             <x-input-row class="mb-4">
-                                <x-select
-                                        label="Selecione um plano de pagamento"
-                                        name="plan"
-                                        class="mt-1 w-full"
-                                        wire:model="selectedPaymentPlan"
-                                        error="{{ $errors->first('selectedPaymentPlan') }}"
-                                >
-                                    <option>Selecione...</option>
-                                    @foreach($lot->allotment->plans as $plan)
-                                        <option value="{{ $plan->id }}">{{ $plan->description }}</option>
-                                    @endforeach
-                                </x-select>
+                                {{-- Valor negociado do lote --}}
+                                <div class="w-full">
+                                    <x-input.money
+                                            label="Valor negociado (em R$)"
+                                            name="negotiated"
+                                            model="negotiated"
+                                            error="{{ $errors->first('proposalData.negotiated_value') }}"
+                                    />
+                                </div>
                             </x-input-row>
-
-                            @if($paymentPlan)
-                                <x-input-row class="mb-4">
-                                    <div class="w-full">
-                                        <x-input
-                                                label="Valor de entrada (em R$)"
-                                                name="down_payment"
-                                                class="mt-1 w-full text-center"
-                                                wire:model="downPayment"
-                                                error="{{ $errors->first('downPayment') }}"
-                                        />
-                                    </div>
-                                </x-input-row>
-                            @endif
-
-                            @if($proposalData['down_payment'])
-                                <x-select
-                                        label="Selecione um parcelamento"
-                                        name="installment_value"
-                                        class="mt-1 w-full"
-                                        wire:model="selectedInstallmentValue"
-                                        error="{{ $errors->first('selectedInstallmentValue') }}"
-                                >
-                                    <option>Selecione...</option>
-                                    @foreach($simulatedInstallments as $key => $installment)
-                                        <option value="{{ $key }}">{{ $installment['installments'] }} parcelas
-                                            de {{ app('currency')->format($installment['value']) }}</option>
-                                    @endforeach
-                                </x-select>
-                            @endif
-                        </div>
-                    @else
-                        <div class="my-4">
-                            <x-alert type="danger" :autoclose="false">
-                                Não é possível fazer uma proposta de pagamento parcelada pois não há plano de
-                                pagamento
-                                parcelado associado ao loteamento. Favor, entre em contato com o administrador.
-                            </x-alert>
                         </div>
                     @endif
-                @endif
+                </div>
+
+                <div>
+                    @if($installments)
+                        <div>
+                            @if(count($lot->allotment->plans) > 0)
+                                <div>
+                                    <x-input-row class="my-4 items-center">
+                                        <h2 class="text-lg uppercase tracking-widest">Proposta de pagamento
+                                            parcelado</h2>
+                                        <div class="flex-1 h-0.5 bg-gray-200"></div>
+                                    </x-input-row>
+
+                                    <x-input-row class="mb-4">
+                                        <x-select
+                                                label="Selecione um plano de pagamento"
+                                                name="plan"
+                                                class="mt-1 w-full"
+                                                wire:model="selectedPaymentPlan"
+                                                error="{{ $errors->first('selectedPaymentPlan') }}"
+                                        >
+                                            <option>Selecione...</option>
+                                            @foreach($lot->allotment->plans as $plan)
+                                                <option value="{{ $plan->id }}">{{ $plan->description }}</option>
+                                            @endforeach
+                                        </x-select>
+                                    </x-input-row>
+
+                                    <div>
+                                        @if($paymentPlan)
+                                            <x-input-row class="mb-4">
+                                                <div class="w-full">
+                                                    <x-input.money
+                                                            label="Valor de entrada (em R$)"
+                                                            name="down_payment"
+                                                            model="downPayment"
+                                                            error="{{ $errors->first('downPayment') }}"
+                                                    />
+                                                </div>
+                                            </x-input-row>
+                                        @endif
+                                    </div>
+
+                                    <div>
+                                        @if($proposalData['down_payment'])
+                                            <x-select
+                                                    label="Selecione um parcelamento"
+                                                    name="installment_value"
+                                                    class="mt-1 w-full"
+                                                    wire:model="selectedInstallmentValue"
+                                                    error="{{ $errors->first('selectedInstallmentValue') }}"
+                                            >
+                                                <option>Selecione...</option>
+                                                @foreach($simulatedInstallments as $key => $installment)
+                                                    <option value="{{ $key }}">{{ $installment['installments'] }}
+                                                        parcelas
+                                                        de {{ app('currency')->format($installment['value']) }}</option>
+                                                @endforeach
+                                            </x-select>
+                                        @endif
+                                    </div>
+                                </div>
+                            @else
+                                <div class="my-4">
+                                    <x-alert type="danger" :autoclose="false">
+                                        Não é possível fazer uma proposta de pagamento parcelada pois não há plano de
+                                        pagamento
+                                        parcelado associado ao loteamento. Favor, entre em contato com o administrador.
+                                    </x-alert>
+                                </div>
+                            @endif
+                        </div>
+                    @endif
+                </div>
 
                 <div class="my-4">
                     <x-textarea
@@ -306,26 +315,27 @@
         <div @class(['hidden' => $currentStep !== \App\Enums\ProposalWizardSteps::DOCUMENT_STEP])>
             <div class="p-4">
                 <div wire:ignore>
-                    <input type="file" multiple>
-                    @push('scripts')
-                        <script>
+                    <div x-data="{
+                        init() {
                             FilePond.setOptions({
                                 allowMultiple: true,
                                 server: {
                                     process: (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
-                                    @this.upload('documents', file, load, error, progress)
+                                        @this.upload('documents', file, load, error, progress);
                                     },
                                     revert: (filename, load) => {
-                                    @this.removeUpload('documents', filename, load)
+                                        @this.removeUpload('documents', filename, load);
                                     }
-                                },
+                                }
                             });
-                            const inputElement = document.querySelector('input[type="file"]');
-                            const pond = FilePond.create(inputElement, {
+                            FilePond.create($refs.documentUploadInput, {
                                 acceptedFileTypes: ['image/png', 'image/jpeg', 'application/pdf'],
                             });
-                        </script>
-                    @endpush
+                        }
+                    }">
+                        <input x-ref="documentUploadInput" type="file" multiple>
+                    </div>
+
                 </div>
                 @error('documents')
                 <x-alert type="danger" :autoclose="false">{{ $message }}</x-alert>
@@ -338,36 +348,45 @@
     </div>
     <!-- Botões -->
     <div class="p-4 bg-gray-100 border-t-2 border-gray-500 flex justify-around">
-        @if($currentStep > \App\Enums\ProposalWizardSteps::CLIENT_STEP && $currentStep <= \App\Enums\ProposalWizardSteps::DOCUMENT_STEP)
-            <button type="button"
-                    class="bg-primary px-4 py-2 rounded-md text-white font-medium flex items-center"
-                    wire:click="decreaseStep">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M11 19l-7-7 7-7m8 14l-7-7 7-7"/>
-                </svg>
-                <span>Voltar</span>
-            </button>
-        @endif
-        @if($currentStep === \App\Enums\ProposalWizardSteps::DOCUMENT_STEP)
-            <button type="button"
-                    class="bg-primary px-4 py-2 rounded-md text-white font-medium flex items-center"
-                    wire:click="submitProposal">
-                Enviar
-            </button>
-        @endif
-        @if($currentStep < \App\Enums\ProposalWizardSteps::DOCUMENT_STEP)
-            <button type="button"
-                    class="bg-primary px-4 py-2 rounded-md text-white font-medium flex items-center"
-                    wire:click="nextStep">
-                <span>Avançar</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
-                </svg>
-            </button>
-        @endif
+        <div>
+            @if($currentStep > \App\Enums\ProposalWizardSteps::CLIENT_STEP && $currentStep <= \App\Enums\ProposalWizardSteps::DOCUMENT_STEP)
+                <button type="button"
+                        class="bg-primary px-4 py-2 rounded-md text-white font-medium flex items-center"
+                        wire:click="decreaseStep">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                    </svg>
+                    <span>Voltar</span>
+                </button>
+            @endif
+        </div>
+        <div>
+            @if($currentStep === \App\Enums\ProposalWizardSteps::DOCUMENT_STEP)
+                <button type="button"
+                        class="bg-primary px-4 py-2 rounded-md text-white font-medium flex items-center"
+                        wire:click="submitProposal">
+                    Enviar
+                </button>
+            @endif
+        </div>
+        <div>
+            @if($currentStep < \App\Enums\ProposalWizardSteps::DOCUMENT_STEP)
+                <button type="button"
+                        class="bg-primary px-4 py-2 rounded-md text-white font-medium flex items-center"
+                        wire:click="nextStep">
+                    <span>Avançar</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                    </svg>
+                </button>
+            @endif
+        </div>
+    </div>
+    <div>
+        @dump($errors)
     </div>
 </div>

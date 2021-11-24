@@ -167,6 +167,7 @@ namespace App\Models{
  * @property string $left_side
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Proposal|null $activeProposal
  * @property-read \App\Models\Reservation|null $activeReservation
  * @property-read \App\Models\Allotment $allotment
  * @property-read mixed $area

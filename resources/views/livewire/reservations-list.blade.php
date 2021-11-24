@@ -1,18 +1,22 @@
 <div>
     <div class="space-y-4">
-        <div class="flex items-center space-x-3">
-            <div class="w-1/4">
-                <x-input.text wire:model="search" placeholder="Buscar por Loteamento, Corretor ou Cliente..." />
-            </div>
-            <div class='flex space-x-2 items-center'>
-                <x-input.checkbox wire:model='active' />
-                <span>Mostrar apenas reservas ativas</span>
-            </div>
-            <div>
-                <x-button type='button' wire:click="$toggle('showDateFilters')">
-                    @if ($showDateFilters) Esconder @else Mostrar @endif busca por datas
-                </x-button>
-            </div>
+        <div>
+            @if(!$lot)
+                <div class="flex items-center space-x-3">
+                    <div class="w-1/4">
+                        <x-input.text wire:model="search" placeholder="Buscar por Loteamento, Corretor ou Cliente..." />
+                    </div>
+                    <div class='flex space-x-2 items-center'>
+                        <x-input.checkbox wire:model='active' />
+                        <span>Mostrar apenas reservas ativas</span>
+                    </div>
+                    <div>
+                        <x-button type='button' wire:click="$toggle('showDateFilters')">
+                            @if ($showDateFilters) Esconder @else Mostrar @endif busca por datas
+                        </x-button>
+                    </div>
+                </div>
+            @endif
         </div>
 
         <div>
@@ -106,7 +110,8 @@
                                         Ativa
                                     </span>
                                 @elseif ($reservation->cancelled_at)
-                                    <span class="font-medium text-xs text-red-800 bg-red-100 border border-red-800 rounded-full uppercase px-2.5 py-0.5 tracking-wider">
+                                    <span title='Cancelada em {{ $reservation->cancelled_at->format('d/m/Y') }}. Motivo: {{ $reservation->reason }}'
+                                          class="font-medium text-xs text-red-800 bg-red-100 border border-red-800 rounded-full uppercase px-2.5 py-0.5 tracking-wider">
                                         Cancelada
                                     </span>
                                 @else

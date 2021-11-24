@@ -3,7 +3,8 @@
 namespace App\Models;
 
 use App\Casts\DecimalCast;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Enums\ProposalStatusType;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Proposal extends Model

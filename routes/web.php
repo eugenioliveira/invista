@@ -185,6 +185,11 @@ Route::middleware('auth:sanctum')->group(function () {
     // ROTAS REFERENTES À PROPOSTAS
     //======================================================================
 
+    // Listagem de propostas
+    Route::get('/proposals', [ProposalsController::class, 'index'])
+        ->can('view_proposals')
+        ->name('proposals.index');
+
     // Formulário de lançamento de proposta
     Route::get('/lots/{lot}/propose', [ProposalsController::class, 'create'])
         ->can('propose')

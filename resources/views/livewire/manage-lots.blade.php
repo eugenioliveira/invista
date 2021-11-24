@@ -5,13 +5,13 @@
 <div>
     {{-- Success message --}}
     @if(session('successMessage'))
-        <x-alert type="success" message="{{ session('successMessage') }}"/>
+        <x-alert type="success" message="{{ session('successMessage') }}" />
     @endif
 
     @if ($lots->isNotEmpty())
 
         {{-- Search and Pagination --}}
-        <x-search-pagination search-placeholder="Ex.: A25" :links="$lots->links('vendor.pagination.tailwind')"/>
+        <x-search-pagination search-placeholder="Ex.: A25" :links="$lots->links('vendor.pagination.tailwind')" />
 
         {{-- Lots table --}}
         <x-card class="my-4 p-4">
@@ -73,18 +73,23 @@
                         </td>
                         {{-- Status --}}
                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                            @if($lot->activeReservation)
-                                <div class="flex flex-col items-start">
-                                    <x-lot-status-badge
-                                            :status="\App\Enums\LotStatusType::RESERVED()"></x-lot-status-badge>
-                                    <span class="text-xs">
-                                        por <strong>{{ $lot->activeReservation->user->name }}</strong>
-                                        até <strong>{{ $lot->activeReservation->due->format('d/m/Y H:i') }}</strong>
-                                    </span>
-                                </div>
-                            @else
-                                <x-lot-status-badge :status="$lot->latestStatus->type"></x-lot-status-badge>
-                            @endif
+                            <div>
+                                @if($lot->activeProposal)
+                                    <div class="flex flex-col items-start">
+                                        <x-lot-status-badge
+                                                title="Proposta efetuada por {{ $lot->activeProposal->user->name }} - {{ $lot->activeProposal->latestStatus->type->description }}"
+                                                :status="\App\Enums\LotStatusType::PROPOSED()"></x-lot-status-badge>
+                                    </div>
+                                @elseif($lot->activeReservation)
+                                    <div class="flex flex-col items-start">
+                                        <x-lot-status-badge
+                                                title="Reservado por {{ $lot->activeReservation->user->name }} até {{ $lot->activeReservation->due->format('d/m/Y H:i') }}"
+                                                :status="\App\Enums\LotStatusType::RESERVED()"></x-lot-status-badge>
+                                    </div>
+                                @else
+                                    <x-lot-status-badge :status="$lot->latestStatus->type"></x-lot-status-badge>
+                                @endif
+                            </div>
                         </td>
                         {{-- Actions --}}
                         <td class="px-6 py-4 flex space-x-1">
@@ -97,7 +102,27 @@
                                 </svg>
                             </x-button-link>
                             {{-- Show reservations action --}}
+                            @if ($lot->reservations->isNotEmpty())
+                                <div>
+                                    <x-button-link href="{{ route('reservations.index', ['lot' => $lot->id]) }}" format="icon"
+                                                   title="Ver reservas">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                    </x-button-link>
+                                </div>
+                            @endif
                             {{-- Show proposals action --}}
+                            @if ($lot->proposals->isNotEmpty())
+                                <div>
+                                    <x-button-link href="{{ route('proposals.index', ['lot' => $lot->id]) }}" format="icon"
+                                                   title="Ver propostas">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                        </svg>
+                                    </x-button-link>
+                                </div>
+                            @endif
                             {{-- Change static status action --}}
                             <x-button-link format="icon" title="Mudar status"
                                            wire:click="showStatusChangeForm({{ $lot->id }})">

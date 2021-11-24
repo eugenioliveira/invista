@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Enums\ProposalStatusType;
+use BenSampo\Enum\Traits\CastsEnums;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ProposalStatus extends Model
 {
-    use HasFactory;
+    use HasFactory, CastsEnums;
 
     /**
      * Desabilita a proteção contra mass assignment
@@ -16,4 +18,13 @@ class ProposalStatus extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * Os atributos que devem ser convertidos.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'type' => ProposalStatusType::class
+    ];
 }

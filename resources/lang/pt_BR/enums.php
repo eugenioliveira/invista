@@ -9,9 +9,9 @@ return [
     LotStatusType::class => [
         LotStatusType::AVAILABLE => 'Disponível',
         LotStatusType::RESERVED => 'Reservado',
-        LotStatusType::PROPOSED => 'Proposta',
+        LotStatusType::PROPOSED => 'Proposta ativa',
         LotStatusType::BLOCKED => 'Bloqueado',
-        LotStatusType::SOLD => 'Vendido',
+        LotStatusType::SOLD => 'Vendido'
     ],
 
     CivilStatus::class => [

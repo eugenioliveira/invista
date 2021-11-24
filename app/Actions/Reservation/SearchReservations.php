@@ -7,8 +7,9 @@ use Carbon\Carbon;
 
 class SearchReservations
 {
-    public function search($searchTerm, $filters, $sortField, $sortDirection, $onlyActive = true)
+    public function search($searchTerm, $filters, $sortField, $sortDirection, $onlyActive = true, $lot = null)
     {
+        $isBroker = \Auth::user()->hasRole('broker');
         return Reservation::query()
             ->with(['lot', 'lot.allotment', 'user', 'reserveable'])
             ->when(\Str::length($searchTerm) >= 3, function ($query) use ($searchTerm) {
@@ -42,6 +43,8 @@ class SearchReservations
                 $filters['due-max'],
                 fn($query, $due) => $query->where('due', '<=', Carbon::createFromFormat('d/m/Y', $due)->endOfDay())
             )
+            ->when($isBroker, fn($query) => $query->where('user_id', \Auth::user()->id))
+            ->when($lot, fn($query) => $query->where('lot_id', $lot))
             ->orderBy($sortField, $sortDirection)
             ->paginate(8);
     }

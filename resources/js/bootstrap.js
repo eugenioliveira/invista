@@ -11,6 +11,12 @@ window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
+ * Apex Charts
+ */
+import ApexCharts from 'apexcharts';
+window.ApexCharts = ApexCharts;
+
+/**
  * Loadind Filepond
  */
 import * as FilePond from 'filepond';
@@ -99,6 +105,9 @@ const labels_pt_BR = {
 };
 FilePond.setOptions(labels_pt_BR);
 
+/**
+ * Biblioteca de escolha de datas
+ */
 window.Pikaday = require('pikaday/pikaday');
 
 window.brDate = {
@@ -121,6 +130,12 @@ window.brDate = {
   weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
   weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
 };
+
+/**
+ * Máscara de moeda
+ */
+import IMask from 'imask';
+window.IMask = IMask;
 
 /**
  * Loading Alpine JS - TALL Stack

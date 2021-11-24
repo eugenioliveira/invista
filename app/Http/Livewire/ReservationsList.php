@@ -39,11 +39,18 @@ class ReservationsList extends Component
     public string $sortDirection = 'desc';
 
     /**
+     * ID do lote para filtragem
+     *
+     * @var string
+     */
+    public string $lot = '';
+
+    /**
      * Ativa a queryString para facilitar o acesso aos filtros
      *
      * @var string[]
      */
-    protected $queryString = ['search', 'active', 'sortField', 'sortDirection'];
+    protected $queryString = ['search', 'active', 'sortField', 'sortDirection', 'lot'];
 
     /**
      * Controle de exibição dos filtros de data.
@@ -104,13 +111,15 @@ class ReservationsList extends Component
      */
     public function render(SearchReservations $searcher)
     {
+        $this->active = $this->lot ? false : $this->active;
         return view('livewire.reservations-list', [
             'reservations' => $searcher->search(
                 $this->search,
                 $this->filters,
                 $this->sortField,
                 $this->sortDirection,
-                $this->active
+                $this->active,
+                $this->lot
             )
         ]);
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Allotment;
+use App\Models\Role;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -14,7 +16,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home.index', [
-            'allotmentCount' => Allotment::count()
+            'allotmentCount' => Allotment::count(),
+            'brokersCount' => Role::firstWhere('name', '=', 'broker')
+                ->users()
+                ->count(),
+            'usersCount' => User::count()
         ]);
     }
 }

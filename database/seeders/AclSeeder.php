@@ -31,7 +31,8 @@ class AclSeeder extends Seeder
             ->allowTo('create_company')
             ->allowTo('view_reservations')
             ->allowTo('make_reservation')
-            ->allowTo('propose');
+            ->allowTo('propose')
+            ->allowTo('view_proposals');
 
         /**
          * Atribui as permissões para o papel de corretor.
@@ -46,7 +47,8 @@ class AclSeeder extends Seeder
             ->allowTo('create_company')
             ->allowTo('view_reservations')
             ->allowTo('make_reservation')
-            ->allowTo('propose');
+            ->allowTo('propose')
+            ->allowTo('view_proposals');
 
         // Atribui o papel de administrador para Eugenio
         User::whereName('Eugênio Oliveira')
@@ -56,7 +58,7 @@ class AclSeeder extends Seeder
         // Atribui o papel de supervisor para Keith
         User::whereName('Keith Richards')
             ->firstOrFail()
-            ->assignRole('supervisor');
+            ->assignRole('broker');
 
         // Atribui o papel de corretor para Vader
         User::whereName('Darth Vader')

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Actions\Lot;
-
 
 use App\Models\Allotment;
 
@@ -24,15 +22,17 @@ class SearchLot
         preg_match('/\d+/', $searchTerm, $number);
 
         // Busca os lotes
-        $lotQuery =  $allotment->lots()
+        $lotQuery = $allotment
+            ->lots()
             ->where(function ($query) use ($block, $number) {
-                if ($block) $query->where('block', $block);
-                if ($number) $query->where('number', $number);
+                if ($block) {
+                    $query->where('block', $block);
+                }
+                if ($number) {
+                    $query->where('number', $number);
+                }
             })
-            ->with([
-                'latestStatus',
-                'activeReservation'
-            ])
+            ->with(['latestStatus', 'activeReservation', 'activeProposal'])
             ->orderBy('block')
             ->orderBy('number');
 

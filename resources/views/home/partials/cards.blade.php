@@ -9,7 +9,7 @@
         </x-slot>
 
         <x-slot name="title">Total de vendas</x-slot>
-        <x-slot name="stat">R$ 12.345,60</x-slot>
+        <x-slot name="stat">R$ 0,00</x-slot>
 
         <x-slot name="action">
             <a href="/" class="text-sm font-medium text-yellow-600 hover:underline">Ver todas as vendas</a>
@@ -26,10 +26,10 @@
         </x-slot>
 
         <x-slot name="title">Usuários</x-slot>
-        <x-slot name="stat">260</x-slot>
+        <x-slot name="stat">{{ $usersCount }}</x-slot>
 
         <x-slot name="action">
-            <a href="/" class="text-sm font-medium text-yellow-600 hover:underline">Gerenciar usuários</a>
+            <a href="{{ route('users.index') }}" class="text-sm font-medium text-yellow-600 hover:underline">Gerenciar usuários</a>
         </x-slot>
     </x-dashboard-card>
 
@@ -43,10 +43,10 @@
         </x-slot>
 
         <x-slot name="title">Corretores</x-slot>
-        <x-slot name="stat">260</x-slot>
+        <x-slot name="stat">{{ $brokersCount }}</x-slot>
 
         <x-slot name="action">
-            <a href="/" class="text-sm font-medium text-yellow-600 hover:underline">Gerenciar corretores</a>
+            <a href="{{ route('users.index', ['brokers' => true]) }}" class="text-sm font-medium text-yellow-600 hover:underline">Gerenciar corretores</a>
         </x-slot>
     </x-dashboard-card>
 

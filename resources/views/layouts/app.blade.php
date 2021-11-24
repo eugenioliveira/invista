@@ -41,68 +41,7 @@
         {{-- Page footer --}}
         @include('partials.footer')
     </div>
-    {{-- Apex Charts Library --}}
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script>
-        Apex.chart = {
-            locales: [{
-                "name": "pt-br",
-                "options": {
-                    "months": [
-                        "Janeiro",
-                        "Fevereiro",
-                        "Março",
-                        "Abril",
-                        "Maio",
-                        "Junho",
-                        "Julho",
-                        "Agosto",
-                        "Setembro",
-                        "Outubro",
-                        "Novembro",
-                        "Dezembro"
-                    ],
-                    "shortMonths": [
-                        "Jan",
-                        "Fev",
-                        "Mar",
-                        "Abr",
-                        "Mai",
-                        "Jun",
-                        "Jul",
-                        "Ago",
-                        "Set",
-                        "Out",
-                        "Nov",
-                        "Dez"
-                    ],
-                    "days": [
-                        "Domingo",
-                        "Segunda",
-                        "Terça",
-                        "Quarta",
-                        "Quinta",
-                        "Sexta",
-                        "Sábado"
-                    ],
-                    "shortDays": ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
-                    "toolbar": {
-                        "exportToSVG": "Baixar SVG",
-                        "exportToPNG": "Baixar PNG",
-                        "exportToCSV": "Baixar CSV",
-                        "menu": "Menu",
-                        "selection": "Selecionar",
-                        "selectionZoom": "Selecionar Zoom",
-                        "zoomIn": "Aumentar",
-                        "zoomOut": "Diminuir",
-                        "pan": "Navegação",
-                        "reset": "Reiniciar Zoom"
-                    }
-                }
-            }],
-            defaultLocale: "pt-br"
-        }
-    </script>
+
     {{-- Modals --}}
     @stack('modals')
     {{-- Livewire --}}

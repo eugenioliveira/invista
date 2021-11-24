@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Lot;
+use App\Models\Proposal;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
@@ -23,8 +24,17 @@ class ReservationPolicy
 
     public function create(User $loggedUser, Lot $lotToReserve)
     {
+        /**
+         * 1. Não é possível reservar um lote que não está com o status disponível
+         */
+        if (!$lotToReserve->isAvailable()) {
+            return Response::deny(
+                sprintf('O lote %s não está disponível para reserva.', $lotToReserve->identification)
+            );
+        }
+
         /*
-         * 1. Não é possível reservar um lote com reserva ativa
+         * 2. Não é possível reservar um lote com reserva ativa
          */
         if ($lotToReserve->activeReservation) {
             return Response::deny(
@@ -38,7 +48,7 @@ class ReservationPolicy
         }
 
         /**
-         * 2. Um corretor não pode realizar mais do que duas reservas para o mesmo lote, caso:
+         * 3. Um corretor não pode realizar mais do que duas reservas para o mesmo lote, caso:
          *  — A diferença de tempo entre a primeira reserva e a data atual seja inferior a 3x o tempo de
          * reserva definido nas configurações de loteamento
          */
@@ -62,6 +72,30 @@ class ReservationPolicy
             );
         }
 
+        /**
+         * 4 - Não é possível reservar um lote com proposta ativa
+         */
+        if ($lotToReserve->activeProposal instanceof Proposal) {
+            return Response::deny(
+                sprintf(
+                    'O lote %s não pode ser reservado pois possui uma proposta sob análise ou devolvida.',
+                    $lotToReserve->identification
+                )
+            );
+        }
+
         return Response::allow();
+    }
+
+    /**
+     * O usuário só pode cancelar uma reserva feita por ele mesmo.
+     *
+     * @param User $loggedUser
+     * @param Lot $lot
+     * @return bool
+     */
+    public function cancel(User $loggedUser, Lot $lot): bool
+    {
+        return $lot->activeReservation && $lot->activeReservation->user_id == $loggedUser->id;
     }
 }
