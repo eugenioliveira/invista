@@ -12,6 +12,7 @@ use App\Http\Controllers\PaymentPlansController;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\PersonAddressController;
 use App\Http\Controllers\PersonDetailController;
+use App\Http\Controllers\ProposalReportController;
 use App\Http\Controllers\ProposalsController;
 use App\Http\Controllers\UsersController;
 use App\Models\Proposal;
@@ -195,6 +196,11 @@ Route::middleware('auth:sanctum')->group(function () {
         ->can('propose')
         ->can('create', [Proposal::class, 'lot'])
         ->name('lot.propose');
+
+    // Geração de propostas em PDF
+    Route::get('/proposal/{proposal}', [ProposalReportController::class, 'show'])
+        ->can('view_proposals')
+        ->name('proposal.show');
 
     //======================================================================
     // ROTAS REFERENTES À PLANOS DE PAGAMENTO

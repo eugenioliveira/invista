@@ -375,7 +375,7 @@ namespace App\Models{
  * @property int $reservation_id
  * @property int $proposeable_id
  * @property string $proposeable_type
- * @property int $type
+ * @property \App\Enums\ProposalType $type
  * @property mixed $negotiated_value
  * @property mixed $down_payment
  * @property int $installments
@@ -391,6 +391,7 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProposalStatus[] $statuses
  * @property-read int|null $statuses_count
  * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Proposal active()
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Proposal query()
@@ -440,7 +441,7 @@ namespace App\Models{
  * @property int $id
  * @property int $proposal_id
  * @property int $user_id
- * @property int $type
+ * @property \App\Enums\ProposalStatusType $type
  * @property string $reason
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at

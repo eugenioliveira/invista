@@ -9,6 +9,7 @@ use App\Enums\ProposalType;
 use App\Enums\ProposalWizardSteps;
 use App\Models\Lot;
 use App\Models\PaymentPlan;
+use App\Models\PersonDetail;
 use App\Models\Proposal;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Collection;
@@ -127,7 +128,12 @@ class ProposalWizard extends Component
      */
     public function mount()
     {
-        $this->clientData['civil_status'] = CivilStatus::SINGLE();
+        $detail = collect($this->lot->activeReservation->reserveable->detail)->except([
+            'partner_id',
+            'created_at',
+            'updated_at'
+        ]);
+        $this->clientData = $detail->isNotEmpty() ? $detail->toArray() : ['civil_status' => CivilStatus::SINGLE];
         $this->proposalData = collect([
             'type' => 2,
             'negotiated_value' => '',
@@ -139,14 +145,37 @@ class ProposalWizard extends Component
 
     public function updatedNegotiated()
     {
-        $this->proposalData['negotiated_value'] = app('decimal')->parse($this->negotiated);
+        $price = app('decimal')->parse($this->lot->price);
+        $maxDiscount = app('decimal')->parse($this->lot->allotment->max_discount) / 100;
+        $minValue = round($price - $price * $maxDiscount, 2);
+
+        $this->validateOnly(
+            'negotiated',
+            [
+                'negotiated' => ['required', 'regex:/^[1-9]\d*(\.\d{3})?(\,\d{1,2})?$/']
+            ],
+            [
+                'negotiated.required' => 'Digite o valor negociado entre as partes.',
+                'negotiated.regex' => 'Digite um valor válido.'
+            ]
+        );
+
+        if (app('decimal')->parse($this->negotiated) < $minValue) {
+            $this->addError('negotiated', sprintf('O valor mínimo é %s', app('currency')->format($minValue)));
+        }
+
+        if (app('decimal')->parse($this->negotiated) > $price) {
+            $this->addError('negotiated', sprintf('O valor máximo é %s', app('currency')->format($price)));
+        }
+
+        $this->proposalData['negotiated_value'] = $this->negotiated;
     }
 
     public function updatedDownPayment()
     {
         $price = app('decimal')->parse($this->lot->price);
         $minDownPayment = app('decimal')->parse($this->paymentPlan->min_down_payment) / 100;
-        $minValue = $price * $minDownPayment;
+        $minValue = round($price * $minDownPayment, 2);
         $this->validateOnly('downPayment', [
             'downPayment' => ['required', 'regex:/^[1-9]\d*(\.\d{3})?(\,\d{1,2})?$/']
         ]);
@@ -221,29 +250,7 @@ class ProposalWizard extends Component
     public function submitFinancialStep()
     {
         $price = app('decimal')->parse($this->lot->price);
-
         if ($this->proposalData['type'] === ProposalType::IN_CASH) {
-            // Validar e preencher a proposta à vista
-            $maxDiscount = app('decimal')->parse($this->lot->allotment->max_discount) / 100;
-            $minValue = $price - $price * $maxDiscount;
-            $this->validateOnly(
-                'proposalData.negotiated_value',
-                [
-                    'proposalData.negotiated_value' => ['required', 'numeric', "min:{$minValue}", "max:{$price}"]
-                ],
-                [
-                    'proposalData.negotiated_value.required' => 'Digite o valor negociado entre as partes.',
-                    'proposalData.negotiated_value.numeric' => 'Digite um valor válido.',
-                    'proposalData.negotiated_value.min' => sprintf(
-                        'O valor mínimo é %s.',
-                        app('currency')->format($minValue)
-                    ),
-                    'proposalData.negotiated_value.max' => sprintf(
-                        'O valor máximo é %s.',
-                        app('currency')->format($price)
-                    )
-                ]
-            );
             $this->proposalData = $this->proposalData->merge([
                 'down_payment' => 0,
                 'installments' => 1,
@@ -269,7 +276,9 @@ class ProposalWizard extends Component
                     'negotiated_value' => $price,
                     'down_payment' => $this->downPayment,
                     'installments' => $this->simulatedInstallments[$this->selectedInstallmentValue]['installments'],
-                    'installment_value' => $this->simulatedInstallments[$this->selectedInstallmentValue]['value']
+                    'installment_value' => app('decimal')->format(
+                        $this->simulatedInstallments[$this->selectedInstallmentValue]['value']
+                    )
                 ]);
             }
         }

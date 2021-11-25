@@ -217,7 +217,7 @@
                                             label="Valor negociado (em R$)"
                                             name="negotiated"
                                             model="negotiated"
-                                            error="{{ $errors->first('proposalData.negotiated_value') }}"
+                                            error="{{ $errors->first('negotiated') }}"
                                     />
                                 </div>
                             </x-input-row>
@@ -387,6 +387,7 @@
         </div>
     </div>
     <div>
+        @dump($proposalData)
         @dump($errors)
     </div>
 </div>

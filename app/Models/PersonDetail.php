@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Casts\DecimalCast;
+use App\Enums\CivilStatus;
+use BenSampo\Enum\Traits\CastsEnums;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 class PersonDetail extends Model
 {
     use HasFactory;
+    use CastsEnums;
 
     protected $guarded = [];
 
@@ -20,7 +23,8 @@ class PersonDetail extends Model
      */
     protected $casts = [
         'monthly_income' => DecimalCast::class . ':2',
-        'birth_date' => 'date:d/m/Y'
+        'birth_date' => 'date:d/m/Y',
+        'civil_status' => CivilStatus::class
     ];
 
     /**

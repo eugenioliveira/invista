@@ -47,7 +47,9 @@
                         @can('view_reservations')
                             <x-nav-link route="reservations.index">Reservas</x-nav-link>
                         @endcan
-                        <x-nav-link route="clients.index">Propostas</x-nav-link>
+                        @can('view_proposals')
+                            <x-nav-link route="proposals.index">Propostas</x-nav-link>
+                        @endcan
                         <x-nav-link route="sales.index">Vendas</x-nav-link>
                     </nav>
                 </div>
@@ -132,8 +134,12 @@
                     </x-mobile-nav-dropdown-link>
                 </x-mobile-nav-dropdown>
             @endcan
-            <x-mobile-nav-link route="clients.index">Reservas</x-mobile-nav-link>
-            <x-mobile-nav-link route="clients.index">Propostas</x-mobile-nav-link>
+            @can('view_reservations')
+                <x-mobile-nav-link route="reservations.index">Reservas</x-mobile-nav-link>
+            @endcan
+            @can('view_proposals')
+                <x-mobile-nav-link route="proposals.index">Propostas</x-mobile-nav-link>
+            @endcan
             <x-mobile-nav-link route="sales.index">Vendas</x-mobile-nav-link>
         </nav>
     </div>

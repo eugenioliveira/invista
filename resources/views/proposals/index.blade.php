@@ -7,7 +7,7 @@
     </x-slot>
 
     <x-section>
-        Teste
+        <livewire:manage-proposals />
     </x-section>
 
 </x-app-layout>

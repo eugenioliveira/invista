@@ -4,11 +4,15 @@ namespace App\Models;
 
 use App\Casts\DecimalCast;
 use App\Enums\ProposalStatusType;
+use App\Enums\ProposalType;
+use BenSampo\Enum\Traits\CastsEnums;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Proposal extends Model
 {
+    use CastsEnums;
+
     /**
      * Desabilita a proteção contra mass assignment
      * uma vez que os campos serão validados.
@@ -25,7 +29,8 @@ class Proposal extends Model
     protected $casts = [
         'negotiated_value' => DecimalCast::class . ':2',
         'down_payment' => DecimalCast::class . ':2',
-        'installment_value' => DecimalCast::class . ':2'
+        'installment_value' => DecimalCast::class . ':2',
+        'type' => ProposalType::class
     ];
 
     /**
@@ -86,5 +91,12 @@ class Proposal extends Model
     public function proposeable()
     {
         return $this->morphTo();
+    }
+
+    public function scopeActive(Builder $query): Builder
+    {
+        return $query->whereHas('latestStatus', function ($query) {
+            $query->whereIn('type', [ProposalStatusType::UNDER_REVIEW, ProposalStatusType::RETURNED]);
+        });
     }
 }

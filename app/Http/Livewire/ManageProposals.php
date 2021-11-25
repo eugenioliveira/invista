@@ -2,11 +2,12 @@
 
 namespace App\Http\Livewire;
 
-use App\Actions\Reservation\SearchReservations;
+use App\Actions\Proposal\SearchProposals;
+use App\Models\Proposal;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ReservationsList extends Component
+class ManageProposals extends Component
 {
     use WithPagination;
 
@@ -29,7 +30,7 @@ class ReservationsList extends Component
      *
      * @var string
      */
-    public string $sortField = 'init';
+    public string $sortField = 'created_at';
 
     /**
      * A direção do ordenamento
@@ -46,6 +47,13 @@ class ReservationsList extends Component
     public string $lot = '';
 
     /**
+     * ID da proposta para filtragem
+     *
+     * @var string
+     */
+    public string $proposal = '';
+
+    /**
      * Ativa a queryString para facilitar o acesso aos filtros
      *
      * @var string[]
@@ -53,17 +61,20 @@ class ReservationsList extends Component
     protected $queryString = [
         'search' => ['except' => ''],
         'active' => ['except' => true],
-        'sortField' => ['except' => 'init'],
+        'sortField' => ['except' => 'created_at'],
         'sortDirection' => ['except' => 'desc'],
-        'lot' => ['except' => '']
+        'lot' => ['except' => ''],
+        'proposal' => ['except' => '']
     ];
 
     /**
-     * Controle de exibição dos filtros de data.
+     * Controle de exibição dos filtros avançados.
      *
      * @var bool
      */
-    public bool $showDateFilters = false;
+    public bool $showAdvancedFilters = false;
+
+    public bool $showResolveProposalModal = false;
 
     /**
      * Os filtros de data a serem preenchidos
@@ -71,10 +82,9 @@ class ReservationsList extends Component
      * @var array|null[]
      */
     public array $filters = [
-        'init-min' => null,
-        'init-max' => null,
-        'due-min' => null,
-        'due-max' => null
+        'created-at-min' => null,
+        'created-at-max' => null,
+        'type' => ''
     ];
 
     /**
@@ -109,23 +119,23 @@ class ReservationsList extends Component
         $this->sortField = $field;
     }
 
-    /**
-     * Renderiza o componente.
-     *
-     * @param SearchReservations $searcher
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function render(SearchReservations $searcher)
+    public function resolveProposal($proposalId)
     {
-        $this->active = $this->lot ? false : $this->active;
-        return view('livewire.reservations-list', [
-            'reservations' => $searcher->search(
+        Proposal::find($proposalId);
+        $this->showResolveProposalModal = true;
+    }
+
+    public function render(SearchProposals $searcher)
+    {
+        return view('livewire.manage-proposals', [
+            'proposals' => $searcher->search(
                 $this->search,
                 $this->filters,
                 $this->sortField,
                 $this->sortDirection,
                 $this->active,
-                $this->lot
+                $this->lot,
+                $this->proposal
             )
         ]);
     }

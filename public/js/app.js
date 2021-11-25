@@ -5487,14 +5487,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var apexcharts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! apexcharts */ "./node_modules/apexcharts/dist/apexcharts.common.js");
 /* harmony import */ var apexcharts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(apexcharts__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var filepond__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! filepond */ "./node_modules/filepond/dist/filepond.js");
-/* harmony import */ var filepond__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(filepond__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var filepond_plugin_image_preview__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! filepond-plugin-image-preview */ "./node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js");
-/* harmony import */ var filepond_plugin_image_preview__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_image_preview__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! filepond-plugin-file-validate-type */ "./node_modules/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js");
-/* harmony import */ var filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var imask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! imask */ "./node_modules/imask/esm/index.js");
-/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+/* harmony import */ var imask__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! imask */ "./node_modules/imask/esm/index.js");
+/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -5510,40 +5504,67 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 
 window.ApexCharts = (apexcharts__WEBPACK_IMPORTED_MODULE_0___default());
-(apexcharts__WEBPACK_IMPORTED_MODULE_0___default().chart) = {
-  locales: [{
-    name: 'pt-br',
-    options: {
-      months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-      shortMonths: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-      days: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-      shortDays: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
-      toolbar: {
-        exportToSVG: 'Baixar SVG',
-        exportToPNG: 'Baixar PNG',
-        exportToCSV: 'Baixar CSV',
-        menu: 'Menu',
-        selection: 'Selecionar',
-        selectionZoom: 'Selecionar Zoom',
-        zoomIn: 'Aumentar',
-        zoomOut: 'Diminuir',
-        pan: 'Navegação',
-        reset: 'Reiniciar Zoom'
-      }
-    }
-  }],
-  defaultLocale: 'pt-br'
-};
 /**
  * Loadind Filepond
  */
 
+__webpack_require__(/*! ./filepond */ "./resources/js/filepond.js");
+/**
+ * Biblioteca de escolha de datas
+ */
+
+
+__webpack_require__(/*! ./pikaday */ "./resources/js/pikaday.js");
+/**
+ * Máscara de moeda
+ */
 
 
 
-window.FilePond = filepond__WEBPACK_IMPORTED_MODULE_1__;
-filepond__WEBPACK_IMPORTED_MODULE_1__.registerPlugin((filepond_plugin_image_preview__WEBPACK_IMPORTED_MODULE_2___default()));
-filepond__WEBPACK_IMPORTED_MODULE_1__.registerPlugin((filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_3___default()));
+window.IMask = imask__WEBPACK_IMPORTED_MODULE_1__["default"];
+/**
+ * Loading Alpine JS - TALL Stack
+ */
+
+
+window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"];
+alpinejs__WEBPACK_IMPORTED_MODULE_2__["default"].start();
+/**
+ * Echo exposes an expressive API for subscribing to channels and listening
+ * for events that are broadcast by Laravel. Echo and event broadcasting
+ * allows your team to easily build robust real-time web applications.
+ */
+// import Echo from 'laravel-echo';
+// window.Pusher = require('pusher-js');
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     forceTLS: true
+// });
+
+/***/ }),
+
+/***/ "./resources/js/filepond.js":
+/*!**********************************!*\
+  !*** ./resources/js/filepond.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var filepond__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! filepond */ "./node_modules/filepond/dist/filepond.js");
+/* harmony import */ var filepond__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(filepond__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var filepond_plugin_image_preview__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! filepond-plugin-image-preview */ "./node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js");
+/* harmony import */ var filepond_plugin_image_preview__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_image_preview__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! filepond-plugin-file-validate-type */ "./node_modules/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js");
+/* harmony import */ var filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+window.FilePond = filepond__WEBPACK_IMPORTED_MODULE_0__;
+filepond__WEBPACK_IMPORTED_MODULE_0__.registerPlugin((filepond_plugin_image_preview__WEBPACK_IMPORTED_MODULE_1___default()));
+filepond__WEBPACK_IMPORTED_MODULE_0__.registerPlugin((filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_2___default()));
 var labels_pt_BR = {
   // labelIdle: 'Drag & Drop your files or <span class="filepond--label-action"> Browse </span>'
   labelIdle: 'Arraste e solte os arquivos ou <span class="filepond--label-action"> Clique aqui </span>',
@@ -5620,10 +5641,15 @@ var labels_pt_BR = {
   // imageValidateSizeLabelExpectedMaxResolution: 'Maximum resolution is {maxResolution}'
   imageValidateSizeLabelExpectedMaxResolution: 'Resolução máxima permitida: {maxResolution}'
 };
-filepond__WEBPACK_IMPORTED_MODULE_1__.setOptions(labels_pt_BR);
-/**
- * Biblioteca de escolha de datas
- */
+filepond__WEBPACK_IMPORTED_MODULE_0__.setOptions(labels_pt_BR);
+
+/***/ }),
+
+/***/ "./resources/js/pikaday.js":
+/*!*********************************!*\
+  !*** ./resources/js/pikaday.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 window.Pikaday = __webpack_require__(/*! pikaday/pikaday */ "./node_modules/pikaday/pikaday.js");
 window.brDate = {
@@ -5633,32 +5659,6 @@ window.brDate = {
   weekdays: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
   weekdaysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
 };
-/**
- * Máscara de moeda
- */
-
-
-window.IMask = imask__WEBPACK_IMPORTED_MODULE_4__["default"];
-/**
- * Loading Alpine JS - TALL Stack
- */
-
-
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_5__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_5__["default"].start();
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-// import Echo from 'laravel-echo';
-// window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });
 
 /***/ }),
 

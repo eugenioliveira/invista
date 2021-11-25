@@ -104,12 +104,7 @@ class Lot extends Model
      */
     public function activeProposal()
     {
-        return $this->hasOne(Proposal::class)->ofMany(
-            ['id' => 'max'],
-            fn($query) => $query->whereHas('latestStatus', function ($query) {
-                $query->whereIn('type', [ProposalStatusType::UNDER_REVIEW, ProposalStatusType::RETURNED]);
-            })
-        );
+        return $this->hasOne(Proposal::class)->ofMany(['id' => 'max'], fn($query) => $query->active());
     }
 
     /**

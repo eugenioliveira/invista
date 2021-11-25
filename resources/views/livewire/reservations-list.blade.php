@@ -1,17 +1,17 @@
 <div>
-    <div class="space-y-4">
+    <div class="p-2 md:p-0 space-y-4">
         <div>
             @if(!$lot)
-                <div class="flex items-center space-x-3">
-                    <div class="w-1/4">
+                <div class="flex flex-col space-y-2 md:flex-row md:items-center md:space-x-3">
+                    <div class="md:w-1/4">
                         <x-input.text wire:model="search" placeholder="Buscar por Loteamento, Corretor ou Cliente..." />
                     </div>
-                    <div class='flex space-x-2 items-center'>
+                    <div class='flex space-x-2 items-center justify-center'>
                         <x-input.checkbox wire:model='active' />
                         <span>Mostrar apenas reservas ativas</span>
                     </div>
-                    <div>
-                        <x-button type='button' wire:click="$toggle('showDateFilters')">
+                    <div class='w-full md:w-1/5'>
+                        <x-button type='button' class="w-full inline-flex justify-center" wire:click="$toggle('showDateFilters')">
                             @if ($showDateFilters) Esconder @else Mostrar @endif busca por datas
                         </x-button>
                     </div>
@@ -21,9 +21,9 @@
 
         <div>
             @if ($showDateFilters)
-                <div class='bg-gray-200 rounded shadow px-6 py-4'>
-                    <div class='flex justify-around'>
-                        <div class='w-1/3 divide-y divide-gray-500 space-y-3'>
+                <div class='bg-gray-200 rounded shadow p-4 md:px-6 md:py-4'>
+                    <div class='flex flex-col space-y-4 md:space-y-0 md:flex-row md:justify-around'>
+                        <div class='md:w-1/3 divide-y divide-gray-500 space-y-3'>
                             <p class='text-gray-700 font-bold'>Filtrar pela data de início da reserva</p>
                             <div class='flex space-x-2 pt-2'>
                                 <x-input.group inline for="filter-init-min" label="Data mínima">
@@ -37,7 +37,7 @@
                             </div>
                         </div>
 
-                        <div class='w-1/3 divide-y divide-gray-500 space-y-3'>
+                        <div class='md:w-1/3 divide-y divide-gray-500 space-y-3'>
                             <p class='text-gray-700 font-bold'>Filtrar pela data de término da reserva</p>
                             <div class='flex space-x-2 pt-2'>
                                 <x-input.group inline for="filter-due-min" label="Data mínima">
