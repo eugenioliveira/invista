@@ -11,9 +11,17 @@ services:
     container_name: invista-app
     restart: unless-stopped
     working_dir: /var/www/
+<<<<<<< HEAD
     volumes:
       - ./:/var/www
       - ./docker-compose/app/php.ini:/usr/local/etc/php/php.ini:z
+=======
+    #command: sh /run-from-compose.sh
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/app/php.ini:/usr/local/etc/php/php.ini:z
+      #- ./docker-compose/app/run-from-compose.sh:/run-from-compose.sh
+>>>>>>> origin/master
     networks:
       - invista
   db:
@@ -22,6 +30,10 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
+<<<<<<< HEAD
+=======
+      MYSQL_DATABASE: ${DB_DATABASE}
+>>>>>>> origin/master
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
@@ -34,7 +46,11 @@ services:
     container_name: invista-nginx
     restart: unless-stopped
     ports:
+<<<<<<< HEAD
       - "8000:80"
+=======
+      - 8000:80
+>>>>>>> origin/master
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d
