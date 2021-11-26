@@ -4,48 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Actions/Proposal/SearchProposals.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ProposalReportController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ManageProposals.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/View/Components/ProposalStatusBadge.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/View/Components/ReportLayout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/snappy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/filepond.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/pikaday.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/imodal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/imodal/confirmation.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/imodal/dialog.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/proposal-status-badge.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/report.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/manage-proposals.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/proposals/report.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/invista.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/invista.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/ProposalType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/ProposalType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ReservationsList.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ReservationsList.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/PersonDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PersonDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Proposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/button.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/input/date.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/input/date.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/manage-lots.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/manage-lots.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/reservations-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/reservations-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/proposals/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/proposals/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -341,7 +300,7 @@
       <workItem from="1637595273520" duration="3651000" />
       <workItem from="1637755072404" duration="16962000" />
       <workItem from="1637779124047" duration="2618000" />
-      <workItem from="1637840528232" duration="23862000" />
+      <workItem from="1637840528232" duration="24088000" />
     </task>
     <servers />
   </component>

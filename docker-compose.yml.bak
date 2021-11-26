@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  app:
+    build:
+      args:
+        user: sammy
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: invista
+    container_name: invista-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    command: sh /run-from-compose.sh
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/app/php.ini:/usr/local/etc/php/php.ini:z
+      #- ./docker-compose/app/run-from-compose.sh:/run-from-compose.sh
+    networks:
+      - invista
+  db:
+    image: mysql:latest
+    container_name: invista-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - invista
+  nginx:
+    image: nginx:stable-alpine
+    container_name: invista-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - invista
+
+networks:
+  invista:
+    driver: bridge
