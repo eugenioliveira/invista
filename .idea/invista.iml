@@ -161,6 +161,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/serializable-closure" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-snappy" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-snappy" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/daltcore/lara-pdf-merger" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

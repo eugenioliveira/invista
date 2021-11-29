@@ -325,7 +325,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $person_id
- * @property string $civil_status
+ * @property \App\Enums\CivilStatus $civil_status
  * @property mixed $birth_date
  * @property string $birth_location
  * @property string $nationality

@@ -6,7 +6,11 @@ ARG uid
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    wkhtmltopdf
+    wkhtmltopdf \
+    git \
+    curl \
+    zip \
+    unzip
 
 # Install PHP extensions
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/

@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
 
     {{-- Styles --}}
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ public_path('css/app.css') }}">
 </head>
 <body class="font-sans antialiased">
 <div>

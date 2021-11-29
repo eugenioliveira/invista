@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="" />
+    <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/58ODwvFiuLWEzHr3M9qiQbEyLKvfAHfKMqRERZ6k.jpg.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/invista.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/invista.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProposalReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProposalReportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/snappy.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/snappy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/documents" beforeDir="false" afterPath="$PROJECT_DIR$/public/documents" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/report.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -195,6 +210,8 @@
       <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-snappy" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/daltcore/lara-pdf-merger" />
     </include_path>
   </component>
   <component name="ProjectId" id="1wXBo46ut7ebFUcRS1h02T3F04G" />
@@ -212,7 +229,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/View/Components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -220,7 +237,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -301,6 +318,8 @@
       <workItem from="1637755072404" duration="16962000" />
       <workItem from="1637779124047" duration="2618000" />
       <workItem from="1637840528232" duration="24088000" />
+      <workItem from="1638187962734" duration="5652000" />
+      <workItem from="1638194331710" duration="3226000" />
     </task>
     <servers />
   </component>
