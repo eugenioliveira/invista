@@ -27,6 +27,10 @@ services:
       MYSQL_USER: ${DB_USERNAME}
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    ports:
+      - "33061:3306"
+    volumes:
+      - ./db:/var/lib/mysql
     networks:
       - invista
   nginx:

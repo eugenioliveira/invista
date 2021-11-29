@@ -117,7 +117,7 @@
                             <x-table.cell>
                                 <div class='flex space-x-2'>
                                     <div>
-                                        <x-button-link href="{{ route('proposal.show', $proposal->id) }}" format="icon" title="Ver proposta">
+                                        <x-button-link href="{{ route('proposal.show', $proposal->id) }}" target='_blank' format="icon" title="Ver proposta">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
                                                  fill="currentColor">
                                                 <path fill-rule="evenodd"
