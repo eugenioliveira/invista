@@ -29,9 +29,11 @@ class AuthServiceProvider extends ServiceProvider
 
         /*
          * Regra de autorização do admin
+         *
+         * Todas as permissões menos a de resolver propostas
          */
-        Gate::before(function (User $user) {
-            if ($user->isAdmin()) {
+        Gate::before(function (User $user, $permission) {
+            if ($user->isAdmin() && $permission !== 'resolve') {
                 return true;
             }
         });

@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="Pdf de proposta sendo gerado">
-      <change afterPath="$PROJECT_DIR$/app/Actions/Proposal/AcceptedProposalAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Actions/Proposal/DeniedProposalAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Actions/Proposal/ResolveProposalAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Actions/Proposal/ResolveProposalFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Actions/Proposal/ReturnedProposalAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Actions/Proposal/UnderReviewProposalAction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/input/textarea.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ManageProposals.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ManageProposals.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Proposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/imodal/dialog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/imodal/dialog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/ProposalPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/ProposalPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/manage-proposals.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/manage-proposals.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -321,7 +313,7 @@
       <workItem from="1638200866000" duration="259000" />
       <workItem from="1638201291901" duration="765000" />
       <workItem from="1638202137717" duration="40000" />
-      <workItem from="1638271024159" duration="9441000" />
+      <workItem from="1638271024159" duration="11081000" />
     </task>
     <servers />
   </component>
