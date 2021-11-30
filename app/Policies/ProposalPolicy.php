@@ -61,7 +61,9 @@ class ProposalPolicy
         /**
          * Só é possível alterar o status de propostas em análise ou devolvidas
          */
-        if ($proposal->latestStatus->type->is(ProposalStatusType::ACCEPTED) || $proposal->latestStatus->type->is(ProposalStatusType::DENIED)) {
+        if (
+            $proposal->latestStatus->type->is(ProposalStatusType::ACCEPTED) ||
+            $proposal->latestStatus->type->is(ProposalStatusType::DENIED)) {
             return Response::deny('Só é possível resolver propostas em análise ou devolvidas.');
         }
 
