@@ -2,14 +2,17 @@
 
 namespace App\Http\Livewire;
 
+use App\Actions\Proposal\ResolveProposalFactory;
 use App\Actions\Proposal\SearchProposals;
+use App\Enums\ProposalStatusType;
 use App\Models\Proposal;
+use BenSampo\Enum\Rules\EnumValue;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class ManageProposals extends Component
 {
-    use WithPagination;
+    use WithPagination, RedirectHandler;
 
     /**
      * Termo de busca utilizado.
@@ -74,6 +77,11 @@ class ManageProposals extends Component
      */
     public bool $showAdvancedFilters = false;
 
+    /**
+     * Controle de exibição do modal de resolução da proposta.
+     *
+     * @var bool
+     */
     public bool $showResolveProposalModal = false;
 
     /**
@@ -86,6 +94,50 @@ class ManageProposals extends Component
         'created-at-max' => null,
         'type' => ''
     ];
+
+    /**
+     * A proposta que será resolvida
+     *
+     * @var Proposal
+     */
+    public Proposal $resolving;
+
+    /**
+     * Resultado da avaliação da proposta
+     *
+     * @var array
+     */
+    public array $resolveData = [
+        'status' => '',
+        'reason' => null,
+    ];
+
+    /**
+     * Regras de validação
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'resolveData.status' => ['required', new EnumValue(ProposalStatusType::class, false)],
+            'resolveData.reason' => ['required', 'min:10']
+        ];
+    }
+
+    /**
+     * Mensagens de erro de validação
+     *
+     * @return string[]
+     */
+    public function messages()
+    {
+        return [
+            'resolveData.status.required' => 'Selecione um status.',
+            'resolveData.reason.required' => 'Digite um motivo para a resolução da proposta.',
+            'resolveData.reason.min' => 'Digite um motivo com no mínimo 10 caracteres.',
+        ];
+    }
 
     /**
      * Redefine a páginação quando é realizada uma busca
@@ -119,12 +171,47 @@ class ManageProposals extends Component
         $this->sortField = $field;
     }
 
-    public function resolveProposal($proposalId)
+    /**
+     * Marca a proposta selecionada para resolução e exibe o modal
+     *
+     * @param Proposal $proposal
+     */
+    public function showResolveProposal(Proposal $proposal)
     {
-        Proposal::find($proposalId);
+        $this->resetErrorBag();
+        $this->reset('resolveData');
+        $this->resolving = $proposal;
         $this->showResolveProposalModal = true;
     }
 
+    /**
+     * Efetua a resolução da proposta.
+     */
+    public function resolveProposal(ResolveProposalFactory $resolverFactory)
+    {
+        $this->validate();
+
+        $resolver = $resolverFactory->make(ProposalStatusType::fromValue((int)$this->resolveData['status']));
+        $resolveResult = $resolver->resolve($this->resolving, $this->resolveData['reason']);
+        if ($resolveResult) {
+            $this->successAction(
+                sprintf(
+                    'Sucesso: Proposta #%s resolvida como %s',
+                    $this->resolving->id,
+                    $resolveResult->type->description
+                ),
+                ['proposals.index'],
+                true
+            );
+        }
+    }
+
+    /**
+     * Renderiza o componente
+     *
+     * @param SearchProposals $searcher
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function render(SearchProposals $searcher)
     {
         return view('livewire.manage-proposals', [

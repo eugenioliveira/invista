@@ -93,10 +93,33 @@ class Proposal extends Model
         return $this->morphTo();
     }
 
+    /**
+     * Adiciona um escopo para busca de propostas "ativas"
+     *
+     * @param Builder $query
+     * @return Builder
+     */
     public function scopeActive(Builder $query): Builder
     {
         return $query->whereHas('latestStatus', function ($query) {
             $query->whereIn('type', [ProposalStatusType::UNDER_REVIEW, ProposalStatusType::RETURNED]);
         });
+    }
+
+    /**
+     * Retorna as condições da proposta em formato literal.
+     *
+     * @return string
+     */
+    public function getConditionsAttribute()
+    {
+        if ($this->type === ProposalType::IN_CASH) {
+            return 'Pagamento à vista em R$ ' . app('currency')->format($this->attributes['negotiated_value']);
+        } else {
+            return sprintf(
+                'Pagamento em %s parcelas de %s',
+                $this->installments,
+                app('currency')->format($this->attributes['installment_value']));
+        }
     }
 }

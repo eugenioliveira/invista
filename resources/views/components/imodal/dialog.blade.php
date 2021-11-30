@@ -6,6 +6,8 @@
             {{ $title }}
         </div>
 
+        <hr class='my-3'>
+
         <div class="mt-4">
             {{ $content }}
         </div>

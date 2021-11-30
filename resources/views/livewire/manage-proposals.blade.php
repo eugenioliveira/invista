@@ -1,6 +1,11 @@
 <div>
     <div class="p-2 md:p-0 space-y-4">
-
+        <div>
+            {{-- Success message --}}
+            @if(session('successMessage'))
+                <x-alert type="success" message="{{ session('successMessage') }}" />
+            @endif
+        </div>
         <div>
             @if(!$lot && !$proposal)
                 <div class="flex flex-col space-y-2 md:flex-row md:items-center md:space-x-3">
@@ -12,7 +17,8 @@
                         <span>Mostrar apenas propostas ativas</span>
                     </div>
                     <div class='w-full md:w-1/4'>
-                        <x-button type='button' class="w-full inline-flex justify-center" wire:click="$toggle('showAdvancedFilters')">
+                        <x-button type='button' class="w-full inline-flex justify-center"
+                                  wire:click="$toggle('showAdvancedFilters')">
                             @if ($showAdvancedFilters) Esconder @else Mostrar @endif filtros avançados
                         </x-button>
                     </div>
@@ -42,7 +48,7 @@
                             <div class='pt-2'>
                                 <x-input.group inline for="filter-type" label="Tipo">
                                     <x-input.select class="w-full" wire:model="filters.type" id="filter-type"
-                                                  placeholder="Selecione...">
+                                                    placeholder="Selecione...">
                                         @foreach(\App\Enums\ProposalType::getInstances() as $proposalType)
                                             <option value="{{ $proposalType->value }}">{{ $proposalType->description }}</option>
                                         @endforeach
@@ -67,10 +73,12 @@
                     <x-table.heading>Corretor</x-table.heading>
                     <x-table.heading>Cliente</x-table.heading>
                     <x-table.heading sortable wire:click="sortBy('type')"
-                                     :direction="$sortField === 'type' ? $sortDirection : null">Tipo</x-table.heading>
+                                     :direction="$sortField === 'type' ? $sortDirection : null">Tipo
+                    </x-table.heading>
                     <x-table.heading>Status</x-table.heading>
                     <x-table.heading sortable wire:click="sortBy('created_at')"
-                                     :direction="$sortField === 'created_at' ? $sortDirection : null">Data</x-table.heading>
+                                     :direction="$sortField === 'created_at' ? $sortDirection : null">Data
+                    </x-table.heading>
                     <x-table.heading />
                 </x-slot>
 
@@ -105,11 +113,12 @@
                             </x-table.cell>
                             <x-table.cell>
                                 <div>
-                                    {{ $proposal->type->description }}
+                                    <span title="{{ $proposal->conditions }}">{{ $proposal->type->description }}</span>
                                 </div>
                             </x-table.cell>
                             <x-table.cell>
-                                <x-proposal-status-badge :status="$proposal->latestStatus->type"></x-proposal-status-badge>
+                                <x-proposal-status-badge
+                                        :status="$proposal->latestStatus->type"></x-proposal-status-badge>
                             </x-table.cell>
                             <x-table.cell>
                                 {{ $proposal->created_at->format('d/m/Y H:i') }}
@@ -117,7 +126,8 @@
                             <x-table.cell>
                                 <div class='flex space-x-2'>
                                     <div>
-                                        <x-button-link href="{{ route('proposal.show', $proposal->id) }}" target='_blank' format="icon" title="Ver proposta">
+                                        <x-button-link href="{{ route('proposal.show', $proposal->id) }}"
+                                                       target='_blank' format="icon" title="Ver proposta">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
                                                  fill="currentColor">
                                                 <path fill-rule="evenodd"
@@ -127,9 +137,13 @@
                                         </x-button-link>
                                     </div>
                                     <div>
-                                        <x-button type="button" wire:click="showResolveProposal({{ $proposal->id }})"  format="icon" title="Resolver proposta">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clip-rule="evenodd" />
+                                        <x-button type="button" wire:click="showResolveProposal({{ $proposal->id }})"
+                                                  format="icon" title="Resolver proposta">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                                 fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                      d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
+                                                      clip-rule="evenodd" />
                                             </svg>
                                         </x-button>
                                     </div>
@@ -157,10 +171,45 @@
     </div>
 
     <x-imodal.dialog wire:model.defer="showResolveProposalModal">
-        <x-slot name="title">Ver proposta</x-slot>
-        <x-slot name="content"></x-slot>
+        <x-slot name="title">Resolver proposta #{{ $resolving->id ?? '' }}</x-slot>
+        <x-slot name="content">
+            <div class='space-y-3'>
+                <div class="flex justify-between">
+                    <div>
+                        <p><strong>Loteamento:</strong> {{ $resolving->lot->allotment->title ?? '' }}</p>
+                        <p><strong>Lote: </strong> {{ $resolving->lot->identification ?? '' }}</p>
+                    </div>
+                    <div>
+                        <p><strong>Tipo de proposta:</strong> {{ $resolving->type->description ?? '' }}</p>
+                        <p><strong>Condições: </strong> {{ $resolving->conditions ?? '' }}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="space-y-3">
+                    <x-input.group error="{{ $errors->first('resolveData.status') }}" inline
+                                   for="resolve-data-status" label="Avaliar proposta">
+                        <x-input.select class="w-full" wire:model="resolveData.status" id="resolve-data-status"
+                                        placeholder="Selecione...">
+                            @foreach(\App\Enums\ProposalStatusType::getInstances() as $proposalStatusType)
+                                @if($resolving)
+                                    @if($resolving->latestStatus->type->value !== $proposalStatusType->value)
+                                        <option value="{{ $proposalStatusType->value }}">{{ $proposalStatusType->description }}</option>
+                                    @endif
+                                @endif
+                            @endforeach
+                        </x-input.select>
+                    </x-input.group>
+
+                    <x-input.group error="{{ $errors->first('resolveData.reason') }}" inline
+                                   for="resolve-data-reason" label="Motivo da avaliação">
+                        <x-input.textarea wire:model="resolveData.reason"></x-input.textarea>
+                    </x-input.group>
+                </div>
+            </div>
+        </x-slot>
         <x-slot name="footer">
-            <x-button wire:click="$set('showProposalModal', false)">Fechar</x-button>
+            <x-button type="button" wire:click="resolveProposal()">Salvar</x-button>
+            <x-button type="button" wire:click="$set('showResolveProposalModal', false)">Fechar</x-button>
         </x-slot>
     </x-imodal.dialog>
 </div>
