@@ -5,14 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="Pdf de proposta sendo gerado">
-      <change afterPath="$PROJECT_DIR$/app/Mail/ProposalResolved.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/proposals/resolved.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/ProposalCreated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/ProposalResolved.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/ProposalUpdated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/SendProposalCreatedNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/SendProposalResolvedNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/SendProposalUpdatedNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/SendProposalCreatedEmail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/SendProposalUpdatedEmail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/proposals/created.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/proposals/updated.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Actions/Proposal/ReturnedProposalAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Proposal/ReturnedProposalAction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ManageProposals.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ManageProposals.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Proposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/ProposalResolved.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/SendProposalResolvedEmail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/View/Components/ProposalStatusBadge.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/ProposalStatusBadge.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_01_074614_add_payment_plan_id_column_to_proposals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_01_074614_add_payment_plan_id_column_to_proposals_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/proposal-status-badge.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/proposal-status-badge.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/manage-proposals.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/manage-proposals.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +244,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="advanced.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -322,7 +336,9 @@
       <workItem from="1638310250188" duration="2862000" />
       <workItem from="1638352739625" duration="9050000" />
       <workItem from="1638361939322" duration="344000" />
-      <workItem from="1638362307959" duration="8166000" />
+      <workItem from="1638362307959" duration="8653000" />
+      <workItem from="1638381651001" duration="1839000" />
+      <workItem from="1638383514827" duration="9381000" />
     </task>
     <servers />
   </component>

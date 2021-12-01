@@ -56,10 +56,10 @@ namespace App\Models{
  * @property string|null $cover
  * @property int $city_id
  * @property int $active
- * @property string $area
+ * @property mixed $area
  * @property string|null $latitude
  * @property string|null $longitude
- * @property string $max_discount
+ * @property mixed $max_discount
  * @property mixed $reservation_duration
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -156,11 +156,11 @@ namespace App\Models{
  * @property int $allotment_id
  * @property string $block
  * @property int $number
- * @property string $price
- * @property string $front
- * @property string $back
- * @property string $right
- * @property string $left
+ * @property mixed $price
+ * @property mixed $front
+ * @property mixed $back
+ * @property mixed $right
+ * @property mixed $left
  * @property string $front_side
  * @property string $back_side
  * @property string $right_side
@@ -236,7 +236,7 @@ namespace App\Models{
  * @property int $id
  * @property string $name
  * @property string $description
- * @property string $min_down_payment
+ * @property mixed $min_down_payment
  * @property \Illuminate\Database\Eloquent\Casts\AsCollection $installment_indexes
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -333,7 +333,7 @@ namespace App\Models{
  * @property string $rg_issuer
  * @property string $occupation
  * @property string $email
- * @property string $monthly_income
+ * @property mixed $monthly_income
  * @property string $father_name
  * @property string $mother_name
  * @property int|null $partner_id
@@ -375,7 +375,7 @@ namespace App\Models{
  * @property int $reservation_id
  * @property int $proposeable_id
  * @property string $proposeable_type
- * @property int $payment_plan_id
+ * @property int|null $payment_plan_id
  * @property \App\Enums\ProposalType $type
  * @property mixed $negotiated_value
  * @property mixed $down_payment
@@ -387,9 +387,10 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProposalDocument[] $documents
  * @property-read int|null $documents_count
  * @property-read string $conditions
+ * @property-read mixed $url
  * @property-read \App\Models\ProposalStatus|null $latestStatus
  * @property-read \App\Models\Lot $lot
- * @property-read \App\Models\PaymentPlan $paymentPlan
+ * @property-read \App\Models\PaymentPlan|null $paymentPlan
  * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $proposeable
  * @property-read \App\Models\Reservation $reservation
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProposalStatus[] $statuses

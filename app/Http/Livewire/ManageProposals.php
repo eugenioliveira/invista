@@ -5,7 +5,8 @@ namespace App\Http\Livewire;
 use App\Actions\Proposal\ResolveProposalFactory;
 use App\Actions\Proposal\SearchProposals;
 use App\Enums\ProposalStatusType;
-use App\Mail\ProposalResolved;
+use App\Events\ProposalResolved;
+use App\Mail\SendProposalResolvedEmail;
 use App\Models\Proposal;
 use BenSampo\Enum\Rules\EnumValue;
 use Livewire\Component;
@@ -196,8 +197,8 @@ class ManageProposals extends Component
         $resolver = $resolverFactory->make(ProposalStatusType::fromValue((int)$this->resolveData['status']));
         $resolveResult = $resolver->resolve($this->resolving, $this->resolveData['reason']);
         if ($resolveResult) {
-            // Disparar e-mail
-            Mail::to($this->resolving->user->email)->send(new ProposalResolved($this->resolving, $resolveResult));
+            // Disparar evento
+            ProposalResolved::dispatch($this->resolving, $resolveResult);
             $this->successAction(
                 sprintf(
                     'Sucesso: Proposta #%s resolvida como %s',

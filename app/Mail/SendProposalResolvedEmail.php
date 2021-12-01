@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ProposalResolved extends Mailable
+class SendProposalResolvedEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -50,6 +50,7 @@ class ProposalResolved extends Mailable
         }
 
         return $this
+            ->subject('Proposta Avaliada')
             ->from('nao-responda@invista.com.br')
             ->markdown('emails.proposals.resolved');
     }

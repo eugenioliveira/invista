@@ -3,7 +3,7 @@
 namespace App\Actions\Proposal;
 
 use App\Enums\ProposalStatusType;
-use App\Mail\ProposalResolved;
+use App\Mail\SendProposalResolvedEmail;
 use App\Models\Proposal;
 use Mail;
 

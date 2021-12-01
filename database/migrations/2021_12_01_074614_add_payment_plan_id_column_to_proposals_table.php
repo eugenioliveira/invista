@@ -17,6 +17,7 @@ class AddPaymentPlanIdColumnToProposalsTable extends Migration
             $table
                 ->foreignId('payment_plan_id')
                 ->after('proposeable_type')
+                ->nullable()
                 ->constrained();
         });
     }

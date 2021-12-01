@@ -8,6 +8,8 @@ use App\Actions\Proposal\UpdateProposal;
 use App\Enums\CivilStatus;
 use App\Enums\ProposalType;
 use App\Enums\ProposalWizardSteps;
+use App\Events\ProposalCreated;
+use App\Events\ProposalUpdated;
 use App\Models\Lot;
 use App\Models\PaymentPlan;
 use App\Models\PersonDetail;
@@ -176,10 +178,13 @@ class ProposalWizard extends Component
             $this->proposalData['down_payment'] = $this->proposal->down_payment;
             $this->proposalData['comments'] = $this->proposal->comments;
 
-            // Atualiza com o parcelamento escolhido
-            $this->paymentPlan = $this->proposal->paymentPlan;
-            $this->selectedPaymentPlan = $this->paymentPlan->id;
-            $this->refreshSimulatedInstallments($this->paymentPlan->installment_indexes, $proposal->lot->price);
+            // Atualiza com o parcelamento escolhido, caso haja
+            if ($this->proposal->paymentPlan) {
+                $this->paymentPlan = $this->proposal->paymentPlan;
+                $this->proposalData['payment_plan_id'] = $this->paymentPlan->id;
+                $this->selectedPaymentPlan = $this->paymentPlan->id;
+                $this->refreshSimulatedInstallments($this->paymentPlan->installment_indexes, $proposal->lot->price);
+            }
         }
     }
 
@@ -256,6 +261,7 @@ class ProposalWizard extends Component
     public function updatedSelectedPaymentPlan()
     {
         $this->paymentPlan = PaymentPlan::findOrFail($this->selectedPaymentPlan);
+        $this->proposalData['payment_plan_id'] = $this->paymentPlan->id;
     }
 
     /**
@@ -342,7 +348,7 @@ class ProposalWizard extends Component
      * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function submitProposal(UpdatePersonDetail $clientUpdater, CreateNewProposal $proposalCreator)
+    public function submitProposal(UpdatePersonDetail $clientUpdater, CreateNewProposal $proposalCreator, UpdateProposal $proposalUpdater)
     {
         if ($this->proposal->documents->isEmpty()) {
             $this->validate(
@@ -359,13 +365,16 @@ class ProposalWizard extends Component
 
         \DB::beginTransaction();
 
+        $action = '';
+
         try {
             // Salva as informações do cliente
             $clientUpdater->update($this->lot->activeReservation->reserveable, $this->clientData);
             // Salva as informações da proposta
             if ($this->proposal->getAttributes()) {
                 $this->authorize('editProposal', [Proposal::class, $this->proposal]);
-                $proposal = (new UpdateProposal())->update($this->proposal, \Auth::user(), $this->proposalData);
+                $proposal = $proposalUpdater->update($this->proposal, \Auth::user(), $this->proposalData);
+                $action = 'update';
             } else {
                 $this->authorize('create', [Proposal::class, $this->lot]);
                 $proposal = $proposalCreator->create(
@@ -374,6 +383,7 @@ class ProposalWizard extends Component
                     $this->lot->activeReservation->reserveable,
                     $this->proposalData
                 );
+                $action = 'create';
             }
             // Salva os documentos da proposta
             /** @var TemporaryUploadedFile $document */
@@ -384,8 +394,15 @@ class ProposalWizard extends Component
 
             \DB::commit();
 
+            // Dispara o evento correto
+            if ($action === 'create') {
+                ProposalCreated::dispatch($proposal->refresh());
+            } else {
+                ProposalUpdated::dispatch($proposal->refresh());
+            }
+
             // Redireciona
-            $this->successAction('Proposta realizada.', ['allotments.index'], true);
+            $this->successAction('Proposta realizada.', ['lots.index', $proposal->lot->allotment_id], true);
         } catch (\Exception $e) {
             throw $e;
             \DB::rollBack();

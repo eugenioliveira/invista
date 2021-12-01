@@ -23,14 +23,22 @@ class ProposalStatusBadge extends Component
     public string $classes = '';
 
     /**
+     * A descrição do status
+     *
+     * @var string
+     */
+    public string $reason;
+
+    /**
      * Create a new component instance.
      *
      * @param ProposalStatusType $status
      */
-    public function __construct(ProposalStatusType $status)
+    public function __construct(ProposalStatusType $status, string $reason)
     {
         $this->status = $status;
         $this->classes = $this->selectClasses($status);
+        $this->reason = $reason;
     }
 
     /**

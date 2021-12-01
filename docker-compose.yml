@@ -47,6 +47,7 @@ services:
   mailhog:
     image: mailhog/mailhog
     container_name: invista-smtp
+    restart: unless-stopped
     logging:
       driver: none
     ports:
