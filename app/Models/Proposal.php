@@ -94,6 +94,26 @@ class Proposal extends Model
     }
 
     /**
+     * Retorna a reserva da qual partiu a proposta
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class);
+    }
+
+    /**
+     * Retorna o plano de pagamento escolhido no momento da criação da reserva.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function paymentPlan()
+    {
+        return $this->belongsTo(PaymentPlan::class);
+    }
+
+    /**
      * Adiciona um escopo para busca de propostas "ativas"
      *
      * @param Builder $query

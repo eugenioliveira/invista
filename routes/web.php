@@ -197,6 +197,11 @@ Route::middleware('auth:sanctum')->group(function () {
         ->can('create', [Proposal::class, 'lot'])
         ->name('lot.propose');
 
+    // Formulário de edição de proposta
+    Route::get('/proposal/{proposal}/edit', [ProposalsController::class, 'edit'])
+        ->can('editProposal', [Proposal::class, 'proposal'])
+        ->name('proposal.edit');
+
     // Geração de propostas em PDF
     Route::get('/proposal/{proposal}', [ProposalReportController::class, 'show'])
         ->can('view_proposals')

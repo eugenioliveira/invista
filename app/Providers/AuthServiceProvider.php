@@ -33,7 +33,7 @@ class AuthServiceProvider extends ServiceProvider
          * Todas as permissões menos a de resolver propostas
          */
         Gate::before(function (User $user, $permission) {
-            if ($user->isAdmin() && $permission !== 'resolve') {
+            if ($user->isAdmin() && !in_array($permission, ['resolve', 'editProposal'])) {
                 return true;
             }
         });

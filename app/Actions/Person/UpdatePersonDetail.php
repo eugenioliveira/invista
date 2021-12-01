@@ -45,8 +45,7 @@ class UpdatePersonDetail
             'occupation' => ['required', 'min:5'],
             'email' => ['required', 'email:strict,dns,spoof'],
             'monthly_income' => [
-                'required',
-                'regex:/^[1-9]\d*(\.\d{3})?(\,\d{1,2})?$/'
+                'required'
             ],
             'father_name' => ['required', 'min:5'],
             'mother_name' => ['required', 'min:5']

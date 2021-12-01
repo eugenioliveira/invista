@@ -69,4 +69,15 @@ class ProposalPolicy
 
         return Response::allow();
     }
+
+    public function editProposal(User $loggedUser, Proposal $proposal)
+    {
+        /**
+         * A proposta só pode ser editada caso:
+         * - Pertença ao usuário atual
+         * - Esteja com seu último status "devolvida"
+         */
+        return $proposal->user_id === $loggedUser->id
+            && $proposal->latestStatus->type->is(ProposalStatusType::RETURNED);
+    }
 }

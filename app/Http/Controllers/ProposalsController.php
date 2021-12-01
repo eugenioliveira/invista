@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lot;
+use App\Models\Proposal;
 
 class ProposalsController extends Controller
 {
@@ -20,5 +21,15 @@ class ProposalsController extends Controller
     public function create(Lot $lot)
     {
         return view('proposals.create', ['lot' => $lot]);
+    }
+
+    /**
+     * Permite a edição de uma proposta com status Devolvida.
+     *
+     * @param Proposal $proposal
+     */
+    public function edit(Proposal $proposal)
+    {
+        return view('proposals.edit', ['proposal' => $proposal]);
     }
 }

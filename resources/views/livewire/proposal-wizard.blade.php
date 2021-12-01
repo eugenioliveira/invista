@@ -255,10 +255,11 @@
                                         @if($paymentPlan)
                                             <x-input-row class="mb-4">
                                                 <div class="w-full">
-                                                    <x-input.money
+                                                    <x-moneyinput
                                                             label="Valor de entrada (em R$)"
                                                             name="down_payment"
-                                                            model="downPayment"
+                                                            class="mt-1 w-full"
+                                                            wire:model="downPayment"
                                                             error="{{ $errors->first('downPayment') }}"
                                                     />
                                                 </div>
@@ -267,7 +268,7 @@
                                     </div>
 
                                     <div>
-                                        @if($proposalData['down_payment'])
+                                        @if($simulatedInstallments->isNotEmpty())
                                             <x-select
                                                     label="Selecione um parcelamento"
                                                     name="installment_value"
@@ -313,7 +314,30 @@
         </div>
 
         <div @class(['hidden' => $currentStep !== \App\Enums\ProposalWizardSteps::DOCUMENT_STEP])>
-            <div class="p-4">
+            <div class="p-4 space-y-3">
+                <div>
+                    @if($proposal->documents->isNotEmpty())
+                        <div class="p-4 border rounded">
+                            <h1 class='text-lg font-medium'>Documentos cadastrados</h1>
+                            <ul class="list-disc px-4">
+                                @foreach($proposal->documents as $document)
+                                    <li>
+                                        <a
+                                                target="_blank"
+                                                class="text-blue-500 hover:underline"
+                                                href="{{ \Storage::disk('documents')->url($document->filename) }}">
+                                            {{ $document->filename }}
+                                        </a>
+                                        <span> - </span>
+                                        <x-button.link wire:click='deleteDocument({{ $document->id }})'>
+                                            Remover
+                                        </x-button.link>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div>
                 <div wire:ignore>
                     <div x-data="{
                         init() {
@@ -387,6 +411,7 @@
         </div>
     </div>
     <div>
+        @dump($clientData)
         @dump($proposalData)
         @dump($errors)
     </div>

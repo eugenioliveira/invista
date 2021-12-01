@@ -65,10 +65,10 @@ class AllotmentForm extends Component
         'cover' => ['nullable', 'sometimes', 'image', 'max:5000'],
         'allotment.city_id' => ['required', 'numeric'],
         'allotment.active' => ['required'],
-        'allotment.area' => ['required', 'regex:/^[1-9]\d*(\,\d{1,2})?$/'],
+        'allotment.area' => ['required'],
         'allotment.latitude' => ['nullable', 'numeric'],
         'allotment.longitude' => ['nullable', 'numeric'],
-        'allotment.max_discount' => ['required', 'regex:/^\d*(\,\d{1,2})?$/'],
+        'allotment.max_discount' => ['required'],
         'allotment.reservation_duration' => ['required', 'numeric', 'gt:0'],
     ];
 
@@ -85,9 +85,7 @@ class AllotmentForm extends Component
         'allotment.city_id.required' => 'Selecione uma cidade.',
         'allotment.city_id.numeric' => 'Selecione uma cidade.',
         'allotment.area.required' => 'O campo área total é obrigatório.',
-        'allotment.area.regex' => 'O campo área total deve ser um número maior que zero.',
         'allotment.max_discount.required' => 'O campo Desconto permitido é obrigatório.',
-        'allotment.max_discount.regex' => 'O campo Desconto permitido deve ser numérico.',
         'allotment.reservation_duration.required' => 'O campo Duração da reserva é obrigatório.',
         'allotment.reservation_duration.numeric' => 'O campo Duração da reserva deve ser numérico.',
         'allotment.reservation_duration.gt' => 'O campo Duração da reserva deve ser maior que zero.',

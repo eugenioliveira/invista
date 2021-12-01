@@ -16,4 +16,15 @@ class ProposalDocument extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * Assim que a referência de um documento for excluído da base de dados, garante que
+     * o mesmo também seja excluído do disco
+     */
+    protected static function booted()
+    {
+        static::deleting(function ($document) {
+            \Storage::disk('documents')->delete($document->filename);
+        });
+    }
 }
