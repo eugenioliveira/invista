@@ -5,29 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="Pdf de proposta sendo gerado">
-      <change afterPath="$PROJECT_DIR$/app/Actions/Proposal/UpdateProposal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_01_074614_add_payment_plan_id_column_to_proposals_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/button/link.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/moneyinput.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/proposals/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/invista.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/invista.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/ProposalResolved.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/proposals/resolved.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Person/UpdatePersonDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Person/UpdatePersonDetail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Actions/Proposal/ReturnedProposalAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Proposal/ReturnedProposalAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProposalsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProposalsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/AllotmentForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ManageProposals.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ManageProposals.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Proposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ProposalDocument.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ProposalDocument.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/ProposalPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/ProposalPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/manage-proposals.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/manage-proposals.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,6 +242,7 @@
       <recent name="$PROJECT_DIR$/resources/views/payment-plans" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/resources/views/components" />
       <recent name="$PROJECT_DIR$/resources/js" />
       <recent name="$PROJECT_DIR$/resources/views/components/table" />
@@ -336,7 +322,7 @@
       <workItem from="1638310250188" duration="2862000" />
       <workItem from="1638352739625" duration="9050000" />
       <workItem from="1638361939322" duration="344000" />
-      <workItem from="1638362307959" duration="3764000" />
+      <workItem from="1638362307959" duration="8166000" />
     </task>
     <servers />
   </component>

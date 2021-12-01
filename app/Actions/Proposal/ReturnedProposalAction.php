@@ -3,7 +3,9 @@
 namespace App\Actions\Proposal;
 
 use App\Enums\ProposalStatusType;
+use App\Mail\ProposalResolved;
 use App\Models\Proposal;
+use Mail;
 
 class ReturnedProposalAction implements ResolveProposalAction
 {
@@ -22,7 +24,5 @@ class ReturnedProposalAction implements ResolveProposalAction
         }
 
         return $status;
-
-        // TODO: Disparar e-mail avisando a mudança de status da proposta
     }
 }

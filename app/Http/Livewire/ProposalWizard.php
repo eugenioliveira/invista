@@ -241,9 +241,9 @@ class ProposalWizard extends Component
         $this->simulatedInstallments = collect([]);
 
         $parsedLotPrice = app('decimal')->parse($lotPrice);
-        $lotPrice = $parsedLotPrice ? $parsedLotPrice : $lotPrice;
+        $lotPrice = $parsedLotPrice !== false ? $parsedLotPrice : $lotPrice;
         $parsedDownPayment = app('decimal')->parse($this->proposalData['down_payment']);
-        $downPayment = $parsedDownPayment ? $parsedDownPayment : $this->proposalData['down_payment'];
+        $downPayment = $parsedDownPayment !== false ? $parsedDownPayment : $this->proposalData['down_payment'];
         
         foreach ($indexes as $index) {
             $this->simulatedInstallments->push([

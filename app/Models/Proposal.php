@@ -142,4 +142,9 @@ class Proposal extends Model
                 app('currency')->format($this->attributes['installment_value']));
         }
     }
+
+    public function getUrlAttribute()
+    {
+        return route('proposals.index', ['proposal' => $this->id]);
+    }
 }
