@@ -1,4 +1,4 @@
-<div class="grid grid-cols-4 gap-4">
+<div class="p-2 md:p-0 grid grid-cols-1 md:grid-cols-4 gap-4">
     {{-- Sales card --}}
     <x-dashboard-card>
         <x-slot name="icon">

@@ -5,11 +5,17 @@
     </x-slot>
 
     <x-section>
-        {{-- Dashboard Cards --}}
-        @include('home.partials.cards')
+        <div>
+            @if(Auth::user()->isAdmin())
+                {{-- Dashboard Cards --}}
+                @include('home.partials.cards')
 
-        {{-- Sales Graph --}}
-        <livewire:sales-chart-component />
+                {{-- Sales Graph --}}
+                <livewire:sales-chart-component />
+            @else
+                @include('home.partials.basic-cards')
+            @endif
+        </div>
 
     </x-section>
 

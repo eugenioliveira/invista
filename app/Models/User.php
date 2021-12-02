@@ -155,4 +155,24 @@ class User extends Authenticatable
 
         return $userRoles->contains($role);
     }
+
+    /**
+     * Retorna as reservas feitas pelo usuário atual.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    /**
+     * Retorna as propostas feitas pelo usuário atual.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function proposals()
+    {
+        return $this->hasMany(Proposal::class);
+    }
 }

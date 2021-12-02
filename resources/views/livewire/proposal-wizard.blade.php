@@ -241,7 +241,7 @@
                                                 label="Selecione um plano de pagamento"
                                                 name="plan"
                                                 class="mt-1 w-full"
-                                                wire:model="selectedPaymentPlan"
+                                                wire:model.lazy="selectedPaymentPlan"
                                                 error="{{ $errors->first('selectedPaymentPlan') }}"
                                         >
                                             <option>Selecione...</option>
@@ -259,7 +259,7 @@
                                                             label="Valor de entrada (em R$)"
                                                             name="down_payment"
                                                             class="mt-1 w-full"
-                                                            wire:model="downPayment"
+                                                            wire:model.lazy="downPayment"
                                                             error="{{ $errors->first('downPayment') }}"
                                                     />
                                                 </div>
@@ -273,7 +273,7 @@
                                                     label="Selecione um parcelamento"
                                                     name="installment_value"
                                                     class="mt-1 w-full"
-                                                    wire:model="selectedInstallmentValue"
+                                                    wire:model.lazy="selectedInstallmentValue"
                                                     error="{{ $errors->first('selectedInstallmentValue') }}"
                                             >
                                                 <option>Selecione...</option>
@@ -304,7 +304,7 @@
                             label="Observações a cerca da proposta"
                             name="comments"
                             class="mt-1 w-full"
-                            wire:model.defer="proposalData.comments"
+                            wire:model.lazy="proposalData.comments"
                             error="{{ $errors->first('comments') }}"
                     >
                     </x-textarea>
@@ -410,9 +410,5 @@
             @endif
         </div>
     </div>
-    <div>
-        @dump($clientData)
-        @dump($proposalData)
-        @dump($errors)
-    </div>
+    <x-loading></x-loading>
 </div>

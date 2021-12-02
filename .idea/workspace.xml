@@ -5,28 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="Pdf de proposta sendo gerado">
-      <change afterPath="$PROJECT_DIR$/app/Events/ProposalCreated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Events/ProposalResolved.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Events/ProposalUpdated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listeners/SendProposalCreatedNotification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listeners/SendProposalResolvedNotification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listeners/SendProposalUpdatedNotification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/SendProposalCreatedEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/SendProposalUpdatedEmail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/proposals/created.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/proposals/updated.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/proposals.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/reservations.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/loading.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/home/partials/basic-cards.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Proposal/ReturnedProposalAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Proposal/ReturnedProposalAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ManageProposals.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ManageProposals.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ProposalWizard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/ProposalResolved.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/SendProposalResolvedEmail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/View/Components/ProposalStatusBadge.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/ProposalStatusBadge.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_12_01_074614_add_payment_plan_id_column_to_proposals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_01_074614_add_payment_plan_id_column_to_proposals_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/proposal-status-badge.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/proposal-status-badge.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/manage-proposals.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/manage-proposals.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/partials/cards.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/partials/cards.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/proposal-wizard.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -338,7 +330,8 @@
       <workItem from="1638361939322" duration="344000" />
       <workItem from="1638362307959" duration="8653000" />
       <workItem from="1638381651001" duration="1839000" />
-      <workItem from="1638383514827" duration="9381000" />
+      <workItem from="1638383514827" duration="9978000" />
+      <workItem from="1638439078578" duration="4035000" />
     </task>
     <servers />
   </component>

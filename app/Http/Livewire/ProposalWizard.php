@@ -221,7 +221,7 @@ class ProposalWizard extends Component
         $minDownPayment = app('decimal')->parse($this->paymentPlan->min_down_payment) / 100;
         $minValue = round($price * $minDownPayment, 2);
         $this->validateOnly('downPayment', [
-            'downPayment' => ['required', 'gte:0']
+            'downPayment' => ['required']
         ]);
 
         if (app('decimal')->parse($this->downPayment) < $minValue) {
@@ -324,7 +324,7 @@ class ProposalWizard extends Component
             } else {
                 $this->validate(
                     [
-                        'downPayment' => 'required|gt:0',
+                        'downPayment' => 'required',
                         'selectedPaymentPlan' => 'required',
                         'selectedInstallmentValue' => 'required'
                     ],
