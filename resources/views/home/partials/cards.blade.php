@@ -1,5 +1,5 @@
 <div class="p-2 md:p-0 grid grid-cols-1 md:grid-cols-4 gap-4">
-    {{-- Sales card --}}
+    {{-- Sale card --}}
     <x-dashboard-card>
         <x-slot name="icon">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

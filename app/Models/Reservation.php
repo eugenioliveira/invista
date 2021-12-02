@@ -83,6 +83,20 @@ class Reservation extends Model
     }
 
     /**
+     * Realiza o encerramento da reserva
+     *
+     * @param string $reason
+     * @return bool
+     */
+    public function finish(string $reason)
+    {
+        $this->due = now();
+        $this->reason = $reason;
+
+        return $this->save();
+    }
+
+    /**
      * Realiza o cancelamento da reserva.
      *
      * @param string $reason

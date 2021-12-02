@@ -129,7 +129,7 @@
                 x-on:livewire-upload-progress="progress = $event.detail.progress"
             >
                 {{-- File Input --}}
-                <input type="file" wire:model="cover" accept="image/*">
+                <input type="file" wire:model="cover" accept="image/*" />
 
                 <div class="mt-4">
 

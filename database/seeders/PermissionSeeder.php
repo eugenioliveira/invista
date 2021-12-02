@@ -99,5 +99,13 @@ class PermissionSeeder extends Seeder
             'name' => 'manage_proposals',
             'description' => 'Permissão para gerenciar as propostas no sistema'
         ]);
+        Permission::create([
+            'name' => 'view_sales',
+            'description' => 'Permissão para visualizar as vendas no sistema'
+        ]);
+        Permission::create([
+            'name' => 'manage_sales',
+            'description' => 'Permissão para gerenciar as vendas no sistema'
+        ]);
     }
 }

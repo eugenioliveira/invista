@@ -50,7 +50,9 @@
                         @can('view_proposals')
                             <x-nav-link route="proposals.index">Propostas</x-nav-link>
                         @endcan
-                        <x-nav-link route="sales.index">Vendas</x-nav-link>
+                        @can('view_sales')
+                            <x-nav-link route="sales.index">Vendas</x-nav-link>
+                        @endcan
                     </nav>
                 </div>
 
@@ -140,7 +142,9 @@
             @can('view_proposals')
                 <x-mobile-nav-link route="proposals.index">Propostas</x-mobile-nav-link>
             @endcan
-            <x-mobile-nav-link route="sales.index">Vendas</x-mobile-nav-link>
+            @can('view_sales')
+                <x-mobile-nav-link route="sales.index">Vendas</x-mobile-nav-link>
+            @endcan
         </nav>
     </div>
 </div>

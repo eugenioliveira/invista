@@ -114,6 +114,16 @@ class Proposal extends Model
     }
 
     /**
+     * Retorna a venda realizada através da proposta, caso haja.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function sale()
+    {
+        return $this->hasOne(Sale::class);
+    }
+
+    /**
      * Adiciona um escopo para busca de propostas "ativas"
      *
      * @param Builder $query

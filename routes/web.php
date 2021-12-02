@@ -14,6 +14,7 @@ use App\Http\Controllers\PersonAddressController;
 use App\Http\Controllers\PersonDetailController;
 use App\Http\Controllers\ProposalReportController;
 use App\Http\Controllers\ProposalsController;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\UsersController;
 use App\Models\Proposal;
 use App\Models\Reservation;
@@ -228,13 +229,24 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //======================================================================
 
-    // Página inicial do sistema
-    Route::get('/clients', function () {
-        return view('home');
-    })->name('clients.index');
+    //======================================================================
+    // ROTAS REFERENTES À VENDAS
+    //======================================================================
 
-    // Página inicial do sistema
-    Route::get('/sales', function () {
-        return view('home');
-    })->name('sales.index');
+    // Listagem de vendas
+    Route::get('/sales', [SalesController::class, 'index'])
+        ->can('view_sales')
+        ->name('sales.index');
+
+    // Formulário de adição de um contrato à uma venda
+    Route::get('/sales/{sale}/addcontract', [SalesController::class, 'edit'])
+        ->can('manage_sales')
+        ->name('sales.addcontract');
+
+    // Armazenar o contrato
+    Route::post('/sales/{sale}/storecontract', [SalesController::class, 'store'])
+        ->can('manage_sales')
+        ->name('sales.storecontract');
+
+    //======================================================================
 });

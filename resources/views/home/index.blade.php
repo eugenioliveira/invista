@@ -10,7 +10,7 @@
                 {{-- Dashboard Cards --}}
                 @include('home.partials.cards')
 
-                {{-- Sales Graph --}}
+                {{-- Sale Graph --}}
                 <livewire:sales-chart-component />
             @else
                 @include('home.partials.basic-cards')

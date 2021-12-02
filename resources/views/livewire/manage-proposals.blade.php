@@ -7,7 +7,7 @@
             @endif
         </div>
         <div>
-            @if(!$lot && !$proposal)
+            @if(!$proposal)
                 <div class="flex flex-col space-y-2 md:flex-row md:items-center md:space-x-3">
                     <div class="md:w-1/3">
                         <x-input.text wire:model="search" placeholder="Buscar por Loteamento, Corretor ou Cliente..." />
@@ -170,7 +170,7 @@
                         </x-table.row>
                     @empty
                         <x-table.row>
-                            <x-table.cell colspan='7'>
+                            <x-table.cell colspan='8'>
                                 <div class='flex justify-center items-center space-x-2 text-gray-500'>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                          fill="currentColor">

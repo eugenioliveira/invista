@@ -136,10 +136,11 @@
                         </div>
                         {{-- Profissão --}}
                         <div class="md:w-1/3">
-                            <x-input.money
+                            <x-moneyinput
                                     label="Renda mensal (em R$)"
                                     name="monthly_income"
-                                    model="clientData.monthly_income"
+                                    class="mt-1 w-full"
+                                    wire:model.lazy="clientData.monthly_income"
                                     error="{{ $errors->first('monthly_income') }}"
                             />
                         </div>
@@ -213,10 +214,11 @@
                             <x-input-row class="mb-4">
                                 {{-- Valor negociado do lote --}}
                                 <div class="w-full">
-                                    <x-input.money
+                                    <x-moneyinput
                                             label="Valor negociado (em R$)"
                                             name="negotiated"
-                                            model="negotiated"
+                                            class="mt-1 w-full"
+                                            wire:model.lazy="negotiated"
                                             error="{{ $errors->first('negotiated') }}"
                                     />
                                 </div>
@@ -410,5 +412,6 @@
             @endif
         </div>
     </div>
+
     <x-loading></x-loading>
 </div>

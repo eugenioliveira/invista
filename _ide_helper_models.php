@@ -178,6 +178,7 @@ namespace App\Models{
  * @property-read int|null $proposals_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reservation[] $reservations
  * @property-read int|null $reservations_count
+ * @property-read \App\Models\Sale|null $sale
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\LotStatus[] $statuses
  * @property-read int|null $statuses_count
  * @method static \Database\Factories\LotFactory factory(...$parameters)
@@ -393,6 +394,7 @@ namespace App\Models{
  * @property-read \App\Models\PaymentPlan|null $paymentPlan
  * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $proposeable
  * @property-read \App\Models\Reservation $reservation
+ * @property-read \App\Models\Sale|null $sale
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProposalStatus[] $statuses
  * @property-read int|null $statuses_count
  * @property-read \App\Models\User $user
@@ -526,6 +528,40 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Sale
+ *
+ * @property int $id
+ * @property int $lot_id
+ * @property int $proposal_id
+ * @property int $user_id
+ * @property int $salable_id
+ * @property string $salable_type
+ * @property mixed $value
+ * @property string|null $contract
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Lot $lot
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $salable
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereContract($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereLotId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereProposalId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereSalableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereSalableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Sale whereValue($value)
+ */
+	class Sale extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\User
  *
  * @property int $id
@@ -545,6 +581,8 @@ namespace App\Models{
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read \App\Models\Person $person
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Proposal[] $proposals
+ * @property-read int|null $proposals_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reservation[] $reservations
  * @property-read int|null $reservations_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles

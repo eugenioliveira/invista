@@ -1,4 +1,4 @@
-<div class='grid grid-cols-1 md:grid-cols-3 gap-4'>
+<div class='grid grid-cols-1 md:grid-cols-2 gap-4'>
     <div class='border border-primary rounded-lg bg-white shadow'>
         <div class='space-y-3 py-4'>
             <!-- Title -->

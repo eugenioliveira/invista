@@ -6,12 +6,10 @@ use App\Actions\Proposal\ResolveProposalFactory;
 use App\Actions\Proposal\SearchProposals;
 use App\Enums\ProposalStatusType;
 use App\Events\ProposalResolved;
-use App\Mail\SendProposalResolvedEmail;
 use App\Models\Proposal;
 use BenSampo\Enum\Rules\EnumValue;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Mail;
 
 class ManageProposals extends Component
 {

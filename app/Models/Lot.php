@@ -76,6 +76,16 @@ class Lot extends Model
     }
 
     /**
+     * Retorna a venda do lote, caso haja.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function sale()
+    {
+        return $this->hasOne(Sale::class);
+    }
+
+    /**
      * Retorna o status mais recente do lote.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
