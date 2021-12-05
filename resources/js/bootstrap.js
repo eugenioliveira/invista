@@ -32,6 +32,9 @@ require('./pikaday');
 import IMask from 'imask';
 window.IMask = IMask;
 
+import MapLots from 'maplots/src/maplots';
+window.MapLots = MapLots;
+
 /**
  * Loading Alpine JS - TALL Stack
  */

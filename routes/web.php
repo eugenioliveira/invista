@@ -8,6 +8,7 @@ use App\Http\Controllers\CompanyShareholdersController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LotsController;
 use App\Http\Controllers\LotsImportController;
+use App\Http\Controllers\MapsController;
 use App\Http\Controllers\PaymentPlansController;
 use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\PersonAddressController;
@@ -228,6 +229,17 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('payment-plans.edit');
 
     //======================================================================
+    // ROTAS REFERENTES À MAPAS
+    //======================================================================
+
+    // Ver mapa
+    Route::get('/map/{map}', [MapsController::class, 'show'])
+        ->can('view_allotments')
+        ->name('map.show');
+
+    Route::get('/allotment/{allotment}/map/edit', [MapsController::class, 'edit'])
+        ->can('edit_allotment')
+        ->name('map.edit');
 
     //======================================================================
     // ROTAS REFERENTES À VENDAS

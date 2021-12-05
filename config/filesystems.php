@@ -53,6 +53,13 @@ return [
             'visibility' => 'public'
         ],
 
+        'maps' => [
+            'driver' => 'local',
+            'root' => storage_path('app/maps'),
+            'url' => env('APP_URL') . '/maps',
+            'visibility' => 'public'
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
@@ -84,6 +91,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
-        public_path('documents') => storage_path('app/documents')
+        public_path('documents') => storage_path('app/documents'),
+        public_path('maps') => storage_path('app/maps')
     ]
 ];

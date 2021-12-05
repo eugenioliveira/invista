@@ -20,6 +20,14 @@ final class LotStatusType extends Enum implements LocalizedEnum
     const BLOCKED = 4;
     const SOLD = 5;
 
+    public array $colors = [
+        self::AVAILABLE => 'green',
+        self::RESERVED => 'yellow',
+        self::PROPOSED => 'red',
+        self::BLOCKED => 'gray',
+        self::SOLD => 'red'
+    ];
+
     /**
      * Retorna todos os status estáticos.
      *
@@ -32,5 +40,15 @@ final class LotStatusType extends Enum implements LocalizedEnum
             static::BLOCKED(),
             static::SOLD()
         ]);
+    }
+
+    /**
+     * Retorna a cor do status
+     *
+     * @return mixed|string
+     */
+    public function color()
+    {
+        return $this->colors[$this->value];
     }
 }

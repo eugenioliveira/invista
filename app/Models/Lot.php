@@ -96,6 +96,16 @@ class Lot extends Model
     }
 
     /**
+     * Retorna o marcador relacionado ao lote.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function marker()
+    {
+        return $this->hasOne(Marker::class);
+    }
+
+    /**
      * Retorna a reserva ativa do lote.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -174,6 +184,12 @@ class Lot extends Model
      */
     public function getStatus()
     {
+        // Verifica se o lote possui alguma proposta ativa
+        $activeProposal = $this->activeProposal;
+        // caso haja, cria um Status do tipo proposta ativa.
+        if ($activeProposal) {
+            return $this->createProposedStatus($activeProposal);
+        }
         // Verifica se o lote possui alguma reserva ativa
         $activeReservation = $this->activeReservation;
         // caso haja, cria um Status do tipo reservado.
@@ -183,7 +199,7 @@ class Lot extends Model
 
         // Caso não exista nem reserva nem proposta, retorna o primeiro status
         // estático encontrado.
-        return $this->currentStaticStatus();
+        return $this->latestStatus;
     }
 
     /**
@@ -227,6 +243,22 @@ class Lot extends Model
                 $reservation->init->format('d/m/Y H:i:s'),
                 $reservation->due->format('d/m/Y H:i:s')
             ),
+            false
+        );
+    }
+
+    /**
+     * Cria um status dinâmico para uma proposta.
+     *
+     * @param Proposal $proposal
+     * @return LotStatus
+     */
+    protected function createProposedStatus(Proposal $proposal)
+    {
+        return $this->createStatus(
+            $proposal->user,
+            LotStatusType::PROPOSED,
+            'Lote possui proposta ativa.',
             false
         );
     }

@@ -63,6 +63,16 @@ class Allotment extends Model
     }
 
     /**
+     * Retorna o mapa cadastrados para o loteamento
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function map()
+    {
+        return $this->hasOne(Map::class);
+    }
+
+    /**
      * Obtem a URL da foto de capa.
      *
      * @return string

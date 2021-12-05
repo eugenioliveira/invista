@@ -67,6 +67,7 @@ namespace App\Models{
  * @property-read string $cover_url
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Lot[] $lots
  * @property-read int|null $lots_count
+ * @property-read \App\Models\Map|null $map
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\PaymentPlan[] $plans
  * @property-read int|null $plans_count
  * @method static \Database\Factories\AllotmentFactory factory(...$parameters)
@@ -174,6 +175,7 @@ namespace App\Models{
  * @property-read mixed $formatted_price
  * @property-read string $identification
  * @property-read \App\Models\LotStatus|null $latestStatus
+ * @property-read \App\Models\Marker|null $marker
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Proposal[] $proposals
  * @property-read int|null $proposals_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reservation[] $reservations
@@ -228,6 +230,60 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|LotStatus whereUserId($value)
  */
 	class LotStatus extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Map
+ *
+ * @property int $id
+ * @property int $allotment_id
+ * @property string $name
+ * @property string|null $description
+ * @property string $image
+ * @property mixed $bounds
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Allotment $allotment
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Marker[] $markers
+ * @property-read int|null $markers_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Map newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Map newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Map query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Map whereAllotmentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Map whereBounds($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Map whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Map whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Map whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Map whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Map whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Map whereUpdatedAt($value)
+ */
+	class Map extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Marker
+ *
+ * @property int $id
+ * @property int $map_id
+ * @property int $lot_id
+ * @property mixed $position
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Lot $lot
+ * @method static \Illuminate\Database\Eloquent\Builder|Marker newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Marker newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Marker query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Marker whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Marker whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Marker whereLotId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Marker whereMapId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Marker wherePosition($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Marker whereUpdatedAt($value)
+ */
+	class Marker extends \Eloquent {}
 }
 
 namespace App\Models{
