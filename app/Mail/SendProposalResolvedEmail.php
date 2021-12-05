@@ -51,7 +51,6 @@ class SendProposalResolvedEmail extends Mailable
 
         return $this
             ->subject('Proposta Avaliada')
-            ->from('nao-responda@invista.com.br')
             ->markdown('emails.proposals.resolved');
     }
 }

@@ -312,4 +312,5 @@
             </div>
         </div>
     </div>
+    <x-loading></x-loading>
 </div>

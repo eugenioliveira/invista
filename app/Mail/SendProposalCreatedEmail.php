@@ -42,7 +42,6 @@ class SendProposalCreatedEmail extends Mailable
 
         return $this
             ->subject('Nova proposta criada')
-            ->from('nao-responda@invista.com.br')
             ->markdown('emails.proposals.created');
     }
 }

@@ -39,6 +39,14 @@ class ManageSales extends Component
     public string $proposal = '';
 
     /**
+     * ID da venda para filtragem
+     *
+     * @var string
+     */
+    public string $sale = '';
+
+
+    /**
      * Ativa a queryString para facilitar o acesso aos filtros
      *
      * @var string[]
@@ -47,7 +55,8 @@ class ManageSales extends Component
         'search' => ['except' => ''],
         'sortField' => ['except' => 'created_at'],
         'sortDirection' => ['except' => 'desc'],
-        'proposal' => ['except' => '']
+        'proposal' => ['except' => ''],
+        'sale' => ['except' => ''],
     ];
 
     /**
@@ -80,7 +89,8 @@ class ManageSales extends Component
             $this->search,
             $this->sortField,
             $this->sortDirection,
-            $this->proposal
+            $this->proposal,
+            $this->sale
         )]);
     }
 }

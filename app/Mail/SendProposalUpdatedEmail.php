@@ -42,7 +42,6 @@ class SendProposalUpdatedEmail extends Mailable
 
         return $this
             ->subject('Proposta #' . $this->proposal->id . ' Atualizada')
-            ->from('nao-responda@invista.com.br')
             ->markdown('emails.proposals.updated');
     }
 }

@@ -5,44 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e2c804f-f9e1-4a5f-bf47-a25d0ba2da97" name="Changes" comment="Pdf de proposta sendo gerado">
-      <change afterPath="$PROJECT_DIR$/app/Actions/Map/SyncMarkers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Actions/Map/UpdateMap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MapsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/EditMapForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/ShowMap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Map.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Marker.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/View/Components/MapLayout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_04_135152_create_maps_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_12_04_135959_create_markers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/vendor/leaflet/dist/layers-2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/vendor/leaflet/dist/layers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/vendor/leaflet/dist/marker-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/maps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/map.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/edit-map-form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/show-map.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/maps/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/maps/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/invista.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/invista.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/LotSold.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/SendLotSoldNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/SendLotSoldEmail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/lots/sold.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Enums/LotStatusType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Enums/LotStatusType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Allotment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Allotment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Lot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Sale/SearchSales.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Sale/SearchSales.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/ManageSales.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/ManageSales.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/SendProposalCreatedEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/SendProposalCreatedEmail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/SendProposalResolvedEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/SendProposalResolvedEmail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/SendProposalUpdatedEmail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/SendProposalUpdatedEmail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Proposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Proposal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Sale.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Sale.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/SalePolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/SalePolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/allotment-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,6 +239,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -366,7 +344,8 @@
       <workItem from="1638638398690" duration="1888000" />
       <workItem from="1638640337009" duration="10068000" />
       <workItem from="1638653647085" duration="9030000" />
-      <workItem from="1638704936138" duration="3867000" />
+      <workItem from="1638704936138" duration="6843000" />
+      <workItem from="1638712969268" duration="1750000" />
     </task>
     <servers />
   </component>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Casts\DecimalCast;
+use App\Events\LotSold;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,6 +27,28 @@ class Sale extends Model
     protected $casts = [
         'value' => DecimalCast::class . ':2'
     ];
+
+    /**
+     * Hook de eventos
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::created(function ($sale) {
+            LotSold::dispatch($sale);
+        });
+    }
+
+    /**
+     * Retorna a proposta que gerou a venda.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function proposal()
+    {
+        return $this->belongsTo(Proposal::class);
+    }
 
     /**
      * O lote para o qual a venda foi feita
@@ -55,5 +78,10 @@ class Sale extends Model
     public function salable()
     {
         return $this->morphTo();
+    }
+
+    public function getUrlAttribute()
+    {
+        return route('sales.index', ['sale' => $this->id]);
     }
 }

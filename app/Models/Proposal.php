@@ -34,6 +34,13 @@ class Proposal extends Model
     ];
 
     /**
+     * Serialização de accessors
+     *
+     * @var string[]
+     */
+    protected $appends = ['conditions'];
+
+    /**
      * O lote para o qual a proposta foi feita
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -21,7 +21,7 @@ class SalePolicy
         //
     }
 
-    public function create(User $loggedUser, Lot $lot)
+    public function createSale(User $loggedUser, Lot $lot)
     {
         return !$lot->sale instanceof Sale;
     }

@@ -6,7 +6,7 @@ use App\Models\Sale;
 
 class SearchSales
 {
-    public function search($searchTerm, $sortField, $sortDirection, $proposal)
+    public function search($searchTerm, $sortField, $sortDirection, $proposal, $sale)
     {
         $isBroker = \Auth::user()->hasRole('broker');
         return Sale::query()
@@ -26,7 +26,8 @@ class SearchSales
                     });
             })
             ->when($isBroker, fn($query) => $query->where('user_id', \Auth::user()->id))
-            ->when($proposal, fn($query, $proposal) => $query->where('id', $proposal))
+            ->when($proposal, fn($query, $proposal) => $query->where('proposal_id', $proposal))
+            ->when($sale, fn($query, $sale) => $query->where('id', $sale))
             ->orderBy($sortField, $sortDirection)
             ->paginate(8)   ;
     }

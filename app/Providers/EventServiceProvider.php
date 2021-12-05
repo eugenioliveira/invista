@@ -8,6 +8,8 @@ use App\Events\ProposalCreated;
 use App\Listeners\SendProposalCreatedNotification;
 use App\Events\ProposalUpdated;
 use App\Listeners\SendProposalUpdatedNotification;
+use App\Events\LotSold;
+use App\Listeners\SendLotSoldNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -31,6 +33,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         ProposalUpdated::class => [
             SendProposalUpdatedNotification::class
+        ],
+        LotSold::class => [
+            SendLotSoldNotification::class
         ]
     ];
 
