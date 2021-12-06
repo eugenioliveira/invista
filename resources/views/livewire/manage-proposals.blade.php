@@ -13,7 +13,7 @@
                         <x-input.text wire:model="search" placeholder="Buscar por Loteamento, Corretor ou Cliente..." />
                     </div>
                     <div class='flex space-x-2 items-center justify-center'>
-                        <x-input.checkbox wire:model='active' />
+                        <x-input.checkbox wire:model.lazy='active' />
                         <span>Mostrar apenas propostas ativas</span>
                     </div>
                     <div class='w-full md:w-1/4'>
@@ -34,11 +34,11 @@
                             <p class='text-gray-700 font-bold'>Filtrar pela data da proposta</p>
                             <div class='flex space-x-2 pt-2'>
                                 <x-input.group inline for="filter-created-at-min" label="Data mínima">
-                                    <x-input.date wire:model="filters.created-at-min" id="filter-created-at-min"
+                                    <x-input.date wire:model.lazy="filters.created-at-min" id="filter-created-at-min"
                                                   placeholder="DD/MM/AAAA" />
                                 </x-input.group>
                                 <x-input.group inline for="filter-created-at-max" label="Data máxima">
-                                    <x-input.date wire:model="filters.created-at-max" id="filter-created-at-max"
+                                    <x-input.date wire:model.lazy="filters.created-at-max" id="filter-created-at-max"
                                                   placeholder="DD/MM/AAAA" />
                                 </x-input.group>
                             </div>
@@ -47,7 +47,7 @@
                             <p class='text-gray-700 font-bold'>Filtrar pelo tipo de proposta</p>
                             <div class='pt-2'>
                                 <x-input.group inline for="filter-type" label="Tipo">
-                                    <x-input.select class="w-full" wire:model="filters.type" id="filter-type"
+                                    <x-input.select class="w-full" wire:model.lazy="filters.type" id="filter-type"
                                                     placeholder="Selecione...">
                                         @foreach(\App\Enums\ProposalType::getInstances() as $proposalType)
                                             <option value="{{ $proposalType->value }}">{{ $proposalType->description }}</option>
@@ -207,7 +207,7 @@
                 <div class="space-y-3">
                     <x-input.group error="{{ $errors->first('resolveData.status') }}" inline
                                    for="resolve-data-status" label="Avaliar proposta">
-                        <x-input.select class="w-full" wire:model="resolveData.status" id="resolve-data-status"
+                        <x-input.select class="w-full" wire:model.lazy="resolveData.status" id="resolve-data-status"
                                         placeholder="Selecione...">
                             @foreach(\App\Enums\ProposalStatusType::getInstances() as $proposalStatusType)
                                 @if($resolving)
@@ -221,7 +221,7 @@
 
                     <x-input.group error="{{ $errors->first('resolveData.reason') }}" inline
                                    for="resolve-data-reason" label="Motivo da avaliação">
-                        <x-input.textarea wire:model="resolveData.reason"></x-input.textarea>
+                        <x-input.textarea wire:model.lazy="resolveData.reason"></x-input.textarea>
                     </x-input.group>
                 </div>
             </div>
@@ -312,5 +312,4 @@
             </div>
         </div>
     </div>
-    <x-loading></x-loading>
 </div>

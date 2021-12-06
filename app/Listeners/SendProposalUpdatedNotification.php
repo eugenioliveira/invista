@@ -5,9 +5,10 @@ namespace App\Listeners;
 use App\Events\ProposalUpdated;
 use App\Mail\SendProposalUpdatedEmail;
 use App\Models\Role;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Mail;
 
-class SendProposalUpdatedNotification
+class SendProposalUpdatedNotification implements ShouldQueue
 {
     /**
      * Handle the event.

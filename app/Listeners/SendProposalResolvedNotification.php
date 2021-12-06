@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Mail;
 
-class SendProposalResolvedNotification
+class SendProposalResolvedNotification implements ShouldQueue
 {
     /**
      * Handle the event.

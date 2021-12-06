@@ -16,6 +16,23 @@ services:
       - ./docker-compose/app/php.ini:/usr/local/etc/php/php.ini:z
     networks:
       - invista
+  supervisor:
+    build:
+      context: ./docker-compose/worker
+      dockerfile: Dockerfile
+    image: supervisor
+    container_name: invista-worker
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/worker/invista.conf:/etc/supervisor/invista.conf
+    networks:
+      - invista
+    command:
+      - /bin/sh
+      - -c
+      - supervisord -c /etc/supervisor/invista.conf
+      - supervisorctl start all
   db:
     image: mysql:latest
     container_name: invista-db
