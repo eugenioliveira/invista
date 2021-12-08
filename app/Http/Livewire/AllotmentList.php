@@ -46,8 +46,13 @@ class AllotmentList extends Component
     public function render()
     {
         $search = '%' . $this->searchTerm . '%';
+        $query = Allotment::query();
+        if (!\Auth::user()->isAdmin()) {
+            $query = \Auth::user()->allotments();
+        }
         return view('livewire.allotment-list', [
-            'allotments' => Allotment::where('title', 'like', $search)
+            'allotments' => $query
+                ->where('title', 'like', $search)
                 ->withCount('lots')
                 ->with('city')
                 ->paginate(8)

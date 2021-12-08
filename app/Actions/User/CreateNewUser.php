@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Actions\User;
-
 
 use App\Actions\Person\CreateNewPerson;
 use App\Models\Role;
@@ -52,5 +50,6 @@ class CreateNewUser
             'password' => Hash::make($validated['password'])
         ]);
         $user->assignRole($validated['role']);
+        $user->allotments()->sync($input['selected_allotments']);
     }
 }

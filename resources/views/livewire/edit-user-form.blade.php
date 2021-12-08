@@ -44,6 +44,7 @@
 
         @if (\Auth::user()->isAdmin())
             @include('livewire.partials.role-radio-input')
+            @include('livewire.partials.allotments-select-input')
         @endif
 
         <x-input-row class="mt-6 flex flex-col space-y-2 md:space-y-0 md:flex-row">

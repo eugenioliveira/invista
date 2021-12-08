@@ -1,6 +1,7 @@
 @import "~filepond/dist/filepond.min.css";
 @import "~filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
 @import "~pikaday/css/pikaday.css";
+@import "~select2/dist/css/select2.min.css";
 
 
 @tailwind base;

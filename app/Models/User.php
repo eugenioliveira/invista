@@ -26,23 +26,14 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $fillable = ['name', 'email', 'password'];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
-    ];
+    protected $hidden = ['password', 'remember_token', 'two_factor_recovery_codes', 'two_factor_secret', 'pivot'];
 
     /**
      * The attributes that should be cast to native types.
@@ -50,7 +41,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime'
     ];
 
     /**
@@ -58,9 +49,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+    protected $appends = ['profile_photo_url'];
 
     /**
      * Métodos mágicos pertinentes ao Model
@@ -96,6 +85,16 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * Os loteamentos permitidos para o usuário.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function allotments()
+    {
+        return $this->belongsToMany(Allotment::class);
     }
 
     /**
@@ -136,9 +135,10 @@ class User extends Authenticatable
                 ->flatten()->pluck('name')->unique();
         });*/
 
-        return $this->roles
-            ->map->permissions
-            ->flatten()->pluck('name')->unique();
+        return $this->roles->map->permissions
+            ->flatten()
+            ->pluck('name')
+            ->unique();
     }
 
     /**
@@ -149,7 +149,7 @@ class User extends Authenticatable
      */
     public function hasRole($role): bool
     {
-        $userRoles = Cache::remember('User' . $this->id . 'Roles', now()->addDay(), function() {
+        $userRoles = Cache::remember('User' . $this->id . 'Roles', now()->addDay(), function () {
             return $this->roles()->pluck('name');
         });
 

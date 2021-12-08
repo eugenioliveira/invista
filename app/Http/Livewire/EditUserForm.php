@@ -3,7 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Actions\User\UpdateUser;
+use App\Models\Allotment;
 use App\Models\User;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 
 class EditUserForm extends Component
@@ -17,6 +19,8 @@ class EditUserForm extends Component
      */
     public User $user;
 
+    public array $userAllotments;
+
     /**
      * Controle de estado do componente.
      *
@@ -24,7 +28,8 @@ class EditUserForm extends Component
      */
     public array $state = [
         'password' => '',
-        'password_confirmation' => ''
+        'password_confirmation' => '',
+        'selected_allotments' => ''
     ];
 
     /**
@@ -37,6 +42,11 @@ class EditUserForm extends Component
         $this->user = $user;
         $this->state['email'] = $user->email;
         $this->state['role'] = $user->roles()->first()->id;
+        $this->userAllotments = $this->user
+            ->allotments()
+            ->pluck('id')
+            ->toArray();
+        $this->state['selected_allotments'] = $this->userAllotments;
     }
 
     /**
@@ -61,6 +71,6 @@ class EditUserForm extends Component
      */
     public function render()
     {
-        return view('livewire.edit-user-form');
+        return view('livewire.edit-user-form', ['allotments' => Allotment::orderBy('title')->get()]);
     }
 }

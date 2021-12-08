@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+    const BROKER = 3;
     /**
      * Desabilita a proteção contra mass assignment
      * uma vez que os campos serão validados.

@@ -70,6 +70,8 @@ namespace App\Models{
  * @property-read \App\Models\Map|null $map
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\PaymentPlan[] $plans
  * @property-read int|null $plans_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
+ * @property-read int|null $users_count
  * @method static \Database\Factories\AllotmentFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Allotment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Allotment newQuery()
@@ -241,7 +243,7 @@ namespace App\Models{
  * @property string $name
  * @property string|null $description
  * @property string $image
- * @property mixed $bounds
+ * @property array $bounds
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Allotment $allotment
@@ -269,7 +271,7 @@ namespace App\Models{
  * @property int $id
  * @property int $map_id
  * @property int $lot_id
- * @property mixed $position
+ * @property array $position
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Lot $lot
@@ -596,7 +598,9 @@ namespace App\Models{
  * @property string|null $contract
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $url
  * @property-read \App\Models\Lot $lot
+ * @property-read \App\Models\Proposal $proposal
  * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $salable
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Sale newModelQuery()
@@ -633,6 +637,8 @@ namespace App\Models{
  * @property string|null $profile_photo_path
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Allotment[] $allotments
+ * @property-read int|null $allotments_count
  * @property-read string $profile_photo_url
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count

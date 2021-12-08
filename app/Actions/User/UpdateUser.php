@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Actions\User;
-
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -23,5 +21,6 @@ class UpdateUser
         $user->password = $validated['password'] ? Hash::make($validated['password']) : $user->password;
         $user->save();
         $user->assignRole($validated['role']);
+        $user->allotments()->sync($input['selected_allotments']);
     }
 }

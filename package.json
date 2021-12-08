@@ -26,9 +26,11 @@
         "filepond-plugin-image-preview": "^4.6.10",
         "filepond-plugin-pdf-preview": "^1.0.4",
         "imask": "^6.2.2",
+        "jquery": "^3.6.0",
         "maplots": "^1.0.2",
         "moment": "^2.29.1",
         "pikaday": "^1.8.2",
-        "prettier": "^2.5.1"
+        "prettier": "^2.5.1",
+        "select2": "^4.1.0-rc.0"
     }
 }

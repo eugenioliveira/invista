@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Casts\DecimalCast;
 use App\Casts\TimeDurationCast;
-use App\Enums\LotStatusType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -31,6 +30,8 @@ class Allotment extends Model
      * @var array
      */
     protected $guarded = [];
+
+    protected $hidden = ['pivot'];
 
     /**
      * Um loteamento está contido em uma cidade.
@@ -63,6 +64,16 @@ class Allotment extends Model
     }
 
     /**
+     * Usuários permitidos
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    /**
      * Retorna o mapa cadastrados para o loteamento
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -79,9 +90,7 @@ class Allotment extends Model
      */
     public function getCoverUrlAttribute()
     {
-        return $this->cover
-            ? Storage::disk('public')->url($this->cover)
-            : $this->defaultCoverUrl();
+        return $this->cover ? Storage::disk('public')->url($this->cover) : $this->defaultCoverUrl();
     }
 
     /**
@@ -114,6 +123,5 @@ class Allotment extends Model
             sprintf('Lote criado manualmente por %s.', \Auth::user()->name),
             true
         );
-
     }
 }

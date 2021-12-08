@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Actions\User\CreateNewUser;
+use App\Models\Allotment;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
@@ -40,6 +41,6 @@ class CreateUserForm extends Component
 
     public function render()
     {
-        return view('livewire.create-user-form');
+        return view('livewire.create-user-form', ['allotments' => Allotment::orderBy('title')->get()]);
     }
 }

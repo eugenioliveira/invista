@@ -11,7 +11,7 @@
             $colorClass = 'bg-red-500';
             break;
         case 'warning':
-            $title = 'Antenção!';
+            $title = 'Atenção!';
             $colorClass = 'bg-yellow-500';
             break;
     }

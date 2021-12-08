@@ -32,8 +32,22 @@ require('./pikaday');
 import IMask from 'imask';
 window.IMask = IMask;
 
+/**
+ * Mapas
+ */
 import MapLots from 'maplots/src/maplots';
 window.MapLots = MapLots;
+
+/**
+ * Jquery
+ */
+window.$ = window.jQuery = require('jquery');
+
+/**
+ * Select 2
+ */
+require('select2/dist/js/select2');
+require('select2/dist/js/i18n/pt-BR');
 
 /**
  * Loading Alpine JS - TALL Stack

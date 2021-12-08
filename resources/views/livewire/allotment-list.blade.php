@@ -8,57 +8,66 @@
         <x-alert type="success" message="{{ session('successMessage') }}" />
     @endif
 
-    {{-- Busca e paginação --}}
-    <x-search-pagination
-            search-placeholder="Ex.: Loteamento São Bento"
-            :links="$allotments->links('vendor.pagination.tailwind')"
-    ></x-search-pagination>
+    <div>
+        @if($allotments->isNotEmpty())
+        {{-- Busca e paginação --}}
+        <x-search-pagination
+                search-placeholder="Ex.: Loteamento São Bento"
+                :links="$allotments->links('vendor.pagination.tailwind')"
+        ></x-search-pagination>
 
-    {{-- Grid de Loteamentos --}}
-    <div class="p-4 md:p-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        @foreach($allotments as $allotment)
-            <x-card class="overflow-hidden">
-                <img src="{{ $allotment->cover_url }}" class="w-full h-32 object-cover">
-                <div class="p-4">
-                    <h2 class="font-medium text-lg text-primary">{{ $allotment->title }}</h2>
-                    <hr class="my-2">
-                    <div class="text-sm mb-2">
-                        <p>
-                            <span class="font-medium">Lotes: </span>
-                            <span class="lotCount">{{ $allotment->lots_count }}</span>
-                        </p>
-                        <p>
-                            <span class="font-medium">Área: </span>
-                            <span>{{ $allotment->area }} m<sup>2</sup></span>
-                        </p>
-                        <p>
-                            <span class="font-medium">Cidade: </span>
-                            <span>{{ $allotment->city->full_name }}</span>
-                        </p>
-                    </div>
-                    {{-- Este botão só deve ser exibido se o usuário for admin --}}
-                    @if(Auth::user()->isBroker())
-                        <div class='flex space-x-2'>
-                            <x-button-link class="w-full justify-center"
-                                           href="{{ route('lots.index', $allotment->id) }}">
-                                Ver lotes
-                            </x-button-link>
-                            @if($allotment->map)
-                                <x-button-link class="w-full justify-center"
-                                               target="_blank"
-                                               href="{{ route('map.show', [$allotment->map->id, 'edit' => false]) }}">
-                                    Ver mapa
-                                </x-button-link>
-                            @endif
+        {{-- Grid de Loteamentos --}}
+        <div class="p-4 md:p-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            @foreach($allotments as $allotment)
+                <x-card class="overflow-hidden">
+                    <img src="{{ $allotment->cover_url }}" class="w-full h-32 object-cover">
+                    <div class="p-4">
+                        <h2 class="font-medium text-lg text-primary">{{ $allotment->title }}</h2>
+                        <hr class="my-2">
+                        <div class="text-sm mb-2">
+                            <p>
+                                <span class="font-medium">Lotes: </span>
+                                <span class="lotCount">{{ $allotment->lots_count }}</span>
+                            </p>
+                            <p>
+                                <span class="font-medium">Área: </span>
+                                <span>{{ $allotment->area }} m<sup>2</sup></span>
+                            </p>
+                            <p>
+                                <span class="font-medium">Cidade: </span>
+                                <span>{{ $allotment->city->full_name }}</span>
+                            </p>
                         </div>
-                    @else
-                        <x-button class="w-full justify-center" wire:click="showOptions({{ $allotment->id }})">
-                            Opções
-                        </x-button>
-                    @endif
-                </div>
-            </x-card>
-        @endforeach
+                        {{-- Este botão só deve ser exibido se o usuário for admin --}}
+                        @if(Auth::user()->isBroker())
+                            <div class='flex space-x-2'>
+                                <x-button-link class="w-full justify-center"
+                                               href="{{ route('lots.index', $allotment->id) }}">
+                                    Ver lotes
+                                </x-button-link>
+                                @if($allotment->map)
+                                    <x-button-link class="w-full justify-center"
+                                                   target="_blank"
+                                                   href="{{ route('map.show', [$allotment->map->id, 'edit' => false]) }}">
+                                        Ver mapa
+                                    </x-button-link>
+                                @endif
+                            </div>
+                        @else
+                            <x-button class="w-full justify-center" wire:click="showOptions({{ $allotment->id }})">
+                                Opções
+                            </x-button>
+                        @endif
+                    </div>
+                </x-card>
+            @endforeach
+        </div>
+        @else
+            <x-alert type='warning' message='' :autoclose='false'>
+                Não há loteamentos para exibir. Verifique com um administrador se você possui permissões para
+                ver algum dos loteamentos.
+            </x-alert>
+        @endif
     </div>
 
     {{-- Menu de opções --}}
@@ -96,7 +105,7 @@
                     </li>
                 @endcan
 
-                {{-- Gerenciar corretores --}}
+                {{-- Gerenciar corretores
                 @can('allow_brokers')
                     <li>
                         <a href="/" class="flex items-center px-4 py-2 rounded-lg hover:bg-yellow-500 hover:text-white">
@@ -108,7 +117,7 @@
                             <span class="ml-2">Corretores permitidos</span>
                         </a>
                     </li>
-                @endcan
+                @endcan--}}
 
                 {{-- Planos de pagamento --}}
                 @can('edit_allotment')
@@ -146,9 +155,12 @@
                         <li>
                             <a href="{{ $currentAllotment->id ? route('map.show', [$currentAllotment->map->id, 'edit' => true]) : '' }}"
                                class="flex items-center px-4 py-2 rounded-lg hover:bg-yellow-500 hover:text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                                 <span class="ml-2">Posicionar marcadores do mapa</span>
                             </a>
