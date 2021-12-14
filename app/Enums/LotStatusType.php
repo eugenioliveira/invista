@@ -19,7 +19,6 @@ final class LotStatusType extends Enum implements LocalizedEnum
     const PROPOSED = 3;
     const BLOCKED = 4;
     const SOLD = 5;
-    const PARTNER = 6;
 
     public array $colors = [
         self::AVAILABLE => 'green',
