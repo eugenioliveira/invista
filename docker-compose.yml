@@ -47,7 +47,8 @@ services:
     ports:
       - "33061:3306"
     volumes:
-      - ./db:/var/lib/mysql
+      - db-data:/var/lib/mysql
+      - db-data:/var/log/mysql
     networks:
       - invista
   nginx:
