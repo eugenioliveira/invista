@@ -41,16 +41,6 @@
                 >
                 <span>{{ \App\Enums\LotStatusType::SOLD()->description }}</span>
             </label>
-            <label class="flex items-center space-x-3">
-                <input
-                    type="radio"
-                    name="type"
-                    wire:model.lazy="statusType"
-                    value="{{ \App\Enums\LotStatusType::PARTNER }}"
-                    class="appearance-none h-4 w-4 border border-orange-500 rounded-full checked:bg-primary checked:border-transparent focus:outline-none"
-                >
-                <span>{{ \App\Enums\LotStatusType::PARTNER()->description }}</span>
-            </label>
             <div>
                 @error('statusType')
                 <div class="mt-1 flex items-center">
