@@ -30,6 +30,8 @@ class LotFactory extends Factory
             'block' => $this->faker->randomElement(['A', 'B', 'C']),
             'number' => $number++,
             'price' => app('decimal')->format($this->faker->randomFloat(2, 10000, 100000)),
+            'total' => app('decimal')->format($this->faker->randomFloat(2, 10, 500)),
+            'curve' => app('decimal')->format($this->faker->randomFloat(2, 10, 500)),
             'front' => app('decimal')->format($this->faker->randomFloat(2, 10, 500)),
             'back' => app('decimal')->format($this->faker->randomFloat(2, 10, 500)),
             'right' => app('decimal')->format($this->faker->randomFloat(2, 10, 500)),

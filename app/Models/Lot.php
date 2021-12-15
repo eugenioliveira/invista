@@ -29,6 +29,8 @@ class Lot extends Model
      */
     protected $casts = [
         'price' => DecimalCast::class . ':2',
+        'total' => DecimalCast::class,
+        'curve' => DecimalCast::class,
         'front' => DecimalCast::class,
         'back' => DecimalCast::class,
         'right' => DecimalCast::class,

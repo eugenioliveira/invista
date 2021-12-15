@@ -27,6 +27,8 @@ class CreateLotsTable extends Migration
              */
             $table->unique(['allotment_id', 'block', 'number']);
             $table->unsignedDecimal('price', 13, 2);
+            $table->unsignedDecimal('total', 8, 2);
+            $table->unsignedDecimal('curve', 8, 2);
             $table->unsignedDecimal('front', 8, 2);
             $table->unsignedDecimal('back', 8, 2);
             $table->unsignedDecimal('right', 8, 2);
