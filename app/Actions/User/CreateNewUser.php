@@ -50,6 +50,8 @@ class CreateNewUser
             'password' => Hash::make($validated['password'])
         ]);
         $user->assignRole($validated['role']);
-        $user->allotments()->sync($input['selected_allotments']);
+        if ($validated['role'] != Role::ADMIN) {
+            $user->allotments()->sync($input['selected_allotments']);
+        }
     }
 }

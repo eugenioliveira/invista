@@ -1,6 +1,6 @@
 <div>
     @can('allow_brokers')
-        @if ($state['role'] == \App\Models\Role::BROKER)
+        @if ($state['role'] != \App\Models\Role::ADMIN)
             <x-input-row class="mb-6 items-center">
                 <h2 class="text-lg uppercase tracking-widest">Loteamentos permitidos</h2>
                 <div class="flex-1 h-0.5 bg-gray-200"></div>

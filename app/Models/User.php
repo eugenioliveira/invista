@@ -149,9 +149,10 @@ class User extends Authenticatable
      */
     public function hasRole($role): bool
     {
-        $userRoles = Cache::remember('User' . $this->id . 'Roles', now()->addDay(), function () {
+        $userRoles = $this->roles()->pluck('name');
+        /*$userRoles = Cache::remember('User' . $this->id . 'Roles', now()->addDay(), function () {
             return $this->roles()->pluck('name');
-        });
+        });*/
 
         return $userRoles->contains($role);
     }

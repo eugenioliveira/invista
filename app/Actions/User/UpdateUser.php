@@ -2,6 +2,7 @@
 
 namespace App\Actions\User;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -21,6 +22,8 @@ class UpdateUser
         $user->password = $validated['password'] ? Hash::make($validated['password']) : $user->password;
         $user->save();
         $user->assignRole($validated['role']);
-        $user->allotments()->sync($input['selected_allotments']);
+        if ($validated['role'] != Role::ADMIN) {
+            $user->allotments()->sync($input['selected_allotments']);
+        }
     }
 }

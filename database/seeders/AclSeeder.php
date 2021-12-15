@@ -22,9 +22,6 @@ class AclSeeder extends Seeder
             ->firstOrFail()
             ->allowTo('view_allotments')
             ->allowTo('view_lots')
-            ->allowTo('view_users')
-            ->allowTo('create_user')
-            //->allowTo('edit_user'); Rule handled by UserPolicy
             ->allowTo('view_people')
             ->allowTo('create_person')
             ->allowTo('view_companies')
@@ -33,6 +30,7 @@ class AclSeeder extends Seeder
             ->allowTo('make_reservation')
             ->allowTo('propose')
             ->allowTo('view_proposals')
+            ->allowTo('manage_proposals')
             ->allowTo('view_sales');
 
         /**

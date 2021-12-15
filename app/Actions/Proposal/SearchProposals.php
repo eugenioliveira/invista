@@ -17,6 +17,7 @@ class SearchProposals
         $proposal = null
     ) {
         $isBroker = \Auth::user()->hasRole('broker');
+        $isSupervisor = \Auth::user()->hasRole('supervisor');
         return Proposal::query()
             ->with(['lot', 'lot.allotment', 'user', 'proposeable'])
             ->when(\Str::length($searchTerm) >= 3, function ($query) use ($searchTerm) {
@@ -52,6 +53,7 @@ class SearchProposals
             )
             ->when($filters['type'], fn($query, $type) => $query->where('type', $type))
             ->when($isBroker, fn($query) => $query->where('user_id', \Auth::user()->id))
+            ->when($isSupervisor, fn($query) => $query->whereIn('lot_id', \Auth::user()->allotments->map->lots->flatten()->pluck('id')))
             ->when($lot, fn($query, $lot) => $query->where('lot_id', $lot))
             ->when($proposal, fn($query, $proposal) => $query->where('id', $proposal))
             ->orderBy($sortField, $sortDirection)

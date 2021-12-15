@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
+    const ADMIN = 1;
+    const SUPERVISOR = 2;
     const BROKER = 3;
     /**
      * Desabilita a proteção contra mass assignment
