@@ -157,6 +157,7 @@ class Proposal extends Model
                 'Pagamento em %s parcelas de %s',
                 $this->installments,
                 $this->installment_value
+            );
         }
     }
 
