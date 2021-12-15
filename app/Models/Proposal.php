@@ -156,7 +156,7 @@ class Proposal extends Model
             return sprintf(
                 'Pagamento em %s parcelas de %s',
                 $this->installments,
-                $this->installment_value;
+                $this->installment_value
         }
     }
 
