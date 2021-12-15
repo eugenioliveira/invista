@@ -39,6 +39,28 @@
     <div class="flex-1 h-0.5 bg-gray-200"></div>
 </x-input-row>
 <x-input-row class="mb-4">
+    {{-- Área total --}}
+    <div class="w-1/2">
+        <x-input
+                label="Área total (metros)"
+                name="total"
+                class="mt-1 w-full"
+                wire:model.lazy="lot.total"
+                error="{{ $errors->first('lot.total') }}"
+        />
+    </div>
+    {{-- Curvatura --}}
+    <div class="w-1/2">
+        <x-input
+                label="Curvatura (metros)"
+                name="curve"
+                class="mt-1 w-full"
+                wire:model.lazy="lot.curve"
+                error="{{ $errors->first('lot.curve') }}"
+        />
+    </div>
+</x-input-row>
+<x-input-row class="mb-4">
     {{-- Frente --}}
     <div class="w-1/4">
         <x-input

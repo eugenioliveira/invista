@@ -38,10 +38,28 @@
                         </div>
                         <hr class="my-2">
                         <div class="text-sm mb-2">
-                            <p>
-                                <span class="font-medium">Área: </span>
-                                <span>{{ $lot->area }} m<sup>2</sup></span>
-                            </p>
+                            <div class="flex space-x-2">
+                                <div>
+                                    <span class="font-medium">Área: </span>
+                                </div>
+                                <div class="inline cursor-help relative" x-data="{ isOpen: false }">
+                                    <span
+                                            class="text-primary hover:underline"
+                                            x-on:click="isOpen = true"
+                                            x-on:click.away="isOpen = false"
+                                    >
+                                        {{ $lot->total }} m<sup>2</sup>
+                                    </span>
+                                    <div x-show="isOpen" style="display: none"
+                                         class="absolute z-30 bg-gray-200 border border-gray-300 shadow rounded-md px-6 py-4">
+                                        <div class="divide-y divide-gray-400 divide-dashed">
+                                            @foreach($lot->getSides() as $side)
+                                                <div class="text-xs py-2">{{ $side }}</div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <p>
                                 <span class="font-medium">Preço: </span>
                                 <span>{{ $lot->formatted_price }}</span>
@@ -68,7 +86,9 @@
                                 </x-button-link>
                             </div>
                         @elsecan('show', $lot->activeProposal)
-                            <x-button-link href="{{ route('proposals.index', ['proposal' => $lot->activeProposal->id]) }}" type="success" class="w-full justify-center">
+                            <x-button-link
+                                    href="{{ route('proposals.index', ['proposal' => $lot->activeProposal->id]) }}"
+                                    type="success" class="w-full justify-center">
                                 Acompanhar proposta
                             </x-button-link>
                         @else

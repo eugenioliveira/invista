@@ -47,8 +47,8 @@ services:
     ports:
       - "33061:3306"
     volumes:
-      - mysqldbvolume:/var/lib/mysql
-      - mysqldbvolume:/var/log/mysql
+      - ./db-data:/var/lib/mysql
+      - ./db-data:/var/log/mysql
     networks:
       - invista
   nginx:
@@ -76,6 +76,3 @@ services:
 networks:
   invista:
     driver: bridge
-volumes:
-  mysqldbvolume:
-    driver: local

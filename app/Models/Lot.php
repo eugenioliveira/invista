@@ -140,21 +140,6 @@ class Lot extends Model
     }
 
     /**
-     * Retorna a área total do lote formatada.
-     *
-     * @return mixed
-     */
-    public function getAreaAttribute()
-    {
-        $front = $this->attributes['front'];
-        $back = $this->attributes['back'];
-        $right = $this->attributes['right'];
-        $left = $this->attributes['left'];
-
-        return app('decimal')->format((($front + $back) / 2) * (($left + $right) / 2));
-    }
-
-    /**
      * Retorna o preço do lote formatado em pt-BR
      *
      * @return mixed
@@ -172,6 +157,8 @@ class Lot extends Model
     public function getSides()
     {
         return [
+            sprintf('%s metros de área total', $this->total),
+            sprintf('%s metros de curvatura', $this->curve),
             sprintf('%s metros de frente com %s', $this->front, $this->front_side),
             sprintf('%s metros de fundos com %s', $this->back, $this->back_side),
             sprintf('%s metros de lado direito com %s', $this->right, $this->right_side),

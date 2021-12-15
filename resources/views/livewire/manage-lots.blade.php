@@ -60,10 +60,10 @@
                                         x-on:click="isOpen = true"
                                         x-on:click.away="isOpen = false"
                                 >
-                                    {{ $lot->area }} m<sup>2</sup>
+                                    {{ $lot->total }} m<sup>2</sup>
                                 </span>
                                 <div x-show="isOpen" style="display: none"
-                                     class="absolute z-30 bg-gray-200 border border-gray-300 shadow rounded-md px-6 py-4 w-80">
+                                     class="absolute z-30 bg-gray-200 border border-gray-300 shadow rounded-md px-6 py-4">
                                     <div class="divide-y divide-gray-400 divide-dashed">
                                         @foreach($lot->getSides() as $side)
                                             <div class="text-xs py-2">{{ $side }}</div>
