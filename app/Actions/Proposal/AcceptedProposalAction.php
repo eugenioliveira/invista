@@ -6,6 +6,7 @@ use App\Actions\Sale\CreateNewSale;
 use App\Enums\LotStatusType;
 use App\Enums\ProposalStatusType;
 use App\Models\Proposal;
+use App\Events\LotSold;
 use Auth;
 
 class AcceptedProposalAction implements ResolveProposalAction
@@ -35,7 +36,10 @@ class AcceptedProposalAction implements ResolveProposalAction
         );
 
         // Cria a venda no sistema
-        (new CreateNewSale())->create($proposal);
+        $sale = (new CreateNewSale())->create($proposal);
+        if ($sale) {
+            LotSold::dispatch($sale);
+        }
 
         // Altera o status da proposta
         return $proposal->statuses()->create([

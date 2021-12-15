@@ -29,18 +29,6 @@ class Sale extends Model
     ];
 
     /**
-     * Hook de eventos
-     *
-     * @return void
-     */
-    protected static function booted()
-    {
-        static::creating(function ($sale) {
-            LotSold::dispatch($sale);
-        });
-    }
-
-    /**
      * Retorna a proposta que gerou a venda.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
