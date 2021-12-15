@@ -13,4 +13,5 @@ final class ProposalType extends Enum implements LocalizedEnum
 {
     const IN_CASH = 1;
     const INSTALLMENTS = 2;
+    const FREE = 3;
 }

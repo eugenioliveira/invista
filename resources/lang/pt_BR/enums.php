@@ -23,7 +23,8 @@ return [
 
     ProposalType::class => [
         ProposalType::IN_CASH => 'À vista',
-        ProposalType::INSTALLMENTS => 'Parcelada'
+        ProposalType::INSTALLMENTS => 'Parcelada',
+        ProposalType::FREE => 'Proposta livre'
     ],
 
     ProposalStatusType::class => [

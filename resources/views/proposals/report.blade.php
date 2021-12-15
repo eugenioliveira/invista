@@ -11,7 +11,7 @@
         </div>
         <div class='flex items-center ml-4'>
             <x-logo width="80"></x-logo>
-            <span class='uppercase'>Sistema Invista</span>
+            <span class='uppercase'>Intervest</span>
         </div>
     </div>
 
@@ -104,31 +104,39 @@
                     <p class='uppercase text-center text-lg font-bold'>Condições de pagamento:</p>
                 </td>
             </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Valor do lote: {{ $proposal->lot->formatted_price }}</p>
-                </td>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Valor de entrada: R$ {{ $proposal->down_payment }}</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Forma de pagamento: {{ $proposal->type->description }}</p>
-                </td>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Número de parcelas: {{ $proposal->installments }}</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Valor da parcela: R$ {{ $proposal->installment_value }}</p>
-                </td>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Valor
-                        total: {{ app('currency')->format(app('decimal')->parse($proposal->installments) * app('decimal')->parse($proposal->installment_value)) }}</p>
-                </td>
-            </tr>
+            @if($proposal->type->is(\App\Enums\ProposalType::FREE))
+                <tr>
+                    <td colspan='4' class='border border-black p-2' style='border-width: 2px'>
+                        <p class='uppercase'>{{ $proposal->comments }}</p>
+                    </td>
+                </tr>
+            @else
+                <tr>
+                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
+                        <p class='uppercase'>Valor do lote: {{ $proposal->lot->formatted_price }}</p>
+                    </td>
+                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
+                        <p class='uppercase'>Valor de entrada: R$ {{ $proposal->down_payment }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
+                        <p class='uppercase'>Forma de pagamento: {{ $proposal->type->description }}</p>
+                    </td>
+                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
+                        <p class='uppercase'>Número de parcelas: {{ $proposal->installments }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
+                        <p class='uppercase'>Valor da parcela: R$ {{ $proposal->installment_value }}</p>
+                    </td>
+                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
+                        <p class='uppercase'>Valor
+                            total: {{ app('currency')->format(app('decimal')->parse($proposal->installments) * app('decimal')->parse($proposal->installment_value)) }}</p>
+                    </td>
+                </tr>
+            @endif
         </table>
 
         <table class='w-full border border-black mt-4' style='border-width: 2px'>

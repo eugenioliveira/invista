@@ -316,7 +316,7 @@ class ProposalWizard extends Component
                 'installments' => 1,
                 'installment_value' => $this->proposalData['negotiated_value']
             ]);
-        } else {
+        } elseif ($this->proposalData['type'] === ProposalType::INSTALLMENTS) {
             if ($this->lot->allotment->plans->isEmpty()) {
                 throw new \Exception(
                     'Não é possível fazer uma proposta de pagamento parcelada pois não há plano de pagamento parcelado associado ao loteamento. Favor, entre em contato com o administrador.'
@@ -340,6 +340,12 @@ class ProposalWizard extends Component
                     'installment_value' => app('decimal')->format($this->simulatedInstallments[$this->selectedInstallmentValue]['value'])
                 ]);
             }
+        } else {
+            $this->proposalData = $this->proposalData->merge([
+                'down_payment' => 0,
+                'installments' => 0,
+                'installment_value' => 0
+            ]);
         }
     }
 

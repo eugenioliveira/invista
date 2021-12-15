@@ -183,6 +183,7 @@
                         @php
                             $inCash = $proposalData['type'] === \App\Enums\ProposalType::IN_CASH;
                             $installments = $proposalData['type'] === \App\Enums\ProposalType::INSTALLMENTS;
+                            $free = $proposalData['type'] === \App\Enums\ProposalType::FREE;
                         @endphp
                         <button type="button"
                                 @class(['px-4', 'py-2', 'rounded-l', 'bg-primary', 'text-white',
@@ -193,12 +194,20 @@
                             À vista
                         </button>
                         <button type="button"
-                                @class(['px-4', 'py-2', 'rounded-r', 'bg-primary', 'text-white',
+                                @class(['px-4', 'py-2', 'bg-primary', 'text-white',
                                 'bg-opacity-80' => $installments])
                                 @if($installments) disabled @endif
                                 wire:click="$set('proposalData.type', 2)"
                         >
                             Parcelado
+                        </button>
+                        <button type="button"
+                                @class(['px-4', 'py-2', 'rounded-r', 'bg-primary', 'text-white',
+                                'bg-opacity-80' => $free])
+                                @if($free) disabled @endif
+                                wire:click="$set('proposalData.type', 3)"
+                        >
+                            Outros
                         </button>
                     </div>
                 </div>

@@ -152,12 +152,18 @@ class Proposal extends Model
     {
         if ($this->type === ProposalType::IN_CASH) {
             return 'Pagamento à vista em R$ ' . $this->negotiated_value;
-        } else {
+        }
+
+        if ($this->type === ProposalType::INSTALLMENTS) {
             return sprintf(
                 'Pagamento em %s parcelas de %s',
                 $this->installments,
                 $this->installment_value
             );
+        }
+
+        if ($this->type->is(ProposalType::FREE)) {
+            return $this->comments;
         }
     }
 
