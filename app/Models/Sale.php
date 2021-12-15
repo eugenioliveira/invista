@@ -35,7 +35,7 @@ class Sale extends Model
      */
     protected static function booted()
     {
-        static::created(function ($sale) {
+        static::creating(function ($sale) {
             LotSold::dispatch($sale);
         });
     }
