@@ -1,6 +1,7 @@
 @php
     /** @var \Illuminate\Database\Eloquent\Collection $lots */
     /** @var \App\Models\Lot $lot */
+    /** @var \App\Models\Lot $currentLot */
 @endphp
 <div>
     {{-- Success message --}}
@@ -121,9 +122,10 @@
                             <div>
                                 @if ($lot->proposals->isNotEmpty())
                                     <div>
-                                        <x-button-link href="{{ route('proposals.index', ['lot' => $lot->id, 'active' => false]) }}"
-                                                       format="icon"
-                                                       title="Ver propostas">
+                                        <x-button-link
+                                                href="{{ route('proposals.index', ['lot' => $lot->id, 'active' => false]) }}"
+                                                format="icon"
+                                                title="Ver propostas">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
                                                  fill="currentColor">
                                                 <path fill-rule="evenodd"
@@ -174,7 +176,9 @@
                 >
                     <option>Selecione...</option>
                     @foreach(\App\Enums\LotStatusType::staticStatuses() as $statusType)
-                        <option value="{{ $statusType->value }}">{{ $statusType->description }}</option>
+                        @if($currentLot->latestStatus && $currentLot->latestStatus->type->isNot($statusType) )
+                            <option value="{{ $statusType->value }}">{{ $statusType->description }}</option>
+                        @endif
                     @endforeach
                 </x-select>
             </div>
