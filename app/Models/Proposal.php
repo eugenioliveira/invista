@@ -151,12 +151,12 @@ class Proposal extends Model
     public function getConditionsAttribute()
     {
         if ($this->type === ProposalType::IN_CASH) {
-            return 'Pagamento à vista em R$ ' . app('currency')->format($this->attributes['negotiated_value']);
+            return 'Pagamento à vista em R$ ' . $this->negotiated_value;
         } else {
             return sprintf(
                 'Pagamento em %s parcelas de %s',
                 $this->installments,
-                app('currency')->format($this->attributes['installment_value']));
+                $this->installment_value;
         }
     }
 
