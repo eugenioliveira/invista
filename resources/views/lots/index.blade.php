@@ -10,8 +10,8 @@
             @if(\Auth::user()->isAdmin())
                 <div>
                     <x-button-link href="{{ route('lot.create', $allotment->id) }}">Criar novo</x-button-link>
-                    <x-button-link href="{{ route('lots.import', $allotment->id) }}" class="ml-3">Importar
-                    </x-button-link>
+                    <!--<x-button-link href="{{ route('lots.import', $allotment->id) }}" class="ml-3">Importar
+                    </x-button-link>-->
                 </div>
             @endif
         </div>
