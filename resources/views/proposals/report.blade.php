@@ -128,13 +128,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class='border border-black p-2' style='border-width: 2px'>
+                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
                         <p class='uppercase'>Valor da parcela: R$ {{ $proposal->installment_value }}</p>
                     </td>
                     <td class='border border-black p-2' style='border-width: 2px'>
-                        <p class='uppercase'>Data do primeiro pagamento: R$ {{ $proposal->payment_date->format('d/m/Y') }}</p>
+                        <p class='uppercase'>Data do primeiro pagamento: {{ $proposal->payment_date->format('d/m/Y') }}</p>
                     </td>
-                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
+                    <td class='border border-black p-2' style='border-width: 2px'>
                         <p class='uppercase'>Valor
                             total: {{ app('currency')->format(app('decimal')->parse($proposal->installments) * app('decimal')->parse($proposal->installment_value)) }}</p>
                     </td>

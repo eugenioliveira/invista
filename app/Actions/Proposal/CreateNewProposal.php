@@ -8,6 +8,7 @@ use App\Models\Lot;
 use App\Models\Person;
 use App\Models\Proposal;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class CreateNewProposal
@@ -28,7 +29,8 @@ class CreateNewProposal
         $input = $input->merge([
             'lot_id' => $lot->id,
             'user_id' => $user->id,
-            'reservation_id' => $lot->activeReservation->id
+            'reservation_id' => $lot->activeReservation->id,
+            'payment_date' => Carbon::createFromFormat('d/m/Y', $input['payment_date'])->startOfDay()
         ]);
 
         $proposal = $proposeable->proposals()->create($input->toArray());

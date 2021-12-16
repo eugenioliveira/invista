@@ -45,7 +45,7 @@ class ProposalWizard extends Component
      *
      * @var int
      */
-    public int $currentStep = ProposalWizardSteps::FINANCIAL_STEP;
+    public int $currentStep = ProposalWizardSteps::CLIENT_STEP;
 
     /**
      * A configuração de cada passo
@@ -323,16 +323,22 @@ class ProposalWizard extends Component
     public function submitFinancialStep()
     {
         $price = $this->lot->price;
-        $this->validate(
-            [
-                'negotiated' => 'required',
-                'paymentDate' => 'required'
-            ],
-            [
-                'negotiated.required' => 'Digite o valor negociado',
-                'paymentDate.required' => 'Digite a data do primeiro pagamento ou primeira parcela.'
-            ]
-        );
+        $this->proposalData['payment_date'] = $this->paymentDate;
+        $validationRules = ['paymentDate' => 'required'];
+        $validationMessages = ['paymentDate.required' => 'Digite a data do primeiro pagamento ou primeira parcela.'];
+
+        if (
+            $this->proposalData['type'] === ProposalType::IN_CASH ||
+            $this->proposalData['type'] === ProposalType::FREE
+        ) {
+            $validationRules['negotiated'] = 'required';
+            $validationMessages['negotiated.required'] = 'Digite o valor negociado';
+        } else {
+            $validationRules['downPayment'] = 'required';
+            $validationMessages['downPayment.required'] = 'Digite o valor de entrada.';
+        }
+
+        $this->validate($validationRules, $validationMessages);
         if ($this->proposalData['type'] === ProposalType::IN_CASH) {
             $this->proposalData = $this->proposalData->merge([
                 'down_payment' => 0,
