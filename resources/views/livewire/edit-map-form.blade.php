@@ -98,8 +98,8 @@
         </div>
 
         <x-input-row>
-            <x-button>Salvar e Voltar</x-button>
-            <x-button type="button" wire:click="updateMap(false)">Salvar e Continuar</x-button>
+            <x-button type="button" wire:click="submit">Salvar e Voltar</x-button>
+            <x-button type="button" wire:click="submit(false)">Salvar e Continuar</x-button>
             <x-button-link type="danger" href="{{ route('allotments.index') }}">Cancelar</x-button-link>
         </x-input-row>
     </form>
