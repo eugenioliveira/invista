@@ -74,7 +74,7 @@ class EditLotForm extends Component
             'lot.number' => ['required', 'numeric'],
             'lot.price' => ['required', 'regex:/^[1-9]\d*(\.\d{3})?(\,\d{1,2})?$/'],
             'lot.total' => ['required', 'regex:/^[1-9]\d*(\,\d{1,2})?$/'],
-            'lot.curve' => ['required', 'regex:/^[1-9]\d*(\,\d{1,2})?$/', 'nullable'],
+            'lot.curve' => ['nullable', 'regex:/^[1-9]\d*(\,\d{1,2})?$/'],
             'lot.front' => ['required', 'regex:/^[1-9]\d*(\,\d{1,2})?$/'],
             'lot.back' => ['required', 'regex:/^[1-9]\d*(\,\d{1,2})?$/'],
             'lot.right' => ['required', 'regex:/^[1-9]\d*(\,\d{1,2})?$/'],
