@@ -343,8 +343,8 @@ class ProposalWizard extends Component
         } else {
             $this->proposalData = $this->proposalData->merge([
                 'down_payment' => 0,
-                'installments' => 0,
-                'installment_value' => 0
+                'installments' => 1,
+                'installment_value' => $this->proposalData['negotiated_value']
             ]);
         }
     }

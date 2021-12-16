@@ -310,6 +310,23 @@
                     @endif
                 </div>
 
+                <div>
+                    @if($free)
+                        <x-input-row class="mb-4">
+                            {{-- Valor negociado do lote --}}
+                            <div class="w-full">
+                                <x-moneyinput
+                                        label="Valor negociado (em R$)"
+                                        name="negotiated"
+                                        class="mt-1 w-full"
+                                        wire:model.lazy="negotiated"
+                                        error="{{ $errors->first('negotiated') }}"
+                                />
+                            </div>
+                        </x-input-row>
+                    @endif
+                </div>
+
                 <div class="my-4">
                     <x-textarea
                             label="Observações a cerca da proposta"
