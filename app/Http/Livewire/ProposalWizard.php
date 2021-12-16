@@ -15,6 +15,7 @@ use App\Models\PaymentPlan;
 use App\Models\PersonDetail;
 use App\Models\Proposal;
 use App\Models\ProposalDocument;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Collection;
 use Livewire\Component;
@@ -44,7 +45,7 @@ class ProposalWizard extends Component
      *
      * @var int
      */
-    public int $currentStep = ProposalWizardSteps::CLIENT_STEP;
+    public int $currentStep = ProposalWizardSteps::FINANCIAL_STEP;
 
     /**
      * A configuração de cada passo
@@ -98,6 +99,13 @@ class ProposalWizard extends Component
      * @var string
      */
     public string $downPayment = '';
+
+    /**
+     * A data de pagamento da primeira proposta
+     *
+     * @var string
+     */
+    public string $paymentDate = '';
 
     /**
      * O ID do plano de pagamento selecionado
@@ -167,6 +175,7 @@ class ProposalWizard extends Component
             'type' => 2,
             'negotiated_value' => '',
             'down_payment' => '',
+            'payment_date' => '',
             'comments' => ''
         ]);
 
@@ -176,6 +185,8 @@ class ProposalWizard extends Component
             $this->proposalData['negotiated_value'] = $this->proposal->negotiated_value;
             $this->downPayment = $this->proposal->down_payment;
             $this->proposalData['down_payment'] = $this->proposal->down_payment;
+            $this->paymentDate = $this->proposal->payment_date;
+            $this->proposalData['payment_date'] = $this->proposal->payment_date;
             $this->proposalData['comments'] = $this->proposal->comments;
 
             // Atualiza com o parcelamento escolhido, caso haja
@@ -190,26 +201,28 @@ class ProposalWizard extends Component
 
     public function updatedNegotiated()
     {
-        $price = app('decimal')->parse($this->lot->price);
-        $maxDiscount = app('decimal')->parse($this->lot->allotment->max_discount) / 100;
-        $minValue = round($price - $price * $maxDiscount, 2);
+        if ($this->proposalData['type'] !== ProposalType::FREE) {
+            $price = app('decimal')->parse($this->lot->price);
+            $maxDiscount = app('decimal')->parse($this->lot->allotment->max_discount) / 100;
+            $minValue = round($price - $price * $maxDiscount, 2);
 
-        $this->validateOnly(
-            'negotiated',
-            [
-                'negotiated' => ['required']
-            ],
-            [
-                'negotiated.required' => 'Digite o valor negociado entre as partes.',
-            ]
-        );
+            $this->validateOnly(
+                'negotiated',
+                [
+                    'negotiated' => ['required']
+                ],
+                [
+                    'negotiated.required' => 'Digite o valor negociado entre as partes.'
+                ]
+            );
 
-        if (app('decimal')->parse($this->negotiated) < $minValue) {
-            $this->addError('negotiated', sprintf('O valor mínimo é %s', app('currency')->format($minValue)));
-        }
+            if (app('decimal')->parse($this->negotiated) < $minValue) {
+                $this->addError('negotiated', sprintf('O valor mínimo é %s', app('currency')->format($minValue)));
+            }
 
-        if (app('decimal')->parse($this->negotiated) > $price) {
-            $this->addError('negotiated', sprintf('O valor máximo é %s', app('currency')->format($price)));
+            if (app('decimal')->parse($this->negotiated) > $price) {
+                $this->addError('negotiated', sprintf('O valor máximo é %s', app('currency')->format($price)));
+            }
         }
 
         $this->proposalData['negotiated_value'] = $this->negotiated;
@@ -249,7 +262,7 @@ class ProposalWizard extends Component
         $lotPrice = $parsedLotPrice !== false ? $parsedLotPrice : $lotPrice;
         $parsedDownPayment = app('decimal')->parse($this->proposalData['down_payment']);
         $downPayment = $parsedDownPayment !== false ? $parsedDownPayment : $this->proposalData['down_payment'];
-        
+
         foreach ($indexes as $index) {
             $this->simulatedInstallments->push([
                 'installments' => $index['installments'],
@@ -310,6 +323,16 @@ class ProposalWizard extends Component
     public function submitFinancialStep()
     {
         $price = $this->lot->price;
+        $this->validate(
+            [
+                'negotiated' => 'required',
+                'paymentDate' => 'required'
+            ],
+            [
+                'negotiated.required' => 'Digite o valor negociado',
+                'paymentDate.required' => 'Digite a data do primeiro pagamento ou primeira parcela.'
+            ]
+        );
         if ($this->proposalData['type'] === ProposalType::IN_CASH) {
             $this->proposalData = $this->proposalData->merge([
                 'down_payment' => 0,
@@ -337,7 +360,9 @@ class ProposalWizard extends Component
                 $this->proposalData = $this->proposalData->merge([
                     'negotiated_value' => $price,
                     'installments' => $this->simulatedInstallments[$this->selectedInstallmentValue]['installments'],
-                    'installment_value' => app('decimal')->format($this->simulatedInstallments[$this->selectedInstallmentValue]['value'])
+                    'installment_value' => app('decimal')->format(
+                        $this->simulatedInstallments[$this->selectedInstallmentValue]['value']
+                    )
                 ]);
             }
         } else {
@@ -354,8 +379,11 @@ class ProposalWizard extends Component
      * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function submitProposal(UpdatePersonDetail $clientUpdater, CreateNewProposal $proposalCreator, UpdateProposal $proposalUpdater)
-    {
+    public function submitProposal(
+        UpdatePersonDetail $clientUpdater,
+        CreateNewProposal $proposalCreator,
+        UpdateProposal $proposalUpdater
+    ) {
         if ($this->proposal->documents->isEmpty()) {
             $this->validate(
                 [

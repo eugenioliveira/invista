@@ -15,25 +15,25 @@ class PersonSeeder extends Seeder
     public function run()
     {
         Person::create([
-            'first_name' => 'Eugênio',
-            'last_name' => 'Oliveira',
+            'first_name' => 'Administrador',
+            'last_name' => 'Intervest',
             'cpf' => '09864257617',
             'phone' => '35992533223'
-        ])->saveUser('geninoliveira@gmail.com', 'e4.vrdrq');
+        ])->saveUser('admin@intervest.imb.br', 'intervest@2021');
 
         Person::create([
-            'first_name' => 'Keith',
-            'last_name' => 'Richards',
+            'first_name' => 'Supervisor',
+            'last_name' => 'Intervest',
             'cpf' => '77852102093',
             'phone' => '35992533223'
-        ])->saveUser('keith@gmail.com', 'e4.vrdrq');
+        ])->saveUser('supervisor@intervest.imb.br', 'intervest@2021');
 
         Person::create([
-            'first_name' => 'Darth',
-            'last_name' => 'Vader',
+            'first_name' => 'Corretor',
+            'last_name' => 'Intervest',
             'cpf' => '15133773021',
             'phone' => '35992533223'
-        ])->saveUser('darth@gmail.com', 'e4.vrdrq');
+        ])->saveUser('corretor@intervest.imb.br', 'intervest@2021');
 
         Person::create([
             'first_name' => 'José',

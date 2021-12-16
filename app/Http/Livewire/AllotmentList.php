@@ -53,7 +53,7 @@ class AllotmentList extends Component
         return view('livewire.allotment-list', [
             'allotments' => $query
                 ->where('title', 'like', $search)
-                ->withCount('lots')
+                ->with(['lots', 'lots.latestStatus', 'lots.activeReservation', 'lots.activeProposal'])
                 ->with('city')
                 ->paginate(8)
         ]);

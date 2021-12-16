@@ -51,17 +51,17 @@ class AclSeeder extends Seeder
             ->allowTo('view_sales');
 
         // Atribui o papel de administrador para Eugenio
-        User::whereName('Eugênio Oliveira')
+        User::whereName('Administrador Intervest')
             ->firstOrFail()
             ->assignRole('admin');
 
         // Atribui o papel de supervisor para Keith
-        User::whereName('Keith Richards')
+        User::whereName('Supervisor Intervest')
             ->firstOrFail()
             ->assignRole('broker');
 
         // Atribui o papel de corretor para Vader
-        User::whereName('Darth Vader')
+        User::whereName('Corretor Intervest')
             ->firstOrFail()
             ->assignRole('broker');
     }

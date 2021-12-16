@@ -34,7 +34,7 @@
                     <p class='uppercase'>Lote: {{ $proposal->lot->number }}</p>
                 </td>
                 <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Área (m²): {{ $proposal->lot->area }}</p>
+                    <p class='uppercase'>Área (m²): {{ $proposal->lot->total }}</p>
                 </td>
             </tr>
             <tr>
@@ -128,8 +128,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
+                    <td class='border border-black p-2' style='border-width: 2px'>
                         <p class='uppercase'>Valor da parcela: R$ {{ $proposal->installment_value }}</p>
+                    </td>
+                    <td class='border border-black p-2' style='border-width: 2px'>
+                        <p class='uppercase'>Data do primeiro pagamento: R$ {{ $proposal->payment_date->format('d/m/Y') }}</p>
                     </td>
                     <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
                         <p class='uppercase'>Valor

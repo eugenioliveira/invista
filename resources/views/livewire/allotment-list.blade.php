@@ -24,10 +24,18 @@
                     <div class="p-4">
                         <h2 class="font-medium text-lg text-primary">{{ $allotment->title }}</h2>
                         <hr class="my-2">
-                        <div class="text-sm mb-2">
+                        <div class="text-sm mb-2 space-y-2">
+                            @php
+                                $lotsCount = count($allotment->lots);
+                                $reserved = count($allotment->lots->map->activeReservation->filter());
+                                $proposed = count($allotment->lots->map->activeProposal->filter());
+                                $blocked = count($allotment->lots->map->latestStatus->filter(fn($status) => $status->type == '4'));
+                                $sold = count($allotment->lots->map->latestStatus->filter(fn($status) => $status->type == '5'));
+                                $available = $lotsCount - $reserved - $proposed - $blocked - $sold;
+                            @endphp
                             <p>
                                 <span class="font-medium">Lotes: </span>
-                                <span class="lotCount">{{ $allotment->lots_count }}</span>
+                                <span>Disponíveis: {{ $available }} | Reservados: {{ $reserved }} | Proposta: {{ $proposed }} | Vendidos: {{ $sold }} | Bloqueados: {{ $blocked }}</span>
                             </p>
                             <p>
                                 <span class="font-medium">Área: </span>

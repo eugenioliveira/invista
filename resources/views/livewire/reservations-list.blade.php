@@ -115,7 +115,7 @@
                                         Cancelada
                                     </span>
                                 @else
-                                    <span class="font-medium text-xs text-red-800 bg-red-100 border border-red-800 rounded-full uppercase px-2.5 py-0.5 tracking-wider">
+                                    <span title='{{ $reservation->reason }}' class="font-medium text-xs text-red-800 bg-red-100 border border-red-800 rounded-full uppercase px-2.5 py-0.5 tracking-wider">
                                         Expirada
                                     </span>
                                 @endif

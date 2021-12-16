@@ -328,6 +328,13 @@
                 </div>
 
                 <div class="my-4">
+                    <x-input.group :error="$errors->first('paymentDate')" inline for="payment-date" label="Data de pagamento da entrada ou primeira parcela">
+                        <x-input.date wire:model.lazy="paymentDate" id="payment-date"
+                                      placeholder="DD/MM/AAAA" />
+                    </x-input.group>
+                </div>
+
+                <div class="my-4">
                     <x-textarea
                             label="Observações a cerca da proposta"
                             name="comments"

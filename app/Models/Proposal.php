@@ -34,6 +34,13 @@ class Proposal extends Model
     ];
 
     /**
+     * As datas de reserva devem ser hidratadas
+     *
+     * @var string[]
+     */
+    protected $dates = ['payment_date'];
+
+    /**
      * Serialização de accessors
      *
      * @var string[]
