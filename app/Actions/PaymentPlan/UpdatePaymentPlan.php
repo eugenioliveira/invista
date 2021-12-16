@@ -13,7 +13,7 @@ class UpdatePaymentPlan
             [
                 'name' => ['required', 'min:3'],
                 'description' => ['required', 'min:5'],
-                'min_down_payment' => ['regex:/^\d(\,\d{1,2})?$/'],
+                'min_down_payment' => ['required'],
                 'installment_indexes' => ['required', 'array'],
                 'installment_indexes.*' => ['required', 'array:installments,index']
             ],
