@@ -162,7 +162,7 @@ class Proposal extends Model
             );
         }
 
-        if ($this->type->is(ProposalType::FREE)) {
+        if ($this->type === ProposalType::FREE) {
             return $this->comments;
         }
     }
