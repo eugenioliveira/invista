@@ -66,7 +66,7 @@ EOT;
             $mapMarkers->push((object)[
                 'id' => $marker->id,
                 'position' => $marker->position,
-                'color' => $marker->lot->latestStatus->type->color(),
+                'color' => $marker->lot->getStatus()->type->color(),
                 'popup' => sprintf(
                     $popupHtml,
                     $marker->lot->identification,
