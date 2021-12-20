@@ -42,6 +42,7 @@ class UpdatePersonDetail
             'nationality' => ['required', 'min:5'],
             'rg' => ['required', 'min:3'],
             'rg_issuer' => ['required', 'min:3'],
+            'rg_issue_date' => ['required', 'date_format:d/m/Y'],
             'occupation' => ['required', 'min:5'],
             'email' => ['required', 'email:strict,dns,spoof'],
             'monthly_income' => [
@@ -53,6 +54,6 @@ class UpdatePersonDetail
             //->sometimes('partner_id', ['required', 'numeric'], function ($input) {
             //return $input->civil_status == CivilStatus::MARRIED;
             //})
-            ->validate();
+            ->validate('Teste');
     }
 }

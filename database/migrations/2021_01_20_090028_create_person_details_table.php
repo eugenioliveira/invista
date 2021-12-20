@@ -23,6 +23,7 @@ class CreatePersonDetailsTable extends Migration
             $table->string('nationality');
             $table->string('rg');
             $table->string('rg_issuer');
+            $table->timestamp('rg_issue_date');
             $table->string('occupation');
             $table->string('email');
             $table->unsignedDecimal('monthly_income', 8, 2);

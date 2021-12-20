@@ -1,202 +1,219 @@
 <x-report-layout title="Proposta #">
 
     <!-- Cabeçalho -->
-    <div class='flex items-center'>
-        <div class='flex-1'>
-            <div class='w-full px-6 py-2 border border-black' style='border-width: 2px'>
-                <p class='text-center text-2xl uppercase'>
-                    Proposta de aquisição de lotes
-                </p>
+    @include('proposals.timbre')
+
+    <div class='my-4 pb-3 flex items-center border-black border-b'>
+        <span class='text-xl font-bold'>Declara Imposto de Renda</span>
+        <div class='w-10 h-10 ml-4 border border-black'></div>
+        <span class='text-xl ml-2 font-bold'>Sim</span>
+        <div class='w-10 h-10 ml-4 border border-black'></div>
+        <span class='text-xl ml-2 font-bold'>Não</span>
+    </div>
+
+    <div class='mb-4 flex items-center'>
+        <div class='w-10 h-10 border border-black'></div>
+        <span class='ml-2'>Proposta de Aquisição de Lotes</span>
+        <div class='w-10 h-10 ml-4 border border-black'></div>
+        <span class='ml-2'>Proposta Para Transferência de Contrato</span>
+    </div>
+
+    <div class='w-full bg-black py-1 rounded-md'>
+        <p class='text-center text-white font-bold text-xl italic'>
+            Proposta Sujeita À Aprovação <br>
+            Especificação
+        </p>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div>
+            <strong>Loteamento: </strong> {{ $proposal->lot->allotment->title }}
+        </div>
+        <div class='ml-4'>
+            <strong>Cidade: </strong> {{ $proposal->lot->allotment->city->full_name }}
+        </div>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div>
+            <strong>Lote Nº: </strong> {{ $proposal->lot->number }}
+        </div>
+        <div class='ml-4'>
+            <strong>Quadra: </strong> {{ $proposal->lot->block }}
+        </div>
+        <div class='ml-4'>
+            <strong>M²: </strong> {{ $proposal->lot->total }}
+        </div>
+        <div class='ml-4'>
+            <strong>Valor de tabela: </strong>R$ {{ $proposal->lot->price }}
+        </div>
+    </div>
+
+    <div class='w-full mt-3 bg-black py-1 rounded-md'>
+        <p class='text-center text-white font-bold text-xl italic'>
+            Transferência
+        </p>
+    </div>
+
+    <div class='mt-3 flex items-end'>
+        <div>
+            <strong>De: </strong>
+        </div>
+        <div class='w-full border-b border-black'></div>
+    </div>
+
+    <div class='w-full mt-3 bg-black py-1 rounded-md'>
+        <p class='text-center text-white font-bold text-xl italic'>
+            1º Proponente
+        </p>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div>
+            <strong>Proponente: </strong> {{ $proposal->proposeable->full_name }}
+        </div>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div>
+            <strong>CPF: </strong> {{ $proposal->proposeable->cpf }}
+        </div>
+        <div class='ml-4'>
+            <strong>RG: </strong> {{ $proposal->proposeable->detail->rg }}
+        </div>
+        <div class='ml-4'>
+            <strong>Data Emissão: </strong> {{ $proposal->proposeable->detail->rg_issue_date->format('d/m/Y') }}
+        </div>
+        <div class='ml-4'>
+            <strong>Órgão emissor: </strong> {{ $proposal->proposeable->detail->rg_issuer }}
+        </div>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div>
+            <strong>Data de Nascimento: </strong> {{ $proposal->proposeable->detail->birth_date->format('d/m/Y') }}
+        </div>
+        <div class='ml-4'>
+            <strong>Estado Civil: </strong> {{ $proposal->proposeable->detail->civil_status->description }}
+        </div>
+        <div class='ml-4'>
+            <strong>Profissão: </strong> {{ $proposal->proposeable->detail->occupation }}
+        </div>
+        <div class='ml-4'>
+            <strong>Telefone: </strong> {{ $proposal->proposeable->phone }}
+        </div>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div>
+            <strong>Naturalidade: </strong> {{ $proposal->proposeable->detail->birth_location }}
+        </div>
+        <div class='ml-4'>
+            <strong>Nacionalidade: </strong> {{ $proposal->proposeable->detail->nationality }}
+        </div>
+        <div class='ml-4'>
+            <strong>E-mail: </strong> {{ $proposal->proposeable->detail->email }}
+        </div>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div>
+            <strong>Endereço: </strong> {{ $proposal->proposeable->address->street }}
+        </div>
+        <div class='ml-4'>
+            <strong>Nº: </strong> {{ $proposal->proposeable->address->number }}
+        </div>
+        <div class='ml-4'>
+            <strong>Complemento: </strong> {{ $proposal->proposeable->address->apt_room }}
+        </div>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div>
+            <strong>Bairro: </strong> {{ $proposal->proposeable->address->neighbourhood }}
+        </div>
+        <div class='ml-4'>
+            <strong>Cidade: </strong> {{ $proposal->proposeable->address->city }}
+        </div>
+        <div class='ml-4'>
+            <strong>Estado: </strong> {{ $proposal->proposeable->address->state }}
+        </div>
+        <div class='ml-4'>
+            <strong>CEP: </strong> {{ $proposal->proposeable->address->postal_code }}
+        </div>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div>
+            <strong>Nome do Pai: </strong> {{ $proposal->proposeable->detail->father_name }}
+        </div>
+        <div class='ml-4'>
+            <strong>Nome da Mãe: </strong> {{ $proposal->proposeable->detail->mother_name }}
+        </div>
+    </div>
+
+    @php $partner = $proposal->proposeable->detail->partner @endphp
+    @if ($partner && $partner->detail)
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Cônjuge: </strong> {{ $partner->full_name }}
             </div>
         </div>
-        <div class='flex items-center ml-4'>
-            <x-logo width="80"></x-logo>
-            <span class='uppercase'>Intervest</span>
+
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>CPF: </strong> {{ $partner->cpf }}
+            </div>
+            <div class='ml-4'>
+                <strong>RG: </strong> {{ $partner->detail->rg }}
+            </div>
+            <div class='ml-4'>
+                <strong>Data Emissão: </strong> {{ $partner->detail->rg_issue_date->format('d/m/Y') }}
+            </div>
+            <div class='ml-4'>
+                <strong>Órgão emissor: </strong> {{ $partner->detail->rg_issuer }}
+            </div>
         </div>
-    </div>
 
-    <!-- Corpo -->
-    <div class='mt-4'>
-        <table class='w-full border border-black' style='border-width: 2px'>
-            <tr>
-                <td colspan='4' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase text-center text-lg font-bold'>Dados do loteamento:</p>
-                </td>
-            </tr>
-            <tr>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Loteamento: {{ $proposal->lot->allotment->title }}</p>
-                </td>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Quadra: {{ $proposal->lot->block }}</p>
-                </td>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Lote: {{ $proposal->lot->number }}</p>
-                </td>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Área (m²): {{ $proposal->lot->total }}</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='4' class='border border-black p-2 bg-gray-400' style='border-width: 2px'>
-                    <p class='uppercase text-center text-lg font-bold'>Proponente:</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Nome: {{ $proposal->proposeable->full_name }}</p>
-                </td>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Estado
-                        Civil: {{ $proposal->proposeable->detail->civil_status->description }}</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Data de
-                        Nascimento: {{ $proposal->proposeable->detail->birth_date->format('d/m/Y') }}</p>
-                </td>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Naturalidade: {{ $proposal->proposeable->detail->birth_location }}</p>
-                </td>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Nacionalidade: {{ $proposal->proposeable->detail->nationality }}</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>CPF: {{ $proposal->proposeable->cpf }}</p>
-                </td>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>RG: {{ $proposal->proposeable->detail->rg }}</p>
-                </td>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Órgão emissor: {{ $proposal->proposeable->detail->rg_issuer }}</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Profissão: {{ $proposal->proposeable->detail->occupation }}</p>
-                </td>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p><span class='uppercase'>E-mail:</span> {{ $proposal->proposeable->detail->email }}</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Telefone: {{ $proposal->proposeable->phone }}</p>
-                </td>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p><span class='uppercase'>Renda mensal:</span>
-                        R$ {{ $proposal->proposeable->detail->monthly_income }}</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Nome do pai: {{ $proposal->proposeable->detail->father_name }}</p>
-                </td>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Nome da mãe: {{ $proposal->proposeable->detail->mother_name }}</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='4' class='border border-black p-2 bg-gray-400' style='border-width: 2px'>
-                    <p class='uppercase text-center text-lg font-bold'>Condições de pagamento:</p>
-                </td>
-            </tr>
-            @if($proposal->type->is(\App\Enums\ProposalType::FREE))
-                <tr>
-                    <td colspan='4' class='border border-black p-2' style='border-width: 2px'>
-                        <p class='uppercase'>{{ $proposal->comments }}</p>
-                    </td>
-                </tr>
-            @else
-                <tr>
-                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                        <p class='uppercase'>Valor do lote: {{ $proposal->lot->formatted_price }}</p>
-                    </td>
-                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                        <p class='uppercase'>Valor de entrada: R$ {{ $proposal->down_payment }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                        <p class='uppercase'>Forma de pagamento: {{ $proposal->type->description }}</p>
-                    </td>
-                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                        <p class='uppercase'>Número de parcelas: {{ $proposal->installments }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                        <p class='uppercase'>Valor da parcela: R$ {{ $proposal->installment_value }}</p>
-                    </td>
-                    <td class='border border-black p-2' style='border-width: 2px'>
-                        <p class='uppercase'>Data do primeiro pagamento: {{ $proposal->payment_date->format('d/m/Y') }}</p>
-                    </td>
-                    <td class='border border-black p-2' style='border-width: 2px'>
-                        <p class='uppercase'>Valor
-                            total: {{ app('currency')->format(app('decimal')->parse($proposal->installments) * app('decimal')->parse($proposal->installment_value)) }}</p>
-                    </td>
-                </tr>
-            @endif
-        </table>
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Data de Nascimento: </strong> {{ $partner->detail->birth_date->format('d/m/Y') }}
+            </div>
+            <div class='ml-4'>
+                <strong>Estado Civil: </strong> {{ $partner->detail->civil_status->description }}
+            </div>
+            <div class='ml-4'>
+                <strong>Profissão: </strong> {{ $partner->detail->occupation }}
+            </div>
+            <div class='ml-4'>
+                <strong>Telefone: </strong> {{ $partner->phone }}
+            </div>
+        </div>
 
-        <table class='w-full border border-black mt-4' style='border-width: 2px'>
-            <tr>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Data: {{ $proposal->created_at->format('d/m/Y') }}</p>
-                </td>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Corretor: {{ $proposal->user->name }}</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Assinatura Corretor:</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2' class='border border-black p-2' style='border-width: 2px'>
-                    <p class='uppercase'>Assinatura Proponente:</p>
-                </td>
-            </tr>
-        </table>
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Naturalidade: </strong> {{ $partner->detail->birth_location }}
+            </div>
+            <div class='ml-4'>
+                <strong>Nacionalidade: </strong> {{ $partner->detail->nationality }}
+            </div>
+            <div class='ml-4'>
+                <strong>E-mail: </strong> {{ $partner->detail->email }}
+            </div>
+        </div>
 
-        <table class='w-full border border-black mt-4' style='border-width: 2px'>
-            <tr>
-                <td class='border border-black p-2' style='border-width: 2px'>
-                    <div class='text-justify'>
-                        <span class='text-red-500 font-bold underline'>IMPORTANTE:</span> O presente pré-contrato
-                        contendo a
-                        proposta supra, juntamente com o pagamento referente ao SINAL/ARRAS, poderá ser pago através de
-                        moeda corrente, depósito bancário ou cheque(s) nominal (is) e cruzado(s) á (VENDEDORA), no qual
-                        posteriormente será encaminhado para a sede da empresa VENDEDORA. É de meu (nosso) conhecimento
-                        que
-                        a VENDEDORA tem o direito de recusá-la, ainda que imotivadamente. Declaro (amos) que estou
-                        (amos)
-                        ciente (s) que o respectivo contrato de compra e venda somente será confeccionado depois de
-                        cumprida
-                        a análise mencionada acima e demais formalidades pertinentes a esta aprovação. Concordo (amos)
-                        que
-                        vindo essa a ser aprovada, e caso o pagamento do SINAL/ARRAS tenha ocorrido através de cheque
-                        (s),
-                        os mesmo (s) será (ão) imediatamente apresentado (s) contra o banco (s) sacado (s) e sua regular
-                        e
-                        efetiva compensação bancária equivalerá ao pagamento da quantia correspondente ao(s) título(s).
-                        A
-                        quitação, por parte da VENDEDORA constará no contrato de compra e venda. Em caso de recusa dessa
-                        proposta, ou ainda, em caso de devolução pelo (s) banco (s) sacado (s) do (s) cheque (s) acima
-                        relacionado (s), tenho (temos) ciência que essa proposta perderá qualquer eficácia jurídica,
-                        ficando
-                        o imóvel totalmente liberado para comercialização. Ainda nessa hipótese, deverei (emos) retirar
-                        junto a IMOBILIÁRIA essa via original da proposta de aquisição de lotes e do (s) cheque (s)
-                        devovido
-                        (s), se for o caso, mediante recibo.
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Nome do Pai: </strong> {{ $partner->detail->father_name }}
+            </div>
+            <div class='ml-4'>
+                <strong>Nome da Mãe: </strong> {{ $partner->detail->mother_name }}
+            </div>
+        </div>
+    @endif
+
+
+    <!-- Rodapé -->
+    @include('proposals.timbre')
 
 </x-report-layout>

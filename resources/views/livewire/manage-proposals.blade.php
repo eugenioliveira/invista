@@ -71,7 +71,7 @@
                     <x-table.heading>Loteamento</x-table.heading>
                     <x-table.heading>Lote</x-table.heading>
                     <x-table.heading>Corretor</x-table.heading>
-                    <x-table.heading>Cliente</x-table.heading>
+                    <x-table.heading>1º Proponente</x-table.heading>
                     <x-table.heading sortable wire:click="sortBy('type')"
                                      :direction="$sortField === 'type' ? $sortDirection : null">Tipo
                     </x-table.heading>

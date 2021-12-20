@@ -45,7 +45,7 @@
 
         <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
             {{-- Nacionalidade --}}
-            <div class="md:w-2/4">
+            <div class="md:w-1/4">
                 <x-input
                         label="Nacionalidade"
                         name="nationality"
@@ -62,6 +62,16 @@
                         class="mt-1 w-full"
                         wire:model.lazy="state.rg"
                         error="{{ $errors->first('rg') }}"
+                />
+            </div>
+            {{-- RG --}}
+            <div class="md:w-1/4">
+                <x-input
+                        label="Data de emissão"
+                        name="rg_issue_date"
+                        class="mt-1 w-full"
+                        wire:model.lazy="state.rg_issue_date"
+                        error="{{ $errors->first('rg_issue_date') }}"
                 />
             </div>
             {{-- RG --}}

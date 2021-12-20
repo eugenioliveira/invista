@@ -10,7 +10,7 @@
     </x-slot>
 
     <x-section>
-        <livewire:proposal-wizard :lot="$lot" />
+        <livewire:proposal.wizard :lot="$lot" />
     </x-section>
 
 </x-app-layout>

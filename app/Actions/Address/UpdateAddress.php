@@ -18,7 +18,19 @@ class UpdateAddress
      */
     public function update($addressable, array $address)
     {
-        $validated = Validator::make($address, [
+        $validated = $this->validate($address);
+
+        if ($addressable->address) {
+            $addressable->address->forceFill($validated);
+            $addressable->address->save();
+        } else {
+            $addressable->address()->create($validated);
+        }
+    }
+
+    public function validate($input): array
+    {
+        return Validator::make($input, [
             'street' => ['required', 'min:8'],
             'number' => ['required', 'numeric'],
             'apt_room' => ['nullable', 'min:3'],
@@ -27,12 +39,5 @@ class UpdateAddress
             'state' => ['required', 'min:2'],
             'postal_code' => ['required', 'numeric', 'digits:8'],
         ])->validate();
-
-        if ($addressable->address) {
-            $addressable->address->forceFill($validated);
-            $addressable->address->save();
-        } else {
-            $addressable->address()->create($validated);
-        }
     }
 }

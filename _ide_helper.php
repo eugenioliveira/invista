@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.75.0.
+ * Generated for Laravel 8.76.2.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -11226,7 +11226,7 @@
                     /**
          * Dump the request items and end the script.
          *
-         * @param array|mixed $keys
+         * @param mixed $keys
          * @return void 
          * @static 
          */ 
@@ -11238,7 +11238,7 @@
                     /**
          * Dump the items.
          *
-         * @param array $keys
+         * @param mixed $keys
          * @return \Illuminate\Http\Request 
          * @static 
          */ 
@@ -15824,7 +15824,7 @@
      
 }
 
-    namespace Barryvdh\Debugbar { 
+    namespace Barryvdh\Debugbar\Facades { 
             /**
      * 
      *
@@ -15839,7 +15839,7 @@
      * @method static void warning(mixed $message)
      * @see \Barryvdh\Debugbar\LaravelDebugbar
      */ 
-        class Facade {
+        class Debugbar {
                     /**
          * Enable the Debugbar and boot, if not already booted.
          *
@@ -22175,7 +22175,7 @@ namespace  {
             class URL extends \Illuminate\Support\Facades\URL {}
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
-            class Debugbar extends \Barryvdh\Debugbar\Facade {}
+            class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class PDF extends \Barryvdh\Snappy\Facades\SnappyPdf {}
             class SnappyImage extends \Barryvdh\Snappy\Facades\SnappyImage {}
             class PdfMerger extends \LynX39\LaraPdfMerger\Facades\PdfMerger {}

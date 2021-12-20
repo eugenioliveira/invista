@@ -12,6 +12,6 @@ use BenSampo\Enum\Enum;
 final class ProposalWizardSteps extends Enum
 {
     const CLIENT_STEP = 1;
-    const FINANCIAL_STEP = 2;
-    const DOCUMENT_STEP = 3;
+    const FINANCIAL_STEP = 3;
+    const DOCUMENT_STEP = 4;
 }
