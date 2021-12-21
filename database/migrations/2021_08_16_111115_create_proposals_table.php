@@ -53,6 +53,8 @@ class CreateProposalsTable extends Migration
             $table->unsignedDecimal('installment_value', 13, 2);
             // Data da primeira parcela
             $table->timestamp('payment_date');
+            // Dados da proposta livre
+            $table->text('free_conditions')->nullable();
             // Observações
             $table->text('comments')->nullable();
 

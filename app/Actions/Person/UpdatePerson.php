@@ -15,9 +15,9 @@ class UpdatePerson
      *
      * @param Person $person
      * @param array $input
-     * @return void
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function update(Person $person, array $input): void
+    public function update(Person $person, array $input): Person
     {
         $validated = Validator::make($input, [
             'first_name' => ['required', 'min:3'],
@@ -31,5 +31,7 @@ class UpdatePerson
             $person->user->name = $person->full_name;
             $person->user->save();
         }
+
+        return $person;
     }
 }

@@ -2,13 +2,17 @@
     <div class="p-2 space-y-2">
         <h1 class="text-lg text-center font-bold">Lista de proponentes</h1>
         <div>
-            @if($proponents->isNotEmpty())
+            @if($errors->first('general_error'))
+                <x-alert type="danger" :autoclose="false">{{ $errors->first('general_error') }}</x-alert>
+            @endif
+        </div>
+        <div>
+            @if(!empty($proponents))
                 <div class="flex flex-col space-y-4">
                     <x-table>
                         <x-slot name="head">
                             <x-table.heading>Nome</x-table.heading>
                             <x-table.heading>CPF</x-table.heading>
-                            <x-table.heading>Estado Civil</x-table.heading>
                             <x-table.heading></x-table.heading>
                         </x-slot>
                         <x-slot name="body">
@@ -16,21 +20,23 @@
                                 <x-table.row>
                                     <x-table.cell>{{ $proponent['first_name'] }} {{ $proponent['last_name'] }}</x-table.cell>
                                     <x-table.cell>{{ $proponent['cpf'] }}</x-table.cell>
-                                    <x-table.cell>{{ \App\Enums\CivilStatus::fromValue($proponent['civil_status'])->description }}</x-table.cell>
                                     <x-table.cell>
                                         <div class="flex space-x-2">
                                             <div>
-                                                @if($proponent['civil_status'] == \App\Enums\CivilStatus::MARRIED && empty($proponent['partner']))
+                                                @if($proponent['detail']['civil_status'] == \App\Enums\CivilStatus::MARRIED && empty($proponent['partner']))
                                                     <x-button type="button" wire:click="addPartner({{ $index }})">
                                                         Adicionar cônjuge
                                                     </x-button>
-                                                @else
-                                                    <x-button type="button">Remover cônjuge</x-button>
                                                 @endif
                                             </div>
                                             <div>
                                                 <x-button wire:click="editProponent({{ $index }})" type="button">
                                                     Editar
+                                                </x-button>
+                                            </div>
+                                            <div>
+                                                <x-button wire:click="removeProponent({{ $index }})" type="button">
+                                                    Excluir
                                                 </x-button>
                                             </div>
                                         </div>
@@ -71,10 +77,8 @@
     <x-proposal-person-modal
             title="Adicionar cônjuge"
             :address="false"
-            form-action="addPartner"
+            form-action="storePartner"
             modal-flag="showPartnerModal"
             button-text="Adicionar"
     />
-
-    @dump($proponents)
 </div>

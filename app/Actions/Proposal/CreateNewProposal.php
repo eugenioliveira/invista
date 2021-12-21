@@ -16,14 +16,14 @@ class CreateNewProposal
     /**
      * @param Lot $lot
      * @param User $user
-     * @param Company|Person $proposeable
+     * @param Collection $proponents
      * @param Collection $input
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function create(
         Lot $lot,
         User $user,
-        $proposeable,
+        Collection $proponents,
         Collection $input
     ) {
         $input = $input->merge([
@@ -33,14 +33,22 @@ class CreateNewProposal
             'payment_date' => Carbon::createFromFormat('d/m/Y', $input['payment_date'])->startOfDay()
         ]);
 
-        $proposal = $proposeable->proposals()->create($input->toArray());
-
+        // Retira o primeiro proponente da lista
+        $firstProponent = $proponents->shift();
+        // Cria a proposta para o primeiro proponente
+        $proposal = $firstProponent->proposals()->create($input->toArray());
         if ($proposal instanceof Proposal) {
+
+            // Salva os demais proponentes
+            if ($proponents->isNotEmpty()) {
+                $proposal->proponents()->saveMany($proponents);
+            }
+
             $proposal->statuses()->create([
                 'user_id' => $user->id,
                 'type' => ProposalStatusType::UNDER_REVIEW,
                 'reason' => sprintf(
-                    'Proposta #%s criada em %s pelo usuário %s para o cliente %s.',
+                    'Proposta #%s criada em %s pelo usuário %s para o primeiro proponente %s.',
                     $proposal->id,
                     $proposal->created_at->format('d/m/Y H:i'),
                     $proposal->user->name,

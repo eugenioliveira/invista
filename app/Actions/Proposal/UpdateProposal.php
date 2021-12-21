@@ -16,7 +16,7 @@ class UpdateProposal
                 'user_id' => $user->id,
                 'type' => ProposalStatusType::UNDER_REVIEW,
                 'reason' => sprintf(
-                    'Proposta #%s alterada em %s pelo usuário %s para o cliente %s.',
+                    'Proposta #%s alterada em %s pelo usuário %s para o primeiro proponente %s.',
                     $proposal->id,
                     $proposal->updated_at->format('d/m/Y H:i'),
                     $proposal->user->name,

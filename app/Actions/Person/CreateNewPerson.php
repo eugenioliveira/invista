@@ -20,15 +20,20 @@ class CreateNewPerson
      */
     public function create(array $input, bool $persist = true): Person
     {
-        $personData = Validator::make($input, [
+        $personData = $this->validate($input);
+
+        $personData['creator_id'] = Auth::user()->id;
+
+        return $persist ? Person::create($personData) : new Person($personData);
+    }
+
+    public function validate($input)
+    {
+        return Validator::make($input, [
             'first_name' => ['required', 'min:3'],
             'last_name' => ['required', 'min:2'],
             'cpf' => ['required', 'numeric', 'cpf', Rule::unique('people', 'cpf')],
             'phone' => ['required', 'regex:/^(\(?\d{2}\)?\s?)(\d{4,5}[\-\s]?\d{4})$/'],
         ])->validate();
-
-        $personData['creator_id'] = Auth::user()->id;
-
-        return $persist ? Person::create($personData) : new Person($personData);
     }
 }

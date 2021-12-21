@@ -108,6 +108,16 @@ class Proposal extends Model
     }
 
     /**
+     * Retorna os proponentes adicionais.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function proponents()
+    {
+        return $this->morphedByMany(Person::class, 'proponent', 'proposeables');
+    }
+
+    /**
      * Retorna a reserva da qual partiu a proposta
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -170,7 +180,7 @@ class Proposal extends Model
         }
 
         if ($this->type === ProposalType::FREE) {
-            return $this->comments;
+            return $this->free_conditions;
         }
     }
 

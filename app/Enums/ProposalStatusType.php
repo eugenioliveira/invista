@@ -14,7 +14,6 @@ use BenSampo\Enum\Enum;
 final class ProposalStatusType extends Enum implements LocalizedEnum
 {
     const UNDER_REVIEW = 1; // Proposta em análise; Valor padrão
-    const RETURNED = 2; // Proposta devolvida para correção
-    const DENIED = 3; // Proposta negada
-    const ACCEPTED = 4; // Proposta aceita
+    const DENIED = 2; // Proposta negada
+    const ACCEPTED = 3; // Proposta aceita
 }
