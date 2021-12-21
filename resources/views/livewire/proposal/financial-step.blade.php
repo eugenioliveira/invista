@@ -122,6 +122,15 @@
                                     </x-select>
                                 @endif
                             </div>
+
+                            <x-input-row class="my-4 items-center">
+                                <div class="my-4">
+                                    <x-input.group :error="$errors->first('installmentDate')" inline for="installment-date" label="Data de pagamento da primeira parcela">
+                                        <x-input.date wire:model.lazy="installmentDate" id="installment-date"
+                                                      placeholder="DD/MM/AAAA" />
+                                    </x-input.group>
+                                </div>
+                            </x-input-row>
                         </div>
                     @else
                         <div class="my-4">
@@ -168,7 +177,7 @@
         </div>
 
         <div class="my-4">
-            <x-input.group :error="$errors->first('paymentDate')" inline for="payment-date" label="Data de pagamento da entrada ou primeira parcela">
+            <x-input.group :error="$errors->first('paymentDate')" inline for="payment-date" label="Data de pagamento da entrada/sinal">
                 <x-input.date wire:model.lazy="paymentDate" id="payment-date"
                               placeholder="DD/MM/AAAA" />
             </x-input.group>

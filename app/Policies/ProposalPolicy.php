@@ -78,6 +78,6 @@ class ProposalPolicy
          * - Esteja com seu último status "devolvida"
          */
         return $proposal->user_id === $loggedUser->id
-            && $proposal->latestStatus->type->is(ProposalStatusType::RETURNED);
+            && false;
     }
 }

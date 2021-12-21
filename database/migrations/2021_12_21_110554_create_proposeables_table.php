@@ -24,8 +24,6 @@ class CreateProposeablesTable extends Migration
 
             $table->unsignedInteger('proposeable_id');
             $table->string('proposeable_type');
-
-            $table->timestamps();
         });
     }
 

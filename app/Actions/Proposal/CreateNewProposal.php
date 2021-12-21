@@ -33,6 +33,12 @@ class CreateNewProposal
             'payment_date' => Carbon::createFromFormat('d/m/Y', $input['payment_date'])->startOfDay()
         ]);
 
+        if ($input['installment_date']) {
+            $input = $input->merge([
+                'installment_date' => Carbon::createFromFormat('d/m/Y', $input['installment_date'])->startOfDay()
+            ]);
+        }
+
         // Retira o primeiro proponente da lista
         $firstProponent = $proponents->shift();
         // Cria a proposta para o primeiro proponente

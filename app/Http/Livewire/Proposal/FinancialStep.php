@@ -36,11 +36,18 @@ class FinancialStep extends Component
     public string $downPayment = '';
 
     /**
-     * A data de pagamento da primeira proposta
+     * A data de pagamento da entrada
      *
      * @var string
      */
     public string $paymentDate = '';
+
+    /**
+     * A data de pagamento da primeira parcela
+     *
+     * @var string
+     */
+    public string $installmentDate = '';
 
     /**
      * O ID do plano de pagamento selecionado
@@ -88,6 +95,7 @@ class FinancialStep extends Component
             'negotiated_value' => '',
             'down_payment' => '',
             'payment_date' => '',
+            'installment_date' => '',
             'comments' => ''
         ]);
 
@@ -99,6 +107,8 @@ class FinancialStep extends Component
             $this->proposalData['down_payment'] = $this->proposal->down_payment;
             $this->paymentDate = $this->proposal->payment_date;
             $this->proposalData['payment_date'] = $this->proposal->payment_date;
+            $this->installmentDate = $this->proposal->installment_date;
+            $this->proposalData['installment_date'] = $this->proposal->installment_date;
             $this->proposalData['comments'] = $this->proposal->comments;
 
             // Atualiza com o parcelamento escolhido, caso haja
@@ -193,8 +203,9 @@ class FinancialStep extends Component
     {
         $price = $this->lot->price;
         $this->proposalData['payment_date'] = $this->paymentDate;
+        $this->proposalData['installment_date'] = $this->installmentDate;
         $validationRules = ['paymentDate' => 'required'];
-        $validationMessages = ['paymentDate.required' => 'Digite a data do primeiro pagamento ou primeira parcela.'];
+        $validationMessages = ['paymentDate.required' => 'Digite a data de pagamento da entrada/sinal.'];
 
         if (
             $this->proposalData['type'] === ProposalType::IN_CASH ||
@@ -205,6 +216,8 @@ class FinancialStep extends Component
         } else {
             $validationRules['downPayment'] = 'required';
             $validationMessages['downPayment.required'] = 'Digite o valor de entrada.';
+            $validationRules['installmentDate'] = 'required';
+            $validationMessages['installmentDate.required'] = 'Digite a data de pagamento da primeira parcela.';
         }
 
         $this->validate($validationRules, $validationMessages);

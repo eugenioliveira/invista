@@ -212,6 +212,244 @@
         </div>
     @endif
 
+    @forelse($proposal->proponents as $index => $proponent)
+        <div class='w-full mt-3 bg-black py-1 rounded-md'>
+            <p class='text-center text-white font-bold text-xl italic'>
+                {{ $index + 2 }}º Proponente
+            </p>
+        </div>
+
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Proponente: </strong> {{ $proponent->full_name }}
+            </div>
+        </div>
+
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>CPF: </strong> {{ $proponent->cpf }}
+            </div>
+            <div class='ml-4'>
+                <strong>RG: </strong> {{ $proponent->detail->rg }}
+            </div>
+            <div class='ml-4'>
+                <strong>Data Emissão: </strong> {{ $proponent->detail->rg_issue_date->format('d/m/Y') }}
+            </div>
+            <div class='ml-4'>
+                <strong>Órgão emissor: </strong> {{ $proponent->detail->rg_issuer }}
+            </div>
+        </div>
+
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Data de Nascimento: </strong> {{ $proponent->detail->birth_date->format('d/m/Y') }}
+            </div>
+            <div class='ml-4'>
+                <strong>Estado Civil: </strong> {{ $proponent->detail->civil_status->description }}
+            </div>
+            <div class='ml-4'>
+                <strong>Profissão: </strong> {{ $proponent->detail->occupation }}
+            </div>
+            <div class='ml-4'>
+                <strong>Telefone: </strong> {{ $proponent->phone }}
+            </div>
+        </div>
+
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Naturalidade: </strong> {{ $proponent->detail->birth_location }}
+            </div>
+            <div class='ml-4'>
+                <strong>Nacionalidade: </strong> {{ $proponent->detail->nationality }}
+            </div>
+            <div class='ml-4'>
+                <strong>E-mail: </strong> {{ $proponent->detail->email }}
+            </div>
+        </div>
+
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Endereço: </strong> {{ $proponent->address->street }}
+            </div>
+            <div class='ml-4'>
+                <strong>Nº: </strong> {{ $proponent->address->number }}
+            </div>
+            <div class='ml-4'>
+                <strong>Complemento: </strong> {{ $proponent->address->apt_room }}
+            </div>
+        </div>
+
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Bairro: </strong> {{ $proponent->address->neighbourhood }}
+            </div>
+            <div class='ml-4'>
+                <strong>Cidade: </strong> {{ $proponent->address->city }}
+            </div>
+            <div class='ml-4'>
+                <strong>Estado: </strong> {{ $proponent->address->state }}
+            </div>
+            <div class='ml-4'>
+                <strong>CEP: </strong> {{ $proponent->address->postal_code }}
+            </div>
+        </div>
+
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Nome do Pai: </strong> {{ $proponent->detail->father_name }}
+            </div>
+            <div class='ml-4'>
+                <strong>Nome da Mãe: </strong> {{ $proponent->detail->mother_name }}
+            </div>
+        </div>
+
+        @php $partner2 = $proponent->detail->partner @endphp
+        @if ($partner2 && $partner2->detail)
+            <div class='mt-3 flex items-center'>
+                <div>
+                    <strong>Cônjuge: </strong> {{ $partner2->full_name }}
+                </div>
+            </div>
+
+            <div class='mt-3 flex items-center'>
+                <div>
+                    <strong>CPF: </strong> {{ $partner2->cpf }}
+                </div>
+                <div class='ml-4'>
+                    <strong>RG: </strong> {{ $partner2->detail->rg }}
+                </div>
+                <div class='ml-4'>
+                    <strong>Data Emissão: </strong> {{ $partner2->detail->rg_issue_date->format('d/m/Y') }}
+                </div>
+                <div class='ml-4'>
+                    <strong>Órgão emissor: </strong> {{ $partner2->detail->rg_issuer }}
+                </div>
+            </div>
+
+            <div class='mt-3 flex items-center'>
+                <div>
+                    <strong>Data de Nascimento: </strong> {{ $partner2->detail->birth_date->format('d/m/Y') }}
+                </div>
+                <div class='ml-4'>
+                    <strong>Estado Civil: </strong> {{ $partner2->detail->civil_status->description }}
+                </div>
+                <div class='ml-4'>
+                    <strong>Profissão: </strong> {{ $partner2->detail->occupation }}
+                </div>
+                <div class='ml-4'>
+                    <strong>Telefone: </strong> {{ $partner2->phone }}
+                </div>
+            </div>
+
+            <div class='mt-3 flex items-center'>
+                <div>
+                    <strong>Naturalidade: </strong> {{ $partner2->detail->birth_location }}
+                </div>
+                <div class='ml-4'>
+                    <strong>Nacionalidade: </strong> {{ $partner2->detail->nationality }}
+                </div>
+                <div class='ml-4'>
+                    <strong>E-mail: </strong> {{ $partner2->detail->email }}
+                </div>
+            </div>
+
+            <div class='mt-3 flex items-center'>
+                <div>
+                    <strong>Nome do Pai: </strong> {{ $partner2->detail->father_name }}
+                </div>
+                <div class='ml-4'>
+                    <strong>Nome da Mãe: </strong> {{ $partner2->detail->mother_name }}
+                </div>
+            </div>
+        @endif
+    @empty
+    @endforelse
+
+    <div style="page-break-after: always;  page-break-inside: avoid;"></div>
+
+    <div class='w-full mt-3 bg-black py-1 rounded-md'>
+        <p class='text-center text-white font-bold text-xl italic'>
+            Plano de pagamento
+        </p>
+    </div>
+
+    @if ($proposal->type->is(\App\Enums\ProposalType::IN_CASH) || $proposal->type->is(\App\Enums\ProposalType::INSTALLMENTS))
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Valor negociado: </strong> {{ $proposal->negotiated_value }}
+            </div>
+        </div>
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Entrada/Sinal: </strong>R$ {{ $proposal->down_payment }}
+            </div>
+            <div class='ml-4'>
+                <strong>Data da entrada: </strong> {{ $proposal->payment_date->format('d/m/Y') }}
+            </div>
+        </div>
+
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Saldo restante: </strong> R$ {{ app('decimal')->format(app('decimal')->parse($proposal->negotiated_value) - app('decimal')->parse($proposal->down_payment)) }}
+            </div>
+            <div class='ml-4'>
+                <strong>Quantidade de prestações: </strong>{{ $proposal->installments }}
+            </div>
+        </div>
+
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Valor da prestação: </strong> R$ {{ $proposal->installment_value }}
+            </div>
+            @if ($proposal->installment_date)
+                <div class='ml-4'>
+                    <strong>Data da primeira parcela: </strong>{{ $proposal->installment_date->format('d/m/Y') }}
+                </div>
+            @endif
+        </div>
+    @else
+        <div class='mt-3 flex items-center'>
+            <div>
+                <strong>Condições: </strong> {{ $proposal->conditions }}
+            </div>
+        </div>
+    @endif
+
+    <div class='w-full mt-3 bg-black py-1 rounded-md p-2'>
+        <p class='text-justify text-white font-bold text-xl italic'>
+            Observação: Os contratos serão corrigidos anualmente pela variação do índice IGP-M/FGV-SP.
+            O proponente declara que as informações contidas nesta proposta são verdadeiras e de inteira
+            responsabilidade do mesmo.
+        </p>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div class="flex flex-1 items-end">
+            <div>
+                <strong>Local: </strong>
+            </div>
+            <div class='w-full border-b border-black'></div>
+        </div>
+
+        <div>
+            <strong>Data: </strong> {{ now()->format('d/m/Y') }}
+        </div>
+    </div>
+
+    <div class="w-full flex items-center mt-3">
+
+        <div class='w-1/2'>
+            <p class='my-6'><strong>Assinatura Proponente 1:</strong>____________________________________________</p>
+            @forelse($proposal->proponents as $index => $proponent)
+                <p class='my-6'><strong>Assinatura Proponente {{ $index + 2 }}:</strong>____________________________________________</p>
+            @empty
+            @endforelse
+        </div>
+
+        <div class='w-1/2'>
+            <p class='my-6'><strong>Assinatura Corretor:</strong>____________________________________________</p>
+        </div>
+    </div>
 
     <!-- Rodapé -->
     @include('proposals.timbre')

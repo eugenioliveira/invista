@@ -38,7 +38,7 @@ class Proposal extends Model
      *
      * @var string[]
      */
-    protected $dates = ['payment_date'];
+    protected $dates = ['payment_date', 'installment_date'];
 
     /**
      * Serialização de accessors
@@ -114,7 +114,7 @@ class Proposal extends Model
      */
     public function proponents()
     {
-        return $this->morphedByMany(Person::class, 'proponent', 'proposeables');
+        return $this->morphedByMany(Person::class, 'proposeable', 'proposeables');
     }
 
     /**
@@ -156,7 +156,7 @@ class Proposal extends Model
     public function scopeActive(Builder $query): Builder
     {
         return $query->whereHas('latestStatus', function ($query) {
-            $query->whereIn('type', [ProposalStatusType::UNDER_REVIEW, ProposalStatusType::RETURNED]);
+            $query->whereIn('type', [ProposalStatusType::UNDER_REVIEW]);
         });
     }
 

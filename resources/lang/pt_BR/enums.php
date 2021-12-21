@@ -29,7 +29,6 @@ return [
 
     ProposalStatusType::class => [
         ProposalStatusType::UNDER_REVIEW => 'Em análise',
-        ProposalStatusType::RETURNED => 'Devolvida',
         ProposalStatusType::ACCEPTED => 'Aceita',
         ProposalStatusType::DENIED => 'Negada'
     ]
