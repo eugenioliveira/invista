@@ -67,6 +67,7 @@ class ProponentStep extends Component
      */
     public function findPersonByCPF()
     {
+        $this->validateOnly('state.cpf', ['state.cpf' => 'required']);
         $person = Person::whereCpf($this->state['cpf'])->first();
         if ($person instanceof Person) {
             $this->state = collect($person)
@@ -92,6 +93,7 @@ class ProponentStep extends Component
      */
     public function findAddressByCEP(GetAddressFromApi $getter)
     {
+        $this->validateOnly('state.address.postal_code', ['state.address.postal_code' => 'required']);
         $address = $getter->get(['postal_code' => $this->state['address']['postal_code']]);
 
         if ($address) {
