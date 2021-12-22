@@ -3,7 +3,7 @@
         <x-imodal.dialog max-width="2xl" wire:model.defer="{{ $modalFlag }}">
             <x-slot name="title">{{ $title }}</x-slot>
             <x-slot name="content">
-                <div class="overflow-auto pr-4" style="max-height: 75vh">
+                <div class="overflow-auto pr-4" style="max-height: 60vh">
 
                     <h1 class="text-lg text-center font-bold">Dados pessoais</h1>
 
