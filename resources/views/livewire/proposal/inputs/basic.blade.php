@@ -22,8 +22,8 @@
                       placeholder="Digite o telefone" />
     </x-input.group>
 
-    <x-input.group for="civil_status" label="Estado civil">
-        <x-input.select wire:model.lazy="state.detail.civil_status" id="civil_status">
+    <x-input.group for="civil_status" label="Estado civil" :error="$errors->first('state.detail.civil_status')">
+        <x-input.select wire:model="state.detail.civil_status" id="civil_status">
             <option value="" disabled>Selecione...</option>
 
             @foreach (\App\Enums\CivilStatus::getInstances() as $status)
