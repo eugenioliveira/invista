@@ -82,5 +82,4 @@
             button-text="Adicionar"
     />
 
-    <x-loading />
 </div>
