@@ -452,15 +452,21 @@
 
     <div class="w-full flex items-center mt-3">
 
-        <div class='w-1/2'>
+        <div class='w-2/3'>
             <p class='my-6'><strong>Assinatura Proponente 1:</strong>____________________________________________</p>
+            @if($proposal->proposeable->detail->partner)
+                <p class='my-6'><strong>Assinatura Cônjuge Proponente 1:</strong>____________________________________________</p>
+            @endif
             @forelse($proposal->proponents as $index => $proponent)
                 <p class='my-6'><strong>Assinatura Proponente {{ $index + 2 }}:</strong>____________________________________________</p>
+                @if($proponent->detail->partner)
+                    <p class='my-6'><strong>Assinatura Cônjuge Proponente {{ $index + 2 }}:</strong>____________________________________________</p>
+                @endif
             @empty
             @endforelse
         </div>
 
-        <div class='w-1/2'>
+        <div class='w-1/3'>
             <p class='my-6'><strong>Assinatura Corretor:</strong>____________________________________________</p>
         </div>
     </div>
