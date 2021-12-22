@@ -415,6 +415,20 @@
         </div>
     @endif
 
+    @if($proposal->comments)
+    <div class='w-full mt-3 bg-black py-1 rounded-md'>
+        <p class='text-center text-white font-bold text-xl italic'>
+            Observações sobre a proposta
+        </p>
+    </div>
+
+    <div class='mt-3 flex items-center'>
+        <div>
+            {{ $proposal->comments }}
+        </div>
+    </div>
+    @endif
+
     <div class='w-full mt-3 bg-black py-1 rounded-md p-2'>
         <p class='text-justify text-white font-bold text-xl italic'>
             Observação: Os contratos serão corrigidos anualmente pela variação do índice IGP-M/FGV-SP.
