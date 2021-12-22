@@ -81,4 +81,6 @@
             modal-flag="showPartnerModal"
             button-text="Adicionar"
     />
+
+    <x-loading />
 </div>
