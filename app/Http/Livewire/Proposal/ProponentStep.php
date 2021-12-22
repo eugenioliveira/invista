@@ -14,7 +14,7 @@ class ProponentStep extends Component
 
     public $state = [
         'cpf' => '',
-        'civil_status' => CivilStatus::SINGLE,
+        'civil_status' => '',
         'detail' => [
             'birth_date' => '',
             'rg_issue_date' => ''
