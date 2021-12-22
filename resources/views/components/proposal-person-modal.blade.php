@@ -3,7 +3,7 @@
         <x-imodal.dialog max-width="2xl" wire:model.defer="{{ $modalFlag }}">
             <x-slot name="title">{{ $title }}</x-slot>
             <x-slot name="content">
-                <div class="overflow-auto pr-4" style="height: 700px;">
+                <div class="overflow-auto pr-4" style="max-height: 300px">
 
                     <h1 class="text-lg text-center font-bold">Dados pessoais</h1>
 
@@ -21,9 +21,16 @@
                 </div>
             </x-slot>
             <x-slot name="footer">
-                <x-button type="button" wire:click="$set('{{ $modalFlag }}', false)">Cancelar</x-button>
+                <div class="flex justify-end items-center space-x-2">
+                    <div>
+                        @if($errors->isNotEmpty())
+                            <div class="text-red-700">Atenção: há algum erro em algum campo.</div>
+                        @endif
+                    </div>
+                    <x-button type="button" wire:click="$set('{{ $modalFlag }}', false)">Cancelar</x-button>
 
-                <x-button type="submit">{{ $buttonText }}</x-button>
+                    <x-button type="submit">{{ $buttonText }}</x-button>
+                </div>
             </x-slot>
         </x-imodal.dialog>
     </form>
