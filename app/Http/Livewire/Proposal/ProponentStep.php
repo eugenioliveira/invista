@@ -68,25 +68,28 @@ class ProponentStep extends Component
      */
     public function findPersonByCPF()
     {
+        $state = collect($this->state);
         $this->validateOnly('state.cpf', ['state.cpf' => 'required']);
         $person = Person::whereCpf($this->state['cpf'])->first();
         if ($person instanceof Person) {
-            $this->state = collect($person)
+            $state = $state->merge(collect($person)
                 ->except(['id', 'creator_id', 'created_at', 'updated_at'])
-                ->toArray();
+                ->toArray());
 
             if ($person->detail) {
-                $this->state['detail'] = collect($person->detail)
+                $state['detail'] = $state->merge(collect($person->detail)
                     ->except(['person_id', 'partner_id', 'created_at', 'updated_at'])
-                    ->toArray();
+                    ->toArray());
             }
 
             if ($person->address) {
-                $this->state['address'] = collect($person->address)
+                $state['address'] = $state->merge(collect($person->address)
                     ->except(['id', 'addressable_id', 'addressable_type', 'created_at', 'updated_at'])
-                    ->toArray();
+                    ->toArray());
             }
         }
+
+        $this->state = $state->toArray();
     }
 
     /**
