@@ -37,6 +37,8 @@ class CreateNewProposal
             $input = $input->merge([
                 'installment_date' => Carbon::createFromFormat('d/m/Y', $input['installment_date'])->startOfDay()
             ]);
+        } else {
+            unset($input['installment_date']);
         }
 
         // Retira o primeiro proponente da lista
