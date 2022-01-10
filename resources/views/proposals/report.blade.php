@@ -25,7 +25,7 @@
         </p>
     </div>
 
-    <div class='mt-3 flex items-center'>
+    <div class='mt-2 flex items-center'>
         <div>
             <strong>Loteamento: </strong> {{ $proposal->lot->allotment->title }}
         </div>
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div class='mt-3 flex items-center'>
+    <div class='mt-2 flex items-center'>
         <div>
             <strong>Lote Nº: </strong> {{ $proposal->lot->number }}
         </div>
@@ -49,32 +49,32 @@
         </div>
     </div>
 
-    <div class='w-full mt-3 bg-black py-1 rounded-md'>
+    <div class='w-full mt-2 bg-black py-1 rounded-md'>
         <p class='text-center text-white font-bold text-xl italic'>
             Transferência
         </p>
     </div>
 
-    <div class='mt-3 flex items-end'>
+    <div class='mt-2 flex items-end'>
         <div>
             <strong>De: </strong>
         </div>
         <div class='w-full border-b border-black'></div>
     </div>
 
-    <div class='w-full mt-3 bg-black py-1 rounded-md'>
+    <div class='w-full mt-2 bg-black py-1 rounded-md'>
         <p class='text-center text-white font-bold text-xl italic'>
             1º Proponente
         </p>
     </div>
 
-    <div class='mt-3 flex items-center'>
+    <div class='mt-2 flex items-center'>
         <div>
             <strong>Proponente: </strong> {{ $proposal->proposeable->full_name }}
         </div>
     </div>
 
-    <div class='mt-3 flex items-center'>
+    <div class='mt-2 flex items-center'>
         <div>
             <strong>CPF: </strong> {{ $proposal->proposeable->cpf }}
         </div>
@@ -89,7 +89,7 @@
         </div>
     </div>
 
-    <div class='mt-3 flex items-center'>
+    <div class='mt-2 flex items-center'>
         <div>
             <strong>Data de Nascimento: </strong> {{ $proposal->proposeable->detail->birth_date->format('d/m/Y') }}
         </div>
@@ -104,7 +104,21 @@
         </div>
     </div>
 
-    <div class='mt-3 flex items-center'>
+    <div>
+        @if($proposal->proposeable->detail->civil_status == \App\Enums\CivilStatus::MARRIED)
+            <div class='mt-2 flex items-center'>
+                <div>
+                    <strong>Data de
+                        Casamento: </strong> {{ $proposal->proposeable->detail->marriage_date->format('d/m/Y') }}
+                </div>
+                <div class='ml-4'>
+                    <strong>Regime de casamento: </strong> {{ $proposal->proposeable->detail->marriage_regime }}
+                </div>
+            </div>
+        @endif
+    </div>
+
+    <div class='mt-2 flex items-center'>
         <div>
             <strong>Naturalidade: </strong> {{ $proposal->proposeable->detail->birth_location }}
         </div>
@@ -116,7 +130,7 @@
         </div>
     </div>
 
-    <div class='mt-3 flex items-center'>
+    <div class='mt-2 flex items-center'>
         <div>
             <strong>Endereço: </strong> {{ $proposal->proposeable->address->street }}
         </div>
@@ -128,7 +142,7 @@
         </div>
     </div>
 
-    <div class='mt-3 flex items-center'>
+    <div class='mt-2 flex items-center'>
         <div>
             <strong>Bairro: </strong> {{ $proposal->proposeable->address->neighbourhood }}
         </div>
@@ -143,7 +157,7 @@
         </div>
     </div>
 
-    <div class='mt-3 flex items-center'>
+    <div class='mt-2 flex items-center'>
         <div>
             <strong>Nome do Pai: </strong> {{ $proposal->proposeable->detail->father_name }}
         </div>
@@ -154,13 +168,13 @@
 
     @php $partner = $proposal->proposeable->detail->partner @endphp
     @if ($partner && $partner->detail)
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Cônjuge: </strong> {{ $partner->full_name }}
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>CPF: </strong> {{ $partner->cpf }}
             </div>
@@ -175,7 +189,7 @@
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Data de Nascimento: </strong> {{ $partner->detail->birth_date->format('d/m/Y') }}
             </div>
@@ -190,7 +204,7 @@
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Naturalidade: </strong> {{ $partner->detail->birth_location }}
             </div>
@@ -202,7 +216,7 @@
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Nome do Pai: </strong> {{ $partner->detail->father_name }}
             </div>
@@ -213,19 +227,19 @@
     @endif
 
     @forelse($proposal->proponents as $index => $proponent)
-        <div class='w-full mt-3 bg-black py-1 rounded-md'>
+        <div class='w-full mt-2 bg-black py-1 rounded-md'>
             <p class='text-center text-white font-bold text-xl italic'>
                 {{ $index + 2 }}º Proponente
             </p>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Proponente: </strong> {{ $proponent->full_name }}
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>CPF: </strong> {{ $proponent->cpf }}
             </div>
@@ -240,7 +254,7 @@
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Data de Nascimento: </strong> {{ $proponent->detail->birth_date->format('d/m/Y') }}
             </div>
@@ -255,7 +269,7 @@
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Naturalidade: </strong> {{ $proponent->detail->birth_location }}
             </div>
@@ -267,7 +281,7 @@
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Endereço: </strong> {{ $proponent->address->street }}
             </div>
@@ -279,7 +293,7 @@
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Bairro: </strong> {{ $proponent->address->neighbourhood }}
             </div>
@@ -294,7 +308,7 @@
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Nome do Pai: </strong> {{ $proponent->detail->father_name }}
             </div>
@@ -305,13 +319,13 @@
 
         @php $partner2 = $proponent->detail->partner @endphp
         @if ($partner2 && $partner2->detail)
-            <div class='mt-3 flex items-center'>
+            <div class='mt-2 flex items-center'>
                 <div>
                     <strong>Cônjuge: </strong> {{ $partner2->full_name }}
                 </div>
             </div>
 
-            <div class='mt-3 flex items-center'>
+            <div class='mt-2 flex items-center'>
                 <div>
                     <strong>CPF: </strong> {{ $partner2->cpf }}
                 </div>
@@ -326,7 +340,7 @@
                 </div>
             </div>
 
-            <div class='mt-3 flex items-center'>
+            <div class='mt-2 flex items-center'>
                 <div>
                     <strong>Data de Nascimento: </strong> {{ $partner2->detail->birth_date->format('d/m/Y') }}
                 </div>
@@ -341,7 +355,7 @@
                 </div>
             </div>
 
-            <div class='mt-3 flex items-center'>
+            <div class='mt-2 flex items-center'>
                 <div>
                     <strong>Naturalidade: </strong> {{ $partner2->detail->birth_location }}
                 </div>
@@ -353,7 +367,7 @@
                 </div>
             </div>
 
-            <div class='mt-3 flex items-center'>
+            <div class='mt-2 flex items-center'>
                 <div>
                     <strong>Nome do Pai: </strong> {{ $partner2->detail->father_name }}
                 </div>
@@ -365,19 +379,19 @@
     @empty
     @endforelse
 
-    <div class='w-full mt-3 bg-black py-1 rounded-md'>
+    <div class='w-full mt-2 bg-black py-1 rounded-md'>
         <p class='text-center text-white font-bold text-xl italic'>
             Plano de pagamento
         </p>
     </div>
 
     @if ($proposal->type->is(\App\Enums\ProposalType::IN_CASH) || $proposal->type->is(\App\Enums\ProposalType::INSTALLMENTS))
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Valor negociado: </strong> {{ $proposal->negotiated_value }}
             </div>
         </div>
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Entrada/Sinal: </strong>R$ {{ $proposal->down_payment }}
             </div>
@@ -386,16 +400,17 @@
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
-                <strong>Saldo restante: </strong> R$ {{ app('decimal')->format(app('decimal')->parse($proposal->negotiated_value) - app('decimal')->parse($proposal->down_payment)) }}
+                <strong>Saldo restante: </strong>
+                R$ {{ app('decimal')->format(app('decimal')->parse($proposal->negotiated_value) - app('decimal')->parse($proposal->down_payment)) }}
             </div>
             <div class='ml-4'>
                 <strong>Quantidade de prestações: </strong>{{ $proposal->installments }}
             </div>
         </div>
 
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Valor da prestação: </strong> R$ {{ $proposal->installment_value }}
             </div>
@@ -406,7 +421,7 @@
             @endif
         </div>
     @else
-        <div class='mt-3 flex items-center'>
+        <div class='mt-2 flex items-center'>
             <div>
                 <strong>Condições: </strong> {{ $proposal->conditions }}
             </div>
@@ -414,20 +429,20 @@
     @endif
 
     @if($proposal->comments)
-    <div class='w-full mt-3 bg-black py-1 rounded-md'>
-        <p class='text-center text-white font-bold text-xl italic'>
-            Observações sobre a proposta
-        </p>
-    </div>
-
-    <div class='mt-3 flex items-center'>
-        <div>
-            {{ $proposal->comments }}
+        <div class='w-full mt-2 bg-black py-1 rounded-md'>
+            <p class='text-center text-white font-bold text-xl italic'>
+                Observações sobre a proposta
+            </p>
         </div>
-    </div>
+
+        <div class='mt-2 flex items-center'>
+            <div>
+                {{ $proposal->comments }}
+            </div>
+        </div>
     @endif
 
-    <div class='w-full mt-3 bg-black py-1 rounded-md p-2'>
+    <div class='w-full mt-2 bg-black py-1 rounded-md p-2'>
         <p class='text-justify text-white font-bold text-xl italic'>
             Observação: Os contratos serão corrigidos anualmente pela variação do índice IGP-M/FGV-SP.
             O proponente declara que as informações contidas nesta proposta são verdadeiras e de inteira
@@ -435,7 +450,7 @@
         </p>
     </div>
 
-    <div class='mt-3 flex items-center'>
+    <div class='mt-2 flex items-center'>
         <div class="flex flex-1 items-end">
             <div>
                 <strong>Local: </strong>
@@ -448,17 +463,20 @@
         </div>
     </div>
 
-    <div class="w-full flex items-center mt-3">
+    <div class="w-full flex items-center mt-2">
 
         <div class='w-2/3'>
             <p class='my-6'><strong>Assinatura Proponente 1:</strong>____________________________________________</p>
             @if($proposal->proposeable->detail->partner)
-                <p class='my-6'><strong>Assinatura Cônjuge Proponente 1:</strong>____________________________________________</p>
+                <p class='my-6'><strong>Assinatura Cônjuge Proponente 1:</strong>____________________________________________
+                </p>
             @endif
             @forelse($proposal->proponents as $index => $proponent)
-                <p class='my-6'><strong>Assinatura Proponente {{ $index + 2 }}:</strong>____________________________________________</p>
+                <p class='my-6'><strong>Assinatura Proponente {{ $index + 2 }}:</strong>____________________________________________
+                </p>
                 @if($proponent->detail->partner)
-                    <p class='my-6'><strong>Assinatura Cônjuge Proponente {{ $index + 2 }}:</strong>____________________________________________</p>
+                    <p class='my-6'><strong>Assinatura Cônjuge Proponente {{ $index + 2 }}:</strong>____________________________________________
+                    </p>
                 @endif
             @empty
             @endforelse

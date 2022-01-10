@@ -52,6 +52,8 @@ class ProponentStep extends Component
             'state.detail.monthly_income' => ['required'],
             'state.detail.father_name' => ['required', 'min:5'],
             'state.detail.mother_name' => ['required', 'min:5'],
+            'state.detail.marriage_date' => ['nullable', 'sometimes', 'date_format:d/m/Y'],
+            'state.detail.marriage_regime' => ['nullable', 'sometimes', 'min:5'],
             'state.address.street' => ['required', 'min:8'],
             'state.address.number' => ['required', 'numeric'],
             'state.address.apt_room' => ['nullable', 'min:3'],
