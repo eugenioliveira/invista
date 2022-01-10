@@ -80,4 +80,18 @@
     <x-input.group for="mother_name" label="Nome da mãe" :error="$errors->first('state.detail.mother_name')">
         <x-input.text wire:model.lazy="state.detail.mother_name" id="mother_name" placeholder="Digite o nome da mãe" />
     </x-input.group>
+
+    @if($state['detail']['civil_status'] === \App\Enums\CivilStatus::MARRIED)
+        <x-input.group for="marriage_date" label="Data de casamento"
+                       :error="$errors->first('state.detail.marriage_date')">
+            <x-input.date wire:model.lazy="state.detail.marriage_date" id="marriage_date"
+                          placeholder="DD/MM/AAAA" />
+        </x-input.group>
+
+        <x-input.group for="marriage_regime" label="Regime de casamento"
+                       :error="$errors->first('state.detail.marriage_regime')">
+            <x-input.text wire:model.lazy="state.detail.marriage_regime" id="marriage_regime"
+                          placeholder="Digite o regime de casamento" />
+        </x-input.group>
+    @endif
 </div>

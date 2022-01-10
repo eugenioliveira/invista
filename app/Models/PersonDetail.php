@@ -25,6 +25,7 @@ class PersonDetail extends Model
         'monthly_income' => DecimalCast::class . ':2',
         'birth_date' => 'date:d/m/Y',
         'rg_issue_date' => 'date:d/m/Y',
+        'marriage_date' => 'date:d/m/Y',
         'civil_status' => CivilStatus::class
     ];
 
@@ -69,6 +70,18 @@ class PersonDetail extends Model
     {
         if ($value) {
             $this->attributes['rg_issue_date'] = Carbon::createFromFormat('d/m/Y', $value);
+        }
+    }
+
+    /**
+     * Converte a data antes de salvar no banco
+     *
+     * @param $value
+     */
+    public function setMarriageDateAttribute($value)
+    {
+        if ($value) {
+            $this->attributes['marriage_date'] = Carbon::createFromFormat('d/m/Y', $value);
         }
     }
 }

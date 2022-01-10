@@ -87,6 +87,29 @@
         </x-input-row>
 
         <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
+            {{-- Data de casamento --}}
+            <div class="md:w-1/3">
+                <x-input
+                        label="Data de casamento"
+                        name="marriage_date"
+                        class="mt-1 w-full"
+                        wire:model.lazy="state.marriage_date"
+                        error="{{ $errors->first('marriage_date') }}"
+                />
+            </div>
+            {{-- Regime de casamento --}}
+            <div class="md:w-1/3">
+                <x-input
+                        label="Regime de casamento"
+                        name="marriage_regime"
+                        class="mt-1 w-full"
+                        wire:model.lazy="state.marriage_regime"
+                        error="{{ $errors->first('marriage_regime') }}"
+                />
+            </div>
+        </x-input-row>
+
+        <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
             {{-- Profissão --}}
             <div class="md:w-1/3">
                 <x-input

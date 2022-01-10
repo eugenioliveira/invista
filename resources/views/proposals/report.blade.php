@@ -364,7 +364,7 @@
         @endif
     @empty
     @endforelse
-    
+
     <div class='w-full mt-3 bg-black py-1 rounded-md'>
         <p class='text-center text-white font-bold text-xl italic'>
             Plano de pagamento

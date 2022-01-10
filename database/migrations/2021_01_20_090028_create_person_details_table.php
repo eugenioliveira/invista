@@ -16,7 +16,11 @@ class CreatePersonDetailsTable extends Migration
     {
         Schema::create('person_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('person_id')->unique()->constrained()->cascadeOnDelete();
+            $table
+                ->foreignId('person_id')
+                ->unique()
+                ->constrained()
+                ->cascadeOnDelete();
             $table->string('civil_status')->default(CivilStatus::SINGLE);
             $table->date('birth_date');
             $table->string('birth_location');
@@ -29,7 +33,13 @@ class CreatePersonDetailsTable extends Migration
             $table->unsignedDecimal('monthly_income', 8, 2);
             $table->string('father_name');
             $table->string('mother_name');
-            $table->foreignId('partner_id')->nullable()->references('id')->on('people');
+            $table
+                ->foreignId('partner_id')
+                ->nullable()
+                ->references('id')
+                ->on('people');
+            $table->string('marriage_regime')->nullable();
+            $table->timestamp('marriage_date')->nullable();
             $table->timestamps();
         });
     }

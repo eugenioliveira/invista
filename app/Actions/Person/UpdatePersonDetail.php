@@ -33,10 +33,7 @@ class UpdatePersonDetail
     public function validate($input): array
     {
         return Validator::make($input, [
-            'civil_status' => [
-                'required',
-                new EnumValue(CivilStatus::class, false)
-            ],
+            'civil_status' => ['required', new EnumValue(CivilStatus::class, false)],
             'birth_date' => ['required', 'date_format:d/m/Y'],
             'birth_location' => ['required', 'min:5'],
             'nationality' => ['required', 'min:5'],
@@ -45,11 +42,11 @@ class UpdatePersonDetail
             'rg_issue_date' => ['required', 'date_format:d/m/Y'],
             'occupation' => ['required', 'min:5'],
             'email' => ['required', 'email:strict,dns,spoof'],
-            'monthly_income' => [
-                'required'
-            ],
+            'monthly_income' => ['required'],
             'father_name' => ['required', 'min:5'],
-            'mother_name' => ['required', 'min:5']
+            'mother_name' => ['required', 'min:5'],
+            'marriage_regime' => ['nullable', 'sometimes', 'min:5'],
+            'marriage_date' => ['nullable', 'sometimes', 'date_format:d/m/Y']
         ])
             //->sometimes('partner_id', ['required', 'numeric'], function ($input) {
             //return $input->civil_status == CivilStatus::MARRIED;
