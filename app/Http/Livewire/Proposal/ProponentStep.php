@@ -72,20 +72,26 @@ class ProponentStep extends Component
         $this->validateOnly('state.cpf', ['state.cpf' => 'required']);
         $person = Person::whereCpf($this->state['cpf'])->first();
         if ($person instanceof Person) {
-            $state = $state->merge(collect($person)
-                ->except(['id', 'creator_id', 'created_at', 'updated_at'])
-                ->toArray());
+            $state = $state->merge(
+                collect($person)
+                    ->except(['id', 'creator_id', 'created_at', 'updated_at'])
+                    ->toArray()
+            );
 
             if ($person->detail) {
-                $state['detail'] = $state->merge(collect($person->detail)
-                    ->except(['person_id', 'partner_id', 'created_at', 'updated_at'])
-                    ->toArray());
+                $state['detail'] = $state->merge(
+                    collect($person->detail)
+                        ->except(['person_id', 'partner_id', 'created_at', 'updated_at'])
+                        ->toArray()
+                );
             }
 
             if ($person->address) {
-                $state['address'] = $state->merge(collect($person->address)
-                    ->except(['id', 'addressable_id', 'addressable_type', 'created_at', 'updated_at'])
-                    ->toArray());
+                $state['address'] = $state->merge(
+                    collect($person->address)
+                        ->except(['id', 'addressable_id', 'addressable_type', 'created_at', 'updated_at'])
+                        ->toArray()
+                );
             }
         }
 
@@ -168,26 +174,9 @@ class ProponentStep extends Component
     {
         // Verifica se pelo menos um proponente foi cadastrado
         if (empty($this->proponents)) {
-            $this->addError(
-                'general_error',
-                'Você precisa cadastrar pelo menos um proponente.'
-            );
+            $this->addError('general_error', 'Você precisa cadastrar pelo menos um proponente.');
             $this->isOK = false;
         }
-        // Verifica se todos os cônjuges foram cadastrados
-        $proponents = collect($this->proponents);
-        $proponents->map(function ($proponent) {
-            if ($proponent['detail']['civil_status'] == CivilStatus::MARRIED && empty($proponent['partner'])) {
-                $this->addError(
-                    'general_error',
-                    'Você precisa cadastrar o cônjuge para o proponente ' .
-                        $proponent['first_name'] .
-                        ' ' .
-                        $proponent['last_name']
-                );
-                $this->isOK = false;
-            }
-        });
         // Emite o evento com os dados
         if ($this->isOK) {
             $this->emitUp('proponentsData', $this->proponents);
