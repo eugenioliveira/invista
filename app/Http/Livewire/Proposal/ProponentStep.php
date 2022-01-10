@@ -17,7 +17,8 @@ class ProponentStep extends Component
         'detail' => [
             'civil_status' => '',
             'birth_date' => '',
-            'rg_issue_date' => ''
+            'rg_issue_date' => '',
+            'marriage_date' => ''
         ],
         'address' => [
             'postal_code' => ''
