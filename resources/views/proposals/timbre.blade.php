@@ -2,7 +2,7 @@
     <div class='flex justify-between items-center'>
         <!-- Logo -->
         <div>
-            <x-intervest class='w-36' />
+            <x-intervest class='w-30' />
         </div>
 
         <!-- Address -->
