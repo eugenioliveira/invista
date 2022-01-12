@@ -10,6 +10,15 @@
 
     {{-- Styles --}}
     <link rel="stylesheet" href="{{ public_path('css/app.css') }}">
+
+    <style type="text/css" media="print">
+        div.page
+        {
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+    </style>
+
 </head>
 <body class="font-sans antialiased">
 <div>
