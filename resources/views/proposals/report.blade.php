@@ -105,7 +105,7 @@
     </div>
 
     <div>
-        @if($proposal->proposeable->detail->civil_status == \App\Enums\CivilStatus::MARRIED)
+        @if($proposal->proposeable->detail->civil_status->value == \App\Enums\CivilStatus::MARRIED)
             <div class='mt-2 flex items-center'>
                 <div>
                     <strong>Data de
