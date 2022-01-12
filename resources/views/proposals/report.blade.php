@@ -269,6 +269,20 @@
             </div>
         </div>
 
+        <div>
+            @if($proponent->detail->civil_status->value == \App\Enums\CivilStatus::MARRIED)
+                <div class='mt-2 flex items-center'>
+                    <div>
+                        <strong>Data de
+                            Casamento: </strong> {{ $proponent->detail->marriage_date->format('d/m/Y') }}
+                    </div>
+                    <div class='ml-4'>
+                        <strong>Regime de casamento: </strong> {{ $proponent->detail->marriage_regime }}
+                    </div>
+                </div>
+            @endif
+        </div>
+
         <div class='mt-2 flex items-center'>
             <div>
                 <strong>Naturalidade: </strong> {{ $proponent->detail->birth_location }}
@@ -486,5 +500,6 @@
             <p class='my-6'><strong>Assinatura Corretor:</strong>____________________________________________</p>
         </div>
     </div>
+
 
 </x-report-layout>
