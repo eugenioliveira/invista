@@ -188,7 +188,7 @@
                     label="Observações a cerca da proposta"
                     name="comments"
                     class="mt-1 w-full"
-                    wire:model.lazy="proposalData.comments"
+                    wire:model.defer="proposalData.comments"
                     error="{{ $errors->first('comments') }}"
             >
             </x-textarea>
