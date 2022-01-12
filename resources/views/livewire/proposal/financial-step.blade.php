@@ -178,7 +178,7 @@
 
         <div class="my-4">
             <x-input.group :error="$errors->first('paymentDate')" inline for="payment-date" label="Data de pagamento da entrada/sinal">
-                <x-input.date wire:model.lazy="paymentDate" id="payment-date"
+                <x-input.date wire:model="paymentDate" id="payment-date"
                               placeholder="DD/MM/AAAA" />
             </x-input.group>
         </div>

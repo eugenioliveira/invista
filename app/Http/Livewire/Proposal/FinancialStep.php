@@ -201,8 +201,10 @@ class FinancialStep extends Component
 
     public function sendData()
     {
-        $validationRules = ['paymentDate' => 'required'];
-        $validationMessages = ['paymentDate.required' => 'Digite a data de pagamento da entrada/sinal.'];
+        $validationRules = [];
+        $validationMessages = [];
+        //$validationRules = ['paymentDate' => 'required'];
+        //$validationMessages = ['paymentDate.required' => 'Digite a data de pagamento da entrada/sinal.'];
         $price = $this->lot->price;
         $this->proposalData['payment_date'] = $this->paymentDate;
         $this->proposalData['installment_date'] = $this->installmentDate;
