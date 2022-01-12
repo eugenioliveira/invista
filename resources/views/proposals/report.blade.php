@@ -487,7 +487,4 @@
         </div>
     </div>
 
-    <!-- Rodapé -->
-    @include('proposals.timbre')
-
 </x-report-layout>
