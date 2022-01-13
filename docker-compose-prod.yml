@@ -6,6 +6,7 @@ services:
         user: sammy
         uid: 1000
       context: ./
+      network: host
       dockerfile: Dockerfile
     image: invista
     container_name: invista-app
@@ -22,6 +23,7 @@ services:
   supervisor:
     build:
       context: ./docker-compose/worker
+      network: host
       dockerfile: Dockerfile
     image: supervisor
     container_name: invista-worker
