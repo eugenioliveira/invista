@@ -17,8 +17,6 @@ services:
     depends_on:
       - nginx
       - db
-    networks:
-      - invista
   supervisor:
     build:
       context: ./docker-compose/worker
@@ -29,8 +27,6 @@ services:
     volumes:
       - ./:/var/www
       - ./docker-compose/worker/invista.conf:/etc/supervisor/invista.conf
-    networks:
-      - invista
     command:
       - /bin/sh
       - -c
@@ -52,8 +48,6 @@ services:
       SERVICE_NAME: mysql
     volumes:
       - dbdata:/var/lib/mysql
-    networks:
-      - invista
   nginx:
     image: nginx:stable-alpine
     container_name: invista-nginx
@@ -63,12 +57,6 @@ services:
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d
-    networks:
-      - invista
 volumes:
   dbdata:
     driver: local
-networks:
-  invista:
-    external: true
-    name: host
