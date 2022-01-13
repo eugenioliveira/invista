@@ -70,4 +70,5 @@ volumes:
     driver: local
 networks:
   invista:
-    driver: bridge
+    external: true
+    name: host
