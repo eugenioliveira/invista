@@ -4,7 +4,7 @@ services:
     build:
       args:
         user: sammy
-        uid: 1000
+        uid: 1004
       context: ./
       network: host
       dockerfile: Dockerfile
