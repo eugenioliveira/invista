@@ -10,17 +10,17 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "autoprefixer": "^10.4.0",
+        "autoprefixer": "^10.4.2",
         "axios": "^0.24",
-        "laravel-mix": "^6.0.39",
+        "laravel-mix": "^6.0.18",
         "lodash": "^4.17.21",
-        "postcss": "^8.4.4",
-        "tailwindcss": "^2.2.19"
+        "postcss": "^8.4.5",
+        "tailwindcss": "^3.0.13"
     },
     "dependencies": {
         "@prettier/plugin-php": "^0.17.6",
-        "alpinejs": "^3.7.0",
-        "apexcharts": "^3.31.0",
+        "alpinejs": "^3.8.0",
+        "apexcharts": "^3.33.0",
         "filepond": "^4.30.3",
         "filepond-plugin-file-validate-type": "^1.2.6",
         "filepond-plugin-image-preview": "^4.6.10",
