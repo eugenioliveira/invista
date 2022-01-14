@@ -4,7 +4,7 @@ services:
     build:
       args:
         user: sammy
-        uid: 1004
+        uid: 1000
       context: ./
       dockerfile: Dockerfile
     image: invista
@@ -63,6 +63,17 @@ services:
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d
+    networks:
+      - invista
+  mailhog:
+    image: mailhog/mailhog
+    container_name: invista-smtp
+    restart: unless-stopped
+    logging:
+      driver: none
+    ports:
+      - '1025:1025'
+      - '8025:8025'
     networks:
       - invista
 volumes:
