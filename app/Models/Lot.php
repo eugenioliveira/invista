@@ -278,6 +278,6 @@ class Lot extends Model
      */
     public function isAvailable(): bool
     {
-        return $this->latestStatus->type->value == LotStatusType::AVAILABLE;
+        return $this->latestStatus->type->value == LotStatusType::AVAILABLE || $this->latestStatus->type->value == LotStatusType::AVAILABLE_CASH;
     }
 }

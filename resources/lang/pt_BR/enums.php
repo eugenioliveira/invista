@@ -11,7 +11,8 @@ return [
         LotStatusType::RESERVED => 'Reservado',
         LotStatusType::PROPOSED => 'Proposta ativa',
         LotStatusType::BLOCKED => 'Bloqueado',
-        LotStatusType::SOLD => 'Vendido'
+        LotStatusType::SOLD => 'Vendido',
+        LotStatusType::AVAILABLE_CASH => 'Somente à vista'
     ],
 
     CivilStatus::class => [

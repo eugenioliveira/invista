@@ -48,6 +48,8 @@ class LotStatusBadge extends Component
                 return 'bg-yellow-100 text-yellow-800';
             case LotStatusType::BLOCKED:
                 return 'bg-gray-100 text-gray-800';
+            case LotStatusType::AVAILABLE_CASH:
+                return 'bg-orange-100 text-orange-800';
             default: // LotStatusType::SOLD e LotStatusType::PROPOSED
                 return 'bg-red-100 text-red-800';
         }

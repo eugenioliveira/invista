@@ -11,6 +11,7 @@ use BenSampo\Enum\Enum;
  * @method static static PROPOSED()
  * @method static static BLOCKED()
  * @method static static SOLD()
+ * @method static static AVAILABLE_CASH()
  */
 final class LotStatusType extends Enum implements LocalizedEnum
 {
@@ -19,13 +20,15 @@ final class LotStatusType extends Enum implements LocalizedEnum
     const PROPOSED = 3;
     const BLOCKED = 4;
     const SOLD = 5;
+    const AVAILABLE_CASH = 6;
 
     public array $colors = [
         self::AVAILABLE => 'green',
         self::RESERVED => 'yellow',
         self::PROPOSED => 'red',
         self::BLOCKED => 'gray',
-        self::SOLD => 'red'
+        self::SOLD => 'red',
+        self::AVAILABLE_CASH => 'orange'
     ];
 
     /**
@@ -38,7 +41,8 @@ final class LotStatusType extends Enum implements LocalizedEnum
         return collect([
             static::AVAILABLE(),
             static::BLOCKED(),
-            static::SOLD()
+            static::SOLD(),
+            static::AVAILABLE_CASH()
         ]);
     }
 
