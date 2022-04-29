@@ -25,7 +25,7 @@ class SearchPerson
                 ->orWhere('last_name', 'like', '%' . $searchTerm . '%')
                 ->orWhere('cpf', 'like', '%' . $searchTerm . '%');
         })
-            ->with(['detail', 'address', 'user'])
+            ->with(['detail', 'address', 'user', 'creator'])
             ->orderBy('first_name')->orderBy('last_name');
 
         if (count($excludeIds) > 0) {
