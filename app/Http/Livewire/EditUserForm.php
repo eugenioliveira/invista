@@ -42,6 +42,7 @@ class EditUserForm extends Component
         $this->user = $user;
         $this->state['email'] = $user->email;
         $this->state['role'] = $user->roles()->first()->id;
+        $this->state['creci'] = $user->creci;
         $this->userAllotments = $this->user
             ->allotments()
             ->pluck('id')

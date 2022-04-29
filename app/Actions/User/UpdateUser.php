@@ -15,7 +15,8 @@ class UpdateUser
         $validated = Validator::make($input, [
             'email' => ['required', 'email:strict,dns,spoof', Rule::unique('users', 'email')->ignore($user->id)],
             'password' => ['nullable', 'min:8', 'confirmed'],
-            'role' => ['required', 'exists:roles,id']
+            'role' => ['required', 'exists:roles,id'],
+            'creci' => ['nullable']
         ])->validate();
 
         $user->email = $validated['email'];

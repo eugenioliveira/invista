@@ -40,14 +40,16 @@ class CreateNewUser
         $validated = Validator::make($input, [
             'email' => ['required', 'email:strict,dns,spoof', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'confirmed'],
-            'role' => ['required', 'exists:roles,id']
+            'role' => ['required', 'exists:roles,id'],
+            'creci' => ['nullable']
         ])->validate();
 
         $person->save();
         $user = $person->user()->create([
             'name' => $person->full_name,
             'email' => $validated['email'],
-            'password' => Hash::make($validated['password'])
+            'password' => Hash::make($validated['password']),
+            'creci' => $validated['creci']
         ]);
         $user->assignRole($validated['role']);
         if ($validated['role'] != Role::ADMIN) {

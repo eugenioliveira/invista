@@ -42,6 +42,19 @@
             </div>
         </x-input-row>
 
+        <x-input-row class="space-y-3 md:space-y-0 md:mb-4">
+            {{-- E-mail --}}
+            <div class="w-full">
+                <x-input
+                        label="CRECI (Apenas corretor)"
+                        name="creci"
+                        class="mt-1 w-full"
+                        wire:model.lazy="state.creci"
+                        error="{{ $errors->first('creci') }}"
+                />
+            </div>
+        </x-input-row>
+
         @if (\Auth::user()->isAdmin())
             @include('livewire.partials.role-radio-input')
             @include('livewire.partials.allotments-select-input')
