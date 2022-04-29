@@ -13,7 +13,7 @@
         </div>
     </x-slot>
 
-    <x-section>
+    <x-section class="max-w-6xl">
         <livewire:people-list />
     </x-section>
 
