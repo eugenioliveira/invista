@@ -29,7 +29,7 @@ class ProposalReportController extends Controller
         foreach ($proposal->documents as $document) {
             $mime = $disk->mimeType($document->filename);
             if (in_array($mime, ['image/jpeg', 'image/png'])) {
-                $html = '<img src="' . $disk->path($document->filename) . '" />';
+                $html = '<img src="' . $disk->path($document->filename) . '" width="600" />';
                 $imageDocumentFileName = pathinfo($document->filename, PATHINFO_FILENAME) . '.pdf';
                 $imageDocumentWrapper = PDF::loadHTML($html);
                 if ($this->savePdf($disk, $imageDocumentWrapper, $imageDocumentFileName)) {
