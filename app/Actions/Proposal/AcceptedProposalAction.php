@@ -21,7 +21,9 @@ class AcceptedProposalAction implements ResolveProposalAction
         }
 
         // Encerra a reserva
-        $proposal->lot->activeReservation->finish('O lote foi vendido.');
+        if ($proposal->lot->activeReservation) {
+            $proposal->lot->activeReservation->finish('O lote foi vendido.');
+        }
 
         // Altera o status do lote para vendido
         $proposal->lot->createStatus(
