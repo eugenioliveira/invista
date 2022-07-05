@@ -21,7 +21,7 @@ class UpdateUser
 
         $user->email = $validated['email'];
         $user->password = $validated['password'] ? Hash::make($validated['password']) : $user->password;
-        $user->creci = $validated['creci'];
+        $user->creci = isset($validated['creci']) ? $validated['creci'] : null;
         $user->save();
         $user->assignRole($validated['role']);
         if ($validated['role'] != Role::ADMIN) {

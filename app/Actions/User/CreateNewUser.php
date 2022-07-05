@@ -49,7 +49,7 @@ class CreateNewUser
             'name' => $person->full_name,
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
-            'creci' => $validated['creci']
+            'creci' => isset($validated['creci']) ? $validated['creci'] : null
         ]);
         $user->assignRole($validated['role']);
         if ($validated['role'] != Role::ADMIN) {
