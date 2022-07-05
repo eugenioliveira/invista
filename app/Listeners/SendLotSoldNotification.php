@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Mail;
 
-class SendLotSoldNotification implements ShouldQueue
+class SendLotSoldNotification
 {
     /**
      * Handle the event.

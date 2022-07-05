@@ -8,7 +8,7 @@ use App\Models\Role;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Mail;
 
-class SendProposalCreatedNotification implements ShouldQueue
+class SendProposalCreatedNotification
 {
     /**
      * Handle the event.
